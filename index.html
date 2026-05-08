@@ -3,52 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Migration Pulse Hub | Refugee & Migrant Rights, Research and Advocacy</title>
+  <title>Migration Pulse Hub | Rights Move with People Everywhere</title>
   <meta name="description" content="Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants through advocacy, research, legal action, and community empowerment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
   <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="top-bar-inner">
-        <div class="top-bar-contacts">
-          <span>📧 <a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a></span>
-          <span>📞 <a href="tel:+254118969209">+254 118 969 209</a></span>
-          <span>📍 Nairobi, Kenya</span>
+  <div class="mph-topbar">
+    <div class="mph-container">
+      <div class="mph-topbar-inner">
+        <div class="mph-topbar-left">
+          <span class="mph-topbar-contact">📧 <a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a></span>
+          <span class="mph-topbar-contact">📞 <a href="tel:+254118969209">+254 118 969 209</a></span>
+          <span class="mph-topbar-contact">📍 Nairobi, Kenya</span>
         </div>
-        <div class="top-bar-social">
-          <a href="#" title="LinkedIn">in</a>
-          <a href="#" title="X / Twitter">𝕏</a>
-          <a href="#" title="Facebook">f</a>
-          <a href="#" title="Instagram">ig</a>
-          <a href="#" title="YouTube">▶</a>
+        <div class="mph-topbar-right">
+          <div class="mph-socials">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="X/Twitter">𝕏</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="YouTube">▶</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Header -->
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav-inner">
-        <a href="index.html" class="logo">
-          <div class="logo-mark">MPH</div>
-          <div class="logo-text">
-            <span class="logo-name">Migration Pulse Hub</span>
-            <span class="logo-tagline">Rights Move with People Everywhere</span>
+  <header class="mph-header">
+    <div class="mph-container">
+      <nav class="mph-header-inner">
+        <a href="index.html" class="mph-logo">
+          <div class="mph-logo-mark">MPH</div>
+          <div class="mph-logo-text">
+            <span class="mph-logo-name">Migration Pulse Hub</span>
+            <span class="mph-logo-sub">Rights Move with People Everywhere</span>
           </div>
         </a>
-        <button class="hamburger" aria-label="Toggle menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-menu">
+        <button class="mph-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <ul class="mph-nav">
           <li><a href="about.html">About Us</a></li>
-          <li>
+          <li class="has-dropdown">
             <a href="our-work.html">Our Work ▾</a>
-            <ul class="dropdown">
-              <li><a href="our-work.html">Advocacy & Policy</a></li>
+            <ul class="mph-dropdown">
+              <li><a href="our-work.html">Advocacy &amp; Policy</a></li>
               <li><a href="our-work.html#research">Research</a></li>
               <li><a href="our-work.html#legal">Litigation</a></li>
               <li><a href="our-work.html#capacity">Capacity Building</a></li>
@@ -56,73 +59,69 @@
           </li>
           <li><a href="impact.html">Impact</a></li>
           <li><a href="partners.html">Partners</a></li>
-          <li>
+          <li class="has-dropdown">
             <a href="knowledge-hub.html">Knowledge Hub ▾</a>
-            <ul class="dropdown">
+            <ul class="mph-dropdown">
               <li><a href="knowledge-hub.html">Resource Library</a></li>
-              <li><a href="reports.html">Reports & Publications</a></li>
+              <li><a href="reports.html">Reports &amp; Publications</a></li>
             </ul>
           </li>
-          <li>
+          <li class="has-dropdown">
             <a href="news.html">Updates ▾</a>
-            <ul class="dropdown">
-              <li><a href="news.html">News & Updates</a></li>
+            <ul class="mph-dropdown">
+              <li><a href="news.html">News &amp; Updates</a></li>
               <li><a href="events.html">Events</a></li>
             </ul>
           </li>
           <li><a href="team.html">Team</a></li>
-          <li class="nav-cta"><a href="contact.html" class="btn btn-primary btn-sm">Contact Us</a></li>
+          <li class="mph-nav-cta"><a href="contact.html" class="mph-btn sm">Contact Us</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-badge">🌍 Nairobi, Kenya · Est. 2020</div>
-          <h1>No Human Belongs<br><em>in a Camp.</em></h1>
-          <p>We stand <strong style="color:#f9a05a">with</strong> migrants and refugees — not over them. Protection is not charity; it is a legal and moral obligation owed to every person on the move.</p>
-          <div class="hero-actions">
-            <a href="our-work.html" class="btn btn-primary btn-lg">Our Work</a>
-            <a href="support.html" class="btn btn-outline btn-lg">Stand With Us</a>
+  <section class="mph-hero">
+    <div class="mph-container">
+      <div class="mph-hero-grid">
+        <div class="mph-hero-content">
+          <span class="mph-eyebrow mph-eyebrow--navy">Est. 2020 · Nairobi, Kenya</span>
+          <h1>Rights Move with<br><em style="color:var(--teal-light);font-style:normal">People Everywhere</em></h1>
+          <p class="mph-hero-lead">Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants — through advocacy, research, legal action, and community empowerment.</p>
+          <div class="mph-hero-actions">
+            <a href="our-work.html" class="mph-btn lg">Explore Our Work</a>
+            <a href="support.html" class="mph-btn lg outline">Support the Mission</a>
           </div>
-          <div class="hero-stats">
-            <div class="stat-box">
-              <div class="number">1 in 69</div>
-              <div class="label">People displaced worldwide</div>
+          <div class="mph-hero-stats">
+            <div class="mph-hero-stat">
+              <span class="num" data-count="12000" data-suffix="+">12,000+</span>
+              <span class="lbl">People Reached</span>
             </div>
-            <div class="stat-box">
-              <div class="number">8+</div>
-              <div class="label">Key policy focus areas</div>
+            <div class="mph-hero-stat">
+              <span class="num" data-count="8" data-suffix="">8</span>
+              <span class="lbl">Countries</span>
             </div>
-            <div class="stat-box">
-              <div class="number">4</div>
-              <div class="label">Core protection programs</div>
-            </div>
-            <div class="stat-box">
-              <div class="number">3</div>
-              <div class="label">Regions of operation</div>
+            <div class="mph-hero-stat">
+              <span class="num" data-count="45" data-suffix="+">45+</span>
+              <span class="lbl">Policy Engagements</span>
             </div>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-card-stack">
-            <div class="hero-quote-card main">
-              <div class="value-pill">UN Secretary-General</div>
-              <blockquote>
-                "Migrants and refugees are not a problem to be solved. They are people to be protected."
-              </blockquote>
-              <cite>— António Guterres, United Nations Secretary-General</cite>
-            </div>
-            <div class="hero-quote-card mini">
-              <div class="value-pill">Our Commitment</div>
-              <blockquote style="font-size:.9rem">
-                "Mobility is not a crime. Rights move with people — everywhere."
-              </blockquote>
-            </div>
+        <div class="mph-hero-visual">
+          <div class="mph-hero-card">
+            <div class="mph-hero-card-icon">⚖️</div>
+            <h4>Legal Protection</h4>
+            <p>Direct legal aid and case representation for migrants in vulnerable situations.</p>
+          </div>
+          <div class="mph-hero-card" style="margin-top:1.5rem;margin-left:2rem">
+            <div class="mph-hero-card-icon">📣</div>
+            <h4>Policy Advocacy</h4>
+            <p>Shaping migration governance at national and regional levels.</p>
+          </div>
+          <div class="mph-hero-card" style="margin-top:1.5rem">
+            <div class="mph-hero-card-icon">📊</div>
+            <h4>Evidence Research</h4>
+            <p>Publishing data-driven reports that inform policy and practice.</p>
           </div>
         </div>
       </div>
@@ -130,283 +129,249 @@
   </section>
 
   <!-- Mission Strip -->
-  <div class="mission-strip">
-    <div class="container">
-      <p>🔵 Rights-Based · 🟠 Evidence-Driven · 🟢 Community-Led · ⚖️ Legally Grounded</p>
+  <div class="mph-strip">
+    <div class="mph-container">
+      <p>Our mission: to ensure that the rights of every migrant and displaced person are recognised, respected, and upheld — regardless of borders.</p>
     </div>
   </div>
 
-  <!-- Why We Exist -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="label">Why We Exist</span>
-        <h2>Because Protection Is Not Optional</h2>
-        <p class="lead">When people are forced to move, systems must move to protect them. We fill the gaps where law, policy, and practice fail the world's most vulnerable.</p>
-      </div>
-      <div class="grid-3">
-        <div class="value-item card card-body reveal">
-          <div class="value-icon">⚖️</div>
-          <h3>Legal Obligation</h3>
-          <p>Protection is not charity — it is a right enshrined in international law. We enforce it through litigation, advocacy, and policy reform.</p>
-        </div>
-        <div class="value-item card card-body reveal">
-          <div class="value-icon">🔍</div>
-          <h3>Evidence-Based Action</h3>
-          <p>Rigorous, people-centered research reveals the protection gaps that drive our advocacy. Every campaign is grounded in data.</p>
-        </div>
-        <div class="value-item card card-body reveal">
-          <div class="value-icon">🤝</div>
-          <h3>Community-Centered</h3>
-          <p>We center migrants, refugees, and displaced persons as rights-holders and decision-makers — not passive recipients of aid.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Four Core Programs -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="label">Our Programs</span>
-        <h2>How We Create Change</h2>
-        <p class="lead">Four interconnected programs that move from evidence to action, from law to policy, and from community to coalition.</p>
-      </div>
-      <div class="grid-2">
-        <div class="program-card reveal">
-          <h3>🏛 Rights-Based Migration Governance Accelerator</h3>
-          <p>Influencing legislation and public discourse to advance rights-based migration governance frameworks that address displacement's root causes.</p>
-          <a href="our-work.html" class="btn btn-outline-dark btn-sm mt-1">Learn More</a>
-        </div>
-        <div class="program-card reveal">
-          <h3>⚖️ Impact & Transparency Legal Defense Initiative</h3>
-          <p>Strategic legal action that defends individual rights, challenges unlawful practices, and establishes binding precedents for migrant protection.</p>
-          <a href="our-work.html#legal" class="btn btn-outline-dark btn-sm mt-1">Learn More</a>
-        </div>
-        <div class="program-card reveal">
-          <h3>📊 Evidence-to-Action Research Hub</h3>
-          <p>Producing rigorous research combining data, field experience, and personal narratives to identify gaps and inform ethical policy decisions.</p>
-          <a href="reports.html" class="btn btn-outline-dark btn-sm mt-1">View Reports</a>
-        </div>
-        <div class="program-card reveal">
-          <h3>🌐 Rights & Resilience Policy Network</h3>
-          <p>Building coalitions, shifting narratives, and mobilizing collective action among civil society, governments, and international institutions.</p>
-          <a href="partners.html" class="btn btn-outline-dark btn-sm mt-1">Our Partners</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Impact Model -->
-  <section class="section">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
-        <div>
-          <span class="label">Impact Model</span>
-          <h2 class="mt-1 mb-2">From Evidence to Systemic Change</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <h4>Step 1</h4>
-              <h3>Ground Change in Evidence</h3>
-              <p>Rigorous, people-centered research reveals protection gaps and informs all advocacy work.</p>
-            </div>
-            <div class="timeline-item">
-              <h4>Step 2</h4>
-              <h3>Enforce Rights Through Law</h3>
-              <p>Strategic legal defense and impact litigation that translates rights into enforceable realities.</p>
-            </div>
-            <div class="timeline-item">
-              <h4>Step 3</h4>
-              <h3>Transform Policy</h3>
-              <p>Evidence-based policy reforms that expand legal protection frameworks nationally and regionally.</p>
-            </div>
-            <div class="timeline-item">
-              <h4>Step 4</h4>
-              <h3>Mobilize Collective Action</h3>
-              <p>Coalition-building and narrative shifting to create lasting political will for migrant rights.</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="quote-block">
-            <blockquote>
-              "Protection is not charity, it is a legal and moral obligation owed to every person on the move."
-            </blockquote>
-            <cite>— Migration Pulse Hub Core Principle</cite>
-          </div>
-          <div class="grid-2 mt-2">
-            <div class="card card-body text-center">
-              <div class="impact-number" data-count="1951" data-suffix="">1951</div>
-              <div class="impact-label">Refugee Convention — upheld daily</div>
-            </div>
-            <div class="card card-body text-center">
-              <div class="impact-number" data-count="8" data-suffix="+">8+</div>
-              <div class="impact-label">Policy focus domains</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Core Values -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="label">Core Values</span>
-        <h2>What Guides Everything We Do</h2>
+  <section class="mph-section bg-bg">
+    <div class="mph-container">
+      <div class="mph-section-title mph-reveal">
+        <span class="mph-eyebrow">Who We Are</span>
+        <h2>Grounded in Rights, Driven by Evidence</h2>
+        <p>Everything we do is anchored in international human rights law, community voices, and rigorous evidence.</p>
       </div>
-      <div class="grid-3">
-        <div class="value-item">
-          <div class="value-icon" style="background:rgba(232,112,26,.1);color:var(--accent)">🌍</div>
-          <h3>Inclusion</h3>
-          <p>Centers migrants, refugees, and displaced people as rights-holders and decision-makers in every process we run.</p>
+      <div class="mph-grid-3">
+        <div class="mph-card mph-card-body mph-reveal">
+          <div class="mph-card-icon icon--teal">🌍</div>
+          <h3>Regional Focus</h3>
+          <p>We work across East Africa — where displacement, labour migration, and climate-driven movement intersect at scale. Our programmes reach 8 countries including Kenya, Uganda, Ethiopia, and Somalia.</p>
         </div>
-        <div class="value-item">
-          <div class="value-icon" style="background:rgba(46,125,82,.1);color:var(--green)">🛡</div>
-          <h3>Non-Discrimination</h3>
-          <p>Opposes xenophobia in all forms and upholds universal human rights as the baseline for every human being.</p>
+        <div class="mph-card mph-card-body mph-reveal">
+          <div class="mph-card-icon icon--coral">⚖️</div>
+          <h3>Rights-Based Approach</h3>
+          <p>We ground every intervention in the Universal Declaration of Human Rights, the 1951 Refugee Convention, the Kampala Convention, and the AU Migration Policy Framework.</p>
         </div>
-        <div class="value-item">
-          <div class="value-icon" style="background:rgba(26,58,92,.1);color:var(--primary)">🔍</div>
-          <h3>Integrity</h3>
-          <p>Transparency, accountability, and evidence-based work are non-negotiable in everything we publish and advocate for.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Audiences / Who We Serve -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="label">Who We Serve</span>
-        <h2>A Platform for Every Stakeholder</h2>
-      </div>
-      <div class="grid-3">
-        <div class="card card-body">
-          <div class="card-icon icon-primary">👨‍👩‍👧</div>
-          <h4>Migrants & Refugees</h4>
-          <p>Information, support pathways, events, legal resources, and connections to protection services.</p>
-          <a href="knowledge-hub.html" class="btn btn-outline-dark btn-sm">Resources</a>
-        </div>
-        <div class="card card-body">
-          <div class="card-icon icon-accent">🤝</div>
-          <h4>Partners & Donors</h4>
-          <p>Organization background, impact data, annual reports, and partnership and funding opportunities.</p>
-          <a href="partners.html" class="btn btn-outline-dark btn-sm">Partner With Us</a>
-        </div>
-        <div class="card card-body">
-          <div class="card-icon icon-green">📋</div>
-          <h4>Researchers & Policymakers</h4>
-          <p>Publications, policy briefs, issue papers, datasets, and reports for evidence-based decision-making.</p>
-          <a href="reports.html" class="btn btn-outline-dark btn-sm">Publications</a>
-        </div>
-        <div class="card card-body">
-          <div class="card-icon icon-primary">📰</div>
-          <h4>Media</h4>
-          <p>Press releases, media contacts, photos, official statements, and brand resources for journalists.</p>
-          <a href="media.html" class="btn btn-outline-dark btn-sm">Media Centre</a>
-        </div>
-        <div class="card card-body">
-          <div class="card-icon icon-accent">✋</div>
-          <h4>Volunteers & Supporters</h4>
-          <p>Ways to volunteer, collaborate, attend events, or support migrant and refugee protection initiatives.</p>
-          <a href="support.html" class="btn btn-outline-dark btn-sm">Support Us</a>
-        </div>
-        <div class="card card-body">
-          <div class="card-icon icon-green">🎓</div>
-          <h4>Students & Academia</h4>
-          <p>Field stories, research papers, internship opportunities, and academic collaboration pathways.</p>
-          <a href="contact.html" class="btn btn-outline-dark btn-sm">Get In Touch</a>
+        <div class="mph-card mph-card-body mph-reveal">
+          <div class="mph-card-icon icon--gold">🔬</div>
+          <h3>Evidence-Led Action</h3>
+          <p>Our research team generates primary data, publishes reports, and collaborates with academic institutions to produce credible, actionable evidence that shapes real policy change.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Turn Solidarity Into Action</h2>
-      <p>Protect the rights and dignity of migrants and displaced people. Every action — however small — creates real change for real people.</p>
-      <div class="cta-actions">
-        <a href="support.html" class="btn btn-primary btn-lg">Stand With Us</a>
-        <a href="reports.html" class="btn btn-outline btn-lg">Read Our Reports</a>
-        <a href="contact.html" class="btn btn-outline btn-lg">Contact the Team</a>
+  <!-- Programmes -->
+  <section class="mph-section bg-white">
+    <div class="mph-container">
+      <div class="mph-section-title mph-reveal">
+        <span class="mph-eyebrow">Our Work</span>
+        <h2>Four Pillars of Action</h2>
+        <p>Our work is organised around four mutually reinforcing pillars that address the full cycle of migration governance.</p>
+      </div>
+      <div class="mph-grid-2">
+        <div class="mph-work-card mph-reveal">
+          <span class="mph-tag mph-tag--teal" style="margin-bottom:.75rem;display:inline-block">Pillar 1</span>
+          <h3>Advocacy &amp; Policy Engagement</h3>
+          <p>We engage governments, regional bodies, and international institutions to shape migration policy. Our team participates in AU, IGAD, and EAC processes to embed migrant rights into frameworks that matter.</p>
+          <a href="our-work.html" class="mph-btn dark sm" style="margin-top:1rem">Learn More</a>
+        </div>
+        <div class="mph-work-card mph-reveal" style="border-left-color:var(--coral)">
+          <span class="mph-tag mph-tag--coral" style="margin-bottom:.75rem;display:inline-block">Pillar 2</span>
+          <h3>Research &amp; Evidence Generation</h3>
+          <p>We conduct field research, surveys, and case studies across East Africa to produce data that decision-makers need. Our Knowledge Hub makes this research freely accessible to all.</p>
+          <a href="knowledge-hub.html" class="mph-btn dark sm" style="margin-top:1rem">View Research</a>
+        </div>
+        <div class="mph-work-card mph-reveal" style="border-left-color:var(--gold)">
+          <span class="mph-tag mph-tag--gold" style="margin-bottom:.75rem;display:inline-block">Pillar 3</span>
+          <h3>Legal Aid &amp; Litigation</h3>
+          <p>Our legal team provides direct legal assistance — including case representation, documentation support, referrals, and strategic litigation where rights are systematically violated.</p>
+          <a href="our-work.html#legal" class="mph-btn dark sm" style="margin-top:1rem">Legal Support</a>
+        </div>
+        <div class="mph-work-card mph-reveal" style="border-left-color:var(--navy-light)">
+          <span class="mph-tag" style="margin-bottom:.75rem;display:inline-block">Pillar 4</span>
+          <h3>Capacity Building</h3>
+          <p>We train civil society organisations, community leaders, frontline workers, and local authorities on migration rights, trauma-informed care, and protection protocols.</p>
+          <a href="our-work.html#capacity" class="mph-btn dark sm" style="margin-top:1rem">Training Programmes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Stats -->
+  <section class="mph-section bg-gradient-navy">
+    <div class="mph-container">
+      <div class="mph-section-title mph-reveal" style="margin-bottom:48px">
+        <span class="mph-eyebrow mph-eyebrow--navy">Our Impact</span>
+        <h2 style="color:var(--white)">Measurable Change. Real Lives.</h2>
+        <p style="color:rgba(255,255,255,.7)">Since 2020, our work has reached thousands of people across East Africa — with measurable outcomes in policy, protection, and empowerment.</p>
+      </div>
+      <div class="mph-impact-grid">
+        <div class="mph-impact-stat mph-reveal">
+          <span class="num" data-count="12000" data-suffix="+">12,000+</span>
+          <span class="lbl">Migrants &amp; IDPs Reached</span>
+        </div>
+        <div class="mph-impact-stat mph-reveal">
+          <span class="num" data-count="45" data-suffix="+">45+</span>
+          <span class="lbl">Policy Engagements</span>
+        </div>
+        <div class="mph-impact-stat mph-reveal">
+          <span class="num" data-count="18" data-suffix="">18</span>
+          <span class="lbl">Research Publications</span>
+        </div>
+        <div class="mph-impact-stat mph-reveal">
+          <span class="num" data-count="2300" data-suffix="+">2,300+</span>
+          <span class="lbl">Legal Consultations</span>
+        </div>
+        <div class="mph-impact-stat mph-reveal">
+          <span class="num" data-count="600" data-suffix="+">600+</span>
+          <span class="lbl">People Trained</span>
+        </div>
+        <div class="mph-impact-stat mph-reveal">
+          <span class="num" data-count="8" data-suffix="">8</span>
+          <span class="lbl">Countries of Operation</span>
+        </div>
+        <div class="mph-impact-stat mph-reveal">
+          <span class="num" data-count="32" data-suffix="+">32+</span>
+          <span class="lbl">Partner Organisations</span>
+        </div>
+        <div class="mph-impact-stat mph-reveal">
+          <span class="num" data-count="5" data-suffix="">5</span>
+          <span class="lbl">Years of Operation</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:3rem">
+        <a href="impact.html" class="mph-btn outline lg">View Full Impact Report</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="mph-section-sm bg-sand">
+    <div class="mph-container">
+      <div class="mph-quote mph-reveal">
+        <div class="mph-quote-mark">"</div>
+        <p class="mph-quote-text">Migration Pulse Hub gave us a language to speak about our rights. Before their training, we did not know that what was happening to us had a name — and that the law was on our side.</p>
+        <div class="mph-quote-source">
+          <strong>Maria O.</strong> — Community Representative, South Sudanese Diaspora Network, Nairobi
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest News -->
+  <section class="mph-section bg-white">
+    <div class="mph-container">
+      <div class="mph-section-title mph-reveal">
+        <span class="mph-eyebrow">Latest Updates</span>
+        <h2>News &amp; Insights</h2>
+        <p>Stay informed on migration rights, policy developments, and our programme updates across East Africa.</p>
+      </div>
+      <div class="mph-grid-3">
+        <article class="mph-news-card mph-reveal">
+          <div class="mph-news-img" style="aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy-soft),var(--navy-light));border-radius:var(--r-lg) var(--r-lg) 0 0;display:flex;align-items:center;justify-content:center;font-size:3rem">📰</div>
+          <div class="mph-news-body">
+            <div class="mph-news-meta"><span class="mph-tag mph-tag--teal">Policy</span><span class="mph-news-date">April 2026</span></div>
+            <h3 class="mph-news-title"><a href="news.html">Kenya Passes Landmark Amendments to Refugees Act</a></h3>
+            <p class="mph-news-excerpt">The amended Refugees Act introduces a revised encampment policy and expanded rights to work permits. Our analysis examines the implications for migrants across the country.</p>
+          </div>
+        </article>
+        <article class="mph-news-card mph-reveal">
+          <div class="mph-news-img" style="aspect-ratio:16/9;background:linear-gradient(135deg,var(--teal-dark),var(--teal));border-radius:var(--r-lg) var(--r-lg) 0 0;display:flex;align-items:center;justify-content:center;font-size:3rem">📊</div>
+          <div class="mph-news-body">
+            <div class="mph-news-meta"><span class="mph-tag mph-tag--coral">Research</span><span class="mph-news-date">March 2026</span></div>
+            <h3 class="mph-news-title"><a href="reports.html">New Report: Climate Displacement in the Horn of Africa</a></h3>
+            <p class="mph-news-excerpt">Our latest research documents climate-linked displacement affecting over 3 million people across the Horn of Africa, with policy recommendations for governments and donors.</p>
+          </div>
+        </article>
+        <article class="mph-news-card mph-reveal">
+          <div class="mph-news-img" style="aspect-ratio:16/9;background:linear-gradient(135deg,#b96a20,var(--gold));border-radius:var(--r-lg) var(--r-lg) 0 0;display:flex;align-items:center;justify-content:center;font-size:3rem">🎓</div>
+          <div class="mph-news-body">
+            <div class="mph-news-meta"><span class="mph-tag mph-tag--gold">Training</span><span class="mph-news-date">February 2026</span></div>
+            <h3 class="mph-news-title"><a href="news.html">350 Community Paralegals Trained Across Uganda and Kenya</a></h3>
+            <p class="mph-news-excerpt">Our capacity building programme concluded its second cohort, equipping 350 community paralegals with legal literacy, referral pathways, and trauma-informed support skills.</p>
+          </div>
+        </article>
+      </div>
+      <div style="text-align:center;margin-top:3rem">
+        <a href="news.html" class="mph-btn dark lg">View All Updates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mph-cta">
+    <div class="mph-container">
+      <span class="mph-eyebrow mph-eyebrow--navy" style="margin-bottom:1.5rem">Get Involved</span>
+      <h2>Stand with Migrants. Defend Rights.</h2>
+      <p>Whether you are a donor, partner, volunteer, researcher, or advocate — there is a place for you in this movement. Every contribution strengthens the protection of human dignity.</p>
+      <div class="mph-cta-actions">
+        <a href="support.html" class="mph-btn coral lg">Support Our Work</a>
+        <a href="contact.html" class="mph-btn outline lg">Get In Touch</a>
+        <a href="partners.html" class="mph-btn outline lg">Partner With Us</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="logo-mark" style="margin-bottom:1rem">MPH</div>
+  <footer class="mph-footer">
+    <div class="mph-footer-main">
+      <div class="mph-container">
+        <div class="mph-footer-grid">
+          <div class="mph-footer-brand">
+            <div class="mph-logo-mark mph-footer-logo">MPH</div>
             <p>Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants through advocacy, research, legal action, and community empowerment.</p>
-            <div class="footer-social">
-              <a href="#" title="LinkedIn">in</a>
-              <a href="#" title="X">𝕏</a>
-              <a href="#" title="Facebook">f</a>
-              <a href="#" title="Instagram">ig</a>
-              <a href="#" title="YouTube">▶</a>
+            <div class="mph-footer-socials">
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="X/Twitter">𝕏</a>
+              <a href="#" aria-label="Facebook">f</a>
+              <a href="#" aria-label="Instagram">ig</a>
+              <a href="#" aria-label="YouTube">▶</a>
             </div>
           </div>
-          <div class="footer-col">
+          <div class="mph-footer-col">
             <h4>Organisation</h4>
             <ul>
               <li><a href="about.html">About Us</a></li>
-              <li><a href="team.html">Team & Board</a></li>
+              <li><a href="team.html">Team &amp; Board</a></li>
               <li><a href="impact.html">Our Impact</a></li>
               <li><a href="partners.html">Partners</a></li>
               <li><a href="media.html">Media Centre</a></li>
             </ul>
           </div>
-          <div class="footer-col">
+          <div class="mph-footer-col">
             <h4>Resources</h4>
             <ul>
               <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
-              <li><a href="reports.html">Reports & Publications</a></li>
-              <li><a href="news.html">News & Updates</a></li>
+              <li><a href="reports.html">Reports &amp; Publications</a></li>
+              <li><a href="news.html">News &amp; Updates</a></li>
               <li><a href="events.html">Events</a></li>
               <li><a href="support.html">Support Us</a></li>
             </ul>
           </div>
-          <div class="footer-col">
+          <div class="mph-footer-col">
             <h4>Contact</h4>
-            <div class="footer-contact">
-              <div class="footer-contact-item">
-                <span class="icon">📧</span>
-                <a href="mailto:info@migrationpulsehub.org" style="color:rgba(255,255,255,.65)">info@migrationpulsehub.org</a>
-              </div>
-              <div class="footer-contact-item">
-                <span class="icon">📞</span>
-                <a href="tel:+254118969209" style="color:rgba(255,255,255,.65)">+254 118 969 209</a>
-              </div>
-              <div class="footer-contact-item">
-                <span class="icon">📍</span>
-                <span>Nairobi, Kenya</span>
-              </div>
-              <a href="contact.html" class="btn btn-primary btn-sm mt-1">Get In Touch</a>
+            <div class="mph-footer-contact-list">
+              <div class="mph-footer-contact-item"><span class="ico">📧</span><a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a></div>
+              <div class="mph-footer-contact-item"><span class="ico">📞</span><a href="tel:+254118969209">+254 118 969 209</a></div>
+              <div class="mph-footer-contact-item"><span class="ico">📍</span><span>Nairobi, Kenya</span></div>
             </div>
+            <a href="contact.html" class="mph-btn sm" style="margin-top:1.25rem">Get In Touch</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="footer-bottom">
+    <div class="mph-container">
+      <div class="mph-footer-bottom">
         <span>© 2026 Migration Pulse Hub. All rights reserved.</span>
-        <span>
-          <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-          <a href="privacy.html#terms">Terms of Use</a> &nbsp;·&nbsp;
-          <a href="privacy.html#safeguarding">Safeguarding</a>
-        </span>
+        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="privacy.html#terms">Terms of Use</a> &nbsp;·&nbsp; <a href="privacy.html#safeguarding">Safeguarding</a></span>
       </div>
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <button class="mph-back-to-top" aria-label="Back to top">↑</button>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

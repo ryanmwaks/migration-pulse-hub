@@ -1,10 +1,10 @@
-/* Migration Pulse Hub — Main JS */
+/* Migration Pulse Hub — Main JS v2.0 */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* --- Mobile Navigation ---------------------------------------- */
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu   = document.querySelector('.nav-menu');
+  const hamburger = document.querySelector('.mph-hamburger');
+  const navMenu   = document.querySelector('.mph-nav');
 
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
@@ -21,14 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- Active Nav Link ------------------------------------------ */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-menu a').forEach(link => {
+  document.querySelectorAll('.mph-nav a').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');
+      link.closest('li.has-dropdown')?.querySelector('a')?.classList.add('active');
     }
   });
 
   /* --- Back to Top ---------------------------------------------- */
-  const backToTop = document.querySelector('.back-to-top');
+  const backToTop = document.querySelector('.mph-back-to-top');
   if (backToTop) {
     window.addEventListener('scroll', () => {
       backToTop.classList.toggle('visible', window.scrollY > 400);
@@ -39,16 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --- Accordion / FAQ ------------------------------------------ */
-  document.querySelectorAll('.accordion-header').forEach(header => {
+  document.querySelectorAll('.mph-accordion-header').forEach(header => {
     header.addEventListener('click', () => {
       const body = header.nextElementSibling;
       const isOpen = header.classList.contains('active');
-      // Close all
-      document.querySelectorAll('.accordion-header').forEach(h => {
+      document.querySelectorAll('.mph-accordion-header').forEach(h => {
         h.classList.remove('active');
         if (h.nextElementSibling) h.nextElementSibling.classList.remove('show');
       });
-      // Open clicked (unless already open)
       if (!isOpen) {
         header.classList.add('active');
         body.classList.add('show');
@@ -57,20 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --- Scroll Reveal -------------------------------------------- */
-  const revealEls = document.querySelectorAll('.reveal');
+  const revealEls = document.querySelectorAll('.mph-reveal');
   if (revealEls.length) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
+          entry.target.classList.add('mph-revealed');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
   }
 
-  /* --- Animated Counters (impact numbers) ----------------------- */
+  /* --- Animated Counters ---------------------------------------- */
   const counters = document.querySelectorAll('[data-count]');
   if (counters.length) {
     const countObserver = new IntersectionObserver((entries) => {
@@ -99,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
-  /* --- Contact Form (offline demo handler) ---------------------- */
+  /* --- Contact Form --------------------------------------------- */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -109,12 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true;
       setTimeout(() => {
         contactForm.innerHTML = `
-          <div class="notice notice-accent" style="justify-content:center;text-align:center;padding:2rem;">
-            <div>
-              <div style="font-size:2rem;margin-bottom:.75rem;">✅</div>
-              <strong>Thank you for reaching out!</strong><br>
-              Your message has been received. We will get back to you within 2–3 business days.
-            </div>
+          <div class="mph-notice mph-notice--teal" style="justify-content:center;text-align:center;padding:2.5rem;flex-direction:column;">
+            <div style="font-size:2.5rem;margin-bottom:.75rem;">✅</div>
+            <strong>Thank you for reaching out!</strong>
+            <p style="margin:.5rem 0 0;font-size:.9rem">Your message has been received. We will respond within 2–3 working days.</p>
           </div>`;
       }, 1000);
     });
