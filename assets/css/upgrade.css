@@ -1,0 +1,626 @@
+/* ============================================================
+   Migration Pulse Hub — Production Upgrade CSS
+   Flat icons · Policy Watch · Events · Regional Context
+   Futuristic 20% touches · Card grid alignment
+   ============================================================ */
+
+/* ============================================================
+   SVG Icon System
+   ============================================================ */
+.mph-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.mph-icon-lg  { width: 26px; height: 26px; }
+.mph-icon-xl  { width: 32px; height: 32px; }
+
+/* Icons inside card-icon containers */
+.mph-card-icon .mph-icon,
+.mph-card-icon .mph-icon-lg { width: 26px; height: 26px; }
+
+/* Topbar icon alignment */
+.mph-topbar-contact .mph-icon {
+  width: 14px; height: 14px;
+  opacity: .7;
+}
+
+/* ============================================================
+   Mission Strip — Teal variant
+   ============================================================ */
+.mph-strip--teal {
+  background: linear-gradient(90deg, var(--teal-dark), var(--teal));
+}
+.mph-strip--teal p { color: var(--white); }
+.mph-strip--teal .mph-icon { color: rgba(255,255,255,.8); }
+
+/* ============================================================
+   Hero — Dot Grid Futuristic Overlay
+   ============================================================ */
+.mph-hero-dot-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(20,184,166,.18) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.4) 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.4) 40%, transparent 100%);
+}
+
+/* Hero video content sits above dot grid */
+.mph-hero-video-content { z-index: 3 !important; }
+
+/* Hero stat bar — glass style */
+.mph-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-top: 2.5rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.mph-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem .75rem;
+  background: rgba(255,255,255,.04);
+  transition: background var(--ease);
+  text-align: center;
+}
+.mph-hero-stat:hover { background: rgba(20,184,166,.1); }
+.mph-hero-stat .num {
+  font-family: var(--font-head);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--teal-light);
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+.mph-hero-stat .lbl {
+  font-size: .68rem;
+  color: rgba(255,255,255,.6);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: .35rem;
+  font-family: var(--font-head);
+  font-weight: 500;
+}
+
+/* Hero action buttons gap */
+.mph-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* ============================================================
+   Pillars Grid — 2x2, equal height
+   ============================================================ */
+.mph-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.mph-pillar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.mph-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+}
+.mph-pillar-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-dark);
+}
+
+.mph-pillar-card--teal::before  { background: var(--teal); }
+.mph-pillar-card--coral::before { background: var(--coral); }
+.mph-pillar-card--gold::before  { background: var(--gold); }
+.mph-pillar-card--navy::before  { background: var(--navy-light); }
+
+.mph-pillar-icon {
+  width: 60px; height: 60px;
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.mph-pillar-card--teal  .mph-pillar-icon { background: rgba(20,184,166,.1);  color: var(--teal-dark); }
+.mph-pillar-card--coral .mph-pillar-icon { background: rgba(232,93,79,.08);  color: var(--coral); }
+.mph-pillar-card--gold  .mph-pillar-icon { background: rgba(244,162,97,.12); color: #b96a20; }
+.mph-pillar-card--navy  .mph-pillar-icon { background: rgba(11,31,58,.07);   color: var(--navy); }
+
+.mph-pillar-body { display: flex; flex-direction: column; gap: .65rem; flex: 1; }
+
+.mph-pillar-label {
+  font-family: var(--font-head);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.mph-pillar-card--teal  .mph-pillar-label { color: var(--teal-dark); }
+.mph-pillar-card--coral .mph-pillar-label { color: var(--coral); }
+.mph-pillar-card--gold  .mph-pillar-label { color: #b96a20; }
+
+.mph-pillar-card h3 {
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin: 0;
+}
+.mph-pillar-card p {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.mph-pillar-points {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  margin: .5rem 0;
+}
+.mph-pillar-points li {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  font-size: .84rem;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+.mph-pillar-points li .mph-icon { color: var(--teal); flex-shrink: 0; }
+
+.mph-pillar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* ============================================================
+   Impact — Stat Grid Enhanced
+   ============================================================ */
+.mph-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.mph-impact-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r-lg);
+  transition: all var(--ease);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.mph-impact-stat:hover {
+  background: rgba(20,184,166,.12);
+  border-color: rgba(20,184,166,.3);
+  transform: translateY(-4px);
+  box-shadow: 0 0 24px rgba(20,184,166,.2);
+}
+.mph-impact-icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: rgba(20,184,166,.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal-light);
+  margin-bottom: 1rem;
+}
+.mph-impact-stat .num {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--teal-light);
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+.mph-impact-stat .lbl {
+  font-size: .75rem;
+  color: rgba(255,255,255,.55);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: .5rem;
+  font-family: var(--font-head);
+}
+
+/* Impact section divider */
+.mph-impact-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,.08);
+  margin: 56px 0;
+}
+
+/* ============================================================
+   Regional Context Block
+   ============================================================ */
+.mph-regional-context {
+  text-align: center;
+}
+.mph-regional-header { margin-bottom: 2.5rem; }
+
+.mph-regional-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.mph-regional-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+  background: rgba(232,93,79,.06);
+  border: 1px solid rgba(232,93,79,.18);
+  border-radius: var(--r-lg);
+  gap: .4rem;
+  transition: all var(--ease);
+}
+.mph-regional-stat:hover {
+  background: rgba(232,93,79,.1);
+  border-color: rgba(232,93,79,.3);
+  transform: translateY(-3px);
+}
+.mph-regional-num {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--coral-light);
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+.mph-regional-lbl {
+  font-size: .8rem;
+  color: rgba(255,255,255,.7);
+  font-family: var(--font-head);
+  font-weight: 500;
+  line-height: 1.4;
+}
+.mph-regional-source {
+  font-size: .68rem;
+  color: rgba(255,255,255,.38);
+  font-style: italic;
+  font-family: var(--font-body);
+  margin-top: .25rem;
+}
+
+/* ============================================================
+   Policy Watch
+   ============================================================ */
+.mph-policy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.mph-policy-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+.mph-policy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-dark);
+}
+
+.mph-policy-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.mph-policy-badge {
+  font-family: var(--font-head);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .25rem .75rem;
+  border-radius: 20px;
+}
+.mph-policy-badge--teal  { background: rgba(20,184,166,.1);  color: var(--teal-dark); }
+.mph-policy-badge--coral { background: rgba(232,93,79,.08);  color: var(--coral); }
+.mph-policy-badge--navy  { background: rgba(11,31,58,.06);   color: var(--navy-soft); }
+
+.mph-policy-date {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .75rem;
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+.mph-policy-date .mph-icon { opacity: .6; }
+
+.mph-policy-icon {
+  width: 52px; height: 52px;
+  border-radius: var(--r);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.mph-policy-card h4 {
+  font-size: 1.05rem;
+  color: var(--navy);
+  line-height: 1.4;
+  margin: 0;
+}
+.mph-policy-card p {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.72;
+  margin: 0;
+  flex: 1;
+}
+
+.mph-policy-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  flex-wrap: wrap;
+  padding-top: .75rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+.mph-policy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  font-family: var(--font-head);
+  transition: gap var(--ease), color var(--ease);
+}
+.mph-policy-link:hover { color: var(--teal); gap: .6rem; }
+
+.mph-policy-source {
+  font-size: .72rem;
+  color: var(--muted);
+  font-style: italic;
+  text-align: right;
+}
+
+/* ============================================================
+   Enhanced Events Module
+   ============================================================ */
+.mph-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mph-event-item {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 2rem;
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+.mph-event-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-dark);
+}
+.mph-event-item--past {
+  opacity: .78;
+}
+
+.mph-event-date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  width: 72px;
+  height: 80px;
+  background: var(--navy);
+  border-radius: var(--r-lg);
+  flex-shrink: 0;
+  gap: 0;
+  padding: .75rem .5rem;
+}
+.mph-event-date-block--past { background: var(--muted); }
+
+.mph-event-month {
+  font-family: var(--font-head);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--teal-light);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.mph-event-date-block--past .mph-event-month { color: rgba(255,255,255,.6); }
+
+.mph-event-day {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+}
+.mph-event-year {
+  font-family: var(--font-head);
+  font-size: .62rem;
+  color: rgba(255,255,255,.45);
+  line-height: 1;
+}
+
+.mph-event-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+.mph-event-meta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.mph-event-badge {
+  font-family: var(--font-head);
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .2rem .65rem;
+  border-radius: 20px;
+}
+.mph-event-badge--green { background: rgba(20,184,166,.1); color: var(--teal-dark); }
+.mph-event-badge--gray  { background: rgba(102,112,133,.08); color: var(--muted); }
+
+.mph-event-type,
+.mph-event-location {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .78rem;
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+.mph-event-type .mph-icon,
+.mph-event-location .mph-icon { opacity: .6; }
+
+.mph-event-body h4 {
+  font-size: 1.1rem;
+  color: var(--navy);
+  line-height: 1.35;
+  margin: 0;
+}
+.mph-event-body p {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.mph-event-actions {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: .25rem;
+}
+
+/* ============================================================
+   News Card — icon pill update
+   ============================================================ */
+.cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .25rem .7rem;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.mph-news-date {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .78rem;
+  color: var(--muted);
+  font-family: var(--font-body);
+  margin-bottom: .5rem;
+}
+.mph-news-date .mph-icon { opacity: .6; }
+
+/* ============================================================
+   Quote Block — icon
+   ============================================================ */
+.mph-quote-icon {
+  width: 36px; height: 36px;
+  color: rgba(255,255,255,.25);
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   Back to Top — icon fix
+   ============================================================ */
+.mph-back-to-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mph-back-to-top .mph-icon {
+  width: 22px; height: 22px;
+}
+
+/* ============================================================
+   Responsive — Pillars
+   ============================================================ */
+@media (max-width: 900px) {
+  .mph-pillars-grid { grid-template-columns: 1fr; }
+  .mph-impact-grid  { grid-template-columns: repeat(2, 1fr); }
+  .mph-regional-stats { grid-template-columns: repeat(2, 1fr); }
+  .mph-policy-grid  { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .mph-event-item { flex-direction: column; gap: 1.25rem; }
+  .mph-event-date-block { flex-direction: row; width: auto; height: auto; padding: .5rem 1rem; gap: .6rem; }
+  .mph-event-day { font-size: 1.4rem; }
+  .mph-regional-stats { grid-template-columns: 1fr; }
+  .mph-pillars-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .mph-impact-grid  { grid-template-columns: repeat(2, 1fr); }
+  .mph-hero-actions { flex-direction: column; align-items: flex-start; }
+}

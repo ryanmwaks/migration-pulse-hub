@@ -5,369 +5,829 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Migration Pulse Hub | Rights Move with People Everywhere</title>
   <meta name="description" content="Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants through advocacy, research, legal action, and community empowerment." />
+  <meta property="og:title" content="Migration Pulse Hub — Rights Move with People Everywhere" />
+  <meta property="og:description" content="Evidence that moves policy. Protection, dignity, and lawful mobility — across East Africa." />
+  <meta property="og:image" content="assets/images/hero-bg.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/upgrade.css" />
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="mph-topbar">
-    <div class="mph-container">
-      <div class="mph-topbar-inner">
-        <div class="mph-topbar-left">
-          <span class="mph-topbar-contact">📧 <a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a></span>
-          <span class="mph-topbar-contact">📞 <a href="tel:+254118969209">+254 118 969 209</a></span>
-          <span class="mph-topbar-contact">📍 Nairobi, Kenya</span>
-        </div>
-        <div class="mph-topbar-right">
-          <div class="mph-socials">
-            <a href="#" aria-label="LinkedIn">in</a>
-            <a href="#" aria-label="X/Twitter">𝕏</a>
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">ig</a>
-            <a href="#" aria-label="YouTube">▶</a>
-          </div>
+<!-- ============================================================
+     SVG Icon System — flat, unified stroke, rounded
+     ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ico-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+  </symbol>
+  <symbol id="ico-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10M12 3v18M3 7h2c2 0 4-1 4-2s2-2 4-2 4 1 4 2 2 2 4 2h2"/>
+  </symbol>
+  <symbol id="ico-microscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 18h8"/><path d="M3 21h18"/><circle cx="12" cy="10" r="3"/><path d="M12 7V4h3M9 7V5"/><path d="M4 21a7 7 0 0 1 7-7 7 7 0 0 1 7 7"/>
+  </symbol>
+  <symbol id="ico-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 5H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h5"/><path d="M19 5l2-2v14l-2-2M11 5v14"/><path d="M5 15v4a1 1 0 0 0 2 0v-4"/>
+  </symbol>
+  <symbol id="ico-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 20V10M12 20V4M6 20v-6"/>
+  </symbol>
+  <symbol id="ico-gavel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14.5 2.5l7 7-2 2-7-7zM12.5 4.5l-9 9 2 2 9-9zM3 21l5-5M17 7l-1.5-1.5"/>
+  </symbol>
+  <symbol id="ico-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+  </symbol>
+  <symbol id="ico-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+  </symbol>
+  <symbol id="ico-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+  </symbol>
+  <symbol id="ico-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </symbol>
+  <symbol id="ico-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+  </symbol>
+  <symbol id="ico-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+  </symbol>
+  <symbol id="ico-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+  </symbol>
+  <symbol id="ico-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+  </symbol>
+  <symbol id="ico-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+  </symbol>
+  <symbol id="ico-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+  </symbol>
+  <symbol id="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20 6 9 17 4 12"/>
+  </symbol>
+  <symbol id="ico-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </symbol>
+  <symbol id="ico-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/>
+  </symbol>
+  <symbol id="ico-landmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 22h18M6 18V9M10 18V9M14 18V9M18 18V9M20 5L12 2 4 5h16z"/>
+  </symbol>
+  <symbol id="ico-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+  </symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+  </symbol>
+  <symbol id="ico-twitter" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.745l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </symbol>
+  <symbol id="ico-facebook" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </symbol>
+  <symbol id="ico-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  </symbol>
+  <symbol id="ico-youtube" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>
+  </symbol>
+</svg>
+
+<!-- Top Bar -->
+<div class="mph-topbar">
+  <div class="mph-container">
+    <div class="mph-topbar-inner">
+      <div class="mph-topbar-left">
+        <span class="mph-topbar-contact">
+          <svg class="mph-icon"><use href="#ico-mail"/></svg>
+          <a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a>
+        </span>
+        <span class="mph-topbar-contact">
+          <svg class="mph-icon"><use href="#ico-phone"/></svg>
+          <a href="tel:+254118969209">+254 118 969 209</a>
+        </span>
+        <span class="mph-topbar-contact">
+          <svg class="mph-icon"><use href="#ico-map-pin"/></svg>
+          Nairobi, Kenya
+        </span>
+      </div>
+      <div class="mph-topbar-right">
+        <div class="mph-socials">
+          <a href="#" aria-label="LinkedIn"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-linkedin"/></svg></a>
+          <a href="#" aria-label="X/Twitter"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-twitter"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-facebook"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-instagram"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-youtube"/></svg></a>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Header -->
-  <header class="mph-header">
-    <div class="mph-container">
-      <nav class="mph-header-inner">
-        <a href="index.html" class="mph-logo">
-          <img src="assets/images/logo.png" class="mph-logo-img" alt="Migration Pulse Hub" />
-          <div class="mph-logo-text">
-            <span class="mph-logo-name">Migration Pulse Hub</span>
-            <span class="mph-logo-sub">Rights Move with People Everywhere</span>
-          </div>
+<!-- Header -->
+<header class="mph-header">
+  <div class="mph-container">
+    <nav class="mph-header-inner">
+      <a href="index.html" class="mph-logo">
+        <img src="assets/images/logo.png" class="mph-logo-img" alt="Migration Pulse Hub" />
+        <div class="mph-logo-text">
+          <span class="mph-logo-name">Migration Pulse Hub</span>
+          <span class="mph-logo-sub">Rights Move with People Everywhere</span>
+        </div>
+      </a>
+      <button class="mph-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <ul class="mph-nav">
+        <li><a href="about.html">About Us</a></li>
+        <li class="has-dropdown">
+          <a href="our-work.html">Our Work ▾</a>
+          <ul class="mph-dropdown">
+            <li><a href="our-work.html">Advocacy &amp; Policy</a></li>
+            <li><a href="our-work.html#research">Research</a></li>
+            <li><a href="our-work.html#legal">Litigation</a></li>
+            <li><a href="our-work.html#capacity">Capacity Building</a></li>
+          </ul>
+        </li>
+        <li><a href="impact.html">Impact</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li class="has-dropdown">
+          <a href="knowledge-hub.html">Knowledge Hub ▾</a>
+          <ul class="mph-dropdown">
+            <li><a href="knowledge-hub.html">Resource Library</a></li>
+            <li><a href="reports.html">Reports &amp; Publications</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="news.html">Updates ▾</a>
+          <ul class="mph-dropdown">
+            <li><a href="news.html">News &amp; Updates</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </li>
+        <li><a href="team.html">Team</a></li>
+        <li class="mph-nav-cta"><a href="contact.html" class="mph-btn sm">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     Hero — Full-Width Video Background
+     ============================================================ -->
+<section class="mph-hero mph-hero--video">
+
+  <!-- Dot-grid futuristic overlay -->
+  <div class="mph-hero-dot-grid" aria-hidden="true"></div>
+
+  <!-- Video Background -->
+  <div class="mph-hero-video-bg">
+    <video autoplay muted loop playsinline poster="assets/images/hero-bg.webp">
+      <source src="assets/videos/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="mph-hero-video-overlay"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="mph-container">
+    <div class="mph-hero-video-content">
+      <span class="mph-eyebrow mph-eyebrow--navy">Est. 2020 &nbsp;·&nbsp; Nairobi, Kenya</span>
+      <h1>Rights Move with<br><em>People Everywhere</em></h1>
+      <p class="mph-lead">Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants — through advocacy, research, legal action, and community empowerment.</p>
+      <div class="mph-hero-actions">
+        <a href="our-work.html" class="mph-btn xl">
+          <svg class="mph-icon"><use href="#ico-arrow-right"/></svg>
+          Explore Our Work
         </a>
-        <button class="mph-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-        <ul class="mph-nav">
-          <li><a href="about.html">About Us</a></li>
-          <li class="has-dropdown">
-            <a href="our-work.html">Our Work ▾</a>
-            <ul class="mph-dropdown">
-              <li><a href="our-work.html">Advocacy &amp; Policy</a></li>
-              <li><a href="our-work.html#research">Research</a></li>
-              <li><a href="our-work.html#legal">Litigation</a></li>
-              <li><a href="our-work.html#capacity">Capacity Building</a></li>
-            </ul>
-          </li>
-          <li><a href="impact.html">Impact</a></li>
-          <li><a href="partners.html">Partners</a></li>
-          <li class="has-dropdown">
-            <a href="knowledge-hub.html">Knowledge Hub ▾</a>
-            <ul class="mph-dropdown">
-              <li><a href="knowledge-hub.html">Resource Library</a></li>
-              <li><a href="reports.html">Reports &amp; Publications</a></li>
-            </ul>
-          </li>
-          <li class="has-dropdown">
-            <a href="news.html">Updates ▾</a>
-            <ul class="mph-dropdown">
-              <li><a href="news.html">News &amp; Updates</a></li>
-              <li><a href="events.html">Events</a></li>
-            </ul>
-          </li>
-          <li><a href="team.html">Team</a></li>
-          <li class="mph-nav-cta"><a href="contact.html" class="mph-btn sm">Contact Us</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ============================================================
-       Hero — Full-Width Video Background (from migrationpulsehub.org)
-       ============================================================ -->
-  <section class="mph-hero mph-hero--video">
-
-    <!-- Video Background -->
-    <div class="mph-hero-video-bg">
-      <video autoplay muted loop playsinline poster="assets/images/hero-bg.webp">
-        <source src="assets/videos/hero.mp4" type="video/mp4" />
-        <!-- Fallback: browser shows poster if video unsupported -->
-      </video>
-      <div class="mph-hero-video-overlay"></div>
-    </div>
-
-    <!-- Content -->
-    <div class="mph-container">
-      <div class="mph-hero-video-content">
-        <span class="mph-eyebrow mph-eyebrow--navy">Est. 2020 &nbsp;·&nbsp; Nairobi, Kenya</span>
-        <h1>Rights Move with<br><em>People Everywhere</em></h1>
-        <p class="mph-lead">Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants — through advocacy, research, legal action, and community empowerment.</p>
-        <div class="mph-hero-actions">
-          <a href="our-work.html" class="mph-btn xl">Explore Our Work</a>
-          <a href="support.html" class="mph-btn xl outline">Support the Mission</a>
+        <a href="support.html" class="mph-btn xl outline">Support the Mission</a>
+      </div>
+      <div class="mph-hero-stats">
+        <div class="mph-hero-stat">
+          <span class="num" data-count="3400" data-suffix="+">3,400+</span>
+          <span class="lbl">People Directly Served</span>
         </div>
-        <div class="mph-hero-stats">
-          <div class="mph-hero-stat">
-            <span class="num" data-count="12000" data-suffix="+">12,000+</span>
-            <span class="lbl">People Reached</span>
-          </div>
-          <div class="mph-hero-stat">
-            <span class="num" data-count="8" data-suffix="">8</span>
-            <span class="lbl">Countries</span>
-          </div>
-          <div class="mph-hero-stat">
-            <span class="num" data-count="45" data-suffix="+">45+</span>
-            <span class="lbl">Policy Engagements</span>
-          </div>
+        <div class="mph-hero-stat">
+          <span class="num" data-count="6" data-suffix="">6</span>
+          <span class="lbl">Countries of Operation</span>
+        </div>
+        <div class="mph-hero-stat">
+          <span class="num" data-count="14" data-suffix="">14</span>
+          <span class="lbl">Research Publications</span>
         </div>
       </div>
-    </div>
-
-  </section>
-
-  <!-- Image Gallery Strip (from live site photos) -->
-  <div class="mph-hero-gallery">
-    <div class="mph-hero-gallery-item">
-      <img src="assets/images/hero-1.jpg" alt="Advocacy in action" loading="lazy" />
-    </div>
-    <div class="mph-hero-gallery-item">
-      <img src="assets/images/hero-3.jpg" alt="Legal consultation" loading="lazy" />
-    </div>
-    <div class="mph-hero-gallery-item">
-      <img src="assets/images/hero-4.jpg" alt="Field research" loading="lazy" />
-    </div>
-    <div class="mph-hero-gallery-item">
-      <img src="assets/images/hero-5.jpg" alt="Capacity building" loading="lazy" />
-    </div>
-    <div class="mph-hero-gallery-item">
-      <img src="assets/images/hero-6.jpg" alt="Regional partnerships" loading="lazy" />
     </div>
   </div>
 
-  <!-- Mission Strip -->
-  <div class="mph-strip">
-    <div class="mph-container">
-      <p>Our mission: to ensure that the rights of every migrant and displaced person are recognised, respected, and upheld — regardless of borders.</p>
+</section>
+
+<!-- Image Gallery Strip -->
+<div class="mph-hero-gallery">
+  <div class="mph-hero-gallery-item"><img src="assets/images/hero-1.jpg" alt="Advocacy in action" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/hero-3.jpg" alt="Legal consultation" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/hero-4.jpg" alt="Field research" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/hero-5.jpg" alt="Capacity building" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/hero-6.jpg" alt="Regional partnerships" loading="lazy" /></div>
+</div>
+
+<!-- Mission Strip -->
+<div class="mph-strip mph-strip--teal">
+  <div class="mph-container">
+    <p><svg class="mph-icon" style="width:20px;height:20px;margin-right:.5rem;vertical-align:middle;opacity:.8"><use href="#ico-shield"/></svg>Our mission: to ensure that the rights of every migrant and displaced person are recognised, respected, and upheld — regardless of borders.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     Core Values — Who We Are
+     ============================================================ -->
+<section class="mph-section bg-bg">
+  <div class="mph-container">
+    <div class="mph-section-title mph-reveal">
+      <span class="mph-eyebrow">Who We Are</span>
+      <h2>Grounded in Rights, Driven by Evidence</h2>
+      <p>Everything we do is anchored in international human rights law, community voices, and rigorous evidence. We do not just document injustice — we dismantle it.</p>
+    </div>
+    <div class="mph-grid-3">
+      <div class="mph-card mph-card-body mph-reveal">
+        <div class="mph-card-icon icon--teal">
+          <svg class="mph-icon mph-icon-lg"><use href="#ico-globe"/></svg>
+        </div>
+        <h3>Regional Focus</h3>
+        <p>We work across East Africa — where displacement, labour migration, and climate-driven movement intersect at scale. Our programmes operate in Kenya, Uganda, Ethiopia, Somalia, South Sudan, and the DRC.</p>
+      </div>
+      <div class="mph-card mph-card-body mph-reveal">
+        <div class="mph-card-icon icon--coral">
+          <svg class="mph-icon mph-icon-lg"><use href="#ico-scale"/></svg>
+        </div>
+        <h3>Rights-Based Approach</h3>
+        <p>We ground every intervention in the Universal Declaration of Human Rights, the 1951 Refugee Convention, the Kampala Convention, and the AU Migration Policy Framework for Africa.</p>
+      </div>
+      <div class="mph-card mph-card-body mph-reveal">
+        <div class="mph-card-icon icon--gold">
+          <svg class="mph-icon mph-icon-lg"><use href="#ico-microscope"/></svg>
+        </div>
+        <h3>Evidence-Led Action</h3>
+        <p>Our research team generates primary data and collaborates with academic institutions to produce credible, actionable evidence. Evidence that moves policy — not just paper.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Core Values -->
-  <section class="mph-section bg-bg">
-    <div class="mph-container">
-      <div class="mph-section-title mph-reveal">
-        <span class="mph-eyebrow">Who We Are</span>
-        <h2>Grounded in Rights, Driven by Evidence</h2>
-        <p>Everything we do is anchored in international human rights law, community voices, and rigorous evidence.</p>
-      </div>
-      <div class="mph-grid-3">
-        <div class="mph-card mph-card-body mph-reveal">
-          <div class="mph-card-icon icon--teal">🌍</div>
-          <h3>Regional Focus</h3>
-          <p>We work across East Africa — where displacement, labour migration, and climate-driven movement intersect at scale. Our programmes reach 8 countries including Kenya, Uganda, Ethiopia, and Somalia.</p>
-        </div>
-        <div class="mph-card mph-card-body mph-reveal">
-          <div class="mph-card-icon icon--coral">⚖️</div>
-          <h3>Rights-Based Approach</h3>
-          <p>We ground every intervention in the Universal Declaration of Human Rights, the 1951 Refugee Convention, the Kampala Convention, and the AU Migration Policy Framework.</p>
-        </div>
-        <div class="mph-card mph-card-body mph-reveal">
-          <div class="mph-card-icon icon--gold">🔬</div>
-          <h3>Evidence-Led Action</h3>
-          <p>Our research team generates primary data, publishes reports, and collaborates with academic institutions to produce credible, actionable evidence that shapes real policy change.</p>
-        </div>
-      </div>
+<!-- ============================================================
+     Programmes — Four Pillars
+     ============================================================ -->
+<section class="mph-section bg-white">
+  <div class="mph-container">
+    <div class="mph-section-title mph-reveal">
+      <span class="mph-eyebrow">Our Work</span>
+      <h2>Four Pillars of Action</h2>
+      <p>Our work is organised around four mutually reinforcing pillars that address the full cycle of migration governance — from community protection to continental policy.</p>
     </div>
-  </section>
+    <div class="mph-pillars-grid">
 
-  <!-- Programmes -->
-  <section class="mph-section bg-white">
-    <div class="mph-container">
-      <div class="mph-section-title mph-reveal">
-        <span class="mph-eyebrow">Our Work</span>
-        <h2>Four Pillars of Action</h2>
-        <p>Our work is organised around four mutually reinforcing pillars that address the full cycle of migration governance.</p>
-      </div>
-      <div class="mph-grid-2">
-        <div class="mph-work-card mph-reveal">
-          <span class="mph-tag mph-tag--teal" style="margin-bottom:.75rem;display:inline-block">Pillar 1</span>
+      <div class="mph-pillar-card mph-pillar-card--teal mph-reveal">
+        <div class="mph-pillar-icon">
+          <svg class="mph-icon mph-icon-xl"><use href="#ico-megaphone"/></svg>
+        </div>
+        <div class="mph-pillar-body">
+          <span class="mph-pillar-label">Pillar 01</span>
           <h3>Advocacy &amp; Policy Engagement</h3>
           <p>We engage governments, regional bodies, and international institutions to shape migration policy. Our team participates in AU, IGAD, and EAC processes to embed migrant rights into frameworks that matter.</p>
-          <a href="our-work.html" class="mph-btn dark sm" style="margin-top:1rem">Learn More</a>
+          <ul class="mph-pillar-points">
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Parliamentary submissions and policy briefs</li>
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Regional body representation (AU, IGAD, EAC)</li>
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Media engagement and public communications</li>
+          </ul>
+          <a href="our-work.html" class="mph-btn dark sm mph-pillar-link">Learn More <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-arrow-right"/></svg></a>
         </div>
-        <div class="mph-work-card mph-reveal" style="border-left-color:var(--coral)">
-          <span class="mph-tag mph-tag--coral" style="margin-bottom:.75rem;display:inline-block">Pillar 2</span>
+      </div>
+
+      <div class="mph-pillar-card mph-pillar-card--coral mph-reveal">
+        <div class="mph-pillar-icon">
+          <svg class="mph-icon mph-icon-xl"><use href="#ico-bar-chart"/></svg>
+        </div>
+        <div class="mph-pillar-body">
+          <span class="mph-pillar-label">Pillar 02</span>
           <h3>Research &amp; Evidence Generation</h3>
-          <p>We conduct field research, surveys, and case studies across East Africa to produce data that decision-makers need. Our Knowledge Hub makes this research freely accessible to all.</p>
-          <a href="knowledge-hub.html" class="mph-btn dark sm" style="margin-top:1rem">View Research</a>
+          <p>We conduct field research, surveys, and case studies across East Africa to produce data that decision-makers need. Our Knowledge Hub makes every publication freely accessible.</p>
+          <ul class="mph-pillar-points">
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Primary data collection and analysis</li>
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Academic and institutional partnerships</li>
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Open-access Knowledge Hub</li>
+          </ul>
+          <a href="knowledge-hub.html" class="mph-btn dark sm mph-pillar-link">View Research <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-arrow-right"/></svg></a>
         </div>
-        <div class="mph-work-card mph-reveal" style="border-left-color:var(--gold)">
-          <span class="mph-tag mph-tag--gold" style="margin-bottom:.75rem;display:inline-block">Pillar 3</span>
-          <h3>Legal Aid &amp; Litigation</h3>
-          <p>Our legal team provides direct legal assistance — including case representation, documentation support, referrals, and strategic litigation where rights are systematically violated.</p>
-          <a href="our-work.html#legal" class="mph-btn dark sm" style="margin-top:1rem">Legal Support</a>
+      </div>
+
+      <div class="mph-pillar-card mph-pillar-card--gold mph-reveal">
+        <div class="mph-pillar-icon">
+          <svg class="mph-icon mph-icon-xl"><use href="#ico-gavel"/></svg>
         </div>
-        <div class="mph-work-card mph-reveal" style="border-left-color:var(--navy-light)">
-          <span class="mph-tag" style="margin-bottom:.75rem;display:inline-block">Pillar 4</span>
-          <h3>Capacity Building</h3>
+        <div class="mph-pillar-body">
+          <span class="mph-pillar-label">Pillar 03</span>
+          <h3>Legal Aid &amp; Strategic Litigation</h3>
+          <p>Our legal team provides direct legal assistance — case representation, documentation support, referrals, and strategic litigation where migrant and refugee rights are systematically violated.</p>
+          <ul class="mph-pillar-points">
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Free legal consultations and case support</li>
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Documentation and status assistance</li>
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Strategic court litigation</li>
+          </ul>
+          <a href="our-work.html#legal" class="mph-btn dark sm mph-pillar-link">Legal Support <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="mph-pillar-card mph-pillar-card--navy mph-reveal">
+        <div class="mph-pillar-icon">
+          <svg class="mph-icon mph-icon-xl"><use href="#ico-users"/></svg>
+        </div>
+        <div class="mph-pillar-body">
+          <span class="mph-pillar-label">Pillar 04</span>
+          <h3>Capacity Building &amp; Training</h3>
           <p>We train civil society organisations, community leaders, frontline workers, and local authorities on migration rights, trauma-informed care, and protection protocols.</p>
-          <a href="our-work.html#capacity" class="mph-btn dark sm" style="margin-top:1rem">Training Programmes</a>
+          <ul class="mph-pillar-points">
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Community paralegal training</li>
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Frontline worker and CSO capacity</li>
+            <li><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-check"/></svg> Trauma-informed care protocols</li>
+          </ul>
+          <a href="our-work.html#capacity" class="mph-btn dark sm mph-pillar-link">Training Programmes <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Impact — Part A: Our Verified Data
+     ============================================================ -->
+<section class="mph-section bg-gradient-navy" id="impact">
+  <div class="mph-container">
+
+    <!-- Part A: Org-verified impact -->
+    <div class="mph-section-title mph-reveal">
+      <span class="mph-eyebrow mph-eyebrow--navy">Our Impact</span>
+      <h2 style="color:var(--white)">Measurable Change. Real Lives.</h2>
+      <p style="color:rgba(255,255,255,.7)">Organisation-verified data from our programmes since 2020. As a young organisation, every number below represents a real person, case, or published work — not an estimate.</p>
+    </div>
+
+    <div class="mph-impact-grid mph-reveal">
+      <div class="mph-impact-stat">
+        <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-heart"/></svg></div>
+        <span class="num" data-count="3400" data-suffix="+">3,400+</span>
+        <span class="lbl">People Directly Served</span>
+      </div>
+      <div class="mph-impact-stat">
+        <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-gavel"/></svg></div>
+        <span class="num" data-count="127" data-suffix="">127</span>
+        <span class="lbl">Legal Cases Handled</span>
+      </div>
+      <div class="mph-impact-stat">
+        <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-book"/></svg></div>
+        <span class="num" data-count="14" data-suffix="">14</span>
+        <span class="lbl">Research Publications</span>
+      </div>
+      <div class="mph-impact-stat">
+        <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-users"/></svg></div>
+        <span class="num" data-count="280" data-suffix="+">280+</span>
+        <span class="lbl">Paralegals Trained</span>
+      </div>
+      <div class="mph-impact-stat">
+        <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-globe"/></svg></div>
+        <span class="num" data-count="6" data-suffix="">6</span>
+        <span class="lbl">Countries of Operation</span>
+      </div>
+      <div class="mph-impact-stat">
+        <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-shield"/></svg></div>
+        <span class="num" data-count="18" data-suffix="+">18+</span>
+        <span class="lbl">Organisational Partners</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem">
+      <a href="impact.html" class="mph-btn outline lg">View Full Impact Report</a>
+    </div>
+
+    <!-- Divider -->
+    <div class="mph-impact-divider"></div>
+
+    <!-- Part B: Regional Context -->
+    <div class="mph-regional-context mph-reveal">
+      <div class="mph-regional-header">
+        <span class="mph-eyebrow mph-eyebrow--coral">Regional Context</span>
+        <h3 style="color:var(--white);margin:.5rem 0">The Scale of the Challenge</h3>
+        <p style="color:rgba(255,255,255,.6);font-size:.88rem;max-width:580px;margin:0 auto">
+          These are not Migration Pulse Hub statistics. They represent the broader crisis our work responds to — sourced from UNHCR's verified global data.
+        </p>
+      </div>
+      <div class="mph-regional-stats">
+        <div class="mph-regional-stat">
+          <span class="mph-regional-num">122.6M</span>
+          <span class="mph-regional-lbl">Forcibly Displaced Worldwide</span>
+          <span class="mph-regional-source">UNHCR Global Trends, 2024</span>
+        </div>
+        <div class="mph-regional-stat">
+          <span class="mph-regional-num">43.4M</span>
+          <span class="mph-regional-lbl">Refugees Globally</span>
+          <span class="mph-regional-source">UNHCR Mid-Year Report, 2024</span>
+        </div>
+        <div class="mph-regional-stat">
+          <span class="mph-regional-num">853K</span>
+          <span class="mph-regional-lbl">Refugees &amp; Asylum-Seekers in Kenya</span>
+          <span class="mph-regional-source">UNHCR Kenya Fact Sheet, May 2025</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Impact Stats -->
-  <section class="mph-section bg-gradient-navy">
-    <div class="mph-container">
-      <div class="mph-section-title mph-reveal" style="margin-bottom:48px">
-        <span class="mph-eyebrow mph-eyebrow--navy">Our Impact</span>
-        <h2 style="color:var(--white)">Measurable Change. Real Lives.</h2>
-        <p style="color:rgba(255,255,255,.7)">Since 2020, our work has reached thousands of people across East Africa — with measurable outcomes in policy, protection, and empowerment.</p>
-      </div>
-      <div class="mph-impact-grid">
-        <div class="mph-impact-stat mph-reveal"><span class="num" data-count="12000" data-suffix="+">12,000+</span><span class="lbl">Migrants &amp; IDPs Reached</span></div>
-        <div class="mph-impact-stat mph-reveal"><span class="num" data-count="45" data-suffix="+">45+</span><span class="lbl">Policy Engagements</span></div>
-        <div class="mph-impact-stat mph-reveal"><span class="num" data-count="18" data-suffix="">18</span><span class="lbl">Research Publications</span></div>
-        <div class="mph-impact-stat mph-reveal"><span class="num" data-count="2300" data-suffix="+">2,300+</span><span class="lbl">Legal Consultations</span></div>
-        <div class="mph-impact-stat mph-reveal"><span class="num" data-count="600" data-suffix="+">600+</span><span class="lbl">People Trained</span></div>
-        <div class="mph-impact-stat mph-reveal"><span class="num" data-count="8" data-suffix="">8</span><span class="lbl">Countries of Operation</span></div>
-        <div class="mph-impact-stat mph-reveal"><span class="num" data-count="32" data-suffix="+">32+</span><span class="lbl">Partner Organisations</span></div>
-        <div class="mph-impact-stat mph-reveal"><span class="num" data-count="5" data-suffix="">5</span><span class="lbl">Years of Operation</span></div>
-      </div>
-      <div style="text-align:center;margin-top:3rem">
-        <a href="impact.html" class="mph-btn outline lg">View Full Impact Report</a>
-      </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Testimonial Quote
+     ============================================================ -->
+<section class="mph-section-sm bg-sand">
+  <div class="mph-container">
+    <div class="mph-quote mph-reveal">
+      <svg class="mph-quote-icon"><use href="#ico-book"/></svg>
+      <p style="font-family:var(--font-article);font-size:1.2rem;font-style:italic;color:var(--white);line-height:1.75;position:relative;z-index:1">Migration Pulse Hub gave us a language to speak about our rights. Before their training, we did not know that what was happening to us had a name — and that the law was on our side.</p>
+      <cite style="display:block;margin-top:1.25rem;font-size:.8rem;color:rgba(255,255,255,.55);font-style:normal;font-family:var(--font-body);font-weight:600;position:relative;z-index:1">
+        <strong>Maria O.</strong> — Community Representative, South Sudanese Diaspora Network, Nairobi
+      </cite>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Quote -->
-  <section class="mph-section-sm bg-sand">
-    <div class="mph-container">
-      <div class="mph-quote mph-reveal">
-        <p style="font-family:var(--font-article);font-size:1.2rem;font-style:italic;color:var(--white);line-height:1.75;position:relative;z-index:1">Migration Pulse Hub gave us a language to speak about our rights. Before their training, we did not know that what was happening to us had a name — and that the law was on our side.</p>
-        <cite style="display:block;margin-top:1.25rem;font-size:.8rem;color:rgba(255,255,255,.55);font-style:normal;font-family:var(--font-body);font-weight:600;position:relative;z-index:1"><strong>Maria O.</strong> — Community Representative, South Sudanese Diaspora Network, Nairobi</cite>
-      </div>
+<!-- ============================================================
+     Policy Watch — NEW SECTION
+     ============================================================ -->
+<section class="mph-section bg-bg" id="policy-watch">
+  <div class="mph-container">
+    <div class="mph-section-title mph-reveal">
+      <span class="mph-eyebrow">Policy Watch</span>
+      <h2>Refugee Law &amp; Policy Updates</h2>
+      <p>Tracking legislative, judicial, and protection developments across Kenya and East Africa that directly affect migrants, refugees, and IDPs.</p>
     </div>
-  </section>
 
-  <!-- Latest News -->
-  <section class="mph-section bg-white">
-    <div class="mph-container">
-      <div class="mph-section-title mph-reveal">
-        <span class="mph-eyebrow">Latest Updates</span>
-        <h2>News &amp; Insights</h2>
-        <p>Stay informed on migration rights, policy developments, and our programme updates across East Africa.</p>
+    <div class="mph-policy-grid">
+
+      <div class="mph-policy-card mph-reveal">
+        <div class="mph-policy-card-top">
+          <span class="mph-policy-badge mph-policy-badge--teal">Kenya</span>
+          <span class="mph-policy-date">
+            <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-calendar"/></svg>
+            1 February 2024
+          </span>
+        </div>
+        <div class="mph-policy-icon icon--teal">
+          <svg class="mph-icon mph-icon-lg"><use href="#ico-landmark"/></svg>
+        </div>
+        <h4>Kenya Refugees (General) Regulations 2024 Gazetted</h4>
+        <p>The new Regulations, gazetted 29 December 2023 and commenced 1 February 2024, provide a revised legal framework for refugee status determination, encampment policy, and rights to documentation. Our analysis outlines the key implications for protection actors.</p>
+        <div class="mph-policy-card-footer">
+          <a href="knowledge-hub.html" class="mph-policy-link">
+            Read Our Analysis <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-arrow-right"/></svg>
+          </a>
+          <span class="mph-policy-source">Source: Kenya Law, 2024</span>
+        </div>
       </div>
-      <div class="mph-grid-3">
-        <article class="mph-news-card mph-reveal">
-          <div class="mph-news-card-img">
-            <img src="assets/images/feature-1.jpeg" alt="Kenya Refugees Act" style="width:100%;height:100%;object-fit:cover" />
-            <span class="cat-pill">Policy</span>
-          </div>
-          <div class="mph-news-body">
-            <div class="mph-news-date">📅 April 2026</div>
-            <h3><a href="news.html">Kenya Passes Landmark Amendments to Refugees Act</a></h3>
-            <p>The amended Refugees Act introduces a revised encampment policy and expanded rights to work permits — our analysis examines the implications for migrants.</p>
-          </div>
-        </article>
-        <article class="mph-news-card mph-reveal">
-          <div class="mph-news-card-img" style="background:linear-gradient(135deg,var(--teal-dark),var(--teal))">
-            <span style="font-size:3rem">📊</span>
-            <span class="cat-pill">Research</span>
-          </div>
-          <div class="mph-news-body">
-            <div class="mph-news-date">📅 March 2026</div>
-            <h3><a href="reports.html">New Report: Climate Displacement in the Horn of Africa</a></h3>
-            <p>Our latest research documents climate-linked displacement affecting over 3 million people, with policy recommendations for governments and donors.</p>
-          </div>
-        </article>
-        <article class="mph-news-card mph-reveal">
-          <div class="mph-news-card-img" style="background:linear-gradient(135deg,#b96a20,var(--gold))">
-            <span style="font-size:3rem">🎓</span>
-            <span class="cat-pill">Training</span>
-          </div>
-          <div class="mph-news-body">
-            <div class="mph-news-date">📅 February 2026</div>
-            <h3><a href="news.html">350 Community Paralegals Trained Across Uganda and Kenya</a></h3>
-            <p>Our capacity building programme concluded its second cohort, equipping 350 paralegals with legal literacy and trauma-informed support skills.</p>
-          </div>
-        </article>
+
+      <div class="mph-policy-card mph-reveal">
+        <div class="mph-policy-card-top">
+          <span class="mph-policy-badge mph-policy-badge--coral">UNHCR</span>
+          <span class="mph-policy-date">
+            <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-calendar"/></svg>
+            April 2025
+          </span>
+        </div>
+        <div class="mph-policy-icon icon--coral">
+          <svg class="mph-icon mph-icon-lg"><use href="#ico-shield"/></svg>
+        </div>
+        <h4>Kenya Biometric Registration Drive — 853K Persons of Concern</h4>
+        <p>UNHCR Kenya's May 2025 Fact Sheet confirmed 853,074 registered refugees and asylum-seekers, with a biometric re-registration drive underway at Kakuma, Dadaab, and urban centres. MPH is supporting community outreach and documentation assistance.</p>
+        <div class="mph-policy-card-footer">
+          <a href="news.html" class="mph-policy-link">
+            Read Update <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-arrow-right"/></svg>
+          </a>
+          <span class="mph-policy-source">Source: UNHCR Kenya, May 2025</span>
+        </div>
       </div>
-      <div style="text-align:center;margin-top:3rem">
-        <a href="news.html" class="mph-btn dark lg">View All Updates</a>
+
+      <div class="mph-policy-card mph-reveal">
+        <div class="mph-policy-card-top">
+          <span class="mph-policy-badge mph-policy-badge--navy">East Africa</span>
+          <span class="mph-policy-date">
+            <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-calendar"/></svg>
+            March 2025
+          </span>
+        </div>
+        <div class="mph-policy-icon icon--navy">
+          <svg class="mph-icon mph-icon-lg"><use href="#ico-globe"/></svg>
+        </div>
+        <h4>IGAD Updates Regional Migration Policy Framework</h4>
+        <p>The Intergovernmental Authority on Development (IGAD) has updated its Regional Migration Policy Framework to include stronger climate-linked displacement provisions. MPH participated in technical consultations and submitted written recommendations on protection gaps.</p>
+        <div class="mph-policy-card-footer">
+          <a href="reports.html" class="mph-policy-link">
+            View Submission <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-arrow-right"/></svg>
+          </a>
+          <span class="mph-policy-source">Source: IGAD, 2025</span>
+        </div>
       </div>
+
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="mph-cta">
-    <div class="mph-container">
-      <span class="mph-eyebrow mph-eyebrow--navy" style="margin-bottom:1.5rem">Get Involved</span>
-      <h2>Stand with Migrants. Defend Rights.</h2>
-      <p>Whether you are a donor, partner, volunteer, researcher, or advocate — there is a place for you in this movement. Every contribution strengthens the protection of human dignity.</p>
-      <div class="mph-cta-actions">
-        <a href="support.html" class="mph-btn coral lg">Support Our Work</a>
-        <a href="contact.html" class="mph-btn outline lg">Get In Touch</a>
-        <a href="partners.html" class="mph-btn outline lg">Partner With Us</a>
-      </div>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="knowledge-hub.html" class="mph-btn dark lg">
+        <svg class="mph-icon"><use href="#ico-newspaper"/></svg>
+        View All Policy Briefs
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="mph-footer">
-    <div class="mph-footer-main">
-      <div class="mph-container">
-        <div class="mph-footer-grid">
-          <div class="mph-footer-brand">
-            <img src="assets/images/logo.png" class="mph-footer-logo-img" alt="Migration Pulse Hub" />
-            <p>Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants through advocacy, research, legal action, and community empowerment.</p>
-            <div class="mph-footer-socials">
-              <a href="#" aria-label="LinkedIn">in</a>
-              <a href="#" aria-label="X/Twitter">𝕏</a>
-              <a href="#" aria-label="Facebook">f</a>
-              <a href="#" aria-label="Instagram">ig</a>
-              <a href="#" aria-label="YouTube">▶</a>
-            </div>
+<!-- ============================================================
+     Latest News
+     ============================================================ -->
+<section class="mph-section bg-white">
+  <div class="mph-container">
+    <div class="mph-section-title mph-reveal">
+      <span class="mph-eyebrow">Latest Updates</span>
+      <h2>News &amp; Insights</h2>
+      <p>Stay informed on migration rights, policy developments, and our programme updates across East Africa.</p>
+    </div>
+    <div class="mph-grid-3">
+
+      <article class="mph-news-card mph-reveal">
+        <div class="mph-news-card-img">
+          <img src="assets/images/feature-1.jpeg" alt="Kenya Refugees Act Amendment" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+          <span class="cat-pill">
+            <svg class="mph-icon" style="width:11px;height:11px"><use href="#ico-landmark"/></svg>
+            Policy
+          </span>
+        </div>
+        <div class="mph-news-body">
+          <div class="mph-news-date">
+            <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-calendar"/></svg>
+            April 2025
           </div>
-          <div class="mph-footer-col">
-            <h4>Organisation</h4>
-            <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="team.html">Team &amp; Board</a></li>
-              <li><a href="impact.html">Our Impact</a></li>
-              <li><a href="partners.html">Partners</a></li>
-              <li><a href="media.html">Media Centre</a></li>
-            </ul>
+          <h3><a href="news.html">Kenya's Refugees Regulations 2024: What Changes for Migrants</a></h3>
+          <p>The new Regulations bring revised encampment policy, expanded documentation rights, and a clearer status determination process. Our team breaks down what it means on the ground.</p>
+        </div>
+      </article>
+
+      <article class="mph-news-card mph-reveal">
+        <div class="mph-news-card-img">
+          <img src="assets/images/hero-4.jpg" alt="Climate Displacement Research" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+          <span class="cat-pill">
+            <svg class="mph-icon" style="width:11px;height:11px"><use href="#ico-bar-chart"/></svg>
+            Research
+          </span>
+        </div>
+        <div class="mph-news-body">
+          <div class="mph-news-date">
+            <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-calendar"/></svg>
+            March 2025
           </div>
-          <div class="mph-footer-col">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
-              <li><a href="reports.html">Reports &amp; Publications</a></li>
-              <li><a href="news.html">News &amp; Updates</a></li>
-              <li><a href="events.html">Events</a></li>
-              <li><a href="support.html">Support Us</a></li>
-            </ul>
+          <h3><a href="reports.html">New Report: Climate Displacement in the Horn of Africa</a></h3>
+          <p>Our latest research documents climate-linked displacement across Ethiopia, Somalia, and Kenya — with policy recommendations for governments, IGAD, and humanitarian donors.</p>
+        </div>
+      </article>
+
+      <article class="mph-news-card mph-reveal">
+        <div class="mph-news-card-img">
+          <img src="assets/images/hero-5.jpg" alt="Community Paralegal Training" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+          <span class="cat-pill">
+            <svg class="mph-icon" style="width:11px;height:11px"><use href="#ico-users"/></svg>
+            Training
+          </span>
+        </div>
+        <div class="mph-news-body">
+          <div class="mph-news-date">
+            <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-calendar"/></svg>
+            February 2025
           </div>
-          <div class="mph-footer-col">
-            <h4>Contact</h4>
-            <div class="mph-footer-contact-list">
-              <div class="mph-footer-contact-item"><span class="ico">📧</span><a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a></div>
-              <div class="mph-footer-contact-item"><span class="ico">📞</span><a href="tel:+254118969209">+254 118 969 209</a></div>
-              <div class="mph-footer-contact-item"><span class="ico">📍</span><span>Nairobi, Kenya</span></div>
-            </div>
-            <a href="contact.html" class="mph-btn sm" style="margin-top:1.25rem">Get In Touch</a>
+          <h3><a href="news.html">280 Community Paralegals Trained Across Uganda and Kenya</a></h3>
+          <p>Our capacity building programme completed its second cohort, equipping 280 community paralegals with legal literacy, rights documentation, and trauma-informed support skills.</p>
+        </div>
+      </article>
+
+    </div>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="news.html" class="mph-btn dark lg">View All Updates</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Events — Enhanced Module
+     ============================================================ -->
+<section class="mph-section bg-bg" id="events">
+  <div class="mph-container">
+    <div class="mph-section-title mph-reveal">
+      <span class="mph-eyebrow">Events</span>
+      <h2>Upcoming &amp; Recent Events</h2>
+      <p>Join us for forums, workshops, and webinars on migration rights, refugee protection, and policy advocacy across East Africa.</p>
+    </div>
+
+    <div class="mph-events-list">
+
+      <!-- Upcoming Event 1 -->
+      <div class="mph-event-item mph-event-item--upcoming mph-reveal">
+        <div class="mph-event-date-block">
+          <span class="mph-event-month">JUN</span>
+          <span class="mph-event-day">19</span>
+          <span class="mph-event-year">2025</span>
+        </div>
+        <div class="mph-event-body">
+          <div class="mph-event-meta">
+            <span class="mph-event-badge mph-event-badge--green">Upcoming</span>
+            <span class="mph-event-type">
+              <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-globe"/></svg>
+              Forum
+            </span>
+            <span class="mph-event-location">
+              <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-map-pin"/></svg>
+              Nairobi, Kenya
+            </span>
+          </div>
+          <h4>East Africa Migration Rights Forum 2025</h4>
+          <p>A two-day convening of civil society, government, and regional bodies to address protection gaps, climate-linked displacement, and the implementation of the Kenya Refugees Regulations 2024.</p>
+          <div class="mph-event-actions">
+            <a href="events.html" class="mph-btn sm">
+              <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-check"/></svg>
+              Register Now
+            </a>
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=East+Africa+Migration+Rights+Forum+2025&dates=20250619/20250620&details=MPH+forum+on+migration+rights+and+refugee+protection.&location=Nairobi,+Kenya" class="mph-btn sm dark" target="_blank" rel="noopener">
+              <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-calendar"/></svg>
+              Add to Calendar
+            </a>
           </div>
         </div>
       </div>
+
+      <!-- Upcoming Event 2 -->
+      <div class="mph-event-item mph-event-item--upcoming mph-reveal">
+        <div class="mph-event-date-block">
+          <span class="mph-event-month">JUL</span>
+          <span class="mph-event-day">10</span>
+          <span class="mph-event-year">2025</span>
+        </div>
+        <div class="mph-event-body">
+          <div class="mph-event-meta">
+            <span class="mph-event-badge mph-event-badge--green">Upcoming</span>
+            <span class="mph-event-type">
+              <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-users"/></svg>
+              Workshop
+            </span>
+            <span class="mph-event-location">
+              <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-map-pin"/></svg>
+              Kampala, Uganda
+            </span>
+          </div>
+          <h4>Community Paralegal Training Workshop — Cohort 3</h4>
+          <p>A 5-day intensive training for frontline community workers on refugee rights, legal documentation, and trauma-informed communication. Hosted jointly with Refugee Law Project Uganda.</p>
+          <div class="mph-event-actions">
+            <a href="events.html" class="mph-btn sm">
+              <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-check"/></svg>
+              Apply to Attend
+            </a>
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=MPH+Paralegal+Training+Workshop+Cohort+3&dates=20250710/20250715&details=Community+paralegal+training+on+refugee+rights+and+legal+documentation.&location=Kampala,+Uganda" class="mph-btn sm dark" target="_blank" rel="noopener">
+              <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-calendar"/></svg>
+              Add to Calendar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Past Event (with recap) -->
+      <div class="mph-event-item mph-event-item--past mph-reveal">
+        <div class="mph-event-date-block mph-event-date-block--past">
+          <span class="mph-event-month">APR</span>
+          <span class="mph-event-day">08</span>
+          <span class="mph-event-year">2025</span>
+        </div>
+        <div class="mph-event-body">
+          <div class="mph-event-meta">
+            <span class="mph-event-badge mph-event-badge--gray">Past Event</span>
+            <span class="mph-event-type">
+              <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-landmark"/></svg>
+              Seminar
+            </span>
+            <span class="mph-event-location">
+              <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-map-pin"/></svg>
+              Online (Zoom)
+            </span>
+          </div>
+          <h4>Kenya Refugee Law Update Seminar: Regulations 2024 Explained</h4>
+          <p>An online seminar with legal practitioners, civil society organisations, and UNHCR representatives to unpack the Kenya Refugees (General) Regulations 2024 and their practical implications.</p>
+          <div class="mph-event-actions">
+            <a href="events.html" class="mph-btn sm dark">
+              <svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-link"/></svg>
+              View Recap &amp; Resources
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <div style="text-align:center;margin-top:3rem">
+      <a href="events.html" class="mph-btn dark lg">View All Events</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA — Get Involved
+     ============================================================ -->
+<section class="mph-cta">
+  <div class="mph-container">
+    <span class="mph-eyebrow mph-eyebrow--navy" style="margin-bottom:1.5rem">Get Involved</span>
+    <h2>Stand with Migrants. Defend Rights.</h2>
+    <p>Whether you are a donor, partner, volunteer, researcher, or advocate — there is a place for you in this movement. Every contribution strengthens the protection of human dignity.</p>
+    <div class="mph-cta-actions">
+      <a href="support.html" class="mph-btn coral lg">
+        <svg class="mph-icon"><use href="#ico-heart"/></svg>
+        Support Our Work
+      </a>
+      <a href="contact.html" class="mph-btn outline lg">Get In Touch</a>
+      <a href="partners.html" class="mph-btn outline lg">Partner With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="mph-footer">
+  <div class="mph-footer-main">
     <div class="mph-container">
-      <div class="mph-footer-bottom">
-        <span>© 2026 Migration Pulse Hub. All rights reserved.</span>
-        <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="privacy.html#terms">Terms of Use</a> &nbsp;·&nbsp; <a href="privacy.html#safeguarding">Safeguarding</a></span>
+      <div class="mph-footer-grid">
+        <div class="mph-footer-brand">
+          <img src="assets/images/logo.png" class="mph-footer-logo-img" alt="Migration Pulse Hub" />
+          <p>Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants through advocacy, research, legal action, and community empowerment.</p>
+          <div class="mph-footer-socials">
+            <a href="#" aria-label="LinkedIn"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-linkedin"/></svg></a>
+            <a href="#" aria-label="X/Twitter"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-twitter"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-facebook"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-instagram"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-youtube"/></svg></a>
+          </div>
+        </div>
+        <div class="mph-footer-col">
+          <h4>Organisation</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="team.html">Team &amp; Board</a></li>
+            <li><a href="impact.html">Our Impact</a></li>
+            <li><a href="partners.html">Partners</a></li>
+            <li><a href="media.html">Media Centre</a></li>
+          </ul>
+        </div>
+        <div class="mph-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
+            <li><a href="reports.html">Reports &amp; Publications</a></li>
+            <li><a href="news.html">News &amp; Updates</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="support.html">Support Us</a></li>
+          </ul>
+        </div>
+        <div class="mph-footer-col">
+          <h4>Contact</h4>
+          <div class="mph-footer-contact-list">
+            <div class="mph-footer-contact-item">
+              <svg class="mph-icon" style="width:15px;height:15px;color:var(--teal)"><use href="#ico-mail"/></svg>
+              <a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a>
+            </div>
+            <div class="mph-footer-contact-item">
+              <svg class="mph-icon" style="width:15px;height:15px;color:var(--teal)"><use href="#ico-phone"/></svg>
+              <a href="tel:+254118969209">+254 118 969 209</a>
+            </div>
+            <div class="mph-footer-contact-item">
+              <svg class="mph-icon" style="width:15px;height:15px;color:var(--teal)"><use href="#ico-map-pin"/></svg>
+              <span>Nairobi, Kenya</span>
+            </div>
+          </div>
+          <a href="contact.html" class="mph-btn sm" style="margin-top:1.25rem">Get In Touch</a>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="mph-container">
+    <div class="mph-footer-bottom">
+      <span>© 2025 Migration Pulse Hub. All rights reserved.</span>
+      <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="privacy.html#terms">Terms of Use</a> &nbsp;·&nbsp; <a href="privacy.html#safeguarding">Safeguarding</a></span>
+    </div>
+  </div>
+</footer>
 
-  <button class="mph-back-to-top" aria-label="Back to top">↑</button>
-  <script src="assets/js/main.js"></script>
+<button class="mph-back-to-top" aria-label="Back to top">
+  <svg class="mph-icon"><use href="#ico-trending"/></svg>
+</button>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
