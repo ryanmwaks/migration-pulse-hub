@@ -47,7 +47,7 @@
         </a>
         <button class="mph-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         <ul class="mph-nav">
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
           <li class="has-dropdown">
             <a href="our-work.html">Our Work ▾</a>
             <ul class="mph-dropdown">
@@ -80,120 +80,67 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="mph-hero">
+  <!-- ============================================================
+       Hero — Full-Width Video Background (from migrationpulsehub.org)
+       ============================================================ -->
+  <section class="mph-hero mph-hero--video">
+
+    <!-- Video Background -->
+    <div class="mph-hero-video-bg">
+      <video autoplay muted loop playsinline poster="assets/images/hero-bg.webp">
+        <source src="assets/videos/hero.mp4" type="video/mp4" />
+        <!-- Fallback: browser shows poster if video unsupported -->
+      </video>
+      <div class="mph-hero-video-overlay"></div>
+    </div>
+
+    <!-- Content -->
     <div class="mph-container">
-      <div class="mph-hero-grid">
-
-        <!-- Left: Copy -->
-        <div class="mph-hero-content">
-          <span class="mph-eyebrow mph-eyebrow--navy">Est. 2020 &nbsp;·&nbsp; Nairobi, Kenya</span>
-          <h1>Rights Move with<br><em style="color:var(--teal-light);font-style:normal">People Everywhere</em></h1>
-          <p class="mph-lead" style="color:rgba(255,255,255,.8);margin-bottom:2rem">Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants — through advocacy, research, legal action, and community empowerment.</p>
-          <div class="mph-hero-actions">
-            <a href="our-work.html" class="mph-btn lg">Explore Our Work</a>
-            <a href="support.html" class="mph-btn lg outline">Support the Mission</a>
+      <div class="mph-hero-video-content">
+        <span class="mph-eyebrow mph-eyebrow--navy">Est. 2020 &nbsp;·&nbsp; Nairobi, Kenya</span>
+        <h1>Rights Move with<br><em>People Everywhere</em></h1>
+        <p class="mph-lead">Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants — through advocacy, research, legal action, and community empowerment.</p>
+        <div class="mph-hero-actions">
+          <a href="our-work.html" class="mph-btn xl">Explore Our Work</a>
+          <a href="support.html" class="mph-btn xl outline">Support the Mission</a>
+        </div>
+        <div class="mph-hero-stats">
+          <div class="mph-hero-stat">
+            <span class="num" data-count="12000" data-suffix="+">12,000+</span>
+            <span class="lbl">People Reached</span>
           </div>
-          <div class="mph-hero-stats">
-            <div class="mph-hero-stat">
-              <span class="num" data-count="12000" data-suffix="+">12,000+</span>
-              <span class="lbl">People Reached</span>
-            </div>
-            <div class="mph-hero-stat">
-              <span class="num" data-count="8" data-suffix="">8</span>
-              <span class="lbl">Countries</span>
-            </div>
-            <div class="mph-hero-stat">
-              <span class="num" data-count="45" data-suffix="+">45+</span>
-              <span class="lbl">Policy Engagements</span>
-            </div>
+          <div class="mph-hero-stat">
+            <span class="num" data-count="8" data-suffix="">8</span>
+            <span class="lbl">Countries</span>
+          </div>
+          <div class="mph-hero-stat">
+            <span class="num" data-count="45" data-suffix="+">45+</span>
+            <span class="lbl">Policy Engagements</span>
           </div>
         </div>
-
-        <!-- Right: Image Slideshow -->
-        <div class="mph-hero-visual">
-          <div class="mph-hero-slideshow">
-
-            <!-- Slide 1 -->
-            <div class="mph-slide active">
-              <img src="assets/images/hero-bg.webp" alt="Migrants at a community hub in East Africa" loading="eager" />
-              <div class="mph-slide-caption">
-                <span class="mph-slide-caption-tag">Our Mission</span>
-                <h5>Rights Move with People</h5>
-                <p>Protecting dignity across East Africa's migration corridors</p>
-              </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="mph-slide">
-              <img src="assets/images/hero-1.jpg" alt="Community advocacy session" loading="lazy" />
-              <div class="mph-slide-caption">
-                <span class="mph-slide-caption-tag">Advocacy</span>
-                <h5>Amplifying Migrant Voices</h5>
-                <p>Shaping migration policy at national and regional levels</p>
-              </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="mph-slide">
-              <img src="assets/images/hero-3.jpg" alt="Legal consultation for migrants" loading="lazy" />
-              <div class="mph-slide-caption">
-                <span class="mph-slide-caption-tag">Legal Aid</span>
-                <h5>Justice for Every Migrant</h5>
-                <p>Direct legal assistance and case representation</p>
-              </div>
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="mph-slide">
-              <img src="assets/images/hero-4.jpg" alt="Field research team at work" loading="lazy" />
-              <div class="mph-slide-caption">
-                <span class="mph-slide-caption-tag">Research</span>
-                <h5>Evidence-Driven Solutions</h5>
-                <p>Data that informs policy and drives measurable change</p>
-              </div>
-            </div>
-
-            <!-- Slide 5 -->
-            <div class="mph-slide">
-              <img src="assets/images/hero-5.jpg" alt="Capacity building workshop" loading="lazy" />
-              <div class="mph-slide-caption">
-                <span class="mph-slide-caption-tag">Capacity Building</span>
-                <h5>Empowering Communities</h5>
-                <p>Training frontline workers and community paralegals</p>
-              </div>
-            </div>
-
-            <!-- Slide 6 -->
-            <div class="mph-slide">
-              <img src="assets/images/hero-6.jpg" alt="Regional partnership event" loading="lazy" />
-              <div class="mph-slide-caption">
-                <span class="mph-slide-caption-tag">Regional Reach</span>
-                <h5>8 Countries. One Movement.</h5>
-                <p>Building a network of rights defenders across East Africa</p>
-              </div>
-            </div>
-
-            <!-- Controls -->
-            <button class="mph-slide-prev" aria-label="Previous slide">&#8249;</button>
-            <button class="mph-slide-next" aria-label="Next slide">&#8250;</button>
-
-            <!-- Dots -->
-            <div class="mph-slide-dots">
-              <button class="mph-dot active" aria-label="Slide 1"></button>
-              <button class="mph-dot" aria-label="Slide 2"></button>
-              <button class="mph-dot" aria-label="Slide 3"></button>
-              <button class="mph-dot" aria-label="Slide 4"></button>
-              <button class="mph-dot" aria-label="Slide 5"></button>
-              <button class="mph-dot" aria-label="Slide 6"></button>
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </div>
+
   </section>
+
+  <!-- Image Gallery Strip (from live site photos) -->
+  <div class="mph-hero-gallery">
+    <div class="mph-hero-gallery-item">
+      <img src="assets/images/hero-1.jpg" alt="Advocacy in action" loading="lazy" />
+    </div>
+    <div class="mph-hero-gallery-item">
+      <img src="assets/images/hero-3.jpg" alt="Legal consultation" loading="lazy" />
+    </div>
+    <div class="mph-hero-gallery-item">
+      <img src="assets/images/hero-4.jpg" alt="Field research" loading="lazy" />
+    </div>
+    <div class="mph-hero-gallery-item">
+      <img src="assets/images/hero-5.jpg" alt="Capacity building" loading="lazy" />
+    </div>
+    <div class="mph-hero-gallery-item">
+      <img src="assets/images/hero-6.jpg" alt="Regional partnerships" loading="lazy" />
+    </div>
+  </div>
 
   <!-- Mission Strip -->
   <div class="mph-strip">
@@ -295,9 +242,8 @@
   <section class="mph-section-sm bg-sand">
     <div class="mph-container">
       <div class="mph-quote mph-reveal">
-        <div class="mph-quote-mark">"</div>
-        <p class="mph-quote-text">Migration Pulse Hub gave us a language to speak about our rights. Before their training, we did not know that what was happening to us had a name — and that the law was on our side.</p>
-        <div class="mph-quote-source"><strong>Maria O.</strong> — Community Representative, South Sudanese Diaspora Network, Nairobi</div>
+        <p style="font-family:var(--font-article);font-size:1.2rem;font-style:italic;color:var(--white);line-height:1.75;position:relative;z-index:1">Migration Pulse Hub gave us a language to speak about our rights. Before their training, we did not know that what was happening to us had a name — and that the law was on our side.</p>
+        <cite style="display:block;margin-top:1.25rem;font-size:.8rem;color:rgba(255,255,255,.55);font-style:normal;font-family:var(--font-body);font-weight:600;position:relative;z-index:1"><strong>Maria O.</strong> — Community Representative, South Sudanese Diaspora Network, Nairobi</cite>
       </div>
     </div>
   </section>
