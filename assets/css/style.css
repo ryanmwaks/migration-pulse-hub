@@ -1200,3 +1200,195 @@ select.mph-form-control {
   .mph-impact-grid { grid-template-columns: 1fr 1fr; }
   .mph-logo-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ============================================================
+   Logo Image
+   ============================================================ */
+.mph-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.mph-footer-logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: brightness(0) invert(1);   /* white on dark footer */
+  margin-bottom: 1.25rem;
+  opacity: .92;
+}
+
+/* ============================================================
+   Hero Slideshow
+   ============================================================ */
+.mph-hero-slideshow {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  flex-shrink: 0;
+}
+
+/* Slides */
+.mph-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 0;
+}
+.mph-slide.active { opacity: 1; z-index: 1; }
+
+.mph-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.mph-slide.active img {
+  animation: mph-kenburns 9s ease-out forwards;
+}
+
+@keyframes mph-kenburns {
+  from { transform: scale(1.1) translate(-1%, 0.5%); }
+  to   { transform: scale(1.0) translate(0, 0); }
+}
+
+/* Left-edge gradient blending into navy hero bg */
+.mph-hero-slideshow::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0; width: 72px;
+  background: linear-gradient(to right, var(--navy), transparent);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Bottom gradient + caption */
+.mph-slide-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 6;
+  padding: 2.5rem 1.75rem 1.5rem;
+  background: linear-gradient(to top, rgba(11,31,58,.88) 0%, rgba(11,31,58,.3) 60%, transparent 100%);
+  transform: translateY(10px);
+  opacity: 0;
+  transition: opacity .55s ease .25s, transform .55s ease .25s;
+}
+.mph-slide.active .mph-slide-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mph-slide-caption-tag {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--white);
+  font-size: .65rem;
+  font-weight: 700;
+  font-family: var(--font-head);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .22rem .7rem;
+  border-radius: 20px;
+  margin-bottom: .45rem;
+}
+
+.mph-slide-caption h5 {
+  color: var(--white);
+  font-size: .95rem;
+  margin: 0 0 .2rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+}
+
+.mph-slide-caption p {
+  color: rgba(255,255,255,.72);
+  font-size: .78rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Prev / Next arrows */
+.mph-slide-prev,
+.mph-slide-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.25);
+  color: var(--white);
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--ease);
+  padding: 0;
+}
+.mph-slide-prev { left: 1.1rem; }
+.mph-slide-next { right: 1.1rem; }
+.mph-slide-prev:hover,
+.mph-slide-next:hover { background: var(--teal); border-color: var(--teal); transform: translateY(-50%) scale(1.08); }
+
+/* Dot indicators */
+.mph-slide-dots {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.4rem;
+  z-index: 8;
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+}
+
+.mph-dot {
+  width: 8px; height: 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.4);
+  border: none;
+  cursor: pointer;
+  transition: all .35s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+.mph-dot.active {
+  background: var(--teal);
+  width: 22px;
+}
+
+/* Hero stat row (homepage) */
+.mph-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,.08);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+
+/* ============================================================
+   Mobile — slideshow
+   ============================================================ */
+@media (max-width: 768px) {
+  .mph-hero-slideshow {
+    height: 280px;
+    border-radius: var(--r-lg);
+  }
+  .mph-hero-slideshow::before { display: none; }
+  .mph-slide-prev, .mph-slide-next { width: 36px; height: 36px; font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  .mph-hero-slideshow { height: 220px; }
+}

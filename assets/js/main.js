@@ -98,6 +98,51 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
+  /* --- Hero Slideshow ------------------------------------------- */
+  const slideshow = document.querySelector('.mph-hero-slideshow');
+  if (slideshow) {
+    const slides  = Array.from(slideshow.querySelectorAll('.mph-slide'));
+    const dots    = Array.from(slideshow.querySelectorAll('.mph-dot'));
+    const prevBtn = slideshow.querySelector('.mph-slide-prev');
+    const nextBtn = slideshow.querySelector('.mph-slide-next');
+    let current   = 0;
+    let timer;
+
+    function goTo(idx) {
+      slides[current].classList.remove('active');
+      if (dots[current]) dots[current].classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      // Restart Ken Burns animation on the incoming slide's image
+      const img = slides[current].querySelector('img');
+      if (img) { img.style.animation = 'none'; void img.offsetWidth; img.style.animation = ''; }
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 5200);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startTimer(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); startTimer(); }));
+
+    // Touch swipe support
+    let touchStartX = 0;
+    slideshow.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    slideshow.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) { goTo(current + (diff > 0 ? 1 : -1)); startTimer(); }
+    });
+
+    // Pause on hover
+    slideshow.addEventListener('mouseenter', () => clearInterval(timer));
+    slideshow.addEventListener('mouseleave', startTimer);
+
+    startTimer();
+  }
+
   /* --- Contact Form --------------------------------------------- */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
