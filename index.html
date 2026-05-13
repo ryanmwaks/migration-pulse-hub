@@ -179,34 +179,58 @@
 </header>
 
 <!-- ============================================================
-     Hero — Full-Width Video Background
+     Hero — Cinematic 5-Video Sequence
      ============================================================ -->
-<section class="mph-hero mph-hero--video">
+<section class="mph-hero mph-hero--cinematic">
 
-  <!-- Dot-grid futuristic overlay -->
-  <div class="mph-hero-dot-grid" aria-hidden="true"></div>
+  <!-- Cinematic video sequence (desktop) -->
+  <div class="mph-hero-sequence" aria-hidden="true">
+    <div class="mph-hero-clip active">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="assets/videos/hero-sequence-road-to-kakuma.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="mph-hero-clip">
+      <video muted loop playsinline preload="metadata">
+        <source src="assets/videos/hero-sequence-settlement.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="mph-hero-clip">
+      <video muted loop playsinline preload="metadata">
+        <source src="assets/videos/hero-sequence-market.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="mph-hero-clip">
+      <video muted loop playsinline preload="metadata">
+        <source src="assets/videos/hero-sequence-community.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="mph-hero-clip">
+      <video muted loop playsinline preload="metadata">
+        <source src="assets/videos/hero-sequence-resilience.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="mph-hero-overlay"></div>
+  </div>
 
-  <!-- Video Background -->
-  <div class="mph-hero-video-bg">
-    <video autoplay muted loop playsinline poster="assets/images/hero-bg.webp">
-      <source src="assets/videos/hero-refugee.mp4" type="video/mp4" />
-      <source src="assets/videos/hero.mp4" type="video/mp4" />
-    </video>
-    <div class="mph-hero-video-overlay"></div>
+  <!-- Mobile fallback — static poster -->
+  <div class="mph-hero-mobile-bg" aria-hidden="true">
+    <img src="assets/images/women-walking-resilience.jpg" alt="" />
+    <div class="mph-hero-overlay"></div>
   </div>
 
   <!-- Content -->
   <div class="mph-container">
     <div class="mph-hero-video-content">
-      <span class="mph-eyebrow mph-eyebrow--navy">Est. 2020 &nbsp;·&nbsp; Nairobi, Kenya</span>
-      <h1>Rights Move with<br><em>People Everywhere</em></h1>
-      <p class="mph-lead">Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants — through advocacy, research, legal action, and community empowerment.</p>
+      <span class="mph-eyebrow mph-eyebrow--dark">Est. 2020 &nbsp;·&nbsp; Nairobi, Kenya</span>
+      <h1>Rights Move<br>with <em>People.</em></h1>
+      <p class="mph-lead">Migration Pulse Hub advances refugee and migrant rights through research, legal action, advocacy, storytelling, and community-led policy engagement across Eastern Africa.</p>
       <div class="mph-hero-actions">
         <a href="our-work.html" class="mph-btn xl">
           <svg class="mph-icon"><use href="#ico-arrow-right"/></svg>
           Explore Our Work
         </a>
-        <a href="support.html" class="mph-btn xl outline">Support the Mission</a>
+        <a href="reports.html" class="mph-btn xl outline">View Reports</a>
       </div>
       <div class="mph-hero-stats">
         <div class="mph-hero-stat">
@@ -225,15 +249,24 @@
     </div>
   </div>
 
+  <!-- Sequence progress dots -->
+  <div class="mph-hero-progress" aria-hidden="true">
+    <span class="mph-hero-dot active"></span>
+    <span class="mph-hero-dot"></span>
+    <span class="mph-hero-dot"></span>
+    <span class="mph-hero-dot"></span>
+    <span class="mph-hero-dot"></span>
+  </div>
+
 </section>
 
-<!-- Image Gallery Strip -->
+<!-- Authentic Image Gallery Strip -->
 <div class="mph-hero-gallery">
-  <div class="mph-hero-gallery-item"><img src="assets/images/gallery-1.jpg" alt="Women gather in Dadaab refugee camp, Kenya" loading="lazy" /></div>
-  <div class="mph-hero-gallery-item"><img src="assets/images/gallery-2.jpg" alt="Child at a refugee camp in East Africa" loading="lazy" /></div>
-  <div class="mph-hero-gallery-item"><img src="assets/images/gallery-3.jpg" alt="Families walking in rural Africa" loading="lazy" /></div>
-  <div class="mph-hero-gallery-item"><img src="assets/images/gallery-4.jpg" alt="Villagers in Kibumba, DRC" loading="lazy" /></div>
-  <div class="mph-hero-gallery-item"><img src="assets/images/gallery-5.jpg" alt="Humanitarian community gathering in Kenya" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/women-walking-resilience.jpg" alt="Women walking — resilience and dignity" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/kakuma-road-sign.jpg" alt="Road to Kakuma refugee camp, Kenya" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/community-water-access.jpg" alt="Community water access" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/market-alley-livelihoods.jpg" alt="Market livelihoods — East Africa" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/textile-culture-identity.jpg" alt="Textile and cultural identity" loading="lazy" /></div>
 </div>
 
 <!-- Mission Strip -->
@@ -563,7 +596,7 @@
 
       <article class="mph-news-card mph-reveal">
         <div class="mph-news-card-img">
-          <img src="assets/images/news-1.jpg" alt="Kenya Refugees Regulations 2024 — community distribution" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+          <img src="assets/images/market-alley-livelihoods.jpg" alt="Market livelihoods and economic life — East Africa" style="width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(.95)" loading="lazy" />
           <span class="cat-pill">
             <svg class="mph-icon" style="width:11px;height:11px"><use href="#ico-landmark"/></svg>
             Policy
@@ -581,7 +614,7 @@
 
       <article class="mph-news-card mph-reveal">
         <div class="mph-news-card-img">
-          <img src="assets/images/news-2.jpg" alt="Humanitarian volunteers in East Africa" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+          <img src="assets/images/aerial-refugee-settlement-01.jpg" alt="Aerial view of refugee settlement — East Africa" style="width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(.95)" loading="lazy" />
           <span class="cat-pill">
             <svg class="mph-icon" style="width:11px;height:11px"><use href="#ico-bar-chart"/></svg>
             Research
@@ -599,7 +632,7 @@
 
       <article class="mph-news-card mph-reveal">
         <div class="mph-news-card-img">
-          <img src="assets/images/news-3.jpg" alt="Elderly man receiving humanitarian aid — Kenya" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+          <img src="assets/images/community-water-access.jpg" alt="Community water access — East Africa" style="width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(.95)" loading="lazy" />
           <span class="cat-pill">
             <svg class="mph-icon" style="width:11px;height:11px"><use href="#ico-users"/></svg>
             Training

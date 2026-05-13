@@ -39,6 +39,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* --- Cinematic Hero Sequence ---------------------------------- */
+  (function () {
+    const clips = Array.from(document.querySelectorAll('.mph-hero-clip'));
+    const dots  = Array.from(document.querySelectorAll('.mph-hero-dot'));
+    if (!clips.length) return;
+
+    let current  = 0;
+    let timer    = null;
+    const DWELL  = 9000;  // ms per clip
+    const FADE   = 1800;  // ms — must match CSS transition
+
+    function goTo(idx) {
+      const prev = current;
+      current = ((idx % clips.length) + clips.length) % clips.length;
+      if (prev === current) return;
+
+      // Swap active class
+      clips[prev].classList.remove('active');
+      dots[prev] && dots[prev].classList.remove('active');
+      clips[current].classList.add('active');
+      dots[current] && dots[current].classList.add('active');
+
+      // Play incoming video (muted, looped)
+      const vid = clips[current].querySelector('video');
+      if (vid) { vid.currentTime = 0; vid.play().catch(() => {}); }
+    }
+
+    // Start cycling
+    function startCycle() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), DWELL);
+    }
+
+    // Dot clicks
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+      goTo(i);
+      startCycle(); // reset interval on manual nav
+    }));
+
+    // Init first clip's video
+    const firstVid = clips[0].querySelector('video');
+    if (firstVid) firstVid.play().catch(() => {});
+    startCycle();
+  })();
+
   /* --- Accordion / FAQ ------------------------------------------ */
   document.querySelectorAll('.mph-accordion-header').forEach(header => {
     header.addEventListener('click', () => {
