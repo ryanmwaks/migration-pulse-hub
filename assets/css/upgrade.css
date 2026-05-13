@@ -908,6 +908,22 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
   opacity: .88;
 }
 
+/* Organisation name — bigger & bolder in the nav bar */
+.mph-logo-name {
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -.02em;
+  color: var(--charcoal) !important;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.mph-logo-sub {
+  font-size: .7rem !important;
+  color: var(--charcoal-soft) !important;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
 /* ============================================================
    23. RESPONSIVE
    ============================================================ */
