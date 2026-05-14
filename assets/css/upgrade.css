@@ -154,19 +154,42 @@ a:hover { color: var(--plum); }
 /* ============================================================
    6. SOCIAL ICONS
    ============================================================ */
+
+/* Topbar container — vertically centre the icon row */
+.mph-topbar-right {
+  align-items: center;
+}
+
+/* Topbar icon circles — visible border + subtle tint so circles are distinct */
+.mph-socials a {
+  background: rgba(255,255,255,.08) !important;
+  border-color: rgba(255,255,255,.38) !important;
+}
+
+/* Override amber hover for both zones */
 .mph-socials a:hover,
 .mph-footer-socials a:hover {
-  background: var(--amber);
-  border-color: var(--amber);
+  background: var(--amber) !important;
+  border-color: var(--amber) !important;
   color: var(--charcoal) !important;
 }
 
-/* SVGs inside social icon circles must be block so flex centering works cleanly */
+/* SVGs must be display:block inside flex circles — kills vertical baseline drift.
+   Also strip inline size so the CSS rule below controls it exclusively. */
 .mph-socials a svg,
 .mph-footer-socials a svg {
-  display: block;
+  display: block !important;
   flex-shrink: 0;
   pointer-events: none;
+  /* Override any inline width/height attribute on the svg element */
+  width: 15px !important;
+  height: 15px !important;
+}
+
+/* Footer icon circles are slightly larger — keep them at 16px */
+.mph-footer-socials a svg {
+  width: 16px !important;
+  height: 16px !important;
 }
 
 /* ============================================================
