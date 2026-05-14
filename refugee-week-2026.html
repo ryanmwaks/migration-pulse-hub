@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refugee Week Kenya 2026 | Migration Pulse Hub</title>
+  <meta name="description" content="Join Migration Pulse Hub for Refugee Week Kenya 2026 — a regional gathering on stories, policy, culture, protection, and the future of human mobility across Eastern Africa." />
+  <meta property="og:title" content="Refugee Week Kenya 2026 | Migration Pulse Hub" />
+  <meta property="og:description" content="Register, sponsor, exhibit, or partner. June 15–21, 2026 · Nairobi, Kenya." />
+  <meta property="og:image" content="assets/images/aerial-refugee-settlement-01.jpg" />
+  <!-- Event Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Event","name":"Refugee Week Kenya 2026","startDate":"2026-06-15","endDate":"2026-06-21","location":{"@type":"Place","name":"Kenyatta International Convention Centre","address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"}},"organizer":{"@type":"Organization","name":"Migration Pulse Hub","url":"https://migrationpulsehub.org"},"eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/MixedEventAttendanceMode"}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/upgrade.css" />
+  <link rel="stylesheet" href="assets/css/zuri-chat.css" />
+  <style>
+    /* ===== RW26 PAGE-SPECIFIC TOKENS ===== */
+    :root {
+      --rw-amber:   #FE9F00;
+      --rw-plum:    #7D0A6D;
+      --rw-dark:    #1A0A18;
+      --rw-teal:    #0A7D6D;
+      --rw-card-r:  1rem;
+      --rw-ease:    cubic-bezier(.25,.46,.45,.94);
+    }
+
+    /* ===== HERO ===== */
+    .rw-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 5rem;
+      overflow: hidden;
+      background: var(--rw-dark);
+    }
+    .rw-hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('assets/images/aerial-refugee-settlement-01.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+      filter: brightness(.55) saturate(.85);
+    }
+    .rw-hero:hover .rw-hero__bg { transform: scale(1); }
+    .rw-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,10,24,.92) 0%, rgba(26,10,24,.45) 55%, rgba(26,10,24,.15) 100%);
+    }
+    .rw-hero__texture {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(135deg, rgba(254,159,0,.04) 0px, rgba(254,159,0,.04) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(45deg,  rgba(254,159,0,.03) 0px, rgba(254,159,0,.03) 1px, transparent 1px, transparent 40px);
+      pointer-events: none;
+    }
+    .rw-hero__inner {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .rw-hero__eyebrow {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: rgba(254,159,0,.15);
+      border: 1px solid rgba(254,159,0,.35);
+      border-radius: 30px;
+      padding: .3rem 1rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: 1.8px;
+      color: var(--rw-amber); text-transform: uppercase;
+      margin-bottom: 1.35rem;
+    }
+    .rw-hero__title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 800; line-height: 1.08;
+      color: #fff; margin-bottom: .9rem;
+      letter-spacing: -.02em;
+    }
+    .rw-hero__title span { color: var(--rw-amber); }
+    .rw-hero__sub {
+      font-size: clamp(.95rem, 1.8vw, 1.2rem);
+      color: rgba(255,255,255,.78);
+      line-height: 1.65; max-width: 680px;
+      margin-bottom: 2rem;
+    }
+    .rw-hero__ctas {
+      display: flex; flex-wrap: wrap; gap: .85rem;
+      margin-bottom: 2.5rem;
+    }
+    .rw-btn { display: inline-flex; align-items: center; gap: .45rem;
+      padding: .75rem 1.6rem; border-radius: 50px; font-weight: 700;
+      font-size: .92rem; border: 2px solid transparent;
+      cursor: pointer; text-decoration: none; transition: all .22s var(--rw-ease); }
+    .rw-btn--amber { background: var(--rw-amber); color: #1A0A18; }
+    .rw-btn--amber:hover { background: #ffb100; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(254,159,0,.45); }
+    .rw-btn--outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.45); }
+    .rw-btn--outline:hover { border-color: #fff; background: rgba(255,255,255,.08); transform: translateY(-2px); }
+    .rw-btn--plum { background: var(--rw-plum); color: #fff; }
+    .rw-btn--plum:hover { background: #9c0d89; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(125,10,109,.5); }
+    .rw-btn--sm { padding: .55rem 1.2rem; font-size: .84rem; }
+
+    /* Countdown */
+    .rw-countdown {
+      display: flex; gap: 1.25rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .rw-countdown__unit {
+      text-align: center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: .75rem;
+      padding: .75rem 1.1rem;
+      min-width: 68px;
+      backdrop-filter: blur(6px);
+    }
+    .rw-countdown__num {
+      font-family: 'Sora', sans-serif;
+      font-size: 2.2rem; font-weight: 800;
+      color: var(--rw-amber); line-height: 1;
+      display: block;
+    }
+    .rw-countdown__label {
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: 1.5px; color: rgba(255,255,255,.5);
+      text-transform: uppercase; margin-top: .2rem;
+      display: block;
+    }
+
+    /* Hero badges row */
+    .rw-hero__badges {
+      display: flex; flex-wrap: wrap; gap: .7rem;
+      margin-bottom: 2rem;
+    }
+    .rw-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 8px;
+      padding: .45rem .9rem;
+      font-size: .82rem; color: rgba(255,255,255,.82);
+      font-weight: 500;
+    }
+    .rw-badge__dot { width: 8px; height: 8px; border-radius: 50%; }
+    .rw-badge__dot--green  { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+    .rw-badge__dot--amber  { background: var(--rw-amber); }
+    .rw-badge__dot--plum   { background: var(--rw-plum); }
+
+    /* Countries strip */
+    .rw-countries-strip {
+      display: flex; gap: .6rem; flex-wrap: wrap;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .rw-countries-strip span { font-size: .82rem; color: rgba(255,255,255,.55); }
+    .rw-countries-strip__flag { font-size: 1.3rem; }
+
+    /* ===== QUICK INFO BAR ===== */
+    .rw-infobar {
+      background: var(--rw-plum);
+      padding: 1.1rem 0;
+    }
+    .rw-infobar__inner {
+      max-width: 1160px; margin: 0 auto; padding: 0 2rem;
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      align-items: center; justify-content: space-between;
+    }
+    .rw-infobar__item {
+      display: flex; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.9); font-size: .88rem; font-weight: 500;
+    }
+    .rw-infobar__item svg { color: var(--rw-amber); flex-shrink: 0; }
+
+    /* ===== GENERIC SECTION HELPERS ===== */
+    .rw-section { padding: 5rem 0; }
+    .rw-section--sm { padding: 3rem 0; }
+    .rw-section--dark { background: var(--rw-dark); }
+    .rw-section--plum { background: var(--rw-plum); }
+    .rw-section--sand { background: #fdf8f4; }
+    .rw-section--white { background: #fff; }
+    .rw-section--bg   { background: #f7f3f9; }
+    .rw-container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+    .rw-eyebrow {
+      display: inline-block;
+      font-size: .72rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--rw-amber);
+      margin-bottom: .6rem;
+    }
+    .rw-section-title { margin-bottom: 2.5rem; }
+    .rw-section-title h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 800; line-height: 1.18;
+      color: var(--charcoal, #2B2B2B);
+    }
+    .rw-section-title--light h2,
+    .rw-section-title--light .rw-eyebrow { color: #fff; }
+    .rw-section-title--light p { color: rgba(255,255,255,.72); }
+    .rw-section-title p { color: #666; line-height: 1.65; max-width: 640px; margin-top: .5rem; }
+
+    /* ===== OVERVIEW THEMES GRID ===== */
+    .rw-themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .rw-theme-chip {
+      display: flex; align-items: center; gap: .7rem;
+      background: #fff;
+      border: 1.5px solid rgba(125,10,109,.12);
+      border-radius: .85rem;
+      padding: .9rem 1.1rem;
+      font-size: .88rem; font-weight: 600;
+      color: var(--rw-plum);
+      transition: all .22s var(--rw-ease);
+    }
+    .rw-theme-chip:hover {
+      background: var(--rw-plum); color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 22px rgba(125,10,109,.25);
+    }
+    .rw-theme-chip .rw-theme-icon { font-size: 1.3rem; flex-shrink: 0; }
+
+    /* ===== COUNTRIES ===== */
+    .rw-countries { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.1rem; }
+    .rw-country-card {
+      background: #fff; border-radius: 1rem;
+      padding: 1.25rem 1.1rem;
+      border: 1.5px solid rgba(125,10,109,.09);
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,.05);
+      transition: all .22s var(--rw-ease);
+    }
+    .rw-country-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(125,10,109,.15);
+      border-color: var(--rw-plum);
+    }
+    .rw-country-card__flag { font-size: 2.8rem; display: block; margin-bottom: .5rem; }
+    .rw-country-card__name { font-weight: 700; font-size: .95rem; color: var(--rw-plum); margin-bottom: .25rem; }
+    .rw-country-card__tag { font-size: .72rem; color: #888; font-weight: 500; }
+    .rw-country-card__delegates {
+      display: inline-flex; align-items: center; gap: .3rem;
+      margin-top: .5rem;
+      background: rgba(254,159,0,.12); border-radius: 20px;
+      padding: .2rem .65rem; font-size: .7rem; font-weight: 700; color: #9a6200;
+    }
+
+    /* ===== SCHEDULE TABS ===== */
+    .rw-tabs { margin-bottom: 2rem; }
+    .rw-tab-nav {
+      display: flex; gap: .4rem; flex-wrap: wrap;
+      border-bottom: 2px solid rgba(125,10,109,.12);
+      margin-bottom: 2rem;
+    }
+    .rw-tab-btn {
+      padding: .7rem 1.3rem;
+      font-size: .88rem; font-weight: 700;
+      color: #888; background: none; border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer; transition: all .18s;
+      margin-bottom: -2px;
+      border-radius: 6px 6px 0 0;
+    }
+    .rw-tab-btn:hover { color: var(--rw-plum); }
+    .rw-tab-btn.active { color: var(--rw-plum); border-bottom-color: var(--rw-plum); background: rgba(125,10,109,.05); }
+    .rw-tab-panel { display: none; }
+    .rw-tab-panel.active { display: flex; flex-direction: column; gap: .85rem; }
+    .rw-session-card {
+      background: #fff; border-radius: .85rem;
+      border: 1.5px solid rgba(0,0,0,.07);
+      padding: 1.2rem 1.4rem;
+      display: grid; grid-template-columns: 80px 1fr auto;
+      gap: 1.25rem; align-items: start;
+      transition: box-shadow .2s;
+    }
+    .rw-session-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.1); }
+    .rw-session-time { font-size: .82rem; font-weight: 700; color: var(--rw-plum); line-height: 1.4; }
+    .rw-session-title { font-weight: 700; font-size: .95rem; color: #2B2B2B; margin-bottom: .3rem; }
+    .rw-session-meta { font-size: .78rem; color: #888; }
+    .rw-session-tag {
+      font-size: .68rem; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
+      padding: .22rem .65rem; border-radius: 20px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .rw-session-tag--keynote   { background: rgba(125,10,109,.1); color: var(--rw-plum); }
+    .rw-session-tag--panel     { background: rgba(10,125,109,.1); color: var(--rw-teal); }
+    .rw-session-tag--workshop  { background: rgba(254,159,0,.15); color: #9a6200; }
+    .rw-session-tag--cultural  { background: rgba(220,80,60,.1); color: #c0392b; }
+    .rw-session-tag--networking{ background: rgba(60,60,220,.08); color: #3949ab; }
+    .rw-session-tag--film      { background: rgba(0,0,0,.07); color: #444; }
+
+    /* ===== SPEAKERS ===== */
+    .rw-speakers { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1.25rem; }
+    .rw-speaker-card {
+      background: #fff; border-radius: 1rem;
+      padding: 1.4rem 1.1rem; text-align: center;
+      border: 1.5px solid rgba(125,10,109,.09);
+      box-shadow: 0 2px 14px rgba(0,0,0,.05);
+      transition: all .22s var(--rw-ease);
+    }
+    .rw-speaker-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(125,10,109,.15); border-color: var(--rw-plum); }
+    .rw-speaker-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      margin: 0 auto .85rem;
+      background: linear-gradient(135deg, var(--rw-plum), #9c0d89);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; font-weight: 800; color: #fff;
+      font-family: 'Sora', sans-serif;
+      border: 3px solid rgba(254,159,0,.3);
+      overflow: hidden;
+    }
+    .rw-speaker-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .rw-speaker-name { font-weight: 700; font-size: .95rem; color: #2B2B2B; margin-bottom: .2rem; }
+    .rw-speaker-role { font-size: .78rem; color: #888; line-height: 1.4; margin-bottom: .5rem; }
+    .rw-speaker-country { font-size: .78rem; }
+
+    /* ===== REGISTRATION TABS ===== */
+    .rw-reg-tabs { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .rw-reg-tab {
+      padding: .6rem 1.2rem; border-radius: 30px;
+      font-size: .86rem; font-weight: 700;
+      border: 2px solid rgba(125,10,109,.2); background: #fff;
+      color: #555; cursor: pointer; transition: all .18s;
+    }
+    .rw-reg-tab:hover { border-color: var(--rw-plum); color: var(--rw-plum); }
+    .rw-reg-tab.active { background: var(--rw-plum); color: #fff; border-color: var(--rw-plum); }
+    .rw-reg-panel { display: none; }
+    .rw-reg-panel.active { display: block; }
+    .rw-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .rw-form--full { grid-column: 1 / -1; }
+    .rw-form label {
+      display: block; font-size: .82rem; font-weight: 600;
+      color: #555; margin-bottom: .35rem;
+    }
+    .rw-form input, .rw-form select, .rw-form textarea {
+      width: 100%; padding: .7rem .95rem;
+      border: 1.5px solid rgba(0,0,0,.13);
+      border-radius: .65rem; font-size: .9rem;
+      font-family: inherit; background: #fff;
+      transition: border .18s;
+      outline: none; box-sizing: border-box;
+    }
+    .rw-form input:focus, .rw-form select:focus, .rw-form textarea:focus {
+      border-color: var(--rw-plum);
+      box-shadow: 0 0 0 3px rgba(125,10,109,.1);
+    }
+    .rw-form textarea { min-height: 110px; resize: vertical; }
+    .rw-form-group { display: flex; flex-direction: column; }
+    .rw-form-actions { grid-column: 1 / -1; display: flex; align-items: center; gap: 1rem; margin-top: .5rem; }
+    .rw-privacy-note {
+      background: rgba(125,10,109,.05);
+      border: 1px solid rgba(125,10,109,.12);
+      border-radius: .65rem;
+      padding: .85rem 1.1rem;
+      font-size: .8rem; color: #666; line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+    .rw-success-msg {
+      display: none; background: #f0fdf4; border: 1.5px solid #86efac;
+      border-radius: .75rem; padding: 1.1rem 1.25rem;
+      font-size: .9rem; color: #166534; font-weight: 600;
+      text-align: center; margin-top: 1rem;
+    }
+
+    /* ===== SPONSORS GRID ===== */
+    .rw-sponsor-tiers { display: flex; flex-direction: column; gap: 2rem; }
+    .rw-sponsor-tier-label {
+      display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem;
+    }
+    .rw-sponsor-tier-label h3 { font-size: 1rem; font-weight: 700; margin: 0; }
+    .rw-tier-badge {
+      padding: .25rem .8rem; border-radius: 20px;
+      font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .rw-tier-badge--platinum { background: linear-gradient(135deg,#e8e8e8,#b0b0b0); color: #333; }
+    .rw-tier-badge--gold     { background: linear-gradient(135deg,#FE9F00,#ffb733); color: #fff; }
+    .rw-tier-badge--silver   { background: linear-gradient(135deg,#c0c0c0,#a8a8a8); color: #fff; }
+    .rw-tier-badge--community{ background: rgba(10,125,109,.15); color: var(--rw-teal); }
+    .rw-sponsor-logos { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .rw-sponsor-logo-slot {
+      display: flex; align-items: center; justify-content: center;
+      border: 2px dashed rgba(0,0,0,.12); border-radius: .85rem;
+      padding: 1.25rem 2rem; min-width: 160px;
+      font-size: .8rem; color: #bbb; font-weight: 600; text-align: center;
+      transition: all .2s;
+    }
+    .rw-sponsor-logo-slot:hover { border-color: var(--rw-amber); color: #9a6200; background: rgba(254,159,0,.05); }
+    .rw-sponsor-package-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px,1fr)); gap: 1.1rem; margin-top: 2rem; }
+    .rw-pkg-card {
+      background: #fff; border-radius: 1rem; padding: 1.5rem;
+      border: 2px solid rgba(0,0,0,.07);
+      transition: all .22s var(--rw-ease);
+    }
+    .rw-pkg-card--featured { border-color: var(--rw-amber); position: relative; }
+    .rw-pkg-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.1); }
+    .rw-pkg-card h4 { font-size: 1rem; font-weight: 800; margin: .5rem 0 .25rem; color: var(--rw-plum); }
+    .rw-pkg-card ul { margin: .75rem 0; padding-left: 1.1rem; }
+    .rw-pkg-card ul li { font-size: .8rem; color: #666; margin-bottom: .3rem; }
+
+    /* ===== VENDORS ===== */
+    .rw-vendors { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.1rem; }
+    .rw-vendor-slot {
+      background: #fff; border-radius: 1rem;
+      border: 2px dashed rgba(0,0,0,.12); padding: 1.5rem;
+      text-align: center; transition: all .2s;
+    }
+    .rw-vendor-slot:hover { border-color: var(--rw-amber); background: #fffbf2; transform: translateY(-2px); }
+    .rw-vendor-slot__num { font-size: 1.4rem; font-weight: 800; color: rgba(0,0,0,.1); margin-bottom: .4rem; }
+    .rw-vendor-slot__cat { font-size: .8rem; font-weight: 700; color: var(--rw-plum); margin-bottom: .25rem; }
+    .rw-vendor-slot__label { font-size: .75rem; color: #aaa; }
+
+    /* ===== MEDIA/STORIES ===== */
+    .rw-stories { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.25rem; }
+    .rw-story-card {
+      border-radius: 1.1rem; overflow: hidden;
+      box-shadow: 0 4px 22px rgba(0,0,0,.09);
+      transition: all .22s var(--rw-ease);
+    }
+    .rw-story-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,0,0,.15); }
+    .rw-story-card__img {
+      width: 100%; height: 200px; object-fit: cover; display: block;
+      filter: brightness(.92) saturate(.9);
+      transition: filter .4s;
+    }
+    .rw-story-card:hover .rw-story-card__img { filter: brightness(1) saturate(1.05); }
+    .rw-story-card__body { background: #fff; padding: 1.25rem; }
+    .rw-story-card__type { font-size: .7rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--rw-amber); margin-bottom: .4rem; }
+    .rw-story-card__title { font-weight: 700; font-size: .98rem; color: #2B2B2B; line-height: 1.45; }
+
+    /* ===== PARTNERS ===== */
+    .rw-partners-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center; }
+    .rw-partner-chip {
+      background: #fff; border: 1.5px solid rgba(0,0,0,.09);
+      border-radius: .85rem; padding: .75rem 1.5rem;
+      font-size: .88rem; font-weight: 700; color: #555;
+      transition: all .2s;
+    }
+    .rw-partner-chip:hover { border-color: var(--rw-plum); color: var(--rw-plum); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+
+    /* ===== VENUE ===== */
+    .rw-venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .rw-venue-item { display: flex; gap: .85rem; margin-bottom: 1.1rem; }
+    .rw-venue-icon { flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px; background: rgba(254,159,0,.12); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+
+    /* ===== FAQ ===== */
+    .rw-faq { display: flex; flex-direction: column; gap: .6rem; }
+    .rw-faq-item { background: #fff; border-radius: .85rem; border: 1.5px solid rgba(0,0,0,.07); overflow: hidden; }
+    .rw-faq-q {
+      width: 100%; text-align: left; background: none; border: none;
+      padding: 1.1rem 1.35rem; font-size: .95rem; font-weight: 700;
+      color: #2B2B2B; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      font-family: inherit;
+    }
+    .rw-faq-q::after { content: '+'; font-size: 1.4rem; color: var(--rw-plum); flex-shrink: 0; transition: transform .2s; }
+    .rw-faq-item.open .rw-faq-q::after { transform: rotate(45deg); }
+    .rw-faq-a { max-height: 0; overflow: hidden; transition: max-height .35s var(--rw-ease); }
+    .rw-faq-a-inner { padding: 0 1.35rem 1.1rem; font-size: .88rem; color: #666; line-height: 1.65; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .rw-venue-grid { grid-template-columns: 1fr; }
+      .rw-form { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .rw-hero { padding-bottom: 3.5rem; }
+      .rw-session-card { grid-template-columns: 65px 1fr; }
+      .rw-session-tag { display: none; }
+      .rw-infobar__inner { flex-direction: column; align-items: flex-start; gap: .65rem; }
+    }
+    @media (max-width: 480px) {
+      .rw-countries { grid-template-columns: repeat(2, 1fr); }
+      .rw-speakers { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG SPRITE -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ico-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+  <symbol id="ico-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="ico-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="ico-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+  <symbol id="ico-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="ico-twitter" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.745l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+  <symbol id="ico-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="ico-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+  <symbol id="ico-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></symbol>
+</svg>
+
+<!-- Top Bar -->
+<div class="mph-topbar">
+  <div class="mph-container">
+    <div class="mph-topbar-inner">
+      <div class="mph-topbar-left">
+        <span class="mph-topbar-contact"><svg class="mph-icon"><use href="#ico-mail"/></svg><a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a></span>
+        <span class="mph-topbar-contact"><svg class="mph-icon"><use href="#ico-phone"/></svg><a href="tel:+254118969209">+254 118 969 209</a></span>
+        <span class="mph-topbar-contact"><svg class="mph-icon"><use href="#ico-map-pin"/></svg>Nairobi, Kenya</span>
+      </div>
+      <div class="mph-topbar-right">
+        <div class="mph-socials">
+          <a href="#" aria-label="LinkedIn"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-linkedin"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-twitter"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-facebook"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-instagram"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg class="mph-icon" style="width:14px;height:14px"><use href="#ico-youtube"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Header / Nav -->
+<header class="mph-header">
+  <div class="mph-container">
+    <nav class="mph-header-inner">
+      <a href="index.html" class="mph-logo">
+        <img src="assets/images/logo.png" class="mph-logo-img" alt="Migration Pulse Hub" />
+        <div class="mph-logo-text">
+          <span class="mph-logo-name">Migration Pulse Hub</span>
+          <span class="mph-logo-sub">Rights Move with People Everywhere</span>
+        </div>
+      </a>
+      <button class="mph-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <ul class="mph-nav">
+        <li><a href="about.html">About Us</a></li>
+        <li class="has-dropdown"><a href="our-work.html">Our Work ▾</a>
+          <ul class="mph-dropdown"><li><a href="our-work.html">Advocacy &amp; Policy</a></li><li><a href="our-work.html#research">Research</a></li><li><a href="our-work.html#legal">Litigation</a></li></ul>
+        </li>
+        <li><a href="impact.html">Impact</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li class="has-dropdown"><a href="knowledge-hub.html">Knowledge Hub ▾</a>
+          <ul class="mph-dropdown"><li><a href="knowledge-hub.html">Resource Library</a></li><li><a href="reports.html">Reports &amp; Publications</a></li></ul>
+        </li>
+        <li class="has-dropdown"><a href="events.html" class="active">Updates ▾</a>
+          <ul class="mph-dropdown"><li><a href="news.html">News &amp; Updates</a></li><li><a href="events.html">Events</a></li></ul>
+        </li>
+        <li><a href="team.html">Team</a></li>
+        <li class="mph-nav-cta"><a href="contact.html" class="mph-btn sm">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ========================================================  HERO  ======================================================== -->
+<section class="rw-hero" id="top">
+  <div class="rw-hero__bg" aria-hidden="true"></div>
+  <div class="rw-hero__overlay" aria-hidden="true"></div>
+  <div class="rw-hero__texture" aria-hidden="true"></div>
+  <div class="rw-hero__inner">
+    <div class="rw-hero__eyebrow"><span>🌍</span> Refugee Week Kenya 2026</div>
+    <h1 class="rw-hero__title">Stories. Policy. Culture.<br><span>Protection. Future.</span></h1>
+    <p class="rw-hero__sub">A regional gathering bringing together refugee-led organizations, policymakers, humanitarian actors, researchers, artists, legal advocates, community leaders, media, and development partners across Eastern Africa.</p>
+    <div class="rw-countdown" aria-label="Countdown to Refugee Week Kenya 2026">
+      <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-days">--</span><span class="rw-countdown__label">Days</span></div>
+      <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-hours">--</span><span class="rw-countdown__label">Hours</span></div>
+      <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-mins">--</span><span class="rw-countdown__label">Minutes</span></div>
+      <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-secs">--</span><span class="rw-countdown__label">Seconds</span></div>
+    </div>
+    <div class="rw-hero__badges">
+      <span class="rw-badge"><span class="rw-badge__dot rw-badge__dot--green"></span> Registration Open</span>
+      <span class="rw-badge"><span class="rw-badge__dot rw-badge__dot--amber"></span> Sponsor Packages Available</span>
+      <span class="rw-badge"><span class="rw-badge__dot rw-badge__dot--plum"></span> Exhibition Booths Limited</span>
+    </div>
+    <div class="rw-hero__ctas">
+      <a href="#register" class="rw-btn rw-btn--amber">Register for Refugee Week</a>
+      <a href="#sponsor" class="rw-btn rw-btn--plum">Become a Sponsor</a>
+      <a href="#vendors" class="rw-btn rw-btn--outline">Book Exhibition Space</a>
+    </div>
+    <div class="rw-countries-strip">
+      <span>Participating:</span>
+      <span class="rw-countries-strip__flag" title="Kenya">🇰🇪</span>
+      <span class="rw-countries-strip__flag" title="Uganda">🇺🇬</span>
+      <span class="rw-countries-strip__flag" title="Tanzania">🇹🇿</span>
+      <span class="rw-countries-strip__flag" title="Rwanda">🇷🇼</span>
+      <span class="rw-countries-strip__flag" title="Burundi">🇧🇮</span>
+      <span class="rw-countries-strip__flag" title="Ethiopia">🇪🇹</span>
+      <span class="rw-countries-strip__flag" title="South Sudan">🇸🇸</span>
+      <span class="rw-countries-strip__flag" title="Somalia">🇸🇴</span>
+      <span class="rw-countries-strip__flag" title="DR Congo">🇨🇩</span>
+      <span class="rw-countries-strip__flag" title="Sudan">🇸🇩</span>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Info Bar -->
+<div class="rw-infobar">
+  <div class="rw-infobar__inner">
+    <div class="rw-infobar__item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><strong>June 15–21, 2026</strong> &nbsp;· World Refugee Day: June 20</div>
+    <div class="rw-infobar__item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>KICC, Nairobi &nbsp;·&nbsp; In-person &amp; Virtual</div>
+    <div class="rw-infobar__item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>1,000+ Participants · 10 Countries</div>
+    <div class="rw-infobar__item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>7 Days · 5 Tracks · 40+ Sessions</div>
+    <a href="#register" class="rw-btn rw-btn--amber rw-btn--sm">Register Now →</a>
+  </div>
+</div>
+
+<!-- ========================================================  EVENT OVERVIEW  ======================================================== -->
+<section class="rw-section rw-section--white" id="overview">
+  <div class="rw-container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start">
+      <div>
+        <div class="rw-section-title">
+          <span class="rw-eyebrow">About the Event</span>
+          <h2>What is Refugee Week Kenya 2026?</h2>
+          <p>A week-long convergence of voices, evidence, art, and policy — designed to elevate the lived experiences of refugees and migrants while driving concrete action across Eastern Africa and beyond.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem">
+          <div style="display:flex;gap:.85rem;align-items:flex-start">
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(125,10,109,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🎯</div>
+            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Clear Advocacy Objectives</strong><span style="font-size:.85rem;color:#888">Drive regional policy commitments on refugee rights, climate displacement, and legal inclusion.</span></div>
+          </div>
+          <div style="display:flex;gap:.85rem;align-items:flex-start">
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(254,159,0,.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🤝</div>
+            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Multi-Stakeholder Platform</strong><span style="font-size:.85rem;color:#888">Refugees, policymakers, CSOs, donors, artists, researchers, and media — all in one space.</span></div>
+          </div>
+          <div style="display:flex;gap:.85rem;align-items:flex-start">
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(10,125,109,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">📜</div>
+            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Commitment to Outcomes</strong><span style="font-size:.85rem;color:#888">Each day ends with a documented call to action tied to a specific thematic track.</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--rw-dark);border-radius:1.25rem;overflow:hidden;position:relative">
+          <img src="assets/images/women-walking-resilience.jpg" alt="Refugee Week 2026 — dignity, movement, and community" style="width:100%;height:280px;object-fit:cover;display:block;opacity:.75;filter:saturate(.85)" loading="lazy" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,24,.8) 0%,transparent 60%)"></div>
+          <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem">
+            <p style="color:#fff;font-size:1.05rem;font-weight:700;line-height:1.45;font-style:italic">"Stories, Policy, Culture, Protection, and the Future of Human Mobility."</p>
+            <p style="color:rgba(255,255,255,.6);font-size:.8rem;margin-top:.35rem">— Refugee Week Kenya 2026 Theme</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:.85rem">
+          <div style="background:#f7f3f9;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:var(--rw-plum);display:block">7</span><span style="font-size:.78rem;color:#888;font-weight:600">Days of Events</span></div>
+          <div style="background:#fff8ec;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:var(--rw-amber);display:block">40+</span><span style="font-size:.78rem;color:#888;font-weight:600">Sessions &amp; Workshops</span></div>
+          <div style="background:#f0fdf4;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:#16a34a;display:block">10</span><span style="font-size:.78rem;color:#888;font-weight:600">Countries</span></div>
+          <div style="background:#f7f3f9;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:var(--rw-plum);display:block">1K+</span><span style="font-size:.78rem;color:#888;font-weight:600">Expected Participants</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Themes Grid -->
+    <div style="margin-top:4rem">
+      <div class="rw-section-title">
+        <span class="rw-eyebrow">Event Themes</span>
+        <h2>Ten Tracks. One Movement.</h2>
+      </div>
+      <div class="rw-themes">
+        <div class="rw-theme-chip"><span class="rw-theme-icon">🛡️</span> Refugee Rights &amp; Protection</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">🌡️</span> Climate &amp; Displacement</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">💼</span> Livelihoods &amp; Economic Inclusion</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">🚀</span> Youth &amp; Innovation</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">♀️</span> Women &amp; Leadership</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">🎙️</span> Storytelling &amp; Media</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">⚖️</span> Legal Advocacy</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">🗺️</span> Regional Migration Policy</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">💡</span> Refugee-led Innovation</div>
+        <div class="rw-theme-chip"><span class="rw-theme-icon">🎨</span> Arts, Culture &amp; Identity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  COUNTRIES  ======================================================== -->
+<section class="rw-section rw-section--bg" id="countries">
+  <div class="rw-container">
+    <div class="rw-section-title">
+      <span class="rw-eyebrow">Regional Participation</span>
+      <h2>Regional Participation Across Eastern Africa</h2>
+      <p>Delegates, organizations, and refugee-led groups from across the region are confirmed to participate in Refugee Week Kenya 2026.</p>
+    </div>
+    <div class="rw-countries">
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇰🇪</span><div class="rw-country-card__name">Kenya</div><div class="rw-country-card__tag">Host Nation</div><div class="rw-country-card__delegates">★ Host</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇺🇬</span><div class="rw-country-card__name">Uganda</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">25+ Delegates</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇹🇿</span><div class="rw-country-card__name">Tanzania</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">15+ Delegates</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇷🇼</span><div class="rw-country-card__name">Rwanda</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">20+ Delegates</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇧🇮</span><div class="rw-country-card__name">Burundi</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">12+ Delegates</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇪🇹</span><div class="rw-country-card__name">Ethiopia</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">30+ Delegates</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇸🇸</span><div class="rw-country-card__name">South Sudan</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">18+ Delegates</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇸🇴</span><div class="rw-country-card__name">Somalia</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">22+ Delegates</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇨🇩</span><div class="rw-country-card__name">DR Congo</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">16+ Delegates</div></div>
+      <div class="rw-country-card"><span class="rw-country-card__flag">🇸🇩</span><div class="rw-country-card__name">Sudan</div><div class="rw-country-card__tag">Participant</div><div class="rw-country-card__delegates">14+ Delegates</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  SCHEDULE  ======================================================== -->
+<section class="rw-section rw-section--white" id="schedule">
+  <div class="rw-container">
+    <div class="rw-section-title">
+      <span class="rw-eyebrow">Programme</span>
+      <h2>7-Day Event Schedule</h2>
+      <p>Five thematic days plus a community day and a closing summit. All sessions available in-person and streamed online.</p>
+    </div>
+    <div class="rw-tabs">
+      <div class="rw-tab-nav" role="tablist">
+        <button class="rw-tab-btn active" role="tab" aria-selected="true" data-tab="day1">Day 1 · Jun 15</button>
+        <button class="rw-tab-btn" role="tab" aria-selected="false" data-tab="day2">Day 2 · Jun 16</button>
+        <button class="rw-tab-btn" role="tab" aria-selected="false" data-tab="day3">Day 3 · Jun 17</button>
+        <button class="rw-tab-btn" role="tab" aria-selected="false" data-tab="day4">Community Day · Jun 18</button>
+        <button class="rw-tab-btn" role="tab" aria-selected="false" data-tab="day5">Day 5 · Jun 19</button>
+        <button class="rw-tab-btn" role="tab" aria-selected="false" data-tab="day6">World Refugee Day · Jun 20</button>
+        <button class="rw-tab-btn" role="tab" aria-selected="false" data-tab="day7">Closing Summit · Jun 21</button>
+      </div>
+
+      <!-- Day 1 -->
+      <div class="rw-tab-panel active" id="tab-day1" role="tabpanel">
+        <div class="rw-session-card"><div class="rw-session-time">08:00 – 09:30</div><div><div class="rw-session-title">Official Opening Ceremony &amp; Welcome Address</div><div class="rw-session-meta">KICC Main Hall · All participants</div></div><span class="rw-session-tag rw-session-tag--keynote">Keynote</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">10:00 – 12:00</div><div><div class="rw-session-title">Refugee Rights in 2026: Where Are We? A Regional Policy Audit</div><div class="rw-session-meta">Plenary Hall · Moderator: MPH Legal Team</div></div><span class="rw-session-tag rw-session-tag--panel">Panel</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">12:00 – 13:00</div><div><div class="rw-session-title">Networking Lunch &amp; Exhibition Open</div><div class="rw-session-meta">Exhibition Hall &amp; Atrium</div></div><span class="rw-session-tag rw-session-tag--networking">Networking</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">13:00 – 15:00</div><div><div class="rw-session-title">Statelessness &amp; Documentation: Voices from the Ground</div><div class="rw-session-meta">Room A · Legal Track</div></div><span class="rw-session-tag rw-session-tag--panel">Panel</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">15:00 – 17:00</div><div><div class="rw-session-title">Strategic Litigation Workshop: Building Cases That Move Policy</div><div class="rw-session-meta">Room B · Legal Track · Max 30 participants</div></div><span class="rw-session-tag rw-session-tag--workshop">Workshop</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">18:00 – 20:00</div><div><div class="rw-session-title">Opening Cultural Evening: Refugee Arts &amp; Music Showcase</div><div class="rw-session-meta">Outdoor Stage · Open to public</div></div><span class="rw-session-tag rw-session-tag--cultural">Cultural</span></div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="rw-tab-panel" id="tab-day2" role="tabpanel">
+        <div class="rw-session-card"><div class="rw-session-time">09:00 – 10:30</div><div><div class="rw-session-title">Climate Displacement: Science, Stories, and Solutions</div><div class="rw-session-meta">Plenary Hall · Climate Track</div></div><span class="rw-session-tag rw-session-tag--keynote">Keynote</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">11:00 – 13:00</div><div><div class="rw-session-title">Pastoralist Communities in Motion: East Africa Case Studies</div><div class="rw-session-meta">Room A · Climate Track</div></div><span class="rw-session-tag rw-session-tag--panel">Panel</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">13:00 – 14:00</div><div><div class="rw-session-title">Lunch &amp; Exhibition</div><div class="rw-session-meta">Exhibition Hall</div></div><span class="rw-session-tag rw-session-tag--networking">Networking</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">14:00 – 16:00</div><div><div class="rw-session-title">Livelihoods &amp; Economic Inclusion: Refugee Entrepreneurship Forum</div><div class="rw-session-meta">Room B · Livelihoods Track</div></div><span class="rw-session-tag rw-session-tag--panel">Panel</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">16:00 – 18:00</div><div><div class="rw-session-title">Film Screening: "The Long Road Home" + Director Q&amp;A</div><div class="rw-session-meta">Screening Room · Storytelling Track</div></div><span class="rw-session-tag rw-session-tag--film">Film</span></div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="rw-tab-panel" id="tab-day3" role="tabpanel">
+        <div class="rw-session-card"><div class="rw-session-time">09:00 – 11:00</div><div><div class="rw-session-title">Youth Innovation Lab: Refugee-led Tech Solutions</div><div class="rw-session-meta">Innovation Hub · Youth Track</div></div><span class="rw-session-tag rw-session-tag--workshop">Workshop</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">11:00 – 13:00</div><div><div class="rw-session-title">Women Leading Protection: Stories, Barriers, and Pathways</div><div class="rw-session-meta">Plenary Hall · Women &amp; Leadership Track</div></div><span class="rw-session-tag rw-session-tag--panel">Panel</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">14:00 – 16:00</div><div><div class="rw-session-title">Trauma-Informed Journalism: Covering Displacement Responsibly</div><div class="rw-session-meta">Room A · Media Track · Press only</div></div><span class="rw-session-tag rw-session-tag--workshop">Workshop</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">16:00 – 18:00</div><div><div class="rw-session-title">Spoken Word &amp; Poetry Night: Voices of the Displaced</div><div class="rw-session-meta">Outdoor Stage · Open to public</div></div><span class="rw-session-tag rw-session-tag--cultural">Cultural</span></div>
+      </div>
+
+      <!-- Community Day -->
+      <div class="rw-tab-panel" id="tab-day4" role="tabpanel">
+        <div class="rw-session-card"><div class="rw-session-time">08:00 – 18:00</div><div><div class="rw-session-title">Community Open Day — Exhibitions, Food, Culture &amp; Sport</div><div class="rw-session-meta">KICC Grounds · Open to public · Free entry</div></div><span class="rw-session-tag rw-session-tag--cultural">Cultural</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">10:00 – 12:00</div><div><div class="rw-session-title">Refugee-led Artisan Market</div><div class="rw-session-meta">Exhibition Hall · Vendors &amp; Crafts</div></div><span class="rw-session-tag rw-session-tag--networking">Community</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">14:00 – 16:00</div><div><div class="rw-session-title">Intercultural Food Festival: East Africa on One Table</div><div class="rw-session-meta">Outdoor Terrace · All welcome</div></div><span class="rw-session-tag rw-session-tag--cultural">Cultural</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">16:00 – 18:00</div><div><div class="rw-session-title">Youth Football &amp; Sports Day: Refugees &amp; Host Communities</div><div class="rw-session-meta">KICC Grounds</div></div><span class="rw-session-tag rw-session-tag--networking">Community</span></div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="rw-tab-panel" id="tab-day5" role="tabpanel">
+        <div class="rw-session-card"><div class="rw-session-time">09:00 – 11:00</div><div><div class="rw-session-title">Regional Migration Policy Dialogue: Ministers &amp; Commissioners</div><div class="rw-session-meta">VIP Hall · Policy Track · By invitation</div></div><span class="rw-session-tag rw-session-tag--panel">Policy</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">11:00 – 13:00</div><div><div class="rw-session-title">IGAD &amp; Djibouti Declaration: Progress Report &amp; Accountability</div><div class="rw-session-meta">Plenary Hall · Policy Track</div></div><span class="rw-session-tag rw-session-tag--panel">Panel</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">14:00 – 16:00</div><div><div class="rw-session-title">Donor Roundtable: Sustainable Funding for Refugee Inclusion</div><div class="rw-session-meta">Room A · Closed session</div></div><span class="rw-session-tag rw-session-tag--workshop">Roundtable</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">18:00 – 21:00</div><div><div class="rw-session-title">Gala Dinner: Honouring Refugee Champions</div><div class="rw-session-meta">Grand Ballroom · Formal dress · Ticket required</div></div><span class="rw-session-tag rw-session-tag--networking">Gala</span></div>
+      </div>
+
+      <!-- World Refugee Day -->
+      <div class="rw-tab-panel" id="tab-day6" role="tabpanel">
+        <div class="rw-session-card"><div class="rw-session-time">All Day</div><div><div class="rw-session-title">🌍 World Refugee Day — June 20, 2026</div><div class="rw-session-meta">KICC &amp; City Centre · National Programme</div></div><span class="rw-session-tag rw-session-tag--keynote">Flagship</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">07:00 – 09:00</div><div><div class="rw-session-title">Solidarity Walk: Nairobi City Centre</div><div class="rw-session-meta">CBD Route · Open to all · Free registration</div></div><span class="rw-session-tag rw-session-tag--networking">Community</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">10:00 – 13:00</div><div><div class="rw-session-title">World Refugee Day Summit: Global Perspectives, Local Actions</div><div class="rw-session-meta">Plenary Hall · International guests · Livestreamed</div></div><span class="rw-session-tag rw-session-tag--keynote">Keynote</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">14:00 – 17:00</div><div><div class="rw-session-title">Nairobi Declaration on Refugee Rights 2026 — Signing Ceremony</div><div class="rw-session-meta">VIP Hall · Heads of delegation</div></div><span class="rw-session-tag rw-session-tag--panel">Ceremony</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">18:00 – 22:00</div><div><div class="rw-session-title">Refugee Week Grand Cultural Concert</div><div class="rw-session-meta">Outdoor Main Stage · Open to public · Free</div></div><span class="rw-session-tag rw-session-tag--cultural">Cultural</span></div>
+      </div>
+
+      <!-- Closing Summit -->
+      <div class="rw-tab-panel" id="tab-day7" role="tabpanel">
+        <div class="rw-session-card"><div class="rw-session-time">09:00 – 11:00</div><div><div class="rw-session-title">Reflections from the Week: What Did We Learn?</div><div class="rw-session-meta">Plenary Hall · All participants</div></div><span class="rw-session-tag rw-session-tag--panel">Panel</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">11:00 – 13:00</div><div><div class="rw-session-title">Commitments &amp; Accountability: Track Leads Present Outcomes</div><div class="rw-session-meta">Plenary Hall · All tracks</div></div><span class="rw-session-tag rw-session-tag--panel">Outcomes</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">14:00 – 15:30</div><div><div class="rw-session-title">Closing Keynote: The Road Ahead — 2027 &amp; Beyond</div><div class="rw-session-meta">Plenary Hall · Keynote Address</div></div><span class="rw-session-tag rw-session-tag--keynote">Keynote</span></div>
+        <div class="rw-session-card"><div class="rw-session-time">16:00 – 18:00</div><div><div class="rw-session-title">Official Closing Ceremony &amp; Awards</div><div class="rw-session-meta">Main Hall · All participants</div></div><span class="rw-session-tag rw-session-tag--keynote">Ceremony</span></div>
+      </div>
+    </div>
+    <div style="background:#f7f3f9;border-radius:1rem;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1rem">
+      <span style="font-size:.85rem;color:#666">📥 Full programme available for download</span>
+      <a href="#" class="rw-btn rw-btn--plum rw-btn--sm" style="text-decoration:none">Download Schedule PDF</a>
+      <a href="#register" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none">RSVP for Sessions →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  SPEAKERS  ======================================================== -->
+<section class="rw-section rw-section--bg" id="speakers">
+  <div class="rw-container">
+    <div class="rw-section-title">
+      <span class="rw-eyebrow">Speakers 2026</span>
+      <h2>Confirmed Speakers &amp; Panellists</h2>
+      <p>Changemakers, advocates, researchers, artists, and refugee leaders from across Eastern Africa and the global stage.</p>
+    </div>
+    <div class="rw-speakers">
+      <div class="rw-speaker-card"><div class="rw-speaker-avatar" style="background:linear-gradient(135deg,#7D0A6D,#b01099)"><img src="assets/images/bg-advocacy.jpg" alt="" style="object-position:center top" loading="lazy"/></div><div class="rw-speaker-name">Damaris Oluga</div><div class="rw-speaker-role">Regional Coordination Manager, Migration Pulse Hub</div><div class="rw-speaker-country">🇰🇪 Kenya</div></div>
+      <div class="rw-speaker-card"><div class="rw-speaker-avatar" style="background:linear-gradient(135deg,#0A7D6D,#0e9e8c)">DO</div><div class="rw-speaker-name">TBC — Policy Lead</div><div class="rw-speaker-role">Ministry of Interior, Horn of Africa</div><div class="rw-speaker-country">🇪🇹 Ethiopia</div></div>
+      <div class="rw-speaker-card"><div class="rw-speaker-avatar" style="background:linear-gradient(135deg,#FE9F00,#e68900)">RO</div><div class="rw-speaker-name">TBC — UNHCR Representative</div><div class="rw-speaker-role">UNHCR Regional Bureau Eastern Africa</div><div class="rw-speaker-country">🌍 Regional</div></div>
+      <div class="rw-speaker-card"><div class="rw-speaker-avatar" style="background:linear-gradient(135deg,#1A0A18,#3D0535)">RL</div><div class="rw-speaker-name">Refugee-Led Speaker</div><div class="rw-speaker-role">Community Leader &amp; Advocate</div><div class="rw-speaker-country">🇸🇸 South Sudan</div></div>
+      <div class="rw-speaker-card"><div class="rw-speaker-avatar" style="background:linear-gradient(135deg,#0a3d62,#1e5f91)">CL</div><div class="rw-speaker-name">TBC — Climate Expert</div><div class="rw-speaker-role">Climate &amp; Displacement Researcher</div><div class="rw-speaker-country">🇸🇴 Somalia</div></div>
+      <div class="rw-speaker-card"><div class="rw-speaker-avatar" style="background:linear-gradient(135deg,#6d2177,#9c2da8)">AL</div><div class="rw-speaker-name">TBC — Legal Advocate</div><div class="rw-speaker-role">Strategic Litigation Specialist</div><div class="rw-speaker-country">🇺🇬 Uganda</div></div>
+    </div>
+    <div style="margin-top:2rem;padding:1.25rem 1.5rem;background:#fff8ec;border-radius:1rem;border:1.5px solid rgba(254,159,0,.25);display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <span style="font-size:.88rem;color:#666;flex:1">Are you a researcher, advocate, community leader, or practitioner? Submit your speaker application by <strong>March 31, 2026</strong>.</span>
+      <a href="#register" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none">Apply as Speaker</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  REGISTRATION  ======================================================== -->
+<section class="rw-section rw-section--white" id="register">
+  <div class="rw-container">
+    <div class="rw-section-title">
+      <span class="rw-eyebrow">Join Refugee Week Kenya 2026</span>
+      <h2>Registration Hub</h2>
+      <p>Select your participation type below. All registrations are reviewed within 3 working days. Confirmation and digital ticket sent by email.</p>
+    </div>
+
+    <div class="rw-privacy-note">
+      🔒 <strong>Privacy notice:</strong> We collect only the minimum details needed to process your registration. Your information is handled in accordance with our <a href="privacy.html" style="color:var(--rw-plum)">Privacy Policy</a>. Do not share sensitive documents in this form. A member of our team will contact you if additional verification is needed.
+    </div>
+
+    <div class="rw-reg-tabs" role="tablist">
+      <button class="rw-reg-tab active" data-reg="attendee">🎫 Attendee</button>
+      <button class="rw-reg-tab" data-reg="speaker">🎙️ Speaker</button>
+      <button class="rw-reg-tab" data-reg="media">📸 Media</button>
+      <button class="rw-reg-tab" data-reg="volunteer">🤝 Volunteer</button>
+    </div>
+
+    <!-- ATTENDEE -->
+    <div class="rw-reg-panel active" id="reg-attendee">
+      <form class="rw-form" onsubmit="rwSubmit(event,'attendee')">
+        <div class="rw-form-group"><label for="att-name">Full Name *</label><input id="att-name" type="text" placeholder="Your full name" required /></div>
+        <div class="rw-form-group"><label for="att-email">Email Address *</label><input id="att-email" type="email" placeholder="you@organisation.org" required /></div>
+        <div class="rw-form-group"><label for="att-phone">Phone Number *</label><input id="att-phone" type="tel" placeholder="+254 7XX XXX XXX" required /></div>
+        <div class="rw-form-group"><label for="att-country">Country *</label><select id="att-country" required><option value="">Select country...</option><option>Kenya</option><option>Uganda</option><option>Tanzania</option><option>Rwanda</option><option>Burundi</option><option>Ethiopia</option><option>South Sudan</option><option>Somalia</option><option>DR Congo</option><option>Sudan</option><option>Other</option></select></div>
+        <div class="rw-form-group"><label for="att-org">Organisation</label><input id="att-org" type="text" placeholder="Your organisation or institution" /></div>
+        <div class="rw-form-group"><label for="att-type">Attendance Type *</label><select id="att-type" required><option value="">Select...</option><option>In-person</option><option>Virtual</option></select></div>
+        <div class="rw-form-group rw-form--full"><label for="att-sessions">Preferred Sessions / Tracks</label><input id="att-sessions" type="text" placeholder="e.g. Legal Track, Youth Innovation Lab, Cultural Day" /></div>
+        <div class="rw-form-group rw-form--full"><label for="att-access">Accessibility Requirements</label><input id="att-access" type="text" placeholder="e.g. wheelchair access, sign language interpreter, dietary requirements" /></div>
+        <div class="rw-form-actions">
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#555;cursor:pointer"><input type="checkbox" required /> I consent to Migration Pulse Hub processing my registration data for event administration purposes.</label>
+        </div>
+        <div class="rw-form-actions">
+          <button type="submit" class="rw-btn rw-btn--amber">Submit Registration</button>
+          <a href="https://api.whatsapp.com/send?phone=254118969209&text=Hello%2C%20I%20would%20like%20to%20register%20for%20Refugee%20Week%20Kenya%202026." target="_blank" rel="noopener" class="rw-btn rw-btn--outline" style="color:#2B2B2B;border-color:rgba(0,0,0,.2)">📲 Register via WhatsApp</a>
+        </div>
+        <div class="rw-success-msg" id="success-attendee">✅ Thank you! Your registration has been received. Check your email for a confirmation within 3 working days.</div>
+      </form>
+    </div>
+
+    <!-- SPEAKER -->
+    <div class="rw-reg-panel" id="reg-speaker">
+      <form class="rw-form" onsubmit="rwSubmit(event,'speaker')">
+        <div class="rw-form-group"><label>Full Name *</label><input type="text" placeholder="Your full name" required /></div>
+        <div class="rw-form-group"><label>Email Address *</label><input type="email" placeholder="you@organisation.org" required /></div>
+        <div class="rw-form-group"><label>Organisation *</label><input type="text" placeholder="Organisation / institution" required /></div>
+        <div class="rw-form-group"><label>Country *</label><select required><option value="">Select country...</option><option>Kenya</option><option>Uganda</option><option>Ethiopia</option><option>Somalia</option><option>Rwanda</option><option>Other</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Expertise Areas *</label><input type="text" placeholder="e.g. refugee law, climate displacement, women's rights, youth empowerment" required /></div>
+        <div class="rw-form-group rw-form--full"><label>Preferred Session / Track *</label><select required><option value="">Select a track...</option><option>Legal Advocacy</option><option>Climate &amp; Displacement</option><option>Youth &amp; Innovation</option><option>Women &amp; Leadership</option><option>Storytelling &amp; Media</option><option>Regional Migration Policy</option><option>Arts, Culture &amp; Identity</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Topic Proposal *</label><textarea placeholder="Describe your proposed session, panel contribution, or presentation topic (max 300 words)" required></textarea></div>
+        <div class="rw-form-group rw-form--full"><label>Short Biography *</label><textarea placeholder="Your biography as you would like it to appear in the programme (max 150 words)" required></textarea></div>
+        <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--plum">Submit Speaker Application</button></div>
+        <div class="rw-success-msg" id="success-speaker">✅ Speaker application received. Our programme team will review and respond by April 15, 2026.</div>
+      </form>
+    </div>
+
+    <!-- MEDIA -->
+    <div class="rw-reg-panel" id="reg-media">
+      <form class="rw-form" onsubmit="rwSubmit(event,'media')">
+        <div class="rw-form-group"><label>Full Name *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label>Media House / Outlet *</label><input type="text" placeholder="e.g. Nation Media, BBC Africa, Reuters" required /></div>
+        <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
+        <div class="rw-form-group"><label>Phone</label><input type="tel" /></div>
+        <div class="rw-form-group rw-form--full"><label>Type of Coverage *</label><select required><option value="">Select...</option><option>Print journalism</option><option>Broadcast / TV</option><option>Online / Digital</option><option>Photography</option><option>Documentary filming</option><option>Podcast / Radio</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Coverage Plan / Story Pitch *</label><textarea placeholder="Briefly describe the story or coverage you plan to produce" required></textarea></div>
+        <div class="rw-form-group rw-form--full"><label>Press Deadline (if applicable)</label><input type="date" /></div>
+        <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--amber">Apply for Media Accreditation</button></div>
+        <div class="rw-success-msg" id="success-media">✅ Media accreditation request received. Our communications team will respond within 5 working days.</div>
+      </form>
+    </div>
+
+    <!-- VOLUNTEER -->
+    <div class="rw-reg-panel" id="reg-volunteer">
+      <form class="rw-form" onsubmit="rwSubmit(event,'volunteer')">
+        <div class="rw-form-group"><label>Full Name *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
+        <div class="rw-form-group"><label>Phone</label><input type="tel" /></div>
+        <div class="rw-form-group"><label>Country *</label><select required><option value="">Select...</option><option>Kenya</option><option>Uganda</option><option>Other</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Languages Spoken *</label><input type="text" placeholder="e.g. English, Kiswahili, Somali, Arabic" required /></div>
+        <div class="rw-form-group rw-form--full"><label>Skills / Experience *</label><textarea placeholder="Describe your skills and any prior volunteering or event experience" required></textarea></div>
+        <div class="rw-form-group rw-form--full"><label>Preferred Volunteer Role</label><select><option value="">Any role</option><option>Registration Desk</option><option>Session Support</option><option>Media &amp; Communications</option><option>Hospitality</option><option>Translation / Interpretation</option><option>Exhibition Support</option></select></div>
+        <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--plum">Submit Volunteer Application</button></div>
+        <div class="rw-success-msg" id="success-volunteer">✅ Volunteer application received! We will be in touch by May 2026 with your assignment.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  SPONSORS  ======================================================== -->
+<section class="rw-section rw-section--dark" id="sponsor">
+  <div class="rw-container">
+    <div class="rw-section-title rw-section-title--light">
+      <span class="rw-eyebrow">Partnership Opportunities</span>
+      <h2>Become a Sponsor</h2>
+      <p>Align your organisation with Refugee Week Kenya 2026 and demonstrate your commitment to refugee rights, human dignity, and regional advocacy.</p>
+    </div>
+
+    <!-- Packages -->
+    <div class="rw-sponsor-package-cards">
+      <div class="rw-pkg-card">
+        <div class="rw-tier-badge rw-tier-badge--platinum">Platinum</div>
+        <h4>Platinum Sponsor</h4>
+        <ul>
+          <li>Headline naming rights on all materials</li>
+          <li>Prime exhibition booth (6×6m)</li>
+          <li>10 VIP delegate passes</li>
+          <li>Keynote speaking slot</li>
+          <li>Full logo visibility (print, digital, stage)</li>
+          <li>Social media spotlight campaign</li>
+          <li>Post-event impact report</li>
+        </ul>
+        <a href="#sponsor-form" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none;display:inline-block">Enquire →</a>
+      </div>
+      <div class="rw-pkg-card rw-pkg-card--featured">
+        <div class="rw-tier-badge rw-tier-badge--gold">Gold</div>
+        <h4>Gold Sponsor</h4>
+        <ul>
+          <li>Co-sponsor a themed track</li>
+          <li>Standard exhibition booth (4×4m)</li>
+          <li>6 delegate passes</li>
+          <li>Panel participation</li>
+          <li>Logo on stage backdrop &amp; programme</li>
+          <li>2 social media features</li>
+        </ul>
+        <a href="#sponsor-form" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none;display:inline-block">Enquire →</a>
+      </div>
+      <div class="rw-pkg-card">
+        <div class="rw-tier-badge rw-tier-badge--silver">Silver</div>
+        <h4>Silver Sponsor</h4>
+        <ul>
+          <li>Branding on event materials</li>
+          <li>Small exhibition booth (2×2m)</li>
+          <li>3 delegate passes</li>
+          <li>Logo in event programme</li>
+          <li>1 social media mention</li>
+        </ul>
+        <a href="#sponsor-form" class="rw-btn rw-btn--outline rw-btn--sm" style="text-decoration:none;display:inline-block;color:#fff;border-color:rgba(255,255,255,.3)">Enquire →</a>
+      </div>
+      <div class="rw-pkg-card">
+        <div class="rw-tier-badge rw-tier-badge--community">Community</div>
+        <h4>Community Partner</h4>
+        <ul>
+          <li>Recognition as community supporter</li>
+          <li>Shared exhibition table</li>
+          <li>2 complimentary passes</li>
+          <li>Logo in digital programme</li>
+          <li>In-kind contributions welcome</li>
+        </ul>
+        <a href="#sponsor-form" class="rw-btn rw-btn--outline rw-btn--sm" style="text-decoration:none;display:inline-block;color:#fff;border-color:rgba(255,255,255,.3)">Enquire →</a>
+      </div>
+    </div>
+
+    <!-- Sponsor inquiry form -->
+    <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:1.25rem;padding:2rem;margin-top:3rem" id="sponsor-form">
+      <h3 style="color:#fff;margin-bottom:1.25rem;font-size:1.1rem">Sponsorship Enquiry Form</h3>
+      <form class="rw-form" onsubmit="rwSubmit(event,'sponsor')">
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Organisation Name *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Contact Person *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Email *</label><input type="email" required /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Phone</label><input type="tel" /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Country *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Sponsorship Category *</label><select required><option value="">Select...</option><option>Platinum</option><option>Gold</option><option>Silver</option><option>Community Partner</option><option>Media Partner</option></select></div>
+        <div class="rw-form-group rw-form--full"><label style="color:rgba(255,255,255,.7)">Message / Branding Requirements</label><textarea placeholder="Describe your branding preferences, booth requirements, or any specific interests..."></textarea></div>
+        <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--amber">Submit Sponsorship Enquiry</button></div>
+        <div class="rw-success-msg" id="success-sponsor">✅ Sponsorship enquiry received. Our partnerships team will contact you within 3 working days with the full sponsorship deck.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  VENDORS  ======================================================== -->
+<section class="rw-section rw-section--sand" id="vendors">
+  <div class="rw-container">
+    <div class="rw-section-title">
+      <span class="rw-eyebrow">Exhibition &amp; Market</span>
+      <h2>Book Your Exhibition Space</h2>
+      <p>Refugee Week Kenya 2026 features a dedicated exhibition and vendor market — prioritising refugee-led businesses, artisans, NGOs, technology providers, publishers, and cultural exhibitors.</p>
+    </div>
+    <div class="rw-vendors">
+      <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">01</div><div class="rw-vendor-slot__cat">Refugee-led Business</div><div class="rw-vendor-slot__label">Available · 3×3m</div></div>
+      <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">02</div><div class="rw-vendor-slot__cat">NGO / Civil Society</div><div class="rw-vendor-slot__label">Available · 2×2m</div></div>
+      <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">03</div><div class="rw-vendor-slot__cat">Artisans &amp; Crafts</div><div class="rw-vendor-slot__label">Available · Shared table</div></div>
+      <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">04</div><div class="rw-vendor-slot__cat">Food Vendor</div><div class="rw-vendor-slot__label">Limited · Outdoor pitch</div></div>
+      <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">05</div><div class="rw-vendor-slot__cat">Technology</div><div class="rw-vendor-slot__label">Available · 3×3m + power</div></div>
+      <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">06</div><div class="rw-vendor-slot__cat">Publishing &amp; Media</div><div class="rw-vendor-slot__label">Available · Table space</div></div>
+      <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">07</div><div class="rw-vendor-slot__cat">Cultural Exhibitor</div><div class="rw-vendor-slot__label">Available · 3×3m</div></div>
+      <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">08</div><div class="rw-vendor-slot__cat">Advocacy Organisation</div><div class="rw-vendor-slot__label">Available · 2×2m</div></div>
+    </div>
+    <div style="margin-top:2.5rem;background:#fff;border-radius:1.25rem;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.07)">
+      <h3 style="margin-bottom:1.25rem;font-size:1.05rem;color:#2B2B2B">Vendor / Exhibitor Booking Form</h3>
+      <form class="rw-form" onsubmit="rwSubmit(event,'vendor')">
+        <div class="rw-form-group"><label>Business / Organisation Name *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label>Contact Person *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
+        <div class="rw-form-group"><label>Phone *</label><input type="tel" required /></div>
+        <div class="rw-form-group"><label>Country *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label>Vendor Category *</label><select required><option value="">Select...</option><option>Refugee-led Business</option><option>NGO / Civil Society</option><option>Artisans &amp; Crafts</option><option>Food Vendor</option><option>Technology</option><option>Publishing &amp; Media</option><option>Cultural Exhibitor</option><option>Advocacy Organisation</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Products / Services Description *</label><textarea placeholder="Describe what you will be selling or displaying at your booth" required></textarea></div>
+        <div class="rw-form-group"><label>Booth Size Needed</label><select><option>2×2m (small)</option><option>3×3m (standard)</option><option>Shared table</option><option>Outdoor pitch</option></select></div>
+        <div class="rw-form-group"><label>Electricity Required?</label><select><option>No</option><option>Yes — standard 240V</option></select></div>
+        <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--amber">Submit Booking Request</button></div>
+        <div class="rw-success-msg" id="success-vendor">✅ Vendor booking request received. We will confirm your booth allocation and send payment details within 5 working days.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  MEDIA / STORIES  ======================================================== -->
+<section class="rw-section rw-section--white" id="media">
+  <div class="rw-container">
+    <div class="rw-section-title">
+      <span class="rw-eyebrow">Stories &amp; Media</span>
+      <h2>Voices from the Movement</h2>
+      <p>Documentary storytelling, photography highlights, and cultural showcases from communities across Eastern Africa.</p>
+    </div>
+    <div class="rw-stories">
+      <div class="rw-story-card"><img src="assets/images/women-walking-resilience.jpg" class="rw-story-card__img" alt="Women walking — resilience and movement" loading="lazy" /><div class="rw-story-card__body"><div class="rw-story-card__type">Documentary Story</div><div class="rw-story-card__title">On the Move: Stories of Women Who Led Their Families to Safety</div></div></div>
+      <div class="rw-story-card"><img src="assets/images/market-alley-livelihoods.jpg" class="rw-story-card__img" alt="Market livelihoods in a refugee settlement" loading="lazy" /><div class="rw-story-card__body"><div class="rw-story-card__type">Photography Feature</div><div class="rw-story-card__title">Building Livelihoods: Markets as Anchors of Dignity in Displacement</div></div></div>
+      <div class="rw-story-card"><img src="assets/images/textile-culture-identity.jpg" class="rw-story-card__img" alt="Textile arts and cultural identity" loading="lazy" /><div class="rw-story-card__body"><div class="rw-story-card__type">Cultural Showcase</div><div class="rw-story-card__title">Threads of Identity: How East African Textiles Carry Stories Across Borders</div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="media.html" class="rw-btn rw-btn--plum" style="text-decoration:none">Explore Full Media Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  PARTNERS  ======================================================== -->
+<section class="rw-section rw-section--bg" id="partners-section">
+  <div class="rw-container">
+    <div class="rw-section-title" style="text-align:center">
+      <span class="rw-eyebrow">In Collaboration With</span>
+      <h2>Partners &amp; Collaborators</h2>
+    </div>
+    <div class="rw-partners-grid">
+      <div class="rw-partner-chip">Migration Pulse Hub</div>
+      <div class="rw-partner-chip">Kenya Refugee Week</div>
+      <div class="rw-partner-chip">UNHCR Kenya</div>
+      <div class="rw-partner-chip">UNICEF East Africa</div>
+      <div class="rw-partner-chip">IGAD Centre of Excellence</div>
+      <div class="rw-partner-chip">Refugee Consortium of Kenya</div>
+      <div class="rw-partner-chip">Africa Governance Institute</div>
+      <div class="rw-partner-chip">IOM East Africa</div>
+      <div class="rw-partner-chip">NTV Kenya</div>
+      <div class="rw-partner-chip">Nation Media Group</div>
+      <div class="rw-partner-chip">+ Your Organisation</div>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <a href="#sponsor" class="rw-btn rw-btn--plum" style="text-decoration:none">Become a Partner →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  VENUE  ======================================================== -->
+<section class="rw-section rw-section--white" id="venue">
+  <div class="rw-container">
+    <div class="rw-section-title">
+      <span class="rw-eyebrow">Venue &amp; Logistics</span>
+      <h2>Getting There &amp; Getting Ready</h2>
+    </div>
+    <div class="rw-venue-grid">
+      <div>
+        <div style="background:var(--rw-dark);border-radius:1.1rem;overflow:hidden;margin-bottom:1.5rem">
+          <img src="assets/images/urban-migration-corridor.jpg" alt="Nairobi city corridor — KICC venue area" style="width:100%;height:220px;object-fit:cover;display:block;opacity:.8" loading="lazy" />
+        </div>
+        <div class="rw-venue-item"><div class="rw-venue-icon">🏛️</div><div><strong>Kenyatta International Convention Centre (KICC)</strong><br><span style="font-size:.85rem;color:#888">City Square, Nairobi, Kenya — Nairobi 00200</span></div></div>
+        <div class="rw-venue-item"><div class="rw-venue-icon">✈️</div><div><strong>Nearest Airport</strong><br><span style="font-size:.85rem;color:#888">Jomo Kenyatta International Airport (NBO) — 18km, approx. 30–45 min drive</span></div></div>
+        <div class="rw-venue-item"><div class="rw-venue-icon">🚌</div><div><strong>Getting Around</strong><br><span style="font-size:.85rem;color:#888">Matatu, Uber, and Bolt available city-wide. Shuttle service arranged for VIP delegates.</span></div></div>
+        <div class="rw-venue-item"><div class="rw-venue-icon">♿</div><div><strong>Accessibility</strong><br><span style="font-size:.85rem;color:#888">KICC is fully wheelchair accessible. Sign language interpretation available upon request. Please indicate needs in your registration.</span></div></div>
+      </div>
+      <div>
+        <div style="background:#f7f3f9;border-radius:1.1rem;padding:1.75rem;margin-bottom:1.25rem">
+          <h4 style="font-size:1rem;font-weight:700;color:var(--rw-plum);margin-bottom:1rem">🏨 Accommodation Options</h4>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem .85rem;background:#fff;border-radius:.65rem;border:1px solid rgba(0,0,0,.07)"><span style="font-size:.88rem;font-weight:600">KICC Serena Hotel</span><span style="font-size:.75rem;color:var(--rw-plum);font-weight:700">Walking Distance</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem .85rem;background:#fff;border-radius:.65rem;border:1px solid rgba(0,0,0,.07)"><span style="font-size:.88rem;font-weight:600">Nairobi Safari Club</span><span style="font-size:.75rem;color:#888">5 min drive</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem .85rem;background:#fff;border-radius:.65rem;border:1px solid rgba(0,0,0,.07)"><span style="font-size:.88rem;font-weight:600">Milimani Guest Houses</span><span style="font-size:.75rem;color:#888">Budget option · 10 min</span></div>
+          </div>
+          <p style="font-size:.78rem;color:#888;margin-top:.85rem">Negotiated group rates available for registered delegates. Email <a href="mailto:events@migrationpulsehub.org" style="color:var(--rw-plum)">events@migrationpulsehub.org</a> for the accommodation code.</p>
+        </div>
+        <div style="background:#fff8ec;border-radius:1.1rem;padding:1.75rem;border:1.5px solid rgba(254,159,0,.2)">
+          <h4 style="font-size:1rem;font-weight:700;color:#9a6200;margin-bottom:.85rem">📋 Important Notes</h4>
+          <ul style="padding-left:1.2rem;margin:0;font-size:.85rem;color:#666;line-height:1.8">
+            <li>Kenyan e-Visa available at <a href="https://evisa.go.ke" target="_blank" rel="noopener" style="color:var(--rw-plum)">evisa.go.ke</a> for most nationalities</li>
+            <li>Invitation letters for visa applications available upon registration confirmation</li>
+            <li>All sessions will be live-streamed for virtual attendees</li>
+            <li>Photography and filming policy applies throughout the event</li>
+            <li>Event follows a zero-tolerance safeguarding policy</li>
+            <li>Code of conduct binding on all participants</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  FAQ  ======================================================== -->
+<section class="rw-section rw-section--bg" id="faq">
+  <div class="rw-container">
+    <div class="rw-section-title">
+      <span class="rw-eyebrow">Common Questions</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="rw-faq">
+      <div class="rw-faq-item"><button class="rw-faq-q">Is attendance free?</button><div class="rw-faq-a"><div class="rw-faq-a-inner">Community Day (June 18) and the World Refugee Day Concert (June 20 evening) are free and open to the public. All other sessions require registration. Most sessions are free for registered participants — some specialist workshops and the Gala Dinner require a separate ticket.</div></div></div>
+      <div class="rw-faq-item"><button class="rw-faq-q">Can I attend virtually?</button><div class="rw-faq-a"><div class="rw-faq-a-inner">Yes. All main plenary sessions and keynotes will be live-streamed. Registered virtual attendees will receive a secure link via email before each session. Some workshops are in-person only due to capacity limits.</div></div></div>
+      <div class="rw-faq-item"><button class="rw-faq-q">How do I get an invitation letter for my visa?</button><div class="rw-faq-a"><div class="rw-faq-a-inner">Once your registration is confirmed, you may request an official invitation letter by emailing <a href="mailto:events@migrationpulsehub.org" style="color:var(--rw-plum)">events@migrationpulsehub.org</a> with your full name, nationality, passport number, and organisation. Allow 5 working days for processing.</div></div></div>
+      <div class="rw-faq-item"><button class="rw-faq-q">What languages will the event be held in?</button><div class="rw-faq-a"><div class="rw-faq-a-inner">The primary working language is English. Key sessions will have Kiswahili interpretation. Simultaneous interpretation into Arabic, Somali, and Amharic is planned for the opening ceremony and plenary sessions.</div></div></div>
+      <div class="rw-faq-item"><button class="rw-faq-q">How can my organisation exhibit at the event?</button><div class="rw-faq-a"><div class="rw-faq-a-inner">Use the Vendor Booking Form above to apply for an exhibition space. We prioritise refugee-led businesses, CSOs, and organisations working in the migration and displacement space. Applications are reviewed on a first-come, first-served basis.</div></div></div>
+      <div class="rw-faq-item"><button class="rw-faq-q">Is there a safeguarding policy?</button><div class="rw-faq-a"><div class="rw-faq-a-inner">Yes. Migration Pulse Hub operates under a strict safeguarding and child protection policy. All participants are required to read and abide by the event Code of Conduct. A dedicated safeguarding focal point will be present throughout the event. Report any concerns to the event team immediately.</div></div></div>
+      <div class="rw-faq-item"><button class="rw-faq-q">Can I share or publish content from the event?</button><div class="rw-faq-a"><div class="rw-faq-a-inner">A media and photography consent policy applies. Attendees may be photographed and filmed for event purposes. Individual speakers and panellists retain copyright over their presentations. Media accreditation is required for press and broadcast coverage.</div></div></div>
+    </div>
+    <div style="margin-top:2rem;text-align:center">
+      <p style="font-size:.9rem;color:#888;margin-bottom:.85rem">Still have a question? Talk to ZURI or get in touch directly.</p>
+      <a href="contact.html" class="rw-btn rw-btn--plum" style="text-decoration:none">Contact the Events Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  CTA BANNER  ======================================================== -->
+<section style="background:linear-gradient(135deg,var(--rw-plum) 0%,#4A0642 100%);padding:4rem 0">
+  <div class="rw-container" style="text-align:center">
+    <span class="rw-eyebrow" style="color:rgba(255,255,255,.6)">Don't miss Refugee Week Kenya 2026</span>
+    <h2 style="font-family:'Sora',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;margin:.5rem 0 1rem;line-height:1.2">Join Us. June 15–21, 2026. Nairobi.</h2>
+    <p style="color:rgba(255,255,255,.72);font-size:1.05rem;max-width:560px;margin:0 auto 2rem;line-height:1.65">"Stories, Policy, Culture, Protection, and the Future of Human Mobility."</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="#register" class="rw-btn rw-btn--amber" style="text-decoration:none">Register Now</a>
+      <a href="#sponsor" class="rw-btn rw-btn--outline" style="text-decoration:none;color:#fff;border-color:rgba(255,255,255,.4)">Become a Sponsor</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================  FOOTER  ======================================================== -->
+<footer class="mph-footer">
+  <div class="mph-footer-main">
+    <div class="mph-container">
+      <div class="mph-footer-grid">
+        <div class="mph-footer-brand">
+          <img src="assets/images/logo.png" class="mph-footer-logo-img" alt="Migration Pulse Hub" />
+          <p>Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants through advocacy, research, legal action, and community empowerment.</p>
+          <div class="mph-footer-socials">
+            <a href="#" aria-label="LinkedIn"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-linkedin"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-twitter"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-facebook"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-instagram"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-youtube"/></svg></a>
+          </div>
+        </div>
+        <div class="mph-footer-col">
+          <h4>Refugee Week 2026</h4>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#schedule">Programme</a></li>
+            <li><a href="#speakers">Speakers</a></li>
+            <li><a href="#register">Register</a></li>
+            <li><a href="#sponsor">Sponsors</a></li>
+            <li><a href="#vendors">Exhibitors</a></li>
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="mph-footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
+            <li><a href="reports.html">Reports &amp; Publications</a></li>
+            <li><a href="news.html">News &amp; Updates</a></li>
+            <li><a href="events.html">All Events</a></li>
+            <li><a href="support.html">Support Us</a></li>
+          </ul>
+        </div>
+        <div class="mph-footer-col">
+          <h4>Contact</h4>
+          <div class="mph-footer-contact-list">
+            <div class="mph-footer-contact-item"><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-mail"/></svg><a href="mailto:events@migrationpulsehub.org">events@migrationpulsehub.org</a></div>
+            <div class="mph-footer-contact-item"><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-phone"/></svg><a href="tel:+254118969209">+254 118 969 209</a></div>
+            <div class="mph-footer-contact-item"><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-map-pin"/></svg><span>Nairobi, Kenya</span></div>
+          </div>
+          <a href="contact.html" class="mph-btn sm" style="margin-top:1.25rem">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mph-container">
+    <div class="mph-footer-bottom">
+      <span>© 2025 Migration Pulse Hub. Refugee Week Kenya 2026. All rights reserved.</span>
+      <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="privacy.html#terms">Terms of Use</a> &nbsp;·&nbsp; <a href="privacy.html#safeguarding">Safeguarding</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="mph-back-to-top" aria-label="Back to top"><svg class="mph-icon"><use href="#ico-trending"/></svg></button>
+
+<!-- ZURI Chatbot -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/zuri-chat.js"></script>
+
+<!-- Page-specific JS -->
+<script>
+(function () {
+  /* ---- Countdown ---- */
+  var target = new Date('2026-06-15T08:00:00+03:00').getTime();
+  function tick() {
+    var now = Date.now(), diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hours').textContent = '0';
+      document.getElementById('cd-mins').textContent = '0';
+      document.getElementById('cd-secs').textContent = '0';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = d;
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---- Schedule Tabs ---- */
+  document.querySelectorAll('.rw-tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.dataset.tab;
+      document.querySelectorAll('.rw-tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.rw-tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      var panel = document.getElementById('tab-' + key);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  /* ---- Registration Tabs ---- */
+  document.querySelectorAll('.rw-reg-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.dataset.reg;
+      document.querySelectorAll('.rw-reg-tab').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.rw-reg-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var panel = document.getElementById('reg-' + key);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  /* ---- FAQ Accordion ---- */
+  document.querySelectorAll('.rw-faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.rw-faq-item');
+      var answer = item.querySelector('.rw-faq-a');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.rw-faq-item').forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.rw-faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---- Form submit handler ---- */
+  window.rwSubmit = function(e, type) {
+    e.preventDefault();
+    var successEl = document.getElementById('success-' + type);
+    if (successEl) {
+      successEl.style.display = 'block';
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    // Route to WhatsApp for immediate follow-up
+    var msg = encodeURIComponent('Hello Migration Pulse Hub, I have submitted a ' + type + ' enquiry for Refugee Week Kenya 2026. Please confirm receipt.');
+    window.open('https://api.whatsapp.com/send?phone=254118969209&text=' + msg, '_blank');
+  };
+})();
+</script>
+</body>
+</html>
+
+
