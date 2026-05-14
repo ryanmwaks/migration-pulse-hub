@@ -47,23 +47,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let current  = 0;
     let timer    = null;
-    const DWELL  = 9000;  // ms per clip
-    const FADE   = 1800;  // ms — must match CSS transition
+    const DWELL  = 11000; // ms per clip — longer dwell, less frequent cuts
+    const FADE   = 2200;  // ms — must match CSS transition duration
 
     function goTo(idx) {
       const prev = current;
       current = ((idx % clips.length) + clips.length) % clips.length;
       if (prev === current) return;
 
-      // Swap active class
+      // Outgoing clip: keep on top (z-index:2) and fade it out
       clips[prev].classList.remove('active');
+      clips[prev].classList.add('leaving');
       dots[prev] && dots[prev].classList.remove('active');
+
+      // Incoming clip: place beneath (z-index:1) and fade in
       clips[current].classList.add('active');
       dots[current] && dots[current].classList.add('active');
 
-      // Play incoming video (muted, looped)
+      // Play incoming video from beginning
       const vid = clips[current].querySelector('video');
       if (vid) { vid.currentTime = 0; vid.play().catch(() => {}); }
+
+      // Clean up leaving class once the cross-dissolve finishes
+      const leaving = clips[prev];
+      setTimeout(function () {
+        leaving.classList.remove('leaving');
+      }, FADE + 100);
     }
 
     // Start cycling
