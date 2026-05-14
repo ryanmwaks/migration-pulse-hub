@@ -1067,6 +1067,42 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
 /* Back-to-top icon rotation — use chevron up feel */
 .mph-back-to-top .mph-icon { transform: rotate(-45deg); }
 
+/* About image stack — perfectly fitted photo with documentary treatment */
+.mph-image-stack .main-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background: var(--off-white);
+  box-shadow: 0 8px 40px rgba(0,0,0,.14);
+}
+.mph-image-stack .main-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  transition: transform .9s ease;
+}
+.mph-image-stack:hover .main-img img {
+  transform: scale(1.03);
+}
+
+/* Floating stat badge — plum accent stripe on the left */
+.mph-floating-note {
+  border-left: 4px solid var(--plum) !important;
+  padding-left: 1.25rem !important;
+  border-radius: 0 var(--r-lg) var(--r-lg) 0 !important;
+}
+.mph-floating-note .big {
+  color: var(--plum) !important;
+  font-size: 2.2rem !important;
+}
+.mph-floating-note small {
+  color: var(--charcoal-soft) !important;
+  line-height: 1.45 !important;
+  font-size: .8rem !important;
+}
+
 /* ============================================================
    24. RESPONSIVE
    ============================================================ */
