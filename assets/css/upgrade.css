@@ -194,10 +194,9 @@ a:hover { color: var(--plum); }
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../images/kakuma-road-sign.jpg') center/cover no-repeat;
-  opacity: 0.08;
+  background: url('../images/bg-community.jpg') center/cover no-repeat;
+  opacity: 0.07;
   pointer-events: none;
-  filter: saturate(0.7);
 }
 .mph-strip--teal p   { color: var(--white); position: relative; z-index: 1; }
 .mph-strip--teal .mph-icon { color: rgba(255,255,255,.8); }
@@ -356,7 +355,7 @@ a:hover { color: var(--plum); }
    10. TRANSLUCENT SECTION BACKGROUNDS — media pack imagery
    ============================================================ */
 
-/* Default bg-bg sections — aerial settlement, very subtle */
+/* bg-bg sections — subtle community image watermark */
 section.bg-bg,
 div.bg-bg {
   position: relative;
@@ -367,7 +366,7 @@ div.bg-bg::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../images/aerial-refugee-settlement-01.jpg') center/cover no-repeat;
+  background: url('../images/bg-community.jpg') center/cover no-repeat;
   opacity: 0.055;
   pointer-events: none;
   z-index: 0;
@@ -377,12 +376,6 @@ section.bg-bg > *,
 div.bg-bg > .mph-container {
   position: relative;
   z-index: 1;
-}
-
-/* Policy Watch section — urban migration corridor image */
-#policy-watch.bg-bg::before {
-  background: url('../images/urban-migration-corridor.jpg') center/cover no-repeat;
-  opacity: 0.06;
 }
 
 /* ============================================================
@@ -396,7 +389,7 @@ div.bg-bg > .mph-container {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../images/community-livelihoods-aerial.jpg') center/cover no-repeat;
+  background: url('../images/bg-community.jpg') center/cover no-repeat;
   opacity: 0.07;
   pointer-events: none;
   z-index: 0;
@@ -889,10 +882,10 @@ section.bg-sand::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../images/team-collaboration-meeting.jpg') center/cover no-repeat;
-  opacity: 0.12;
+  background: url('../images/bg-advocacy.jpg') center/cover no-repeat;
+  opacity: 0.10;
   pointer-events: none;
-  filter: grayscale(30%) saturate(0.8);
+  filter: grayscale(20%) saturate(0.8);
 }
 section.bg-sand .mph-container { position: relative; z-index: 1; }
 
@@ -913,10 +906,10 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../images/women-walking-resilience.jpg') center top/cover no-repeat;
-  opacity: 0.25;
+  background: url('../images/bg-advocacy.jpg') center/cover no-repeat;
+  opacity: 0.12;
   pointer-events: none;
-  filter: brightness(0.85) saturate(0.75) grayscale(20%);
+  filter: brightness(0.85) saturate(0.7) grayscale(15%);
   z-index: 0;
 }
 .mph-cta .mph-container { position: relative; z-index: 1; }
@@ -1020,7 +1013,62 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
 }
 
 /* ============================================================
-   23. RESPONSIVE
+   23. REFINEMENTS
+   ============================================================ */
+
+/* CTA — ensure headline and eyebrow are fully white */
+.mph-cta h2,
+.mph-cta p { color: var(--white) !important; }
+
+/* CTA — amber primary button, white outline secondary */
+.mph-cta .mph-btn.coral {
+  background: var(--amber) !important;
+  color: var(--charcoal) !important;
+  border-color: var(--amber) !important;
+}
+.mph-cta .mph-btn.coral:hover {
+  background: var(--amber-dark) !important;
+  border-color: var(--amber-dark) !important;
+}
+
+/* Impact section — plum filled button is more legible on off-white */
+.bg-gradient-navy .mph-btn.plum {
+  background: var(--plum) !important;
+  color: var(--white) !important;
+  border-color: var(--plum) !important;
+}
+.bg-gradient-navy .mph-btn.plum:hover {
+  background: var(--plum-dark) !important;
+  border-color: var(--plum-dark) !important;
+  box-shadow: 0 8px 24px rgba(125,10,109,.28) !important;
+}
+
+/* Regional context — ensure text colours correct */
+.mph-regional-context .mph-eyebrow--coral {
+  color: var(--coral) !important;
+  background: rgba(232,93,79,.08) !important;
+}
+
+/* Gallery strip — consistent height, no overflow */
+.mph-hero-gallery { overflow: hidden; }
+.mph-hero-gallery-item img { display: block; }
+
+/* Hero stat numbers — keep amber even with counter animation */
+.mph-hero-stat .num { color: var(--amber-light) !important; }
+
+/* News card images — consistent crop */
+.mph-news-thumb { overflow: hidden; }
+.mph-news-thumb img { transition: transform .6s ease; }
+.mph-card:hover .mph-news-thumb img { transform: scale(1.04); }
+
+/* Section title max-width — more readable on wide screens */
+.mph-section-title p { max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* Back-to-top icon rotation — use chevron up feel */
+.mph-back-to-top .mph-icon { transform: rotate(-45deg); }
+
+/* ============================================================
+   24. RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
   .mph-pillars-grid   { grid-template-columns: 1fr; }
