@@ -161,6 +161,14 @@ a:hover { color: var(--plum); }
   color: var(--charcoal) !important;
 }
 
+/* SVGs inside social icon circles must be block so flex centering works cleanly */
+.mph-socials a svg,
+.mph-footer-socials a svg {
+  display: block;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
 /* ============================================================
    7. SVG ICON SYSTEM
    ============================================================ */
