@@ -1,12 +1,12 @@
 /* ============================================================
-   ZURI — Migration Pulse Hub Chatbot Engine v1.0
+   Pulse — Migration Pulse Hub Chatbot Engine v2.0
    Multilingual · Human-handover · Trauma-informed · Rights-based
 
    Supports: EN · SW · SO · AR · AM · OM · TI · RW · RN · LG · DIN · NUS · FR
    Escalation: WhatsApp +254118969209 | info@migrationpulsehub.org
    ============================================================ */
 
-const ZURI = (function () {
+const Pulse = (function () {
   'use strict';
 
   /* ----------------------------------------------------------
@@ -16,9 +16,9 @@ const ZURI = (function () {
     whatsapp:   'https://api.whatsapp.com/send?phone=254118969209',
     email:      'info@migrationpulsehub.org',
     website:    'https://www.migrationpulsehub.org',
-    botName:    'ZURI',
+    botName:    'Pulse',
     org:        'Migration Pulse Hub',
-    storageKey: 'zuri_state_v1',
+    storageKey: 'pulse_state_v1',
     typingMs:   900,
   };
 
@@ -58,7 +58,7 @@ const ZURI = (function () {
   ---------------------------------------------------------- */
   const T = {
     en: {
-      welcome:     "Hello! 👋 Welcome to Migration Pulse Hub. I'm <strong>ZURI</strong>, your digital assistant.\n\nI can help you with events, reports, partnerships, sponsorship, vendor booking, media enquiries, volunteering, or general support.\n\nHow may I assist you today?",
+      welcome:     "Hello! 👋 Welcome to Migration Pulse Hub. I'm <strong>Pulse</strong> — your digital companion here.\n\nI'm here to help with anything from event registration to reports, partnerships, sponsorship, volunteering, media enquiries, legal support, and more. Whatever brings you here, I'll do my best to guide you.\n\nWhat can I help you with today?",
       privacy:     "🔒 We collect only the minimum details needed to respond to your enquiry. Please do not share passwords, IDs, or financial documents here.",
       menu_title:  "Please choose what you need help with:",
       name_q:      "What is your full name?",
@@ -74,13 +74,13 @@ const ZURI = (function () {
       escalate_q:  "How would you like us to follow up with you?",
       wa_btn:      "📲 Continue on WhatsApp",
       email_btn:   "📧 Send via Email",
-      human_btn:   "🙋 Speak to a Human",
+      human_btn:   "💬 Connect with One of Us",
       thanks:      "✅ Thank you! Your enquiry has been received. The Migration Pulse Hub team will follow up with you shortly.\n\n<em>Reference: {ref}</em>",
       safety_msg:  "⚠️ It sounds like you may be in an urgent or sensitive situation. Please connect directly with our team immediately.",
       restart:     "Start over",
       back:        "← Back",
       send:        "Send",
-      typing:      "ZURI is typing…",
+      typing:      "Pulse is typing…",
       select_lang: "Select your language:",
       attendance_q:"How will you attend the event?",
       att_options: ["In Person – Nairobi", "Virtual / Online", "Both"],
@@ -113,7 +113,7 @@ const ZURI = (function () {
     },
 
     sw: {
-      welcome:     "Habari! 👋 Karibu Migration Pulse Hub. Mimi ni <strong>ZURI</strong>, msaidizi wako wa kidijitali.\n\nNinaweza kukusaidia na matukio, ripoti, ushirikiano, udhamini, maswali ya wasambazaji, vyombo vya habari, kujitolea, au msaada wa jumla.\n\nNinawezaje kukusaidia leo?",
+      welcome:     "Habari! 👋 Karibu Migration Pulse Hub. Mimi ni <strong>Pulse</strong>, msaidizi wako wa kidijitali.\n\nNinaweza kukusaidia na matukio, ripoti, ushirikiano, udhamini, maswali ya wasambazaji, vyombo vya habari, kujitolea, au msaada wa jumla.\n\nNinawezaje kukusaidia leo?",
       privacy:     "🔒 Tunakusanya taarifa za chini zinazohitajika tu kujibu swali lako. Tafadhali usishiriki nywila, vitambulisho, au nyaraka za fedha hapa.",
       menu_title:  "Tafadhali chagua unahitaji msaada na nini:",
       name_q:      "Jina lako kamili ni nani?",
@@ -128,7 +128,7 @@ const ZURI = (function () {
       escalate_q:  "Ungependa tufuatilie vipi?",
       wa_btn:      "📲 Endelea kwenye WhatsApp",
       email_btn:   "📧 Tuma kwa Barua Pepe",
-      human_btn:   "🙋 Ongea na Mtu",
+      human_btn:   "💬 Wasiliana na Mmoja Wetu",
       thanks:      "✅ Asante! Swali lako limepokelewa. Timu ya Migration Pulse Hub itafuatilia hivi karibuni.",
       safety_msg:  "⚠️ Inaonekana uko katika hali ya dharura. Tafadhali wasiliana na timu yetu moja kwa moja sasa hivi.",
       restart:     "Anza upya",
@@ -140,7 +140,7 @@ const ZURI = (function () {
     },
 
     so: {
-      welcome:     "Salaan! 👋 Soo dhawow Migration Pulse Hub. Waxaan ahay <strong>ZURI</strong>, kaaliyahaaga dhijitaalka ah.\n\nWaxaan kuu caawin karaa xafladaha, warbixinnada, ortaagga, deeqaha, qeybtiyeyaasha, warbaahinta, ama taageerada guud.\n\nSideed kuu caawin karaa maanta?",
+      welcome:     "Salaan! 👋 Soo dhawow Migration Pulse Hub. Waxaan ahay <strong>Pulse</strong>, kaaliyahaaga dhijitaalka ah.\n\nWaxaan kuu caawin karaa xafladaha, warbixinnada, ortaagga, deeqaha, qeybtiyeyaasha, warbaahinta, ama taageerada guud.\n\nSideed kuu caawin karaa maanta?",
       privacy:     "🔒 Waxaan uruurinaynaa macluumaadka ugu yar ee lagama maarmaan ah si aan uga jawaabno su'aalahaaga. Fadlan ha wadaagto furaha sirta, aqoonsiga, ama dukumiintiyada xasaasiga ah halkan.",
       menu_title:  "Fadlan dooro waxa aad u baahan tahay caawinta:",
       name_q:      "Magacaaga buuxa waa maxay?",
@@ -155,7 +155,7 @@ const ZURI = (function () {
       escalate_q:  "Sideed rabtaa inaan kula xiriirno?",
       wa_btn:      "📲 Sii wad WhatsApp",
       email_btn:   "📧 Dir Iimeelka",
-      human_btn:   "🙋 La xiriir Qof",
+      human_btn:   "💬 Nala Xiriir",
       thanks:      "✅ Mahadsanid! Su'aashaadii la helay. Kooxda Migration Pulse Hub waxa ay kula soo xidhiidhi doontaa dhawaan.",
       safety_msg:  "⚠️ Waxay u muuqataa inaad jirto xaalad degdeg ah. Fadlan si toos ah ula xiriir kooxdeena hadda.",
       restart:     "Dib u bilow",
@@ -167,7 +167,7 @@ const ZURI = (function () {
     },
 
     ar: {
-      welcome:     "مرحباً! 👋 أهلاً بك في Migration Pulse Hub. أنا <strong>ZURI</strong>، مساعدك الرقمي.\n\nيمكنني مساعدتك في الفعاليات، التقارير، الشراكات، الرعاية، حجز الباعة، استفسارات الإعلام، التطوع، أو الدعم العام.\n\nكيف يمكنني مساعدتك اليوم؟",
+      welcome:     "مرحباً! 👋 أهلاً بك في Migration Pulse Hub. أنا <strong>Pulse</strong>، مساعدك الرقمي.\n\nيمكنني مساعدتك في الفعاليات، التقارير، الشراكات، الرعاية، حجز الباعة، استفسارات الإعلام، التطوع، أو الدعم العام.\n\nكيف يمكنني مساعدتك اليوم؟",
       privacy:     "🔒 نجمع فقط الحد الأدنى من البيانات اللازمة للرد على استفسارك. يُرجى عدم مشاركة كلمات المرور أو الهويات أو الوثائق المالية هنا.",
       menu_title:  "يُرجى اختيار ما تحتاج المساعدة فيه:",
       name_q:      "ما اسمك الكامل؟",
@@ -182,7 +182,7 @@ const ZURI = (function () {
       escalate_q:  "كيف تريد أن نتابع معك؟",
       wa_btn:      "📲 تابع عبر واتساب",
       email_btn:   "📧 إرسال عبر البريد الإلكتروني",
-      human_btn:   "🙋 التحدث مع إنسان",
+      human_btn:   "💬 تواصل مع أحد فريقنا",
       thanks:      "✅ شكراً! تم استلام استفسارك. سيتابع معك فريق Migration Pulse Hub قريباً.",
       safety_msg:  "⚠️ يبدو أنك في موقف عاجل أو حساس. يُرجى التواصل مع فريقنا مباشرةً الآن.",
       restart:     "ابدأ من جديد",
@@ -194,7 +194,7 @@ const ZURI = (function () {
     },
 
     am: {
-      welcome:     "ሰላም! 👋 ወደ Migration Pulse Hub እንኳን ደህና መጡ። እኔ <strong>ZURI</strong> ዲጂታል ረዳትዎ ነኝ።\n\nስለ ዝግጅቶች፣ ሪፖርቶች፣ ሽርክናዎች፣ ስፖንሰርሺፕ፣ ሻጭ ቦታ ዕዝ፣ ሚዲያ ጥያቄዎች ወይም አጠቃላይ ድጋፍ ልረዳዎ እችላለሁ።\n\nዛሬ እንዴት ልረዳዎ?",
+      welcome:     "ሰላም! 👋 ወደ Migration Pulse Hub እንኳን ደህና መጡ። እኔ <strong>Pulse</strong> ዲጂታል ረዳትዎ ነኝ።\n\nስለ ዝግጅቶች፣ ሪፖርቶች፣ ሽርክናዎች፣ ስፖንሰርሺፕ፣ ሻጭ ቦታ ዕዝ፣ ሚዲያ ጥያቄዎች ወይም አጠቃላይ ድጋፍ ልረዳዎ እችላለሁ።\n\nዛሬ እንዴት ልረዳዎ?",
       privacy:     "🔒 ለጥያቄዎ ምላሽ ለመስጠት አስፈላጊ የሆነ ዝቅተኛ ዝርዝሮችን ብቻ እንሰበስባለን። እዚህ የይለፍ ቃሎችን፣ መታወቂያዎችን ወይም የፋይናንስ ሰነዶችን አያጋሩ።",
       menu_title:  "ምን እርዳታ ያስፈልግዎ እባክዎ ይምረጡ:",
       name_q:      "ሙሉ ስምዎ ምንድን ነው?",
@@ -209,7 +209,7 @@ const ZURI = (function () {
       escalate_q:  "እንዴት ሊከታተሉዎ ይፈልጋሉ?",
       wa_btn:      "📲 በዋትስአፕ ቀጥሉ",
       email_btn:   "📧 በኢሜይል ላኩ",
-      human_btn:   "🙋 ሰው ጋር ይናገሩ",
+      human_btn:   "💬 ከቡድናችን ጋር ይገናኙ",
       thanks:      "✅ እናመሰግናለን! ጥያቄዎ ደርሷል። የ Migration Pulse Hub ቡድን ብዙም ሳይቆይ ይከታተልዎታል።",
       safety_msg:  "⚠️ ለአስቸኳይ ወይም ስሜታዊ ሁኔታ ውስጥ ሊሆኑ ይችላሉ። ቡድናችን ጋር አሁን ቀጥተኛ ግንኙነት ያድርጉ።",
       restart:     "እንደገና ጀምር",
@@ -221,7 +221,7 @@ const ZURI = (function () {
     },
 
     om: {
-      welcome:     "Nagaan! 👋 Baga gara Migration Pulse Hub dhuftan. Ani <strong>ZURI</strong>, gargaaraa dijitaalaa keessan.\n\nWaa'ee taateewwan, gabaasota, gamtummaa, deeggarsa, galma gurbayyii, miidiyaa, ykn gargaarsa waliigalaa isin gargaaruu danda'a.\n\nGuyyaa kana akkamiin isin gargaaruu danda'a?",
+      welcome:     "Nagaan! 👋 Baga gara Migration Pulse Hub dhuftan. Ani <strong>Pulse</strong>, gargaaraa dijitaalaa keessan.\n\nWaa'ee taateewwan, gabaasota, gamtummaa, deeggarsa, galma gurbayyii, miidiyaa, ykn gargaarsa waliigalaa isin gargaaruu danda'a.\n\nGuyyaa kana akkamiin isin gargaaruu danda'a?",
       privacy:     "🔒 Odeeffannoo xiqqoo barbaachisaa qofa sassaabna. Maaloo jecha icciitii, eenyummaa, ykn galmee maallaqaa asitti hin qoodiin.",
       menu_title:  "Maaloo maal irratti gargaarsa barbaaddu filadhu:",
       name_q:      "Maqaa guutuu kee maal?",
@@ -236,7 +236,7 @@ const ZURI = (function () {
       escalate_q:  "Akkamiin nu hordofsiifachuu barbaadda?",
       wa_btn:      "📲 WhatsApp irratti itti fufi",
       email_btn:   "📧 Imeelii ergii",
-      human_btn:   "🙋 Nama waliin haasayi",
+      human_btn:   "💬 Garee Keenyaan Quunnamaa",
       thanks:      "✅ Galatoomi! Gaaffiin kee fudhatameera. Gareen Migration Pulse Hub ati isin hordofa.",
       safety_msg:  "⚠️ Yeroo hatattamaa ykn xiyeeffannaa barbaaddu keessa jiruu fakkaatta. Maaloo yeroo ammaa gareewwan keenya waliin qunnamtii qabaadhu.",
       restart:     "Irra deebi'i eegali",
@@ -248,7 +248,7 @@ const ZURI = (function () {
     },
 
     ti: {
-      welcome:     "ሰላም! 👋 ናብ Migration Pulse Hub እንቋዕ ደሓን መጻእካ/ኺ። ኣነ <strong>ZURI</strong>, ዲጂታላዊ ሓጋዚ ናይ ንዓኻ/ኽ እዩ።\n\nብዛዕባ ፍጻሜታት፣ ጸብጻባት፣ ምሕዝነት፣ ስፖንሰርሽፕ ወይ ሓጋዚ ሓበሬታ ክሕግዝካ/ኺ ይኽእል።\n\nሎሚ ከም'ቲ ኽሕግዘካ/ኺ?",
+      welcome:     "ሰላም! 👋 ናብ Migration Pulse Hub እንቋዕ ደሓን መጻእካ/ኺ። ኣነ <strong>Pulse</strong>, ዲጂታላዊ ሓጋዚ ናይ ንዓኻ/ኽ እዩ።\n\nብዛዕባ ፍጻሜታት፣ ጸብጻባት፣ ምሕዝነት፣ ስፖንሰርሽፕ ወይ ሓጋዚ ሓበሬታ ክሕግዝካ/ኺ ይኽእል።\n\nሎሚ ከም'ቲ ኽሕግዘካ/ኺ?",
       privacy:     "🔒 ንሕቶኻ ንምምላሽ ዝቐነሰ ዝርዝራት ጥራይ ንእክብ። ኣብዚ ሕሉፍ ቃላት፣ ናይ መን ሰብ ወረቃቕቲ ወይ ናይ ፋይናንስ ሰነዳት ኣይትካፍል።",
       menu_title:  "ኣብ ምንታይ ሓጋዚ ሓበሬታ ዘድልየካ/ኽ ምረጽ:",
       name_q:      "ምሉእ ስምካ/ኺ እንታይ እዩ?",
@@ -263,7 +263,7 @@ const ZURI = (function () {
       escalate_q:  "ብኸምዚ ምክትታልና ትደሊ/ትደልዪ?",
       wa_btn:      "📲 ኣብ WhatsApp ቀጽሉ",
       email_btn:   "📧 ብኢሜል ስደዱ",
-      human_btn:   "🙋 ምስ ሰብ ተዛረቡ",
+      human_btn:   "💬 ምስ ቡድንና ተወከሱ",
       thanks:      "✅ የቐንየልካ/ኺ! ሕቶኻ/ኺ ተቐቢልናዮ። ቡድን Migration Pulse Hub ቀልጢፉ ክከታተለካ/ኺ እዩ።",
       safety_msg:  "⚠️ ኣብ ዘፍርሕ ወይ ህጹጽ ኩነታት ምህላዉ ይርአ። ሕጂ ብቐጥታ ምስ ቡድንና ርኸቡ።",
       restart:     "ካብ መጀመርታ ጀምር",
@@ -275,7 +275,7 @@ const ZURI = (function () {
     },
 
     rw: {
-      welcome:     "Muraho! 👋 Murakaza neza kuri Migration Pulse Hub. Ndi <strong>ZURI</strong>, umufasha wawe w'ikoranabuhanga.\n\nNshobora kukuganiriza ku bikorwa, raporo, ubufatanye, inkunga, inyungu z'abakoranya, itumatumanaho, ubwitange, cyangwa ubufasha rusange.\n\nNshobora kukufasha gute uyu munsi?",
+      welcome:     "Muraho! 👋 Murakaza neza kuri Migration Pulse Hub. Ndi <strong>Pulse</strong>, umufasha wawe w'ikoranabuhanga.\n\nNshobora kukuganiriza ku bikorwa, raporo, ubufatanye, inkunga, inyungu z'abakoranya, itumatumanaho, ubwitange, cyangwa ubufasha rusange.\n\nNshobora kukufasha gute uyu munsi?",
       privacy:     "🔒 Dutunga gusa amakuru make agenewe gusubiza ikibazo cyawe. Ntugabane passwords, indangamuntu, cyangwa inyandiko z'imari hano.",
       menu_title:  "Hitamo icyo ukeneye ubufasha muri:",
       name_q:      "Amazina yawe yose ni ayahe?",
@@ -290,7 +290,7 @@ const ZURI = (function () {
       escalate_q:  "Urashaka tugukomeze gute?",
       wa_btn:      "📲 Komeza kuri WhatsApp",
       email_btn:   "📧 Ohereza imeri",
-      human_btn:   "🙋 Ganira n'umuntu",
+      human_btn:   "💬 Ganira n'uwo mu Itsinda Ryacu",
       thanks:      "✅ Urakoze! Ikibazo cyawe cyakirwa. Itsinda rya Migration Pulse Hub rizakugarukaho vuba.",
       safety_msg:  "⚠️ Bisa nk'aho uri mu bihe by'ihungabana. Nyamuneka wahuza na tsinda ryacu ubu.",
       restart:     "Tangira bushya",
@@ -302,7 +302,7 @@ const ZURI = (function () {
     },
 
     rn: {
-      welcome:     "Salut! 👋 Murakaza neza kuri Migration Pulse Hub. Ndi <strong>ZURI</strong>, umufasha wawe wa numerike.\n\nNshobora kukufasha ku bikorwa, raporo, inkunga, cyangwa ubufasha rusange.\n\nNshobora kukufasha gute uyu munsi?",
+      welcome:     "Salut! 👋 Murakaza neza kuri Migration Pulse Hub. Ndi <strong>Pulse</strong>, umufasha wawe wa numerike.\n\nNshobora kukufasha ku bikorwa, raporo, inkunga, cyangwa ubufasha rusange.\n\nNshobora kukufasha gute uyu munsi?",
       privacy:     "🔒 Turondera gusa amakuru make agenewe gusubiza ikibazo cawe. Ntugabane amagambo banga, indangamuntu cyangwa inyandiko z'imari hano.",
       menu_title:  "Hitamo ico ukeneye ubufasha muri:",
       name_q:      "Amazina yawe yose ni ayahe?",
@@ -317,7 +317,7 @@ const ZURI = (function () {
       escalate_q:  "Urashaka tugukomeze gute?",
       wa_btn:      "📲 Komeza kuri WhatsApp",
       email_btn:   "📧 Ereka imeri",
-      human_btn:   "🙋 Ganira n'umuntu",
+      human_btn:   "💬 Ganira n'Uwo mu Mugwi Wacu",
       thanks:      "✅ Urakoze! Ikibazo cawe cakirwa. Umurwi wa Migration Pulse Hub uzokugarukaho vuba.",
       safety_msg:  "⚠️ Bisa nkaho uri mu bihe vyihutirwa. Tubuze na tsinda ryacu ubu.",
       restart:     "Tangira ubushya",
@@ -329,7 +329,7 @@ const ZURI = (function () {
     },
 
     lg: {
-      welcome:     "Oli otya! 👋 Tukwanirizza eri Migration Pulse Hub. Nze <strong>ZURI</strong>, omuyambi wo ow'edijitali.\n\nNsobola okukuyamba ku byafaayo, lipoota, bulungibwansi, sponsorship, n'obweyambi obwenjawulo.\n\nNsobola okukuyamba ntya leero?",
+      welcome:     "Oli otya! 👋 Tukwanirizza eri Migration Pulse Hub. Nze <strong>Pulse</strong>, omuyambi wo ow'edijitali.\n\nNsobola okukuyamba ku byafaayo, lipoota, bulungibwansi, sponsorship, n'obweyambi obwenjawulo.\n\nNsobola okukuyamba ntya leero?",
       privacy:     "🔒 Tuteeka amawulire amakeera agasooka okusaba. Ttonda okugabana passwords, ID, oba ebiwandiiko bya sente wano.",
       menu_title:  "Londa kye okwagala obuyambi mu:",
       name_q:      "Erinnya lyo lyonna kiki?",
@@ -344,7 +344,7 @@ const ZURI = (function () {
       escalate_q:  "Oyagala tukugoberere ntya?",
       wa_btn:      "📲 Endeera ku WhatsApp",
       email_btn:   "📧 Siira ku imeyiro",
-      human_btn:   "🙋 Yogera n'omuntu",
+      human_btn:   "💬 Kuba Ow'amazima ne Kibiina Kyaffe",
       thanks:      "✅ Webale! Ekirowoozo kyo kikiriddwa. Ekibiina kya Migration Pulse Hub kijja kukugobererako mangu.",
       safety_msg:  "⚠️ Biddikira ng'oli mu kifo ekitegeerwa mangu. Kulumba, kuba ow'amazima ne kibiina kyaffe kaakano.",
       restart:     "Tandika omulundi gwa ntono",
@@ -356,7 +356,7 @@ const ZURI = (function () {
     },
 
     din: {
-      welcome:     "Loi! 👋 Buk waar Migration Pulse Hub. An <strong>ZURI</strong>, awuɔɔt apiu yin.\n\nEn adhol yin lɔ guiir ee biëëc, aricin, mïth, wil, abuk vendor, aricin kek media, wil piöuc, abuk yic de mïth.\n\nEn adhol yin jɔt cɔk?",
+      welcome:     "Loi! 👋 Buk waar Migration Pulse Hub. An <strong>Pulse</strong>, awuɔɔt apiu yin.\n\nEn adhol yin lɔ guiir ee biëëc, aricin, mïth, wil, abuk vendor, aricin kek media, wil piöuc, abuk yic de mïth.\n\nEn adhol yin jɔt cɔk?",
       privacy:     "🔒 Ke yök kë tïŋ ke raan kë cïï ke cät. Tiëŋ cie passwords, ID, wala documents kä.",
       menu_title:  "Piir kë jɔt guiir ee:",
       name_q:      "Nyïŋ de ku tɔc?",
@@ -371,7 +371,7 @@ const ZURI = (function () {
       escalate_q:  "Köŋ jɔt tök?",
       wa_btn:      "📲 Cɔk WhatsApp",
       email_btn:   "📧 Tiëp Email",
-      human_btn:   "🙋 Gam raan",
+      human_btn:   "💬 Gam Ciëŋ Keek",
       thanks:      "✅ Bäk! Guir de yök. Ciëŋ kek Migration Pulse Hub acɔ la.",
       safety_msg:  "⚠️ Piöör nhïïm ke wäär. Gam ciëŋ ke jɔt.",
       restart:     "Cɔk nhïm",
@@ -383,7 +383,7 @@ const ZURI = (function () {
     },
 
     nus: {
-      welcome:     "Malo! 👋 Ba Migration Pulse Hub. An <strong>ZURI</strong>, malual mar digitalic.\n\nCan ji mi ee yic, riëc, kuany, kä vendor, media, vol, ba yic tuany.\n\nCan jil yin tɔ?",
+      welcome:     "Malo! 👋 Ba Migration Pulse Hub. An <strong>Pulse</strong>, malual mar digitalic.\n\nCan ji mi ee yic, riëc, kuany, kä vendor, media, vol, ba yic tuany.\n\nCan jil yin tɔ?",
       privacy:     "🔒 Ke yɔk kë tïŋ kuany kɔ. Tiëŋ cie passwords, ID, wala doc.",
       menu_title:  "Gam kë ji kuany:",
       name_q:      "Nyïŋ de tɔ?",
@@ -398,7 +398,7 @@ const ZURI = (function () {
       escalate_q:  "Jal tök?",
       wa_btn:      "📲 WhatsApp",
       email_btn:   "📧 Email",
-      human_btn:   "🙋 Raan",
+      human_btn:   "💬 Gam Ciëŋ",
       thanks:      "✅ Bäk! Guir de yök.",
       safety_msg:  "⚠️ Wäär. Gam ciëŋ jɔt.",
       restart:     "Cɔk",
@@ -410,7 +410,7 @@ const ZURI = (function () {
     },
 
     fr: {
-      welcome:     "Bonjour! 👋 Bienvenue sur Migration Pulse Hub. Je suis <strong>ZURI</strong>, votre assistante numérique.\n\nJe peux vous aider pour les événements, les rapports, les partenariats, le sponsoring, la réservation de stands, les demandes médias, le bénévolat, ou le support général.\n\nComment puis-je vous aider aujourd'hui?",
+      welcome:     "Bonjour! 👋 Bienvenue sur Migration Pulse Hub. Je suis <strong>Pulse</strong>, votre assistante numérique.\n\nJe peux vous aider pour les événements, les rapports, les partenariats, le sponsoring, la réservation de stands, les demandes médias, le bénévolat, ou le support général.\n\nComment puis-je vous aider aujourd'hui?",
       privacy:     "🔒 Nous collectons uniquement les informations minimales nécessaires pour répondre à votre demande. Veuillez ne pas partager de mots de passe, pièces d'identité ou documents financiers ici.",
       menu_title:  "Veuillez choisir l'objet de votre demande:",
       name_q:      "Quel est votre nom complet?",
@@ -425,7 +425,7 @@ const ZURI = (function () {
       escalate_q:  "Comment souhaitez-vous que nous assurions le suivi?",
       wa_btn:      "📲 Continuer sur WhatsApp",
       email_btn:   "📧 Envoyer par e-mail",
-      human_btn:   "🙋 Parler à un humain",
+      human_btn:   "💬 Parler à un Membre de Notre Équipe",
       thanks:      "✅ Merci! Votre demande a été reçue. L'équipe de Migration Pulse Hub vous contactera bientôt.",
       safety_msg:  "⚠️ Il semble que vous soyez dans une situation urgente. Veuillez contacter directement notre équipe maintenant.",
       restart:     "Recommencer",
@@ -441,18 +441,51 @@ const ZURI = (function () {
      ENQUIRY CATEGORIES
   ---------------------------------------------------------- */
   const CATEGORIES = [
-    { id: 'event_reg',    en: '🗓️ Event Registration',        icon: '🗓️' },
-    { id: 'refugee_week', en: '🕊️ Refugee Week 2026 Booking',  icon: '🕊️' },
-    { id: 'sponsor',      en: '🤝 Sponsorship Enquiry',        icon: '🤝' },
-    { id: 'vendor',       en: '🛍️ Vendor / Exhibitor Booking', icon: '🛍️' },
-    { id: 'reports',      en: '📄 Reports & Publications',     icon: '📄' },
-    { id: 'partner',      en: '🌍 Partnership Enquiry',        icon: '🌍' },
-    { id: 'volunteer',    en: '💛 Volunteer Enquiry',           icon: '💛' },
-    { id: 'media',        en: '📸 Media Enquiry',              icon: '📸' },
-    { id: 'legal',        en: '⚖️ Legal / Protection Enquiry', icon: '⚖️' },
-    { id: 'general',      en: '✉️ General Contact',            icon: '✉️' },
-    { id: 'tech',         en: '🖥️ Website Technical Issue',    icon: '🖥️' },
-    { id: 'human',        en: '🙋 Speak to a Human Now',       icon: '🙋' },
+    {
+      id: 'event_reg', en: '🗓️ Event Registration', icon: '🗓️',
+      guideline: "Great — let's get you registered! 🎉\n\nMigration Pulse Hub hosts events that bring together communities, advocates, policymakers, and changemakers across the region. Our events are open to everyone — whether you're joining in person in Nairobi or connecting virtually.\n\nI'll guide you through a short registration form. It only takes a minute.",
+    },
+    {
+      id: 'refugee_week', en: '🕊️ Refugee Week 2026 Booking', icon: '🕊️',
+      guideline: "Welcome! Refugee Week Kenya 2026 is our flagship annual gathering — 7 days of dialogue, culture, storytelling, and solidarity. 🕊️\n\nRunning 15–21 June at Uhuru Gardens, Nairobi, the week brings together participants from 10+ countries across the Horn of Africa and Great Lakes region.\n\nRegistration is free. Let me collect a few details to confirm your place.",
+    },
+    {
+      id: 'sponsor', en: '🤝 Sponsorship Enquiry', icon: '🤝',
+      guideline: "Thank you for your interest in sponsoring Migration Pulse Hub! 🤝\n\nYour partnership helps us deliver impactful events, produce research, and amplify the voices of displaced communities.\n\nWe offer Platinum, Gold, Silver, and Community Partner packages — or we can design something tailored to your goals. Let me take a few details and our partnerships team will follow up personally.",
+    },
+    {
+      id: 'vendor', en: '🛍️ Vendor / Exhibitor Booking', icon: '🛍️',
+      guideline: "Wonderful — we'd love to have you at the marketplace! 🛍️\n\nOur vendor and exhibitor space celebrates refugee-led businesses, artisans, innovators, and civil society organisations. It's a vibrant, high-footfall space that connects you directly with delegates, press, and partners.\n\nLet me take your details and our events team will confirm your booth assignment.",
+    },
+    {
+      id: 'reports', en: '📄 Reports & Publications', icon: '📄',
+      guideline: "Our Knowledge Hub is growing! 📄\n\nWe publish policy briefs, research reports, country profiles, and practitioner guides on migration, displacement, and refugee integration across East Africa and the Horn.\n\nAll publications are free to download. Tell me what you're looking for and I'll point you in the right direction — or connect you with our research team if you need something specific.",
+    },
+    {
+      id: 'partner', en: '🌍 Partnership Enquiry', icon: '🌍',
+      guideline: "We're always looking to grow our network of partners! 🌍\n\nMigration Pulse Hub collaborates with academic institutions, civil society organisations, governments, media houses, and technical partners to advance rights-based migration policy in the region.\n\nTell me a little about your organisation and what kind of partnership you have in mind — our team will be in touch.",
+    },
+    {
+      id: 'volunteer', en: '💛 Volunteer Enquiry', icon: '💛',
+      guideline: "We're so glad you want to get involved! 💛\n\nVolunteers are the heartbeat of everything we do — from event logistics and translation to legal aid support, research, and community outreach. No contribution is too small.\n\nLet me gather a few details so our volunteering coordinator can match you with the right opportunity.",
+    },
+    {
+      id: 'media', en: '📸 Media Enquiry', icon: '📸',
+      guideline: "Thank you for your media interest! 📸\n\nMigration Pulse Hub welcomes journalists, photographers, documentary makers, and content creators. We can arrange interviews, press accreditation, story pitches, and exclusive access to our events.\n\nPlease share your details and deadline below — our media team responds within 24 hours.",
+    },
+    {
+      id: 'legal', en: '⚖️ Legal / Protection Enquiry', icon: '⚖️',
+      guideline: "You've come to the right place — and we're glad you reached out. ⚖️\n\nMigration Pulse Hub works with legal and protection specialists supporting refugees, asylum seekers, and migrants across the region. Your safety and dignity matter deeply to us.\n\nPlease know: Pulse is a digital assistant and cannot give legal advice. But we'll make sure your enquiry reaches a human team member who can help.\n\nIf you are in immediate danger, please call your local emergency services now. Otherwise, I'll ask you a few brief questions to connect you with the right support.",
+    },
+    {
+      id: 'general', en: '✉️ General Contact', icon: '✉️',
+      guideline: "No problem — sometimes you just need to reach us directly. ✉️\n\nWhether it's a question, a comment, feedback, or something that doesn't quite fit the other categories, we're here and happy to hear from you.\n\nLeave your details and message below and someone from the Migration Pulse Hub team will get back to you within 2–3 working days.",
+    },
+    {
+      id: 'tech', en: '🖥️ Website Technical Issue', icon: '🖥️',
+      guideline: "Sorry you're having trouble with our website! 🖥️\n\nWhether it's a broken link, a page that won't load, an event form that isn't working, or something else entirely — we want to know so we can fix it.\n\nPlease describe the issue below and our technical team will look into it promptly.",
+    },
+    { id: 'human', en: '💬 Connect with One of Us', icon: '💬' },
   ];
 
   /* ----------------------------------------------------------
@@ -613,10 +646,10 @@ const ZURI = (function () {
     root.id = 'zuri-root';
     root.className = 'zuri-root';
     root.setAttribute('role', 'region');
-    root.setAttribute('aria-label', 'ZURI Chat Assistant');
+    root.setAttribute('aria-label', 'Pulse Chat Assistant');
     root.innerHTML = `
       <!-- Floating button -->
-      <button id="zuri-fab" aria-label="Open ZURI chat assistant" title="Chat with ZURI">
+      <button id="zuri-fab" aria-label="Open Pulse chat assistant" title="Chat with Pulse">
         <svg id="zuri-fab-icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
@@ -627,14 +660,14 @@ const ZURI = (function () {
       </button>
 
       <!-- Chat window -->
-      <div id="zuri-window" role="dialog" aria-modal="true" aria-label="ZURI Chat Assistant">
+      <div id="zuri-window" role="dialog" aria-modal="true" aria-label="Pulse Chat Assistant">
 
         <!-- Header -->
         <div class="zuri-header">
           <div class="zuri-avatar" aria-hidden="true">🤝</div>
           <div class="zuri-header-info">
             <div class="zuri-header-name">
-              ZURI
+              Pulse
               <span class="zuri-online-dot" title="Online"></span>
             </div>
             <div class="zuri-header-sub">Migration Pulse Hub · Digital Assistant</div>
@@ -695,7 +728,7 @@ const ZURI = (function () {
 
         <!-- Privacy -->
         <div class="zuri-privacy">
-          🔒 ZURI is a digital assistant and does not provide legal advice. For urgent matters, use <a href="tel:+254118969209">+254 118 969 209</a>.
+          🔒 Pulse is a digital assistant and does not provide legal advice. For urgent matters, use <a href="tel:+254118969209">+254 118 969 209</a>.
         </div>
       </div>
     `;
@@ -711,7 +744,7 @@ const ZURI = (function () {
 
     if (type === 'bot') {
       msgDiv.innerHTML = `
-        <div class="zuri-msg-avatar" aria-hidden="true">Z</div>
+        <div class="zuri-msg-avatar" aria-hidden="true">P</div>
         <div class="zuri-msg-bubble">${html}</div>
       `;
     } else if (type === 'user') {
@@ -732,9 +765,9 @@ const ZURI = (function () {
     el.className = 'zuri-typing';
     el.id = 'zuri-typing-indicator';
     el.innerHTML = `
-      <div class="zuri-msg-avatar" aria-hidden="true">Z</div>
+      <div class="zuri-msg-avatar" aria-hidden="true">P</div>
       <div class="zuri-msg-bubble">
-        <div class="zuri-dots" aria-label="ZURI is typing">
+        <div class="zuri-dots" aria-label="Pulse is typing">
           <span></span><span></span><span></span>
         </div>
       </div>
@@ -837,21 +870,23 @@ const ZURI = (function () {
       return;
     }
 
-    // Legal flow — show safety notice first
+    // Legal flow — show empathetic safety notice first (overrides generic guideline)
     if (categoryId === 'legal') {
-      await botSay(
-        `<strong>⚖️ Legal & Protection Enquiry</strong><br><br>` +
-        `Thank you for reaching out. Before we continue, please know:<br><br>` +
-        `• ZURI is a digital assistant — we do <strong>not</strong> provide legal advice.<br>` +
-        `• For <strong>immediate danger</strong>, please call local emergency services.<br>` +
-        `• Your information will only be shared with the MPH legal/protection team.<br><br>` +
-        `Would you like to continue or speak to a human directly?`
-      );
+      const cat = CATEGORIES.find(c => c.id === 'legal');
+      if (cat && cat.guideline) {
+        await botSay(cat.guideline.replace(/\n/g, '<br>'));
+      }
       showReplies([
         { label: 'Continue with form', value: 'continue_legal' },
-        { label: '🙋 Speak to human now', value: 'human', cls: 'danger' },
+        { label: '💬 Connect with One of Us', value: 'human', cls: 'danger' },
       ]);
       return;
+    }
+
+    // Show category guideline before first field (for all other categories)
+    const cat = CATEGORIES.find(c => c.id === categoryId);
+    if (cat && cat.guideline) {
+      await botSay(cat.guideline.replace(/\n/g, '<br>'), 200);
     }
 
     await askNextField();
@@ -993,12 +1028,12 @@ const ZURI = (function () {
 
   function buildEmailSubject() {
     const cat = CATEGORIES.find(c => c.id === S.category);
-    return `[ZURI] ${cat ? cat.en : 'Enquiry'} — ${S.collected._ref || ''}`;
+    return `[Pulse] ${cat ? cat.en : 'Enquiry'} — ${S.collected._ref || ''}`;
   }
 
   function buildEmailBody() {
     const lines = [
-      `Migration Pulse Hub — ZURI Chatbot Submission`,
+      `Migration Pulse Hub — Pulse Chatbot Submission`,
       `Reference: ${S.collected._ref || ''}`,
       `Category: ${S.category}`,
       `Language: ${LANGS[S.lang] || S.lang}`,
@@ -1008,7 +1043,7 @@ const ZURI = (function () {
     Object.entries(S.collected).forEach(([k, v]) => {
       if (!k.startsWith('_')) lines.push(`${k.toUpperCase()}: ${v}`);
     });
-    lines.push(``, `Submitted via ZURI Chatbot on ${new Date().toLocaleString()}`);
+    lines.push(``, `Submitted via Pulse Chatbot on ${new Date().toLocaleString()}`);
     return lines.join('\n');
   }
 
@@ -1181,7 +1216,7 @@ const ZURI = (function () {
     document.getElementById('zuri-fab-icon-chat').style.display = 'none';
     document.getElementById('zuri-fab-icon-close').style.display = '';
     document.getElementById('zuri-badge').style.display = 'none';
-    dom.fab.setAttribute('aria-label', 'Close ZURI chat');
+    dom.fab.setAttribute('aria-label', 'Close Pulse chat');
     dom.input.focus();
   }
 
@@ -1191,7 +1226,7 @@ const ZURI = (function () {
     dom.fab.classList.remove('open');
     document.getElementById('zuri-fab-icon-chat').style.display = '';
     document.getElementById('zuri-fab-icon-close').style.display = 'none';
-    dom.fab.setAttribute('aria-label', 'Open ZURI chat assistant');
+    dom.fab.setAttribute('aria-label', 'Open Pulse chat assistant');
   }
 
   function toggleChat() {
@@ -1285,11 +1320,11 @@ const ZURI = (function () {
   ---------------------------------------------------------- */
   return { init, open: openChat, close: closeChat, restart };
 
-})(); // end ZURI IIFE
+})(); // end Pulse IIFE
 
 /* ---- Auto-init on DOMContentLoaded ---- */
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', ZURI.init);
+  document.addEventListener('DOMContentLoaded', Pulse.init);
 } else {
-  ZURI.init();
+  Pulse.init();
 }
