@@ -1444,12 +1444,100 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
 }
 
 /* ============================================================
-   25. RESPONSIVE
+   25. ACCESSIBILITY UTILITIES
+   ============================================================ */
+
+/* Skip-to-content link — visually hidden until focused */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.sr-only:focus,
+.sr-only:active {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: .65rem 1.25rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--amber);
+  color: var(--charcoal);
+  font-weight: 700;
+  font-family: var(--font-head);
+  font-size: .9rem;
+  border-radius: var(--r);
+  box-shadow: 0 4px 20px rgba(254,159,0,.4);
+  text-decoration: none;
+}
+
+/* Global focus-visible — visible keyboard focus ring on all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Inline social icon circle used in contact.html "Follow Us" list */
+.mph-socials-inline {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--off-white);
+  border: 1px solid var(--border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--charcoal-mid);
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+a:hover .mph-socials-inline {
+  background: var(--plum-bg);
+  border-color: var(--plum);
+  color: var(--plum);
+}
+
+/* Hero dot buttons — accessible keyboard targets */
+.mph-hero-dot {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,.32);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.mph-hero-dot:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   26. RESPONSIVE — Fixed-column grid breakpoints
    ============================================================ */
 @media (max-width: 900px) {
   .mph-pillars-grid   { grid-template-columns: 1fr; }
+  /* Impact grid: 3-col → 2-col at 900px */
   .mph-impact-grid    { grid-template-columns: repeat(2, 1fr); }
+  /* Regional stats: 3-col → 2-col at 900px */
   .mph-regional-stats { grid-template-columns: repeat(2, 1fr); }
+  /* Policy grid: 3-col → 1-col at 900px */
   .mph-policy-grid    { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
@@ -1481,8 +1569,10 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
   }
 }
 @media (max-width: 480px) {
-  .mph-impact-grid  { grid-template-columns: repeat(2, 1fr); }
-  .mph-hero-actions { flex-direction: column; align-items: flex-start; }
+  /* Impact grid + regional stats: 2-col → 1-col on small phones */
+  .mph-impact-grid    { grid-template-columns: 1fr; }
+  .mph-regional-stats { grid-template-columns: 1fr; }
+  .mph-hero-actions   { flex-direction: column; align-items: flex-start; }
 
   /* ---- Knowledge Hub — further compact on small phones ----------- */
   .kh-featured-card > div:first-child {

@@ -340,6 +340,11 @@ const NewsFeed = (function () {
        img.src is the only place we use the feed URL; no XSS possible here.
        onerror silently removes the element so the gradient shows through. */
     if (article.imageUrl) {
+      // Declare overlay FIRST so the onerror closure below can reference it
+      // without depending on var-hoisting timing (fragile in async contexts).
+      const overlay = document.createElement('div');
+      overlay.className = 'nf-photo-overlay';
+
       const photo = document.createElement('img');
       photo.src              = article.imageUrl;
       photo.alt              = '';           // decorative — headline carries context
@@ -356,18 +361,15 @@ const NewsFeed = (function () {
         'display:block',
         'transition:opacity .4s ease',
       ].join(';');
-      // If the image fails to load (403, CORS block, mixed content, etc.)
-      // remove it — the colour gradient behind shows through cleanly.
+      // If the image fails (403, CORS block, mixed-content), silently remove
+      // both the photo and the overlay — colour gradient shows through cleanly.
       photo.onerror = () => {
         photo.remove();
-        overlay.remove();   // remove the darkening overlay too — not needed
+        overlay.remove();
       };
-      thumb.appendChild(photo);
 
-      // Semi-transparent overlay so the LIVE pill and age label stay legible
-      // over bright or busy photos.  Removed by onerror above if photo fails.
-      var overlay = document.createElement('div');  // var so onerror can reach it
-      overlay.className = 'nf-photo-overlay';
+      thumb.appendChild(photo);
+      // Semi-transparent overlay keeps LIVE pill + age label legible over photos.
       thumb.appendChild(overlay);
     }
 
@@ -425,13 +427,15 @@ const NewsFeed = (function () {
     excerpt.className = 'mph-news-excerpt';
     excerpt.textContent = article.description;  // textContent = safe
 
-    /* Read more */
+    /* Read more — aria-label gives screen readers the full article title
+       so "Read Full Story" alone is not ambiguous when read out of context */
     const readMore = document.createElement('a');
     readMore.href      = article.link;
     readMore.target    = '_blank';
     readMore.rel       = 'noopener noreferrer';
     readMore.className = 'nf-read-more';
     readMore.textContent = 'Read Full Story ↗';
+    readMore.setAttribute('aria-label', `Read full story: ${article.title}`);
 
     body.appendChild(meta);
     body.appendChild(heading);
@@ -591,10 +595,12 @@ const NewsFeed = (function () {
             cache.articles.length
           ) {
             // Rehydrate dates (stored as ISO strings)
-            allArticles = cache.articles.map(a => ({
-              ...a,
-              pubDate: new Date(a.pubDate),
-            }));
+            allArticles = cache.articles
+              .map(a => {
+                const d = new Date(a.pubDate);
+                return isNaN(d.getTime()) ? null : { ...a, pubDate: d };
+              })
+              .filter(Boolean); // drop any articles with corrupt pubDate strings
             buildFilters(allArticles);
             renderGrid(allArticles);
             setTimestamp(cache.timestamp);

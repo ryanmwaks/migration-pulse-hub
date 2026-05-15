@@ -58,11 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
       // Outgoing clip: keep on top (z-index:2) and fade it out
       clips[prev].classList.remove('active');
       clips[prev].classList.add('leaving');
-      dots[prev] && dots[prev].classList.remove('active');
+      if (dots[prev]) {
+        dots[prev].classList.remove('active');
+        dots[prev].setAttribute('aria-pressed', 'false');
+      }
 
       // Incoming clip: place beneath (z-index:1) and fade in
       clips[current].classList.add('active');
-      dots[current] && dots[current].classList.add('active');
+      if (dots[current]) {
+        dots[current].classList.add('active');
+        dots[current].setAttribute('aria-pressed', 'true');
+      }
 
       // Play incoming video from beginning
       const vid = clips[current].querySelector('video');
@@ -81,11 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
       timer = setInterval(() => goTo(current + 1), DWELL);
     }
 
-    // Dot clicks
-    dots.forEach((dot, i) => dot.addEventListener('click', () => {
-      goTo(i);
-      startCycle(); // reset interval on manual nav
-    }));
+    // Dot buttons — click (mouse & keyboard Enter/Space via native button behaviour)
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        goTo(i);
+        startCycle(); // reset interval on manual nav
+      });
+    });
 
     // Init first clip's video
     const firstVid = clips[0].querySelector('video');
@@ -139,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function animateCount(el) {
     const target = parseInt(el.getAttribute('data-count'), 10);
+    if (isNaN(target)) return; // guard against bad data-count attribute
     const suffix = el.getAttribute('data-suffix') || '';
     const duration = 1800;
     const start = performance.now();
@@ -150,51 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (progress < 1) requestAnimationFrame(update);
     };
     requestAnimationFrame(update);
-  }
-
-  /* --- Hero Slideshow ------------------------------------------- */
-  const slideshow = document.querySelector('.mph-hero-slideshow');
-  if (slideshow) {
-    const slides  = Array.from(slideshow.querySelectorAll('.mph-slide'));
-    const dots    = Array.from(slideshow.querySelectorAll('.mph-dot'));
-    const prevBtn = slideshow.querySelector('.mph-slide-prev');
-    const nextBtn = slideshow.querySelector('.mph-slide-next');
-    let current   = 0;
-    let timer;
-
-    function goTo(idx) {
-      slides[current].classList.remove('active');
-      if (dots[current]) dots[current].classList.remove('active');
-      current = (idx + slides.length) % slides.length;
-      // Restart Ken Burns animation on the incoming slide's image
-      const img = slides[current].querySelector('img');
-      if (img) { img.style.animation = 'none'; void img.offsetWidth; img.style.animation = ''; }
-      slides[current].classList.add('active');
-      if (dots[current]) dots[current].classList.add('active');
-    }
-
-    function startTimer() {
-      clearInterval(timer);
-      timer = setInterval(() => goTo(current + 1), 5200);
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startTimer(); });
-    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startTimer(); });
-    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); startTimer(); }));
-
-    // Touch swipe support
-    let touchStartX = 0;
-    slideshow.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    slideshow.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { goTo(current + (diff > 0 ? 1 : -1)); startTimer(); }
-    });
-
-    // Pause on hover
-    slideshow.addEventListener('mouseenter', () => clearInterval(timer));
-    slideshow.addEventListener('mouseleave', startTimer);
-
-    startTimer();
   }
 
   /* --- Contact Form --------------------------------------------- */

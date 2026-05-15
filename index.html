@@ -17,6 +17,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="sr-only">Skip to main content</a>
+
 <!-- ============================================================
      SVG Icon System — flat, unified stroke, rounded
      ============================================================ -->
@@ -178,6 +180,7 @@
     </nav>
   </div>
 </header>
+<main id="main-content">
 
 <!-- ============================================================
      Hero — Cinematic 5-Video Sequence
@@ -241,12 +244,10 @@
   </div>
 
   <!-- Sequence progress dots -->
-  <div class="mph-hero-progress" aria-hidden="true">
-    <span class="mph-hero-dot active"></span>
-    <span class="mph-hero-dot"></span>
-    <span class="mph-hero-dot"></span>
-    <span class="mph-hero-dot"></span>
-    <span class="mph-hero-dot"></span>
+  <div class="mph-hero-progress" role="group" aria-label="Hero video navigation">
+    <button class="mph-hero-dot active" aria-label="Show clip 1" aria-pressed="true"></button>
+    <button class="mph-hero-dot" aria-label="Show clip 2" aria-pressed="false"></button>
+    <button class="mph-hero-dot" aria-label="Show clip 3" aria-pressed="false"></button>
   </div>
 
 </section>
@@ -784,6 +785,8 @@
   </div>
 </section>
 
+</main><!-- /#main-content -->
+
 <!-- Footer -->
 <footer class="mph-footer">
   <div class="mph-footer-main">
@@ -843,7 +846,7 @@
   </div>
   <div class="mph-container">
     <div class="mph-footer-bottom">
-      <span>© 2025 Migration Pulse Hub. All rights reserved.</span>
+      <span>© 2026 Migration Pulse Hub. All rights reserved.</span>
       <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="privacy.html#terms">Terms of Use</a> &nbsp;·&nbsp; <a href="privacy.html#safeguarding">Safeguarding</a></span>
     </div>
   </div>
@@ -853,7 +856,7 @@
   <svg class="mph-icon"><use href="#ico-trending"/></svg>
 </button>
 
-<script src="assets/js/main.js"></script>
-<script src="assets/js/zuri-chat.js"></script>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/zuri-chat.js" defer></script>
 </body>
 </html>

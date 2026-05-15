@@ -5,8 +5,8 @@
    Palette: Navy · Teal · Coral · Gold · Sand
    ============================================================ */
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+/* Google Fonts — loaded via <link> in each HTML page's <head>.
+   @import removed: it caused a duplicate font request on every page. */
 
 /* ============================================================
    Design Tokens

@@ -14,6 +14,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="sr-only">Skip to main content</a>
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <symbol id="ico-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
@@ -116,6 +118,8 @@
     </ul>
   </nav></div></header>
 
+<main id="main-content">
+
   <section class="mph-page-hero">
     <div class="mph-container">
       <div class="mph-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Contact</span></div>
@@ -135,7 +139,7 @@
           <h2 style="margin:.75rem 0 1.75rem">Reach Us Directly</h2>
           <div style="display:flex;flex-direction:column;gap:1.1rem;margin-bottom:2.5rem">
             <div class="mph-card mph-card-body" style="display:flex;gap:1rem;align-items:flex-start">
-              <div class="mph-card-icon icon--teal" style="flex-shrink:0;margin:0;width:44px;height:44px">📧</div>
+              <div class="mph-card-icon icon--teal" style="flex-shrink:0;margin:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center"><svg class="mph-icon mph-icon-lg" aria-hidden="true"><use href="#ico-mail"/></svg></div>
               <div>
                 <h4 style="margin-bottom:.2rem">Email</h4>
                 <a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a>
@@ -143,7 +147,7 @@
               </div>
             </div>
             <div class="mph-card mph-card-body" style="display:flex;gap:1rem;align-items:flex-start">
-              <div class="mph-card-icon icon--coral" style="flex-shrink:0;margin:0;width:44px;height:44px">📞</div>
+              <div class="mph-card-icon icon--coral" style="flex-shrink:0;margin:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center"><svg class="mph-icon mph-icon-lg" aria-hidden="true"><use href="#ico-phone"/></svg></div>
               <div>
                 <h4 style="margin-bottom:.2rem">Phone</h4>
                 <a href="tel:+254118969209">+254 118 969 209</a>
@@ -151,7 +155,7 @@
               </div>
             </div>
             <div class="mph-card mph-card-body" style="display:flex;gap:1rem;align-items:flex-start">
-              <div class="mph-card-icon icon--gold" style="flex-shrink:0;margin:0;width:44px;height:44px">📍</div>
+              <div class="mph-card-icon icon--gold" style="flex-shrink:0;margin:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center"><svg class="mph-icon mph-icon-lg" aria-hidden="true"><use href="#ico-map-pin"/></svg></div>
               <div>
                 <h4 style="margin-bottom:.2rem">Location</h4>
                 <p style="margin:0">Nairobi, Kenya</p>
@@ -162,11 +166,11 @@
 
           <h3 style="margin-bottom:1rem;font-size:.95rem;font-family:var(--font-head)">Follow Us</h3>
           <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.88rem">
-            <a href="#" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span style="width:32px;height:32px;border-radius:50%;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0">in</span>LinkedIn — Professional updates &amp; reports</a>
-            <a href="#" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span style="width:32px;height:32px;border-radius:50%;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0">𝕏</span>X / Twitter — Live advocacy &amp; campaigns</a>
-            <a href="#" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span style="width:32px;height:32px;border-radius:50%;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0">f</span>Facebook — Community &amp; events</a>
-            <a href="#" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span style="width:32px;height:32px;border-radius:50%;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0">ig</span>Instagram — Stories &amp; campaigns</a>
-            <a href="#" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span style="width:32px;height:32px;border-radius:50%;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0">▶</span>YouTube — Panels, events &amp; interviews</a>
+            <a href="#" aria-label="LinkedIn" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span class="mph-socials-inline" aria-hidden="true"><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-linkedin"/></svg></span>LinkedIn — Professional updates &amp; reports</a>
+            <a href="#" aria-label="X / Twitter" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span class="mph-socials-inline" aria-hidden="true"><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-twitter"/></svg></span>X / Twitter — Live advocacy &amp; campaigns</a>
+            <a href="#" aria-label="Facebook" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span class="mph-socials-inline" aria-hidden="true"><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-facebook"/></svg></span>Facebook — Community &amp; events</a>
+            <a href="#" aria-label="Instagram" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span class="mph-socials-inline" aria-hidden="true"><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-instagram"/></svg></span>Instagram — Stories &amp; campaigns</a>
+            <a href="#" aria-label="YouTube" style="display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none"><span class="mph-socials-inline" aria-hidden="true"><svg class="mph-icon" style="width:15px;height:15px"><use href="#ico-youtube"/></svg></span>YouTube — Panels, events &amp; interviews</a>
           </div>
 
           <div class="mph-notice mph-notice--info" style="margin-top:2rem">
@@ -285,6 +289,8 @@
     </div>
   </section>
 
+</main><!-- /#main-content -->
+
   <footer class="mph-footer"><div class="mph-footer-main"><div class="mph-container"><div class="mph-footer-grid">
     <div class="mph-footer-brand"><img src="assets/images/logo.png" class="mph-footer-logo-img" alt="Migration Pulse Hub" /><p>Migration Pulse Hub safeguards the dignity and fundamental human rights of internally displaced persons and international migrants through advocacy, research, legal action, and community empowerment.</p><div class="mph-footer-socials"><a href="#" aria-label="LinkedIn"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-linkedin"/></svg></a><a href="#" aria-label="X / Twitter"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-twitter"/></svg></a><a href="#" aria-label="Facebook"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-facebook"/></svg></a><a href="#" aria-label="Instagram"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-instagram"/></svg></a><a href="#" aria-label="YouTube"><svg class="mph-icon" style="width:16px;height:16px"><use href="#ico-youtube"/></svg></a></div></div>
     <div class="mph-footer-col"><h4>Organisation</h4><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team &amp; Board</a></li><li><a href="impact.html">Our Impact</a></li><li><a href="partners.html">Partners</a></li><li><a href="media.html">Media Centre</a></li></ul></div>
@@ -292,7 +298,7 @@
     <div class="mph-footer-col"><h4>Contact</h4><div class="mph-footer-contact-list"><div class="mph-footer-contact-item"><svg class="mph-icon" style="width:15px;height:15px;color:var(--amber)"><use href="#ico-mail"/></svg><a href="mailto:info@migrationpulsehub.org">info@migrationpulsehub.org</a></div><div class="mph-footer-contact-item"><svg class="mph-icon" style="width:15px;height:15px;color:var(--amber)"><use href="#ico-phone"/></svg><a href="tel:+254118969209">+254 118 969 209</a></div><div class="mph-footer-contact-item"><svg class="mph-icon" style="width:15px;height:15px;color:var(--amber)"><use href="#ico-map-pin"/></svg><span>Nairobi, Kenya</span></div></div><a href="contact.html" class="mph-btn sm" style="margin-top:1.25rem">Get In Touch</a></div>
   </div></div></div><div class="mph-container"><div class="mph-footer-bottom"><span>© 2026 Migration Pulse Hub. All rights reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="privacy.html#terms">Terms of Use</a> &nbsp;·&nbsp; <a href="privacy.html#safeguarding">Safeguarding</a></span></div></div></footer>
   <button class="mph-back-to-top" aria-label="Back to top"><svg class="mph-icon"><use href="#ico-trending"/></svg></button>
-  <script src="assets/js/main.js"></script>
-<script src="assets/js/zuri-chat.js"></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/zuri-chat.js" defer></script>
 </body>
 </html>
