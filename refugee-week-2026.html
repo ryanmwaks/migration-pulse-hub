@@ -459,20 +459,203 @@
     .rw-faq-a { max-height: 0; overflow: hidden; transition: max-height .35s var(--rw-ease); }
     .rw-faq-a-inner { padding: 0 1.35rem 1.1rem; font-size: .88rem; color: #666; line-height: 1.65; }
 
-    /* ===== RESPONSIVE ===== */
+    /* ===================================================================
+       RESPONSIVE — 4 breakpoints: 900 · 768 · 640 · 480 · 380
+       =================================================================== */
+
+    /* ── 900px  Tablet landscape ─────────────────────────────────────── */
     @media (max-width: 900px) {
-      .rw-venue-grid { grid-template-columns: 1fr; }
-      .rw-form { grid-template-columns: 1fr; }
+      .rw-venue-grid  { grid-template-columns: 1fr; }
+      .rw-form        { grid-template-columns: 1fr; }
+      /* overview 2-col → 1-col (overrides inline style) */
+      .rw-overview-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .rw-sponsor-package-cards { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ── 768px  Tablet portrait ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .rw-section     { padding: 3rem 0; }
+      .rw-section--sm { padding: 2rem 0; }
+      .rw-container   { padding: 0 1.25rem; }
+      .rw-hero__inner { padding: 0 1.25rem; }
+
+      /* Schedule tab nav — horizontal scroll, no wrap */
+      .rw-tab-nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: .25rem;
+        scrollbar-width: none;
+        gap: 0;
+      }
+      .rw-tab-nav::-webkit-scrollbar { display: none; }
+      .rw-tab-btn   { flex-shrink: 0; font-size: .82rem; padding: .6rem 1rem; }
+
+      /* Registration tab pills — same horizontal-scroll treatment */
+      .rw-reg-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: .2rem;
+        scrollbar-width: none;
+      }
+      .rw-reg-tabs::-webkit-scrollbar { display: none; }
+      .rw-reg-tab { flex-shrink: 0; }
+
+      /* Grids → 2 col */
+      .rw-themes    { grid-template-columns: repeat(2, 1fr); }
+      .rw-stories   { grid-template-columns: repeat(2, 1fr); }
+      .rw-vendors   { grid-template-columns: repeat(2, 1fr); }
+
+      /* Form submit row — stack button below WhatsApp link */
+      .rw-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .rw-form-actions .rw-btn { text-align: center; justify-content: center; }
+
+      /* Sponsor logos — centred wrap */
+      .rw-sponsor-logos { justify-content: center; }
+    }
+
+    /* ── 640px  Large phone / landscape ─────────────────────────────── */
     @media (max-width: 640px) {
-      .rw-hero { padding-bottom: 3.5rem; }
-      .rw-session-card { grid-template-columns: 65px 1fr; }
-      .rw-session-tag { display: none; }
+      /* Section & container spacing */
+      .rw-section     { padding: 2.5rem 0; }
+      .rw-section--sm { padding: 1.75rem 0; }
+      .rw-container   { padding: 0 1rem; }
+      .rw-hero__inner { padding: 0 1rem; }
+
+      /* Hero */
+      .rw-hero {
+        min-height: auto;
+        padding: 5rem 0 3rem;
+        align-items: flex-start;
+      }
+      .rw-hero__eyebrow { font-size: .72rem; letter-spacing: 1.4px; }
+      .rw-hero__sub     { font-size: .92rem; }
+
+      /* Countdown boxes — slightly smaller */
+      .rw-countdown      { gap: .8rem; }
+      .rw-countdown__num { font-size: 1.9rem; }
+      .rw-countdown__unit{ min-width: 60px; padding: .6rem .85rem; }
+
+      /* Hero CTAs — full-width stack */
+      .rw-hero__ctas { flex-direction: column; align-items: stretch; }
+      .rw-hero__ctas .rw-btn { text-align: center; justify-content: center; }
+
+      /* Info bar — column, Register button full width */
       .rw-infobar__inner { flex-direction: column; align-items: flex-start; gap: .65rem; }
+      .rw-infobar__inner .rw-btn { width: 100%; justify-content: center; text-align: center; }
+
+      /* Session cards — collapse time column, hide type tag */
+      .rw-session-card {
+        grid-template-columns: 58px 1fr;
+        gap: .7rem;
+        padding: .9rem 1rem;
+      }
+      .rw-session-tag   { display: none; }
+      .rw-session-title { font-size: .9rem; }
+      .rw-session-time  { font-size: .78rem; }
+
+      /* Grids → 1 col on phone */
+      .rw-themes    { grid-template-columns: 1fr; }
+      .rw-stories   { grid-template-columns: 1fr; }
+      .rw-vendors   { grid-template-columns: 1fr; }
+      .rw-sponsor-package-cards { grid-template-columns: 1fr; }
+
+      /* Section headings */
+      .rw-section-title { margin-bottom: 1.5rem; }
+
+      /* FAQ */
+      .rw-faq-q { font-size: .9rem; padding: .95rem 1.1rem; }
+
+      /* Speaker application + schedule download strips → column */
+      .rw-strip-inline { flex-direction: column !important; align-items: stretch !important; gap: .75rem !important; }
+      .rw-strip-inline .rw-btn { justify-content: center; text-align: center; }
+
+      /* Sponsor logo slots — slightly smaller */
+      .rw-sponsor-logo-slot { min-width: 120px; padding: 1rem 1.25rem; }
+
+      /* Countries strip in hero */
+      .rw-countries-strip { gap: .45rem; }
+      .rw-countries-strip__flag { font-size: 1.15rem; }
     }
+
+    /* ── 480px  Phone portrait ───────────────────────────────────────── */
     @media (max-width: 480px) {
-      .rw-countries { grid-template-columns: repeat(2, 1fr); }
-      .rw-speakers { grid-template-columns: repeat(2, 1fr); }
+      .rw-section     { padding: 2rem 0; }
+      .rw-container   { padding: 0 .9rem; }
+      .rw-hero__inner { padding: 0 .9rem; }
+
+      /* Hero padding & badges */
+      .rw-hero { padding: 4.5rem 0 2.5rem; }
+      .rw-hero__badges  { gap: .4rem; }
+      .rw-badge         { font-size: .75rem; padding: .32rem .65rem; }
+
+      /* Countries + speakers — 2 per row */
+      .rw-countries { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+      .rw-speakers  { grid-template-columns: repeat(2, 1fr); gap: .85rem; }
+
+      .rw-country-card      { padding: 1rem .85rem; }
+      .rw-country-card__flag{ font-size: 2.2rem; }
+
+      /* Speaker avatar — a touch smaller */
+      .rw-speaker-avatar { width: 66px; height: 66px; font-size: 1.3rem; }
+
+      /* Themes — 1 col */
+      .rw-themes     { grid-template-columns: 1fr; }
+      .rw-theme-chip { font-size: .84rem; }
+
+      /* Countdown */
+      .rw-countdown       { gap: .65rem; }
+      .rw-countdown__num  { font-size: 1.7rem; }
+      .rw-countdown__unit { min-width: 56px; padding: .55rem .7rem; }
+
+      /* Countries strip flags */
+      .rw-countries-strip__flag { font-size: 1rem; }
+      .rw-countries-strip span  { font-size: .76rem; }
+
+      /* FAQ tweaks */
+      .rw-faq-q        { font-size: .86rem; padding: .85rem .95rem; }
+      .rw-faq-a-inner  { font-size: .84rem; padding: 0 .95rem .9rem; }
+
+      /* Venue item — smaller icon */
+      .rw-venue-icon { width: 32px; height: 32px; font-size: 1rem; }
+    }
+
+    /* ── 380px  Small phones (iPhone SE, Galaxy A, etc.) ────────────── */
+    @media (max-width: 380px) {
+      .rw-container   { padding: 0 .75rem; }
+      .rw-hero__inner { padding: 0 .75rem; }
+
+      /* Countdown — compact */
+      .rw-countdown       { gap: .5rem; }
+      .rw-countdown__num  { font-size: 1.5rem; }
+      .rw-countdown__unit { min-width: 50px; padding: .5rem .6rem; }
+      .rw-countdown__label{ font-size: .56rem; }
+
+      /* Hero eyebrow */
+      .rw-hero__eyebrow { font-size: .67rem; padding: .25rem .8rem; letter-spacing: 1.2px; }
+
+      /* Session cards */
+      .rw-session-card  { padding: .75rem .8rem; gap: .55rem; }
+      .rw-session-time  { font-size: .74rem; }
+      .rw-session-title { font-size: .84rem; }
+
+      /* Tab buttons */
+      .rw-tab-btn { font-size: .76rem; padding: .5rem .8rem; }
+
+      /* Countries 2-col stays */
+      .rw-country-card__flag { font-size: 2rem; }
+
+      /* Speaker cards side by side — keep 2-col but smaller avatar */
+      .rw-speaker-avatar { width: 58px; height: 58px; font-size: 1.15rem; }
+      .rw-speaker-name   { font-size: .88rem; }
+      .rw-speaker-role   { font-size: .72rem; }
+
+      /* FAQ */
+      .rw-faq-q { font-size: .82rem; }
     }
   </style>
 </head>
@@ -600,7 +783,7 @@
 <!-- ========================================================  EVENT OVERVIEW  ======================================================== -->
 <section class="rw-section rw-section--white" id="overview">
   <div class="rw-container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start">
+    <div class="rw-overview-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start">
       <div>
         <div class="rw-section-title">
           <span class="rw-eyebrow">About the Event</span>
@@ -764,8 +947,8 @@
         <div class="rw-session-card"><div class="rw-session-time">16:00 – 18:00</div><div><div class="rw-session-title">Official Closing Ceremony &amp; Awards</div><div class="rw-session-meta">Main Hall · All participants</div></div><span class="rw-session-tag rw-session-tag--keynote">Ceremony</span></div>
       </div>
     </div>
-    <div style="background:#f7f3f9;border-radius:1rem;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1rem">
-      <span style="font-size:.85rem;color:#666">📥 Full programme available for download</span>
+    <div class="rw-strip-inline" style="background:#f7f3f9;border-radius:1rem;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1rem">
+      <span style="font-size:.85rem;color:#666;flex:1">📥 Full programme available for download</span>
       <a href="#" class="rw-btn rw-btn--plum rw-btn--sm" style="text-decoration:none">Download Schedule PDF</a>
       <a href="#register" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none">RSVP for Sessions →</a>
     </div>
@@ -788,7 +971,7 @@
       <div class="rw-speaker-card"><div class="rw-speaker-avatar" style="background:linear-gradient(135deg,#0a3d62,#1e5f91)">CL</div><div class="rw-speaker-name">TBC — Climate Expert</div><div class="rw-speaker-role">Climate &amp; Displacement Researcher</div><div class="rw-speaker-country">🇸🇴 Somalia</div></div>
       <div class="rw-speaker-card"><div class="rw-speaker-avatar" style="background:linear-gradient(135deg,#6d2177,#9c2da8)">AL</div><div class="rw-speaker-name">TBC — Legal Advocate</div><div class="rw-speaker-role">Strategic Litigation Specialist</div><div class="rw-speaker-country">🇺🇬 Uganda</div></div>
     </div>
-    <div style="margin-top:2rem;padding:1.25rem 1.5rem;background:#fff8ec;border-radius:1rem;border:1.5px solid rgba(254,159,0,.25);display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+    <div class="rw-strip-inline" style="margin-top:2rem;padding:1.25rem 1.5rem;background:#fff8ec;border-radius:1rem;border:1.5px solid rgba(254,159,0,.25);display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
       <span style="font-size:.88rem;color:#666;flex:1">Are you a researcher, advocate, community leader, or practitioner? Submit your speaker application by <strong>March 31, 2026</strong>.</span>
       <a href="#register" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none">Apply as Speaker</a>
     </div>
