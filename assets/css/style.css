@@ -1300,9 +1300,9 @@ select.mph-form-control {
   width: auto;
   display: block;
   object-fit: contain;
-  filter: brightness(0) invert(1);   /* white on dark footer */
+  /* filter removed — logo renders in its original colours */
   margin-bottom: 1.25rem;
-  opacity: .92;
+  opacity: 1;
 }
 
 /* ============================================================

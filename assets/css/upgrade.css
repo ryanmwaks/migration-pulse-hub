@@ -1063,8 +1063,8 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
   width: auto;
   display: block;
   margin-bottom: 1rem;
-  filter: brightness(0) invert(1);
-  opacity: .88;
+  filter: none;
+  opacity: 1;
 }
 
 /* Organisation name — bigger & bolder in the nav bar */
