@@ -1175,8 +1175,45 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
   .mph-regional-stats   { grid-template-columns: 1fr; }
   .mph-pillars-grid     { grid-template-columns: 1fr; }
   .mph-regional-context { padding: 2rem 1.25rem; }
+
+  /* ---- Knowledge Hub — Featured policy brief hero card ----------- */
+  /* Inline style uses 320px 1fr — override with !important to collapse */
+  .kh-featured-card {
+    grid-template-columns: 1fr !important;
+  }
+  /* Cover image: cap height when stacked vertically */
+  .kh-featured-card > div:first-child {
+    min-height: 200px !important;
+    max-height: 260px;
+  }
+  /* Body: tighten padding when single column */
+  .kh-featured-body {
+    padding: 1.5rem 1.35rem !important;
+  }
 }
 @media (max-width: 480px) {
   .mph-impact-grid  { grid-template-columns: repeat(2, 1fr); }
   .mph-hero-actions { flex-direction: column; align-items: flex-start; }
+
+  /* ---- Knowledge Hub — further compact on small phones ----------- */
+  .kh-featured-card > div:first-child {
+    min-height: 160px !important;
+    max-height: 210px;
+  }
+  .kh-featured-body {
+    padding: 1.25rem 1rem !important;
+  }
+  /* Report card action buttons — stack vertically, full width */
+  .kh-featured-body > div:last-child {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kh-featured-body > div:last-child .mph-btn {
+    text-align: center;
+    justify-content: center;
+  }
+  /* File size label — left-align when stacked */
+  .kh-featured-body > div:last-child span[style] {
+    margin-left: 0 !important;
+  }
 }
