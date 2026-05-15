@@ -1275,7 +1275,7 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
 .nf-count-badge strong { color: var(--charcoal); }
 
 /* ── Card overlay elements ──────────────────────────────── */
-/* Source watermark text on the thumbnail */
+/* Source watermark text on the thumbnail (shown when no photo) */
 .nf-card-watermark {
   font-size: .95rem;
   font-weight: 800;
@@ -1284,13 +1284,36 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
   text-transform: uppercase;
   user-select: none;
   pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+/* Hidden when a real photo is displayed — photo fills the space */
+.nf-card-watermark--hidden {
+  display: none;
 }
 
-/* "LIVE" pill — top-left of thumbnail */
+/* Dark gradient overlay on top of the article photo —
+   keeps the LIVE pill and age label legible over bright images.
+   Removed via JS onerror if the photo itself fails to load. */
+.nf-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, .72) 0%,
+    rgba(0, 0, 0, .28) 55%,
+    rgba(0, 0, 0, .14) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* "LIVE" pill — top-left of thumbnail, always above photo overlay */
 .nf-live-pill {
   position: absolute;
   top: 10px;
   left: 10px;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: .3rem;
@@ -1315,11 +1338,12 @@ section.bg-sand .mph-container { position: relative; z-index: 1; }
   flex-shrink: 0;
 }
 
-/* Age label — bottom-right of thumbnail */
+/* Age label — bottom-right of thumbnail, above overlay */
 .nf-age-label {
   position: absolute;
   bottom: 8px;
   right: 10px;
+  z-index: 2;
   font-size: .66rem;
   font-weight: 600;
   font-family: var(--font-head);

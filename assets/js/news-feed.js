@@ -137,6 +137,62 @@ const NewsFeed = (function () {
     return keywords.some(kw => hay.includes(kw.toLowerCase()));
   }
 
+  /**
+   * Extract the best available image URL from an RSS <item>.
+   * Tries four sources in priority order:
+   *   1. media:content or media:thumbnail (Media RSS namespace)
+   *   2. <enclosure> with an image/* MIME type
+   *   3. First <img src="…"> found inside the <description> HTML
+   *   4. null — caller falls back to the colour-gradient placeholder
+   *
+   * Security note: we only return URLs that begin with "https://"
+   * or "http://". We never eval or inject this into innerHTML —
+   * it is used exclusively as img.src, which is safe.
+   */
+  function extractImage(item) {
+    // 1. Media RSS — <media:content url="…"> or <media:thumbnail url="…">
+    //    DOMParser normalises the namespace prefix; try both forms.
+    const mediaSels = [
+      'content[url]',           // media:content after prefix strip
+      'thumbnail[url]',         // media:thumbnail after prefix strip
+      'media\\:content[url]',   // explicit namespace prefix
+      'media\\:thumbnail[url]',
+    ];
+    for (const sel of mediaSels) {
+      try {
+        const el = item.querySelector(sel);
+        if (el) {
+          const url = el.getAttribute('url') || '';
+          if (url.startsWith('http')) return url;
+        }
+      } catch (_) { /* selector unsupported — skip */ }
+    }
+
+    // 2. <enclosure type="image/…">
+    const enc = item.querySelector('enclosure');
+    if (enc) {
+      const type = enc.getAttribute('type') || '';
+      const url  = enc.getAttribute('url')  || '';
+      if (type.startsWith('image/') && url.startsWith('http')) return url;
+    }
+
+    // 3. <img src="…"> inside the raw description HTML
+    //    We parse it with a throwaway element — never attached to the document,
+    //    so no scripts execute and no network requests are made at this stage.
+    const rawDesc = item.querySelector('description')?.textContent || '';
+    if (rawDesc.includes('<img')) {
+      const tmp = document.createElement('template');
+      tmp.innerHTML = rawDesc;                         // sandboxed, safe
+      const imgEl = tmp.content.querySelector('img');
+      if (imgEl) {
+        const src = imgEl.getAttribute('src') || '';
+        if (src.startsWith('http')) return src;
+      }
+    }
+
+    return null; // no image found — caller will use colour gradient
+  }
+
   /* ────────────────────────────────────────────────────────────
      FETCH & PARSE
      ──────────────────────────────────────────────────────── */
@@ -194,9 +250,10 @@ const NewsFeed = (function () {
           ? description.slice(0, 227) + '…'
           : description,
         pubDate,
-        source: feed.source,
-        badge:  feed.badge,
-        color:  feed.color,
+        source:   feed.source,
+        badge:    feed.badge,
+        color:    feed.color,
+        imageUrl: extractImage(item),   // null if no image found in feed
       });
     }
 
@@ -266,6 +323,8 @@ const NewsFeed = (function () {
     /* ── Thumbnail ─────────────────────────────────────────── */
     const thumb = document.createElement('div');
     thumb.className = 'mph-news-img nf-card-thumb';
+    // Gradient is always the baseline — visible when no photo is available
+    // or while the photo is loading, or if the photo request fails.
     thumb.style.cssText = [
       'aspect-ratio:16/9',
       `background:${GRADIENTS[article.color] || GRADIENTS.navy}`,
@@ -277,19 +336,54 @@ const NewsFeed = (function () {
       'overflow:hidden',
     ].join(';');
 
-    /* Source watermark text */
+    /* Article photo — rendered on top of the gradient when available.
+       img.src is the only place we use the feed URL; no XSS possible here.
+       onerror silently removes the element so the gradient shows through. */
+    if (article.imageUrl) {
+      const photo = document.createElement('img');
+      photo.src              = article.imageUrl;
+      photo.alt              = '';           // decorative — headline carries context
+      photo.setAttribute('aria-hidden', 'true');
+      photo.loading          = 'lazy';       // don't block page load
+      photo.decoding         = 'async';
+      photo.style.cssText    = [
+        'position:absolute',
+        'inset:0',
+        'width:100%',
+        'height:100%',
+        'object-fit:cover',
+        'object-position:center',
+        'display:block',
+        'transition:opacity .4s ease',
+      ].join(';');
+      // If the image fails to load (403, CORS block, mixed content, etc.)
+      // remove it — the colour gradient behind shows through cleanly.
+      photo.onerror = () => {
+        photo.remove();
+        overlay.remove();   // remove the darkening overlay too — not needed
+      };
+      thumb.appendChild(photo);
+
+      // Semi-transparent overlay so the LIVE pill and age label stay legible
+      // over bright or busy photos.  Removed by onerror above if photo fails.
+      var overlay = document.createElement('div');  // var so onerror can reach it
+      overlay.className = 'nf-photo-overlay';
+      thumb.appendChild(overlay);
+    }
+
+    /* Source watermark text — visible when NO photo is available */
     const watermark = document.createElement('span');
-    watermark.className = 'nf-card-watermark';
+    watermark.className = `nf-card-watermark${article.imageUrl ? ' nf-card-watermark--hidden' : ''}`;
     watermark.textContent = article.source;
     thumb.appendChild(watermark);
 
-    /* "LIVE" pill */
+    /* "LIVE" pill — always visible, positioned top-left */
     const liveBadge = document.createElement('span');
     liveBadge.className = 'nf-live-pill';
     liveBadge.innerHTML = '<span class="nf-live-dot"></span>LIVE';
     thumb.appendChild(liveBadge);
 
-    /* Age label (e.g. "3h ago") */
+    /* Age label (e.g. "3h ago") — bottom-right */
     const ageLabel = document.createElement('span');
     ageLabel.className = 'nf-age-label';
     ageLabel.textContent = relativeTime(article.pubDate);
