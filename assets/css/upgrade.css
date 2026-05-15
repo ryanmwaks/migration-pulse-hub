@@ -166,6 +166,28 @@ a:hover { color: var(--plum); }
   border-color: rgba(255,255,255,.38) !important;
 }
 
+/* Footer social row — wrap on very narrow screens, never squish the circles */
+.mph-footer-socials {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+.mph-footer-socials a {
+  flex-shrink: 0 !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255,255,255,.28) !important;
+  background: rgba(255,255,255,.06) !important;
+  color: rgba(255,255,255,.7) !important;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
 /* Override amber hover for both zones */
 .mph-socials a:hover,
 .mph-footer-socials a:hover {
@@ -174,19 +196,17 @@ a:hover { color: var(--plum); }
   color: var(--charcoal) !important;
 }
 
-/* SVGs must be display:block inside flex circles — kills vertical baseline drift.
-   Also strip inline size so the CSS rule below controls it exclusively. */
+/* SVGs must be display:block inside flex circles — kills vertical baseline drift */
 .mph-socials a svg,
 .mph-footer-socials a svg {
   display: block !important;
   flex-shrink: 0;
   pointer-events: none;
-  /* Override any inline width/height attribute on the svg element */
   width: 15px !important;
   height: 15px !important;
 }
 
-/* Footer icon circles are slightly larger — keep them at 16px */
+/* Footer icon circles — keep icons at 16px */
 .mph-footer-socials a svg {
   width: 16px !important;
   height: 16px !important;
