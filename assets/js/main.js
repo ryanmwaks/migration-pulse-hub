@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
-  /* --- Contact Form --------------------------------------------- */
+  /* --- Contact Form — Netlify Forms submission ------------------ */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -169,14 +169,47 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = contactForm.querySelector('[type="submit"]');
       btn.textContent = 'Sending…';
       btn.disabled = true;
-      setTimeout(() => {
-        contactForm.innerHTML = `
-          <div class="mph-notice mph-notice--teal" style="justify-content:center;text-align:center;padding:2.5rem;flex-direction:column;">
-            <div style="font-size:2.5rem;margin-bottom:.75rem;">✅</div>
-            <strong>Thank you for reaching out!</strong>
-            <p style="margin:.5rem 0 0;font-size:.9rem">Your message has been received. We will respond within 2–3 working days.</p>
-          </div>`;
-      }, 1000);
+
+      // Encode all named form fields for Netlify
+      const encode = (data) =>
+        Object.keys(data)
+          .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
+          .join('&');
+
+      const formData = {
+        'form-name': 'contact',
+        firstName:    contactForm.querySelector('[name="firstName"]').value,
+        lastName:     contactForm.querySelector('[name="lastName"]').value,
+        email:        contactForm.querySelector('[name="email"]').value,
+        phone:        contactForm.querySelector('[name="phone"]').value,
+        organisation: contactForm.querySelector('[name="organisation"]').value,
+        subject:      contactForm.querySelector('[name="subject"]').value,
+        message:      contactForm.querySelector('[name="message"]').value,
+      };
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(formData),
+      })
+        .then(() => {
+          // Success — show confirmation inline
+          contactForm.innerHTML = `
+            <div class="mph-notice mph-notice--teal" style="justify-content:center;text-align:center;padding:2.5rem;flex-direction:column;">
+              <div style="font-size:2.5rem;margin-bottom:.75rem;">✅</div>
+              <strong>Thank you for reaching out!</strong>
+              <p style="margin:.5rem 0 0;font-size:.9rem">Your message has been received. We will respond within 2–3 working days.</p>
+            </div>`;
+        })
+        .catch(() => {
+          // Network error — restore button so user can retry
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          const err = document.createElement('p');
+          err.style.cssText = 'color:#e53e3e;font-size:.85rem;margin-top:.75rem;text-align:center';
+          err.textContent = 'Something went wrong. Please try again or email us directly at info@migrationpulsehub.org';
+          contactForm.appendChild(err);
+        });
     });
   }
 

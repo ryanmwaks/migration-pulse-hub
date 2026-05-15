@@ -189,32 +189,38 @@
           <span class="mph-eyebrow mph-eyebrow--coral">Send a Message</span>
           <h2 style="margin:.75rem 0 1.75rem">Contact Form</h2>
           <div class="mph-card mph-card-body">
-            <form id="contactForm">
+            <!-- netlify attribute enables Netlify Forms; data-netlify-honeypot blocks bots -->
+            <form id="contactForm" name="contact" netlify data-netlify-honeypot="bot-field">
+              <!-- Required hidden fields for Netlify -->
+              <input type="hidden" name="form-name" value="contact" />
+              <!-- Honeypot — hidden from real users, catches bots -->
+              <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
               <div class="mph-grid-2" style="gap:1rem">
                 <div class="mph-form-group">
                   <label class="mph-form-label" for="firstName">First Name *</label>
-                  <input type="text" id="firstName" class="mph-form-control" placeholder="Your first name" required />
+                  <input type="text" id="firstName" name="firstName" class="mph-form-control" placeholder="Your first name" required />
                 </div>
                 <div class="mph-form-group">
                   <label class="mph-form-label" for="lastName">Last Name *</label>
-                  <input type="text" id="lastName" class="mph-form-control" placeholder="Your last name" required />
+                  <input type="text" id="lastName" name="lastName" class="mph-form-control" placeholder="Your last name" required />
                 </div>
               </div>
               <div class="mph-form-group">
                 <label class="mph-form-label" for="email">Email Address *</label>
-                <input type="email" id="email" class="mph-form-control" placeholder="your@email.com" required />
+                <input type="email" id="email" name="email" class="mph-form-control" placeholder="your@email.com" required />
               </div>
               <div class="mph-form-group">
                 <label class="mph-form-label" for="phone">Phone Number</label>
-                <input type="tel" id="phone" class="mph-form-control" placeholder="+254 000 000 000" />
+                <input type="tel" id="phone" name="phone" class="mph-form-control" placeholder="+254 000 000 000" />
               </div>
               <div class="mph-form-group">
                 <label class="mph-form-label" for="organisation">Organisation / Affiliation</label>
-                <input type="text" id="organisation" class="mph-form-control" placeholder="Your organisation (if applicable)" />
+                <input type="text" id="organisation" name="organisation" class="mph-form-control" placeholder="Your organisation (if applicable)" />
               </div>
               <div class="mph-form-group">
                 <label class="mph-form-label" for="subject">Area of Interest *</label>
-                <select id="subject" class="mph-form-control" required>
+                <select id="subject" name="subject" class="mph-form-control" required>
                   <option value="">Select an area…</option>
                   <option>Partnership &amp; Collaboration</option>
                   <option>Donation &amp; Funding</option>
@@ -229,10 +235,10 @@
               </div>
               <div class="mph-form-group">
                 <label class="mph-form-label" for="message">Your Message *</label>
-                <textarea id="message" class="mph-form-control" placeholder="Tell us how we can help, or how you would like to get involved…" required></textarea>
+                <textarea id="message" name="message" class="mph-form-control" placeholder="Tell us how we can help, or how you would like to get involved…" required></textarea>
               </div>
               <div class="mph-form-group" style="display:flex;align-items:flex-start;gap:.75rem">
-                <input type="checkbox" id="privacy" required style="margin-top:.3rem;flex-shrink:0;accent-color:var(--teal)" />
+                <input type="checkbox" id="privacy" name="privacy" required style="margin-top:.3rem;flex-shrink:0;accent-color:var(--teal)" />
                 <label for="privacy" style="font-size:.83rem;color:var(--muted);cursor:pointer;line-height:1.6">
                   I have read and agree to the <a href="privacy.html">Privacy Policy</a>. I understand that my information will be used to respond to my enquiry and will not be shared with third parties without my consent.
                 </label>
@@ -360,7 +366,7 @@
   </div>
 </footer>
   <button class="mph-back-to-top" aria-label="Back to top"><svg class="mph-icon"><use href="#ico-trending"/></svg></button>
-  <script src="assets/js/main.js?v=2.1" defer></script>
+  <script src="assets/js/main.js?v=2.2" defer></script>
   <script src="assets/js/zuri-chat.js?v=2.1" defer></script>
 </body>
 </html>
