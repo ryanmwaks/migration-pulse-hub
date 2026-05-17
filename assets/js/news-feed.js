@@ -1,10 +1,10 @@
 /* ============================================================
-   Migration Pulse Hub — Live News Feed v1.0
+   Migration Pulse Hub — Live News Feed v1.1
    ──────────────────────────────────────────────────────────
    Fetches refugee & migration news from authoritative RSS feeds
-   via the AllOrigins CORS proxy (no API key needed).
-   - Filters out anything older than 7 days on every load
-   - Caches results in localStorage for 2 hours
+   via the built-in Netlify Function proxy (/netlify/functions/fetch-news).
+   - No date cutoff — shows all available articles from each feed
+   - Caches results in localStorage for 30 minutes
    - All feed content rendered via DOM API (no innerHTML with
      user data) to prevent XSS injection
    ============================================================ */
@@ -13,12 +13,11 @@ const NewsFeed = (function () {
 
   /* ── Configuration ───────────────────────────────────────── */
   const CFG = {
-    cacheTTL:   2 * 60 * 60 * 1000,       // 2 hours — avoid hammering proxy
-    cacheKey:   'mph_news_feed_v1',
-    maxAge:     7 * 24 * 60 * 60 * 1000,  // 7 days — auto-expire cutoff
-    maxPerFeed: 8,                          // articles taken per RSS feed
-    maxTotal:   30,                         // articles shown in grid
-    proxy:      'https://api.allorigins.win/get?url=',
+    cacheTTL:   30 * 60 * 1000,            // 30 minutes — fresh without hammering proxy
+    cacheKey:   'mph_news_feed_v2',         // bumped key so old 7-day cache is ignored
+    maxPerFeed: 20,                         // take up to 20 articles per RSS feed
+    maxTotal:   80,                         // total articles shown in grid (no date cap)
+    proxy:      '/.netlify/functions/fetch-news?url=',
     timeout:    12000,                      // 12-second per-feed timeout (ms)
   };
 
@@ -114,13 +113,19 @@ const NewsFeed = (function () {
       .trim();
   }
 
-  /** Human-readable relative timestamp */
+  /** Human-readable relative timestamp.
+   *  Within 24 h → relative (e.g. "3h ago").
+   *  Older than 24 h → full short date (e.g. "12 Apr 2026")
+   *  so older articles are still readable rather than "38d ago". */
   function relativeTime(date) {
     const s = Math.floor((Date.now() - date.getTime()) / 1000);
-    if (s < 60)   return 'Just now';
-    if (s < 3600) return `${Math.floor(s / 60)}m ago`;
-    if (s < 86400)return `${Math.floor(s / 3600)}h ago`;
-    return `${Math.floor(s / 86400)}d ago`;
+    if (s < 60)    return 'Just now';
+    if (s < 3600)  return `${Math.floor(s / 60)}m ago`;
+    if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
+    // Older than 1 day — show a readable date
+    return date.toLocaleDateString('en-GB', {
+      day: 'numeric', month: 'short', year: 'numeric',
+    });
   }
 
   /** Short date for card meta row */
@@ -207,7 +212,6 @@ const NewsFeed = (function () {
     }
 
     const items   = Array.from(doc.querySelectorAll('item'));
-    const cutoff  = Date.now() - CFG.maxAge;  // 7-day boundary
     const results = [];
 
     for (const item of items) {
@@ -238,7 +242,7 @@ const NewsFeed = (function () {
       if (!title)                                continue; // no title
       if (!link || !link.startsWith('http'))     continue; // no safe URL
       if (isNaN(pubDate.getTime()))              continue; // unparseable date
-      if (pubDate.getTime() < cutoff)            continue; // older than 7 days ← auto-delete
+      // No date cutoff — all available articles from the feed are shown
 
       /* ── Keyword filter (only for general-interest feeds) ─ */
       if (!matchesKeywords(title, description, feed.keywords || null)) continue;
@@ -600,7 +604,7 @@ const NewsFeed = (function () {
                 const d = new Date(a.pubDate);
                 return isNaN(d.getTime()) ? null : { ...a, pubDate: d };
               })
-              .filter(Boolean); // drop any articles with corrupt pubDate strings
+              .filter(Boolean);
             buildFilters(allArticles);
             renderGrid(allArticles);
             setTimestamp(cache.timestamp);
@@ -610,20 +614,32 @@ const NewsFeed = (function () {
       } catch (_) { /* corrupt cache — fall through to fresh fetch */ }
     }
 
-    /* 2. Show skeletons while fetching */
+    /* 2. Snapshot the static fallback HTML before we touch the grid.
+          The HTML page ships with pre-populated articles so the section
+          is never empty — we restore them if the live fetch fails. */
+    const staticFallback = grid.innerHTML;
+
+    /* 3. Show skeletons while fetching */
     buildSkeletons(6);
 
-    /* 3. Fetch fresh data */
+    /* 4. Fetch fresh data */
     const fresh = await fetchAll();
 
     if (!fresh.length) {
-      showError();
+      // Live fetch failed — restore the static articles and show a soft notice
+      // instead of wiping the grid with an error screen.
+      grid.innerHTML = staticFallback;
+      const el = document.getElementById('nf-last-updated');
+      if (el) el.textContent = 'Showing cached digest — live feed unavailable';
+      const countEl = document.getElementById('nf-count');
+      if (countEl) countEl.textContent =
+        grid.querySelectorAll('article').length || '—';
       return;
     }
 
     allArticles = fresh;
 
-    /* 4. Persist to cache (dates serialised as ISO strings) */
+    /* 5. Persist to cache (dates serialised as ISO strings) */
     try {
       localStorage.setItem(CFG.cacheKey, JSON.stringify({
         timestamp: Date.now(),
@@ -631,7 +647,7 @@ const NewsFeed = (function () {
       }));
     } catch (_) { /* localStorage full — skip caching */ }
 
-    /* 5. Render */
+    /* 6. Render */
     buildFilters(allArticles);
     renderGrid(allArticles);
     setTimestamp(Date.now());

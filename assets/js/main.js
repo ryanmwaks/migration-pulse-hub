@@ -102,16 +102,45 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   /* --- Accordion / FAQ ------------------------------------------ */
-  document.querySelectorAll('.mph-accordion-header').forEach(header => {
+  // Wire up ARIA attributes on init so screen readers understand the state
+  document.querySelectorAll('.mph-accordion-header').forEach((header, i) => {
+    const body = header.nextElementSibling;
+    if (!body) return;
+
+    // Give each panel a unique ID for aria-controls
+    const panelId = 'accordion-panel-' + i;
+    body.setAttribute('id', panelId);
+    body.setAttribute('role', 'region');
+    header.setAttribute('aria-expanded', 'false');
+    header.setAttribute('aria-controls', panelId);
+
+    // Ensure the element is a button (or at least has role="button")
+    // The CSS targets .mph-accordion-header — if still a <div> in HTML,
+    // add tabindex and role so it's reachable by keyboard
+    if (header.tagName !== 'BUTTON') {
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      // Keyboard: Space / Enter triggers click
+      header.addEventListener('keydown', (e) => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          header.click();
+        }
+      });
+    }
+
     header.addEventListener('click', () => {
-      const body = header.nextElementSibling;
       const isOpen = header.classList.contains('active');
+      // Collapse all panels
       document.querySelectorAll('.mph-accordion-header').forEach(h => {
         h.classList.remove('active');
+        h.setAttribute('aria-expanded', 'false');
         if (h.nextElementSibling) h.nextElementSibling.classList.remove('show');
       });
+      // Open clicked panel if it was closed
       if (!isOpen) {
         header.classList.add('active');
+        header.setAttribute('aria-expanded', 'true');
         body.classList.add('show');
       }
     });
@@ -185,6 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
         organisation: contactForm.querySelector('[name="organisation"]').value,
         subject:      contactForm.querySelector('[name="subject"]').value,
         message:      contactForm.querySelector('[name="message"]').value,
+        // GDPR — include privacy consent state in the Netlify submission record
+        privacy:      contactForm.querySelector('[name="privacy"]').checked ? 'Agreed to Privacy Policy' : 'Not agreed',
       };
 
       fetch('/', {

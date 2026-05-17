@@ -1,0 +1,12 @@
+# robots.txt — Migration Pulse Hub
+# https://migrationpulsehub.org
+
+User-agent: *
+Allow: /
+
+# Exclude utility / redirect pages from crawling
+Disallow: /404.html
+Disallow: /team.html
+
+# Sitemap location
+Sitemap: https://migrationpulsehub.org/sitemap.xml

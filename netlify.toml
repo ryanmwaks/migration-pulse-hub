@@ -4,7 +4,8 @@
 # ============================================================
 
 [build]
-  publish = "."        # serve files from the root folder
+  publish   = "."                    # serve files from the root folder
+  functions = "netlify/functions"    # Netlify Functions directory
 
 # ── Redirect www → apex ─────────────────────────────────────
 [[redirects]]
@@ -23,10 +24,12 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options       = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy       = "strict-origin-when-cross-origin"
-    Permissions-Policy    = "camera=(), microphone=(), geolocation=()"
+    X-Frame-Options              = "DENY"
+    X-Content-Type-Options       = "nosniff"
+    Referrer-Policy              = "strict-origin-when-cross-origin"
+    Permissions-Policy           = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security    = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy      = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://migrationpulsehub.org/.netlify/functions/fetch-news; frame-src 'none'; object-src 'none'"
 
 # Cache HTML pages — short TTL so updates publish quickly
 [[headers]]

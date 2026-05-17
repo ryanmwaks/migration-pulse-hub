@@ -1,5 +1,5 @@
 /* ============================================================
-   Pulse — Migration Pulse Hub Chatbot Engine v2.0
+   Pulse — Migration Pulse Hub Chatbot Engine v2.1
    Multilingual · Human-handover · Trauma-informed · Rights-based
 
    Supports: EN · SW · SO · AR · AM · OM · TI · RW · RN · LG · DIN · NUS · FR
@@ -58,7 +58,7 @@ const Pulse = (function () {
   ---------------------------------------------------------- */
   const T = {
     en: {
-      welcome:     "Hello! 👋 Welcome to Migration Pulse Hub. I'm <strong>Pulse</strong> — your digital companion here.\n\nI'm here to help with anything from event registration to reports, partnerships, sponsorship, volunteering, media enquiries, legal support, and more. Whatever brings you here, I'll do my best to guide you.\n\nWhat can I help you with today?",
+      welcome:     "Hello! 👋 Welcome to Migration Pulse Hub. I'm <strong>Pulse</strong> — your digital companion here.\n\nI'm here to help with anything from event registration, reports, and research to legal support, partnerships, sponsorship, community livelihoods, volunteering, and media enquiries. Whatever brings you here, I'll do my best to guide you.\n\nWhat can I help you with today?",
       privacy:     "🔒 We collect only the minimum details needed to respond to your enquiry. Please do not share passwords, IDs, or financial documents here.",
       menu_title:  "Please choose what you need help with:",
       name_q:      "What is your full name?",
@@ -107,13 +107,17 @@ const Pulse = (function () {
       website_issue_q:"Please describe the website issue you experienced:",
       topic_q:     "What topic would you like to propose for your panel or workshop?",
       bio_q:       "Please share a brief biography (2–3 sentences):",
+      community_focus_q: "Which area of our Community Empowerment programme are you interested in?",
+      community_focus_opts: ["Livelihood Skills Training", "Enterprise & Business Support", "Community Network & Peer Support", "Economic Integration & Employment", "General Community Enquiry"],
+      community_role_q: "Are you a community member seeking support, a referring organisation, or a potential programme partner?",
+      community_role_opts: ["Community Member / Individual", "Referring Organisation / NGO", "Programme Partner", "Donor / Funder", "Other"],
       human_hand:  "Thank you. I'm connecting you with the Migration Pulse Hub team. Choose how you'd like to continue:",
       safety_hand: "🚨 This sounds urgent. Please contact our team immediately using the options below. If you are in immediate physical danger, please call local emergency services (police / ambulance).",
       field_req:   "This field is required. Please provide a response.",
     },
 
     sw: {
-      welcome:     "Habari! 👋 Karibu Migration Pulse Hub. Mimi ni <strong>Pulse</strong>, msaidizi wako wa kidijitali.\n\nNinaweza kukusaidia na matukio, ripoti, ushirikiano, udhamini, maswali ya wasambazaji, vyombo vya habari, kujitolea, au msaada wa jumla.\n\nNinawezaje kukusaidia leo?",
+      welcome:     "Habari! 👋 Karibu Migration Pulse Hub. Mimi ni <strong>Pulse</strong>, msaidizi wako wa kidijitali.\n\nNinaweza kukusaidia na matukio, ripoti, ushirikiano, udhamini, maswali ya wasambazaji, vyombo vya habari, kujitolea, msaada wa kisheria, maisha na jamii, au msaada wa jumla.\n\nNinawezaje kukusaidia leo?",
       privacy:     "🔒 Tunakusanya taarifa za chini zinazohitajika tu kujibu swali lako. Tafadhali usishiriki nywila, vitambulisho, au nyaraka za fedha hapa.",
       menu_title:  "Tafadhali chagua unahitaji msaada na nini:",
       name_q:      "Jina lako kamili ni nani?",
@@ -167,7 +171,7 @@ const Pulse = (function () {
     },
 
     ar: {
-      welcome:     "مرحباً! 👋 أهلاً بك في Migration Pulse Hub. أنا <strong>Pulse</strong>، مساعدك الرقمي.\n\nيمكنني مساعدتك في الفعاليات، التقارير، الشراكات، الرعاية، حجز الباعة، استفسارات الإعلام، التطوع، أو الدعم العام.\n\nكيف يمكنني مساعدتك اليوم؟",
+      welcome:     "مرحباً! 👋 أهلاً بك في Migration Pulse Hub. أنا <strong>Pulse</strong>، مساعدك الرقمي.\n\nيمكنني مساعدتك في الفعاليات، التقارير، الشراكات، الرعاية، حجز الباعة، استفسارات الإعلام، التطوع، الدعم القانوني، تمكين المجتمع وسبل العيش، أو الدعم العام.\n\nكيف يمكنني مساعدتك اليوم؟",
       privacy:     "🔒 نجمع فقط الحد الأدنى من البيانات اللازمة للرد على استفسارك. يُرجى عدم مشاركة كلمات المرور أو الهويات أو الوثائق المالية هنا.",
       menu_title:  "يُرجى اختيار ما تحتاج المساعدة فيه:",
       name_q:      "ما اسمك الكامل؟",
@@ -410,7 +414,7 @@ const Pulse = (function () {
     },
 
     fr: {
-      welcome:     "Bonjour! 👋 Bienvenue sur Migration Pulse Hub. Je suis <strong>Pulse</strong>, votre assistante numérique.\n\nJe peux vous aider pour les événements, les rapports, les partenariats, le sponsoring, la réservation de stands, les demandes médias, le bénévolat, ou le support général.\n\nComment puis-je vous aider aujourd'hui?",
+      welcome:     "Bonjour! 👋 Bienvenue sur Migration Pulse Hub. Je suis <strong>Pulse</strong>, votre assistante numérique.\n\nJe peux vous aider pour les événements, les rapports, les partenariats, le sponsoring, la réservation de stands, les demandes médias, le bénévolat, l'aide juridique, le renforcement des moyens de subsistance communautaires, ou le support général.\n\nComment puis-je vous aider aujourd'hui?",
       privacy:     "🔒 Nous collectons uniquement les informations minimales nécessaires pour répondre à votre demande. Veuillez ne pas partager de mots de passe, pièces d'identité ou documents financiers ici.",
       menu_title:  "Veuillez choisir l'objet de votre demande:",
       name_q:      "Quel est votre nom complet?",
@@ -468,6 +472,10 @@ const Pulse = (function () {
     {
       id: 'volunteer', en: '💛 Volunteer Enquiry', icon: '💛',
       guideline: "We're so glad you want to get involved! 💛\n\nVolunteers are the heartbeat of everything we do — from event logistics and translation to legal aid support, research, and community outreach. No contribution is too small.\n\nLet me gather a few details so our volunteering coordinator can match you with the right opportunity.",
+    },
+    {
+      id: 'community', en: '🌱 Community & Livelihoods', icon: '🌱',
+      guideline: "Thank you for reaching out about our Community Empowerment & Livelihoods Programme! 🌱\n\nWe support displaced communities with livelihood skills training, enterprise incubation, grassroots peer networks, and economic integration pathways — rebuilding dignity and self-reliance beyond displacement.\n\nWhether you're a community member seeking support, a referring organisation, or a potential programme partner, we want to hear from you. Let me collect a few details and connect you with our community team.",
     },
     {
       id: 'media', en: '📸 Media Enquiry', icon: '📸',
@@ -561,6 +569,15 @@ const Pulse = (function () {
       { id:'country', q:'country_q',           type:'text' },
       { id:'area',    q:'volunteer_area_q',     type:'choice', opts:'vol_opts' },
       { id:'skills',  q:'skills_q',            type:'text' },
+    ],
+    community: [
+      { id:'name',    q:'name_q',                type:'text' },
+      { id:'email',   q:'email_q',               type:'text' },
+      { id:'phone',   q:'phone_q',               type:'text' },
+      { id:'country', q:'country_q',             type:'text' },
+      { id:'role',    q:'community_role_q',       type:'choice', opts:'community_role_opts' },
+      { id:'focus',   q:'community_focus_q',      type:'choice', opts:'community_focus_opts' },
+      { id:'message', q:'message_q',             type:'text' },
     ],
     media: [
       { id:'name',      q:'name_q',        type:'text' },
