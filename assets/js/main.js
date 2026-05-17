@@ -99,6 +99,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const firstVid = clips[0].querySelector('video');
     if (firstVid) firstVid.play().catch(() => {});
     startCycle();
+
+    // --- WCAG 2.2.2 Pause / Play control ---
+    const pauseBtn   = document.getElementById('hero-pause-btn');
+    const pauseIcon  = pauseBtn && pauseBtn.querySelector('.mph-hero-pause-icon');
+    const playIcon   = pauseBtn && pauseBtn.querySelector('.mph-hero-play-icon');
+    const pauseLabel = document.getElementById('hero-pause-label');
+    let   paused     = false;
+
+    function allVideos() {
+      return Array.from(document.querySelectorAll('.mph-hero-sequence video'));
+    }
+
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', function () {
+        paused = !paused;
+        pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        pauseBtn.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+        if (pauseLabel) pauseLabel.textContent = paused ? 'Play video' : 'Pause video';
+        if (pauseIcon)  pauseIcon.style.display  = paused ? 'none'  : '';
+        if (playIcon)   playIcon.style.display   = paused ? ''      : 'none';
+
+        if (paused) {
+          clearInterval(timer);
+          allVideos().forEach(function (v) { v.pause(); });
+        } else {
+          const activeVid = clips[current] && clips[current].querySelector('video');
+          if (activeVid) activeVid.play().catch(function () {});
+          startCycle();
+        }
+      });
+    }
   })();
 
   /* --- Accordion / FAQ ------------------------------------------ */

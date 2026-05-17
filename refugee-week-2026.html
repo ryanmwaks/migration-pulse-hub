@@ -724,6 +724,7 @@
 
 <!-- ========================================================  HERO  ======================================================== -->
 <section class="rw-hero" id="top">
+  <span class="sr-only">Hero background: Aerial view of a humanitarian settlement in Eastern Africa — representing the communities at the heart of Refugee Week Kenya 2026.</span>
   <div class="rw-hero__bg" aria-hidden="true"></div>
   <div class="rw-hero__overlay" aria-hidden="true"></div>
   <div class="rw-hero__texture" aria-hidden="true"></div>
@@ -731,7 +732,7 @@
     <div class="rw-hero__eyebrow"><span>🌍</span> Refugee Week Kenya 2026</div>
     <h1 class="rw-hero__title">Integration and Courage.<br><span>Shaping a Shared Future.</span></h1>
     <p class="rw-hero__sub">A 4-day regional gathering in Nairobi bringing together refugee-led organisations, policymakers, humanitarian actors, researchers, artists, community leaders, and development partners to celebrate courage, champion integration, and shape a shared future across Eastern Africa.</p>
-    <div class="rw-countdown" aria-label="Countdown to Refugee Week Kenya 2026">
+    <div class="rw-countdown" aria-label="Countdown to Refugee Week Kenya 2026" aria-live="polite" aria-atomic="true">
       <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-days">--</span><span class="rw-countdown__label">Days</span></div>
       <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-hours">--</span><span class="rw-countdown__label">Hours</span></div>
       <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-mins">--</span><span class="rw-countdown__label">Minutes</span></div>
@@ -983,7 +984,8 @@
 
     <!-- ATTENDEE -->
     <div class="rw-reg-panel active" id="reg-attendee">
-      <form class="rw-form" onsubmit="rwSubmit(event,'attendee')">
+      <form name="rw-attendee" method="POST" class="rw-form" onsubmit="rwSubmit(event,'attendee')" data-netlify="true">
+        <input type="hidden" name="form-name" value="rw-attendee" />
         <div class="rw-form-group"><label for="att-name">Full Name *</label><input id="att-name" type="text" placeholder="Your full name" required /></div>
         <div class="rw-form-group"><label for="att-email">Email Address *</label><input id="att-email" type="email" placeholder="you@organisation.org" required /></div>
         <div class="rw-form-group"><label for="att-phone">Phone Number *</label><input id="att-phone" type="tel" placeholder="+254 7XX XXX XXX" required /></div>
@@ -1005,7 +1007,8 @@
 
     <!-- SPEAKER -->
     <div class="rw-reg-panel" id="reg-speaker">
-      <form class="rw-form" onsubmit="rwSubmit(event,'speaker')">
+      <form name="rw-speaker" method="POST" class="rw-form" onsubmit="rwSubmit(event,'speaker')" data-netlify="true">
+        <input type="hidden" name="form-name" value="rw-speaker" />
         <div class="rw-form-group"><label>Full Name *</label><input type="text" placeholder="Your full name" required /></div>
         <div class="rw-form-group"><label>Email Address *</label><input type="email" placeholder="you@organisation.org" required /></div>
         <div class="rw-form-group"><label>Organisation *</label><input type="text" placeholder="Organisation / institution" required /></div>
@@ -1021,7 +1024,8 @@
 
     <!-- MEDIA -->
     <div class="rw-reg-panel" id="reg-media">
-      <form class="rw-form" onsubmit="rwSubmit(event,'media')">
+      <form name="rw-media" method="POST" class="rw-form" onsubmit="rwSubmit(event,'media')" data-netlify="true">
+        <input type="hidden" name="form-name" value="rw-media" />
         <div class="rw-form-group"><label>Full Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Media House / Outlet *</label><input type="text" placeholder="e.g. Nation Media, BBC Africa, Reuters" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
@@ -1036,7 +1040,8 @@
 
     <!-- VOLUNTEER -->
     <div class="rw-reg-panel" id="reg-volunteer">
-      <form class="rw-form" onsubmit="rwSubmit(event,'volunteer')">
+      <form name="rw-volunteer" method="POST" class="rw-form" onsubmit="rwSubmit(event,'volunteer')" data-netlify="true">
+        <input type="hidden" name="form-name" value="rw-volunteer" />
         <div class="rw-form-group"><label>Full Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
         <div class="rw-form-group"><label>Phone</label><input type="tel" /></div>
@@ -1126,7 +1131,8 @@
     <!-- Sponsor inquiry form -->
     <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:1.25rem;padding:2rem;margin-top:3rem" id="sponsor-form">
       <h3 style="color:#fff;margin-bottom:1.25rem;font-size:1.1rem">Sponsorship Enquiry Form</h3>
-      <form class="rw-form" onsubmit="rwSubmit(event,'sponsor')">
+      <form name="rw-sponsor" method="POST" class="rw-form" onsubmit="rwSubmit(event,'sponsor')" data-netlify="true">
+        <input type="hidden" name="form-name" value="rw-sponsor" />
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Organisation Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Contact Person *</label><input type="text" required /></div>
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Email *</label><input type="email" required /></div>
@@ -1161,7 +1167,8 @@
     </div>
     <div style="margin-top:2.5rem;background:#fff;border-radius:1.25rem;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.07)">
       <h3 style="margin-bottom:1.25rem;font-size:1.05rem;color:#2B2B2B">Vendor / Exhibitor Booking Form</h3>
-      <form class="rw-form" onsubmit="rwSubmit(event,'vendor')">
+      <form name="rw-vendor" method="POST" class="rw-form" onsubmit="rwSubmit(event,'vendor')" data-netlify="true">
+        <input type="hidden" name="form-name" value="rw-vendor" />
         <div class="rw-form-group"><label>Business / Organisation Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Contact Person *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
@@ -1463,5 +1470,6 @@
   <script src="assets/js/svg-loader.js" defer></script>
 </body>
 </html>
+
 
 

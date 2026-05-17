@@ -50,7 +50,7 @@
   /* ── Neutrals ────────────────────────────────────────── */
   --white:        #FFFFFF;
   --text:         #2B2B2B;
-  --muted:        #6E6E6E;
+  --muted:        #5E5E5E; /* WCAG AA: 5.30:1 on #F9F7F5 (was #6E6E6E @ 4.54:1) */
   --border:       rgba(0,0,0,.08);
   --border-dark:  rgba(0,0,0,.16);
 
@@ -1864,6 +1864,47 @@ a:hover { color: var(--plum); }
   object-position: center top;
   filter: brightness(0.88) saturate(0.9);
 }
+
+/* WCAG 2.2.2 — Video pause/play button */
+.mph-hero-pause-btn {
+  position: absolute;
+  bottom: 2rem;
+  left: 2.5rem;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+  backdrop-filter: blur(4px);
+}
+.mph-hero-pause-btn:hover,
+.mph-hero-pause-btn:focus-visible {
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.08);
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+@media (max-width: 768px) {
+  .mph-hero-pause-btn { left: 1rem; bottom: 1.25rem; }
+}
+
+/* Photo / image attribution credit line */
+.img-credit {
+  font-size: .72rem;
+  color: var(--muted);
+  margin-top: .35rem;
+  line-height: 1.4;
+}
+.img-credit a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.img-credit a:hover { color: var(--amber); }
 
 /* Content sits above sequence */
 .mph-hero--cinematic .mph-container { position: relative; z-index: 3; }

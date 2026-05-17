@@ -1,0 +1,3 @@
+# Netlify redirect rules
+# team.html was merged into about.html — 301 permanent redirect
+/team.html    /about.html    301

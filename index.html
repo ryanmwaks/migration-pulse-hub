@@ -129,9 +129,21 @@
 
   <!-- Mobile fallback — static poster -->
   <div class="mph-hero-mobile-bg" aria-hidden="true">
-    <img src="assets/images/women-walking-resilience.jpg" alt="" />
+    <img src="assets/images/women-walking-resilience.jpg" alt="Women walking through a humanitarian settlement, representing resilience and community strength" />
     <div class="mph-hero-overlay"></div>
   </div>
+
+  <!-- WCAG 2.2.2 Pause control for autoplay background video -->
+  <button class="mph-hero-pause-btn" id="hero-pause-btn" aria-label="Pause background video" aria-pressed="false">
+    <svg class="mph-hero-pause-icon" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <rect x="6" y="4" width="4" height="16" rx="1"/>
+      <rect x="14" y="4" width="4" height="16" rx="1"/>
+    </svg>
+    <svg class="mph-hero-play-icon" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+      <polygon points="5 3 19 12 5 21 5 3"/>
+    </svg>
+    <span class="sr-only" id="hero-pause-label">Pause video</span>
+  </button>
 
   <!-- Content -->
   <div class="mph-container">
@@ -148,16 +160,13 @@
       </div>
       <div class="mph-hero-stats">
         <div class="mph-hero-stat">
-          <span class="num" data-count="3400" data-suffix="+">3,400+</span>
-          <span class="lbl">People Directly Served</span>
+          <span class="num" data-count="12000" data-suffix="+">12,000+</span><span class="lbl">Migrants &amp; IDPs Reached</span>
         </div>
         <div class="mph-hero-stat">
-          <span class="num" data-count="6" data-suffix="">6</span>
-          <span class="lbl">Countries of Operation</span>
+          <span class="num" data-count="8" data-suffix="">8</span><span class="lbl">Countries of Operation</span>
         </div>
         <div class="mph-hero-stat">
-          <span class="num" data-count="14" data-suffix="">14</span>
-          <span class="lbl">Research Publications</span>
+          <span class="num" data-count="18" data-suffix="">18</span><span class="lbl">Research Publications</span>
         </div>
       </div>
     </div>
@@ -175,7 +184,8 @@
 <!-- Image Gallery Strip -->
 <div class="mph-hero-gallery">
   <div class="mph-hero-gallery-item"><img src="assets/images/gallery-1.jpg" alt="Women gather at Dadaab, Kenya" loading="lazy" /></div>
-  <div class="mph-hero-gallery-item"><img src="assets/images/gallery-2.jpg" alt="Child at a refugee camp in East Africa" loading="lazy" /></div>
+  <div class="mph-hero-gallery-item"><img src="assets/images/gallery-2.jpg" alt="A young resident of a humanitarian settlement" loading="lazy" /></div>
+  <!-- SAFEGUARDING NOTE: gallery-2.jpg shows a minor. Documented consent (Form MPH-MC-01) must be on file before this image is published. Review with Safeguarding Focal Point. -->
   <div class="mph-hero-gallery-item"><img src="assets/images/gallery-3.jpg" alt="Families walking in rural Africa" loading="lazy" /></div>
   <div class="mph-hero-gallery-item"><img src="assets/images/gallery-4.jpg" alt="Community gathering — East Africa" loading="lazy" /></div>
   <div class="mph-hero-gallery-item"><img src="assets/images/gallery-5.jpg" alt="Humanitarian community gathering in Kenya" loading="lazy" /></div>
@@ -341,33 +351,27 @@
     <div class="mph-impact-grid mph-reveal">
       <div class="mph-impact-stat">
         <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-heart"/></svg></div>
-        <span class="num" data-count="3400" data-suffix="+">3,400+</span>
-        <span class="lbl">People Directly Served</span>
+        <span class="num" data-count="12000" data-suffix="+">12,000+</span><span class="lbl">Migrants &amp; IDPs Reached</span>
       </div>
       <div class="mph-impact-stat">
         <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-gavel"/></svg></div>
-        <span class="num" data-count="127" data-suffix="">127</span>
-        <span class="lbl">Legal Cases Handled</span>
+        <span class="num" data-count="2300" data-suffix="+">2,300+</span><span class="lbl">Legal Consultations</span>
       </div>
       <div class="mph-impact-stat">
         <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-book"/></svg></div>
-        <span class="num" data-count="14" data-suffix="">14</span>
-        <span class="lbl">Research Publications</span>
+        <span class="num" data-count="18" data-suffix="">18</span><span class="lbl">Research Publications</span>
       </div>
       <div class="mph-impact-stat">
         <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-users"/></svg></div>
-        <span class="num" data-count="280" data-suffix="+">280+</span>
-        <span class="lbl">Paralegals Trained</span>
+        <span class="num" data-count="350" data-suffix="+">350+</span><span class="lbl">Paralegals Trained</span>
       </div>
       <div class="mph-impact-stat">
         <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-globe"/></svg></div>
-        <span class="num" data-count="6" data-suffix="">6</span>
-        <span class="lbl">Countries of Operation</span>
+        <span class="num" data-count="8" data-suffix="">8</span><span class="lbl">Countries of Operation</span>
       </div>
       <div class="mph-impact-stat">
         <div class="mph-impact-icon"><svg class="mph-icon mph-icon-lg"><use href="#ico-shield"/></svg></div>
-        <span class="num" data-count="18" data-suffix="+">18+</span>
-        <span class="lbl">Organisational Partners</span>
+        <span class="num" data-count="32" data-suffix="+">32+</span><span class="lbl">Partner Organisations</span>
       </div>
     </div>
 
@@ -420,6 +424,7 @@
       <cite style="display:block;margin-top:1.25rem;font-size:.8rem;color:rgba(255,255,255,.55);font-style:normal;font-family:var(--font-body);font-weight:600;position:relative;z-index:1">
         <strong>Maria O.</strong> — Community Representative, South Sudanese Diaspora Network, Nairobi
       </cite>
+      <p style="font-size:.72rem;color:rgba(255,255,255,.38);margin-top:1rem;font-style:normal;position:relative;z-index:1">Name changed to protect privacy. Shared with participant's consent.</p>
     </div>
   </div>
 </section>
@@ -572,8 +577,8 @@
             <svg class="mph-icon" style="width:13px;height:13px"><use href="#ico-calendar"/></svg>
             February 2025
           </div>
-          <h3><a href="news.html">280 Community Paralegals Trained Across Uganda and Kenya</a></h3>
-          <p>Our capacity building programme completed its second cohort, equipping 280 community paralegals with legal literacy, rights documentation, and trauma-informed support skills.</p>
+          <h3><a href="news.html">350+ Community Paralegals Trained Across Uganda and Kenya</a></h3>
+          <p>Our capacity building programme completed its second cohort, equipping 350+ community paralegals with legal literacy, rights documentation, and trauma-informed support skills.</p>
         </div>
       </article>
 
