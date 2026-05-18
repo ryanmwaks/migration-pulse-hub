@@ -117,12 +117,14 @@
           <span class="mph-eyebrow mph-eyebrow--coral">Send a Message</span>
           <h2 style="margin:.75rem 0 1.75rem">Contact Form</h2>
           <div class="mph-card mph-card-body">
-            <!-- netlify attribute enables Netlify Forms; data-netlify-honeypot blocks bots -->
-            <form id="contactForm" name="contact" netlify data-netlify-honeypot="bot-field">
-              <!-- Required hidden fields for Netlify -->
-              <input type="hidden" name="form-name" value="contact" />
+            <!-- Web3Forms handles submission and emails results to info@migrationpulsehub.org -->
+            <form id="contactForm" name="contact" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="2c82465e-2bb6-4679-b096-d3e48a542db5" />
+              <input type="hidden" name="subject" value="New Contact Enquiry — Migration Pulse Hub" />
+              <input type="hidden" name="from_name" value="Migration Pulse Hub Website" />
+              <input type="hidden" name="redirect" value="https://migrationpulsehub.org/contact.html?sent=true" />
               <!-- Honeypot — hidden from real users, catches bots -->
-              <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
+              <input type="checkbox" name="botcheck" style="display:none" />
 
               <div class="mph-grid-2" style="gap:1rem">
                 <div class="mph-form-group">

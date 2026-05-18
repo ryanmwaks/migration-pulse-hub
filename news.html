@@ -330,18 +330,30 @@
         <form
           name="newsletter"
           method="POST"
-          netlify
-          netlify-honeypot="bot-field"
           style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center"
-          onsubmit="(function(e){
+          onsubmit="(async function(e){
             e.preventDefault();
             var f=e.target, btn=f.querySelector('button');
-            btn.textContent='✓ Subscribed!'; btn.disabled=true;
-            f.querySelector('input[type=email]').disabled=true;
+            btn.textContent='Sending…'; btn.disabled=true;
+            try {
+              var r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)});
+              var res=await r.json();
+              if(res.success){
+                btn.textContent='✓ Subscribed!';
+                f.querySelector('input[type=email]').disabled=true;
+              } else {
+                btn.textContent='Subscribe'; btn.disabled=false;
+                alert('Something went wrong. Please try again.');
+              }
+            } catch(err){
+              btn.textContent='Subscribe'; btn.disabled=false;
+              alert('Submission failed. Please try again.');
+            }
           })(event);"
         >
-          <input type="hidden" name="form-name" value="newsletter" />
-          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="access_key" value="2c82465e-2bb6-4679-b096-d3e48a542db5" />
+          <input type="hidden" name="subject" value="New Newsletter Subscriber — Migration Pulse Hub" />
+          <input type="checkbox" name="botcheck" style="display:none" />
           <input type="email" name="email" placeholder="your@email.com" class="mph-form-control" style="flex:1;min-width:240px;max-width:360px" required />
           <button type="submit" class="mph-btn coral">Subscribe</button>
         </form>
