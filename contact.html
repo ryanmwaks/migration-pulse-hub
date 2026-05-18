@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <link rel="dns-prefetch" href="https://api.web3forms.com" />
+  <link rel="dns-prefetch" href="https://formsubmit.co" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" /></noscript>
   <link rel="stylesheet" href="assets/css/style.css?v=3.0" />
@@ -126,14 +126,13 @@
           <span class="mph-eyebrow mph-eyebrow--coral">Send a Message</span>
           <h2 style="margin:.75rem 0 1.75rem">Contact Form</h2>
           <div class="mph-card mph-card-body">
-            <!-- Web3Forms handles submission and emails results to info@migrationpulsehub.org -->
-            <form id="contactForm" name="contact" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="2c82465e-2bb6-4679-b096-d3e48a542db5" />
-              <input type="hidden" name="subject" value="New Contact Enquiry — Migration Pulse Hub" />
-              <input type="hidden" name="from_name" value="Migration Pulse Hub Website" />
-              <input type="hidden" name="redirect" value="https://migrationpulsehub.org/contact.html?sent=true" />
+            <!-- FormSubmit delivers submissions to info@migrationpulsehub.org — no account needed -->
+            <form id="contactForm" name="contact" action="https://formsubmit.co/info@migrationpulsehub.org" method="POST">
+              <input type="hidden" name="_subject" value="New Contact Enquiry — Migration Pulse Hub" />
+              <input type="hidden" name="_next" value="https://migrationpulsehub.org/contact.html?sent=true" />
+              <input type="hidden" name="_template" value="table" />
               <!-- Honeypot — hidden from real users, catches bots -->
-              <input type="checkbox" name="botcheck" style="display:none" />
+              <input type="text" name="_honey" style="display:none" />
 
               <div class="mph-grid-2" style="gap:1rem">
                 <div class="mph-form-group">

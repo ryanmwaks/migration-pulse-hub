@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <link rel="dns-prefetch" href="https://api.web3forms.com" />
+  <link rel="dns-prefetch" href="https://formsubmit.co" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" /></noscript>
   <link rel="stylesheet" href="assets/css/style.css?v=3.0" />
@@ -1004,8 +1004,7 @@
     <!-- ATTENDEE -->
     <div class="rw-reg-panel active" id="reg-attendee">
       <form name="rw-attendee" method="POST" class="rw-form" onsubmit="rwSubmit(event,'attendee')">
-        <input type="hidden" name="access_key" value="660dd4c7-c68e-4499-8698-a56f9bb244ca" />
-        <input type="hidden" name="subject" value="Attendee Registration — Refugee Week Kenya 2026" />
+        <input type="hidden" name="_subject" value="Attendee Registration — Refugee Week Kenya 2026" />
         <div class="rw-form-group"><label for="att-name">Full Name *</label><input id="att-name" type="text" placeholder="Your full name" required /></div>
         <div class="rw-form-group"><label for="att-email">Email Address *</label><input id="att-email" type="email" placeholder="you@organisation.org" required /></div>
         <div class="rw-form-group"><label for="att-phone">Phone Number *</label><input id="att-phone" type="tel" placeholder="+254 7XX XXX XXX" required /></div>
@@ -1028,8 +1027,7 @@
     <!-- SPEAKER -->
     <div class="rw-reg-panel" id="reg-speaker">
       <form name="rw-speaker" method="POST" class="rw-form" onsubmit="rwSubmit(event,'speaker')">
-        <input type="hidden" name="access_key" value="660dd4c7-c68e-4499-8698-a56f9bb244ca" />
-        <input type="hidden" name="subject" value="Speaker Application — Refugee Week Kenya 2026" />
+        <input type="hidden" name="_subject" value="Speaker Application — Refugee Week Kenya 2026" />
         <div class="rw-form-group"><label>Full Name *</label><input type="text" placeholder="Your full name" required /></div>
         <div class="rw-form-group"><label>Email Address *</label><input type="email" placeholder="you@organisation.org" required /></div>
         <div class="rw-form-group"><label>Organisation *</label><input type="text" placeholder="Organisation / institution" required /></div>
@@ -1046,8 +1044,7 @@
     <!-- MEDIA -->
     <div class="rw-reg-panel" id="reg-media">
       <form name="rw-media" method="POST" class="rw-form" onsubmit="rwSubmit(event,'media')">
-        <input type="hidden" name="access_key" value="660dd4c7-c68e-4499-8698-a56f9bb244ca" />
-        <input type="hidden" name="subject" value="Media Accreditation — Refugee Week Kenya 2026" />
+        <input type="hidden" name="_subject" value="Media Accreditation — Refugee Week Kenya 2026" />
         <div class="rw-form-group"><label>Full Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Media House / Outlet *</label><input type="text" placeholder="e.g. Nation Media, BBC Africa, Reuters" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
@@ -1063,8 +1060,7 @@
     <!-- VOLUNTEER -->
     <div class="rw-reg-panel" id="reg-volunteer">
       <form name="rw-volunteer" method="POST" class="rw-form" onsubmit="rwSubmit(event,'volunteer')">
-        <input type="hidden" name="access_key" value="660dd4c7-c68e-4499-8698-a56f9bb244ca" />
-        <input type="hidden" name="subject" value="Volunteer Application — Refugee Week Kenya 2026" />
+        <input type="hidden" name="_subject" value="Volunteer Application — Refugee Week Kenya 2026" />
         <div class="rw-form-group"><label>Full Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
         <div class="rw-form-group"><label>Phone</label><input type="tel" /></div>
@@ -1155,8 +1151,7 @@
     <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:1.25rem;padding:2rem;margin-top:3rem" id="sponsor-form">
       <h3 style="color:#fff;margin-bottom:1.25rem;font-size:1.1rem">Sponsorship Enquiry Form</h3>
       <form name="rw-sponsor" method="POST" class="rw-form" onsubmit="rwSubmit(event,'sponsor')">
-        <input type="hidden" name="access_key" value="660dd4c7-c68e-4499-8698-a56f9bb244ca" />
-        <input type="hidden" name="subject" value="Sponsorship Enquiry — Refugee Week Kenya 2026" />
+        <input type="hidden" name="_subject" value="Sponsorship Enquiry — Refugee Week Kenya 2026" />
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Organisation Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Contact Person *</label><input type="text" required /></div>
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Email *</label><input type="email" required /></div>
@@ -1192,8 +1187,7 @@
     <div style="margin-top:2.5rem;background:#fff;border-radius:1.25rem;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.07)">
       <h3 style="margin-bottom:1.25rem;font-size:1.05rem;color:#2B2B2B">Vendor / Exhibitor Booking Form</h3>
       <form name="rw-vendor" method="POST" class="rw-form" onsubmit="rwSubmit(event,'vendor')">
-        <input type="hidden" name="access_key" value="660dd4c7-c68e-4499-8698-a56f9bb244ca" />
-        <input type="hidden" name="subject" value="Vendor/Exhibitor Booking — Refugee Week Kenya 2026" />
+        <input type="hidden" name="_subject" value="Vendor/Exhibitor Booking — Refugee Week Kenya 2026" />
         <div class="rw-form-group"><label>Business / Organisation Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Contact Person *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
@@ -1478,16 +1472,17 @@
     });
   });
 
-  /* ---- Form submit handler — sends data to Web3Forms then opens WhatsApp ---- */
+  /* ---- Form submit handler — sends data to FormSubmit then opens WhatsApp ---- */
   window.rwSubmit = function(e, type) {
     e.preventDefault();
     var form = e.target;
     var btn = form.querySelector('button[type=submit]');
     if (btn) { btn.textContent = 'Submitting…'; btn.disabled = true; }
 
-    fetch('https://api.web3forms.com/submit', {
+    fetch('https://formsubmit.co/ajax/info@migrationpulsehub.org', {
       method: 'POST',
-      body: new FormData(form)
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
     })
     .then(function(r) { return r.json(); })
     .then(function(res) {
