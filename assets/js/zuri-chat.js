@@ -1,5 +1,5 @@
 /* ============================================================
-   Pulse — Migration Pulse Hub Chatbot Engine v2.1
+   Pulse — Migration Pulse Hub Chatbot Engine v2.2
    Multilingual · Human-handover · Trauma-informed · Rights-based
 
    Supports: EN · SW · SO · AR · AM · OM · TI · RW · RN · LG · DIN · NUS · FR
@@ -493,6 +493,10 @@ const Pulse = (function () {
       id: 'tech', en: '🖥️ Website Technical Issue', icon: '🖥️',
       guideline: "Sorry you're having trouble with our website! 🖥️\n\nWhether it's a broken link, a page that won't load, an event form that isn't working, or something else entirely — we want to know so we can fix it.\n\nPlease describe the issue below and our technical team will look into it promptly.",
     },
+    {
+      id: 'founders', en: '👥 Founders &amp; Leadership', icon: '👥',
+      guideline: "Migration Pulse Hub is led by a team committed to advancing the rights, dignity, and protection of refugees, migrants, and internally displaced persons.\n\nFounder and leadership profiles are currently being finalised and will be published once verified by the MPH team.\n\nHow can I help you today?",
+    },
     { id: 'human', en: '💬 Connect with One of Us', icon: '💬' },
   ];
 
@@ -887,6 +891,24 @@ const Pulse = (function () {
       return;
     }
 
+    // Founders & Leadership — info branch with sub-options
+    if (categoryId === 'founders') {
+      const cat = CATEGORIES.find(c => c.id === 'founders');
+      if (cat && cat.guideline) {
+        await botSay(cat.guideline.replace(/\n/g, '<br>'), 200);
+      }
+      await botSay('What would you like to know?');
+      showReplies([
+        { label: '🧑‍💼 About the founders',       value: 'founders_about' },
+        { label: '🏛️ Leadership team',           value: 'founders_team' },
+        { label: '📖 Organisation background',   value: 'founders_org' },
+        { label: '📬 Contact MPH',               value: 'founders_contact' },
+        { label: '🤝 Partner with MPH',          value: 'founders_partner' },
+      ]);
+      S.step = 'founders_menu';
+      return;
+    }
+
     // Legal flow — show empathetic safety notice first (overrides generic guideline)
     if (categoryId === 'legal') {
       const cat = CATEGORIES.find(c => c.id === 'legal');
@@ -1138,6 +1160,42 @@ const Pulse = (function () {
     if (value === 'continue_legal') {
       addMsg(label, 'user');
       await askNextField();
+      return;
+    }
+
+    // Founders sub-menu
+    if (S.step === 'founders_menu') {
+      addMsg(label, 'user');
+      clearReplies();
+      if (value === 'founders_about') {
+        await botSay('Founder and leadership profiles are currently being verified and will be published once approved by the Migration Pulse Hub team.\n\n<a href="founders.html" target="_blank" rel="noopener" style="color:var(--plum);font-weight:600">Visit our Founders &amp; Leadership page →</a>'.replace(/\n/g, '<br>'), 200);
+        showReplies([
+          { label: '📖 Organisation background', value: 'founders_org', },
+          { label: '📬 Contact MPH',             value: 'founders_contact', },
+          { label: t('restart'),                 value: '__restart__', },
+        ]);
+        S.step = 'founders_menu';
+      } else if (value === 'founders_team') {
+        await botSay('The MPH leadership team spans research, advocacy, legal support, communications, and community programmes. Full team profiles will be published on our website once verified.\n\n<a href="about.html#founders" target="_blank" rel="noopener" style="color:var(--plum);font-weight:600">See our About Us page →</a>'.replace(/\n/g, '<br>'), 200);
+        showReplies([
+          { label: '📬 Contact MPH',   value: 'founders_contact', },
+          { label: t('restart'),       value: '__restart__', },
+        ]);
+        S.step = 'founders_menu';
+      } else if (value === 'founders_org') {
+        await botSay('Migration Pulse Hub (MPH) is an independent, Africa-rooted organisation advancing the rights, dignity, and protection of refugees, migrants, and internally displaced persons through research, advocacy, legal support, and inclusive programming.\n\n<a href="about.html" target="_blank" rel="noopener" style="color:var(--plum);font-weight:600">Read our full story →</a>'.replace(/\n/g, '<br>'), 200);
+        showReplies([
+          { label: '📬 Contact MPH',   value: 'founders_contact', },
+          { label: '🤝 Partner with MPH', value: 'founders_partner', },
+          { label: t('restart'),       value: '__restart__', },
+        ]);
+        S.step = 'founders_menu';
+      } else if (value === 'founders_contact') {
+        await escalateHuman();
+      } else if (value === 'founders_partner') {
+        addMsg('Partnership Enquiry', 'user');
+        await startFlow('partner');
+      }
       return;
     }
 
