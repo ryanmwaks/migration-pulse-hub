@@ -35,7 +35,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <link rel="dns-prefetch" href="https://formsubmit.co" />
+  <link rel="dns-prefetch" href="https://api.web3forms.com" />
+  <link rel="dns-prefetch" href="https://api.emailjs.com" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" /></noscript>
   <link rel="preload" href="assets/images/hero-bg.webp" as="image" fetchpriority="high" />
@@ -1052,17 +1053,17 @@
 
     <!-- ATTENDEE -->
     <div class="rw-reg-panel active" id="reg-attendee">
-      <form name="rw-attendee" method="POST" class="rw-form" onsubmit="rwSubmit(event,'attendee')">
+      <form name="rw-attendee" method="POST" class="rw-form" onsubmit="mphSubmit(event,{subject:'Attendee Registration — Refugee Week Kenya 2026',successId:'success-attendee',whatsapp:'attendee registration'})">
         <input type="hidden" name="_subject" value="Attendee Registration — Refugee Week Kenya 2026" />
         <input type="text" name="_honey" style="display:none" />
-        <div class="rw-form-group"><label for="att-name">Full Name *</label><input id="att-name" type="text" placeholder="Your full name" required /></div>
-        <div class="rw-form-group"><label for="att-email">Email Address *</label><input id="att-email" type="email" placeholder="you@organisation.org" required /></div>
-        <div class="rw-form-group"><label for="att-phone">Phone Number *</label><input id="att-phone" type="tel" placeholder="+254 7XX XXX XXX" required /></div>
-        <div class="rw-form-group"><label for="att-country">Country *</label><select id="att-country" required><option value="">Select country...</option><option>Kenya</option><option>Uganda</option><option>Tanzania</option><option>Rwanda</option><option>Burundi</option><option>Ethiopia</option><option>South Sudan</option><option>Somalia</option><option>DR Congo</option><option>Sudan</option><option>Other</option></select></div>
-        <div class="rw-form-group"><label for="att-org">Organisation</label><input id="att-org" type="text" placeholder="Your organisation or institution" /></div>
-        <div class="rw-form-group"><label for="att-type">Attendance Type *</label><select id="att-type" required><option value="">Select...</option><option>In-person</option><option>Virtual</option></select></div>
-        <div class="rw-form-group rw-form--full"><label for="att-sessions">Preferred Sessions / Tracks</label><input id="att-sessions" type="text" placeholder="e.g. Legal Track, Youth Innovation Lab, Cultural Day" /></div>
-        <div class="rw-form-group rw-form--full"><label for="att-access">Accessibility Requirements</label><input id="att-access" type="text" placeholder="e.g. wheelchair access, sign language interpreter, dietary requirements" /></div>
+        <div class="rw-form-group"><label for="att-name">Full Name *</label><input id="att-name" name="full_name" type="text" placeholder="Your full name" required /></div>
+        <div class="rw-form-group"><label for="att-email">Email Address *</label><input id="att-email" name="email" type="email" placeholder="you@organisation.org" required /></div>
+        <div class="rw-form-group"><label for="att-phone">Phone Number *</label><input id="att-phone" name="phone" type="tel" placeholder="+254 7XX XXX XXX" required /></div>
+        <div class="rw-form-group"><label for="att-country">Country *</label><select id="att-country" name="country" required><option value="">Select country...</option><option>Kenya</option><option>Uganda</option><option>Tanzania</option><option>Rwanda</option><option>Burundi</option><option>Ethiopia</option><option>South Sudan</option><option>Somalia</option><option>DR Congo</option><option>Sudan</option><option>Other</option></select></div>
+        <div class="rw-form-group"><label for="att-org">Organisation</label><input id="att-org" name="organisation" type="text" placeholder="Your organisation or institution" /></div>
+        <div class="rw-form-group"><label for="att-type">Attendance Type *</label><select id="att-type" name="attendance_type" required><option value="">Select...</option><option>In-person</option><option>Virtual</option></select></div>
+        <div class="rw-form-group rw-form--full"><label for="att-sessions">Preferred Sessions / Tracks</label><input id="att-sessions" name="preferred_sessions" type="text" placeholder="e.g. Legal Track, Youth Innovation Lab, Cultural Day" /></div>
+        <div class="rw-form-group rw-form--full"><label for="att-access">Accessibility Requirements</label><input id="att-access" name="accessibility" type="text" placeholder="e.g. wheelchair access, sign language interpreter, dietary requirements" /></div>
         <div class="rw-form-actions">
           <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#555;cursor:pointer"><input type="checkbox" required /> I consent to Migration Pulse Hub processing my registration data for event administration purposes.</label>
         </div>
@@ -1076,17 +1077,17 @@
 
     <!-- SPEAKER -->
     <div class="rw-reg-panel" id="reg-speaker">
-      <form name="rw-speaker" method="POST" class="rw-form" onsubmit="rwSubmit(event,'speaker')">
+      <form name="rw-speaker" method="POST" class="rw-form" onsubmit="mphSubmit(event,{subject:'Speaker Application — Refugee Week Kenya 2026',successId:'success-speaker',whatsapp:'speaker application'})">
         <input type="hidden" name="_subject" value="Speaker Application — Refugee Week Kenya 2026" />
         <input type="text" name="_honey" style="display:none" />
-        <div class="rw-form-group"><label>Full Name *</label><input type="text" placeholder="Your full name" required /></div>
-        <div class="rw-form-group"><label>Email Address *</label><input type="email" placeholder="you@organisation.org" required /></div>
-        <div class="rw-form-group"><label>Organisation *</label><input type="text" placeholder="Organisation / institution" required /></div>
-        <div class="rw-form-group"><label>Country *</label><select required><option value="">Select country...</option><option>Kenya</option><option>Uganda</option><option>Ethiopia</option><option>Somalia</option><option>Rwanda</option><option>Other</option></select></div>
-        <div class="rw-form-group rw-form--full"><label>Expertise Areas *</label><input type="text" placeholder="e.g. refugee law, climate displacement, women's rights, youth empowerment" required /></div>
-        <div class="rw-form-group rw-form--full"><label>Preferred Session / Track *</label><select required><option value="">Select a track...</option><option>Legal Advocacy</option><option>Climate &amp; Displacement</option><option>Youth &amp; Innovation</option><option>Women &amp; Leadership</option><option>Storytelling &amp; Media</option><option>Regional Migration Policy</option><option>Arts, Culture &amp; Identity</option></select></div>
-        <div class="rw-form-group rw-form--full"><label>Topic Proposal *</label><textarea placeholder="Describe your proposed session, panel contribution, or presentation topic (max 300 words)" required></textarea></div>
-        <div class="rw-form-group rw-form--full"><label>Short Biography *</label><textarea placeholder="Your biography as you would like it to appear in the programme (max 150 words)" required></textarea></div>
+        <div class="rw-form-group"><label>Full Name *</label><input name="full_name" type="text" placeholder="Your full name" required /></div>
+        <div class="rw-form-group"><label>Email Address *</label><input name="email" type="email" placeholder="you@organisation.org" required /></div>
+        <div class="rw-form-group"><label>Organisation *</label><input name="organisation" type="text" placeholder="Organisation / institution" required /></div>
+        <div class="rw-form-group"><label>Country *</label><select name="country" required><option value="">Select country...</option><option>Kenya</option><option>Uganda</option><option>Ethiopia</option><option>Somalia</option><option>Rwanda</option><option>Other</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Expertise Areas *</label><input type="text" name="expertise_areas" placeholder="e.g. refugee law, climate displacement, women's rights, youth empowerment" required /></div>
+        <div class="rw-form-group rw-form--full"><label>Preferred Session / Track *</label><select name="track" required><option value="">Select a track...</option><option>Legal Advocacy</option><option>Climate &amp; Displacement</option><option>Youth &amp; Innovation</option><option>Women &amp; Leadership</option><option>Storytelling &amp; Media</option><option>Regional Migration Policy</option><option>Arts, Culture &amp; Identity</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Topic Proposal *</label><textarea name="topic" placeholder="Describe your proposed session, panel contribution, or presentation topic (max 300 words)" required></textarea></div>
+        <div class="rw-form-group rw-form--full"><label>Short Biography *</label><textarea name="bio" placeholder="Your biography as you would like it to appear in the programme (max 150 words)" required></textarea></div>
         <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--plum">Submit Speaker Application</button></div>
         <div class="rw-success-msg" id="success-speaker">✅ Speaker application received. Our programme team will review and respond by April 15, 2026.</div>
       </form>
@@ -1094,16 +1095,16 @@
 
     <!-- MEDIA -->
     <div class="rw-reg-panel" id="reg-media">
-      <form name="rw-media" method="POST" class="rw-form" onsubmit="rwSubmit(event,'media')">
+      <form name="rw-media" method="POST" class="rw-form" onsubmit="mphSubmit(event,{subject:'Media Accreditation — Refugee Week Kenya 2026',successId:'success-media',whatsapp:'media accreditation'})">
         <input type="hidden" name="_subject" value="Media Accreditation — Refugee Week Kenya 2026" />
         <input type="text" name="_honey" style="display:none" />
         <div class="rw-form-group"><label>Full Name *</label><input type="text" required /></div>
-        <div class="rw-form-group"><label>Media House / Outlet *</label><input type="text" placeholder="e.g. Nation Media, BBC Africa, Reuters" required /></div>
+        <div class="rw-form-group"><label>Media House / Outlet *</label><input name="media_house" type="text" placeholder="e.g. Nation Media, BBC Africa, Reuters" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
         <div class="rw-form-group"><label>Phone</label><input type="tel" /></div>
-        <div class="rw-form-group rw-form--full"><label>Type of Coverage *</label><select required><option value="">Select...</option><option>Print journalism</option><option>Broadcast / TV</option><option>Online / Digital</option><option>Photography</option><option>Documentary filming</option><option>Podcast / Radio</option></select></div>
-        <div class="rw-form-group rw-form--full"><label>Coverage Plan / Story Pitch *</label><textarea placeholder="Briefly describe the story or coverage you plan to produce" required></textarea></div>
-        <div class="rw-form-group rw-form--full"><label>Press Deadline (if applicable)</label><input type="date" /></div>
+        <div class="rw-form-group rw-form--full"><label>Type of Coverage *</label><select name="coverage_type" required><option value="">Select...</option><option>Print journalism</option><option>Broadcast / TV</option><option>Online / Digital</option><option>Photography</option><option>Documentary filming</option><option>Podcast / Radio</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Coverage Plan / Story Pitch *</label><textarea name="coverage_plan" placeholder="Briefly describe the story or coverage you plan to produce" required></textarea></div>
+        <div class="rw-form-group rw-form--full"><label>Press Deadline (if applicable)</label><input name="press_deadline" type="date" /></div>
         <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--amber">Apply for Media Accreditation</button></div>
         <div class="rw-success-msg" id="success-media">✅ Media accreditation request received. Our communications team will respond within 5 working days.</div>
       </form>
@@ -1111,16 +1112,16 @@
 
     <!-- VOLUNTEER -->
     <div class="rw-reg-panel" id="reg-volunteer">
-      <form name="rw-volunteer" method="POST" class="rw-form" onsubmit="rwSubmit(event,'volunteer')">
+      <form name="rw-volunteer" method="POST" class="rw-form" onsubmit="mphSubmit(event,{subject:'Volunteer Application — Refugee Week Kenya 2026',successId:'success-volunteer',whatsapp:'volunteer application'})">
         <input type="hidden" name="_subject" value="Volunteer Application — Refugee Week Kenya 2026" />
         <input type="text" name="_honey" style="display:none" />
         <div class="rw-form-group"><label>Full Name *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
         <div class="rw-form-group"><label>Phone</label><input type="tel" /></div>
         <div class="rw-form-group"><label>Country *</label><select required><option value="">Select...</option><option>Kenya</option><option>Uganda</option><option>Other</option></select></div>
-        <div class="rw-form-group rw-form--full"><label>Languages Spoken *</label><input type="text" placeholder="e.g. English, Kiswahili, Somali, Arabic" required /></div>
-        <div class="rw-form-group rw-form--full"><label>Skills / Experience *</label><textarea placeholder="Describe your skills and any prior volunteering or event experience" required></textarea></div>
-        <div class="rw-form-group rw-form--full"><label>Preferred Volunteer Role</label><select><option value="">Any role</option><option>Registration Desk</option><option>Session Support</option><option>Media &amp; Communications</option><option>Hospitality</option><option>Translation / Interpretation</option><option>Exhibition Support</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Languages Spoken *</label><input type="text" name="languages" placeholder="e.g. English, Kiswahili, Somali, Arabic" required /></div>
+        <div class="rw-form-group rw-form--full"><label>Skills / Experience *</label><textarea name="skills" placeholder="Describe your skills and any prior volunteering or event experience" required></textarea></div>
+        <div class="rw-form-group rw-form--full"><label>Preferred Volunteer Role</label><select name="preferred_role"><option value="">Any role</option><option>Registration Desk</option><option>Session Support</option><option>Media &amp; Communications</option><option>Hospitality</option><option>Translation / Interpretation</option><option>Exhibition Support</option></select></div>
         <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--plum">Submit Volunteer Application</button></div>
         <div class="rw-success-msg" id="success-volunteer">✅ Volunteer application received! We will be in touch by May 2026 with your assignment.</div>
       </form>
@@ -1205,16 +1206,16 @@
     <!-- Sponsor inquiry form -->
     <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:1.25rem;padding:2rem;margin-top:3rem" id="sponsor-form">
       <h3 style="color:#fff;margin-bottom:1.25rem;font-size:1.1rem">Sponsorship Enquiry Form</h3>
-      <form name="rw-sponsor" method="POST" class="rw-form" onsubmit="rwSubmit(event,'sponsor')">
+      <form name="rw-sponsor" method="POST" class="rw-form" onsubmit="mphSubmit(event,{subject:'Sponsorship Enquiry — Refugee Week Kenya 2026',successId:'success-sponsor',whatsapp:'sponsorship enquiry'})">
         <input type="hidden" name="_subject" value="Sponsorship Enquiry — Refugee Week Kenya 2026" />
         <input type="text" name="_honey" style="display:none" />
-        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Organisation Name *</label><input type="text" required /></div>
-        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Contact Person *</label><input type="text" required /></div>
-        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Email *</label><input type="email" required /></div>
-        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Phone</label><input type="tel" /></div>
-        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Country *</label><input type="text" required /></div>
-        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Sponsorship Category *</label><select required><option value="">Select...</option><option>Platinum</option><option>Gold</option><option>Silver</option><option>Community Partner</option><option>Media Partner</option></select></div>
-        <div class="rw-form-group rw-form--full"><label style="color:rgba(255,255,255,.7)">Message / Branding Requirements</label><textarea placeholder="Describe your branding preferences, booth requirements, or any specific interests..."></textarea></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Organisation Name *</label><input name="organisation" type="text" required /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Contact Person *</label><input name="contact_person" type="text" required /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Email *</label><input name="email" type="email" required /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Phone</label><input name="phone" type="tel" /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Country *</label><input name="country" type="text" required /></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Sponsorship Category *</label><select name="sponsorship_category" required><option value="">Select...</option><option>Platinum</option><option>Gold</option><option>Silver</option><option>Community Partner</option><option>Media Partner</option></select></div>
+        <div class="rw-form-group rw-form--full"><label style="color:rgba(255,255,255,.7)">Message / Branding Requirements</label><textarea name="message" placeholder="Describe your branding preferences, booth requirements, or any specific interests..."></textarea></div>
         <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--amber">Submit Sponsorship Enquiry</button></div>
         <div class="rw-success-msg" id="success-sponsor">✅ Sponsorship enquiry received. Our partnerships team will contact you within 3 working days with the full sponsorship deck.</div>
       </form>
@@ -1242,18 +1243,18 @@
     </div>
     <div style="margin-top:2.5rem;background:#fff;border-radius:1.25rem;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.07)">
       <h3 style="margin-bottom:1.25rem;font-size:1.05rem;color:#2B2B2B">Vendor / Exhibitor Booking Form</h3>
-      <form name="rw-vendor" method="POST" class="rw-form" onsubmit="rwSubmit(event,'vendor')">
+      <form name="rw-vendor" method="POST" class="rw-form" onsubmit="mphSubmit(event,{subject:'Vendor Booking — Refugee Week Kenya 2026',successId:'success-vendor',whatsapp:'vendor booking'})">
         <input type="hidden" name="_subject" value="Vendor/Exhibitor Booking — Refugee Week Kenya 2026" />
         <input type="text" name="_honey" style="display:none" />
-        <div class="rw-form-group"><label>Business / Organisation Name *</label><input type="text" required /></div>
+        <div class="rw-form-group"><label>Business / Organisation Name *</label><input name="business_name" type="text" required /></div>
         <div class="rw-form-group"><label>Contact Person *</label><input type="text" required /></div>
         <div class="rw-form-group"><label>Email *</label><input type="email" required /></div>
         <div class="rw-form-group"><label>Phone *</label><input type="tel" required /></div>
         <div class="rw-form-group"><label>Country *</label><input type="text" required /></div>
-        <div class="rw-form-group"><label>Vendor Category *</label><select required><option value="">Select...</option><option>Refugee-led Business</option><option>NGO / Civil Society</option><option>Artisans &amp; Crafts</option><option>Food Vendor</option><option>Technology</option><option>Publishing &amp; Media</option><option>Cultural Exhibitor</option><option>Advocacy Organisation</option></select></div>
-        <div class="rw-form-group rw-form--full"><label>Products / Services Description *</label><textarea placeholder="Describe what you will be selling or displaying at your booth" required></textarea></div>
-        <div class="rw-form-group"><label>Booth Size Needed</label><select><option>2×2m (small)</option><option>3×3m (standard)</option><option>Shared table</option><option>Outdoor pitch</option></select></div>
-        <div class="rw-form-group"><label>Electricity Required?</label><select><option>No</option><option>Yes — standard 240V</option></select></div>
+        <div class="rw-form-group"><label>Vendor Category *</label><select name="vendor_category" required><option value="">Select...</option><option>Refugee-led Business</option><option>NGO / Civil Society</option><option>Artisans &amp; Crafts</option><option>Food Vendor</option><option>Technology</option><option>Publishing &amp; Media</option><option>Cultural Exhibitor</option><option>Advocacy Organisation</option></select></div>
+        <div class="rw-form-group rw-form--full"><label>Products / Services Description *</label><textarea name="description" placeholder="Describe what you will be selling or displaying at your booth" required></textarea></div>
+        <div class="rw-form-group"><label>Booth Size Needed</label><select name="booth_size"><option>2×2m (small)</option><option>3×3m (standard)</option><option>Shared table</option><option>Outdoor pitch</option></select></div>
+        <div class="rw-form-group"><label>Electricity Required?</label><select name="electricity"><option>No</option><option>Yes — standard 240V</option></select></div>
         <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--amber">Submit Booking Request</button></div>
         <div class="rw-success-msg" id="success-vendor">✅ Vendor booking request received. We will confirm your booth allocation and send payment details within 5 working days.</div>
       </form>
@@ -1542,38 +1543,15 @@
     });
   });
 
-  /* ---- Form submit handler — sends data to FormSubmit then opens WhatsApp ---- */
-  window.rwSubmit = function(e, type) {
-    e.preventDefault();
-    var form = e.target;
-    var btn = form.querySelector('button[type=submit]');
-    if (btn) { btn.textContent = 'Submitting…'; btn.disabled = true; }
-
-    fetch('https://formsubmit.co/ajax/info@migrationpulsehub.org', {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(res) {
-      if (btn) { btn.textContent = 'Submitted ✓'; }
-      var successEl = document.getElementById('success-' + type);
-      if (successEl) {
-        successEl.style.display = 'block';
-        successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-      // WhatsApp follow-up notification
-      var msg = encodeURIComponent('Hello Migration Pulse Hub, I have just submitted a ' + type + ' registration for Refugee Week Kenya 2026. Please confirm receipt.');
-      window.open('https://api.whatsapp.com/send?phone=254118969209&text=' + msg, '_blank');
-    })
-    .catch(function() {
-      if (btn) { btn.textContent = 'Submit'; btn.disabled = false; }
-      alert('Submission failed. Please check your connection and try again, or contact us on WhatsApp directly.');
-    });
-  };
+  /* ---- mphSubmit (form-handler.js) handles all form submissions ---- */
+  /* rwSubmit: safety alias for any cached pages still referencing it */
+  window.rwSubmit = function(e) { e.preventDefault(); };
 })();
 </script>
   <script src="assets/js/svg-loader.js" defer></script>
+  <!-- Dual form submission: Web3Forms + EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/form-handler.js"></script>
 </body>
 </html>
 

@@ -31,7 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <link rel="dns-prefetch" href="https://formsubmit.co" />
+  <link rel="dns-prefetch" href="https://api.web3forms.com" />
+  <link rel="dns-prefetch" href="https://api.emailjs.com" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" /></noscript>
   <link rel="preload" href="assets/images/hero-bg.webp" as="image" fetchpriority="high" />
@@ -131,11 +132,8 @@
           <span class="mph-eyebrow mph-eyebrow--coral">Send a Message</span>
           <h2 style="margin:.75rem 0 1.75rem">Contact Form</h2>
           <div class="mph-card mph-card-body">
-            <!-- FormSubmit delivers submissions to info@migrationpulsehub.org — no account needed -->
-            <form id="contactForm" name="contact" action="https://formsubmit.co/info@migrationpulsehub.org" method="POST">
-              <input type="hidden" name="_subject" value="New Contact Enquiry — Migration Pulse Hub" />
-              <input type="hidden" name="_next" value="https://migrationpulsehub.org/contact.html?sent=true" />
-              <input type="hidden" name="_template" value="table" />
+            <!-- Dual-submit: Web3Forms (primary) + EmailJS (backup) via form-handler.js -->
+            <form id="contactForm" name="contact" onsubmit="mphSubmit(event,{subject:'New Contact Enquiry — Migration Pulse Hub',successId:'contactSuccess'})">
               <!-- Honeypot — hidden from real users, catches bots -->
               <input type="text" name="_honey" style="display:none" />
 
@@ -188,6 +186,9 @@
               </div>
               <button type="submit" class="mph-btn lg" style="width:100%">Send Message</button>
               <p style="font-size:.76rem;color:var(--muted);text-align:center;margin-top:.75rem">We aim to respond within 2–3 working days. For urgent matters, please call us directly.</p>
+              <div id="contactSuccess" style="display:none;margin-top:1rem;padding:.9rem 1.2rem;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;color:#1b5e20;font-size:.88rem;line-height:1.6">
+                ✅ <strong>Message sent!</strong> Thank you for reaching out. We'll respond within 2–3 working days.
+              </div>
             </form>
           </div>
         </div>
@@ -319,5 +320,8 @@
   <script src="assets/js/main.js?v=2.2" defer></script>
   <script src="assets/js/zuri-chat.js?v=2.2" defer></script>
   <script src="assets/js/svg-loader.js" defer></script>
+  <!-- Dual form submission: Web3Forms + EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/form-handler.js"></script>
 </body>
 </html>

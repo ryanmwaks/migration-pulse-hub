@@ -31,7 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <link rel="dns-prefetch" href="https://formsubmit.co" />
+  <link rel="dns-prefetch" href="https://api.web3forms.com" />
+  <link rel="dns-prefetch" href="https://api.emailjs.com" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" /></noscript>
   <link rel="preload" href="assets/images/hero-bg.webp" as="image" fetchpriority="high" />
@@ -401,33 +402,19 @@
         <span class="mph-eyebrow mph-eyebrow--navy">Stay Informed</span>
         <h2 style="color:var(--white);margin:.75rem 0 1rem">Subscribe to Our Newsletter</h2>
         <p style="color:rgba(255,255,255,.72);margin-bottom:1.75rem">Monthly updates on migration policy, our publications, and programme milestones — straight to your inbox. No spam. Unsubscribe any time.</p>
+        <!-- Dual-submit: Web3Forms + EmailJS via form-handler.js -->
         <form
           name="newsletter"
-          method="POST"
-          style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center"
-          onsubmit="(async function(e){
-            e.preventDefault();
-            var f=e.target, btn=f.querySelector('button');
-            btn.textContent='Sending…'; btn.disabled=true;
-            try {
-              var r=await fetch('https://formsubmit.co/ajax/info@migrationpulsehub.org',{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
-              var res=await r.json();
-              if(res.success === 'true' || res.success === true){
-                btn.textContent='✓ Subscribed!';
-                f.querySelector('input[type=email]').disabled=true;
-              } else {
-                btn.textContent='Subscribe'; btn.disabled=false;
-                alert('Something went wrong. Please try again.');
-              }
-            } catch(err){
-              btn.textContent='Subscribe'; btn.disabled=false;
-              alert('Submission failed. Please try again.');
-            }
-          })(event);"
+          style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;align-items:flex-start"
+          onsubmit="mphSubmit(event,{subject:'New Newsletter Subscriber — Migration Pulse Hub',successId:'newsletterSuccess'})"
         >
-          <input type="hidden" name="_subject" value="New Newsletter Subscriber — Migration Pulse Hub" />
           <input type="text" name="_honey" style="display:none" />
-          <input type="email" name="email" placeholder="your@email.com" class="mph-form-control" style="flex:1;min-width:240px;max-width:360px" required />
+          <div style="flex:1;min-width:240px;max-width:360px">
+            <input type="email" name="email" placeholder="your@email.com" class="mph-form-control" style="width:100%" required />
+            <div id="newsletterSuccess" style="display:none;margin-top:.6rem;padding:.6rem .9rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:6px;color:#fff;font-size:.82rem">
+              ✅ Subscribed! You'll hear from us soon.
+            </div>
+          </div>
           <button type="submit" class="mph-btn coral">Subscribe</button>
         </form>
         <p style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.75rem">We handle your data in accordance with our <a href="privacy.html" style="color:rgba(255,255,255,.55)">Privacy Policy</a>.</p>
@@ -513,6 +500,9 @@
   <script src="assets/js/news-feed.js?v=2.1" defer></script>
   <script src="assets/js/zuri-chat.js?v=2.2" defer></script>
   <script src="assets/js/svg-loader.js" defer></script>
+  <!-- Dual form submission: Web3Forms + EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/form-handler.js"></script>
 </body>
 </html>
 
