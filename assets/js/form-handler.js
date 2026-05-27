@@ -1,5 +1,5 @@
 /**
- * MPH Dual Form Handler v1.0
+ * MPH Dual Form Handler v1.1
  * ─────────────────────────────────────────────────────────────────
  * Fires every form submission to TWO email services simultaneously:
  *   1. Web3Forms  — https://web3forms.com        (primary)
@@ -7,24 +7,20 @@
  *
  * Delivery succeeds if AT LEAST ONE service responds OK.
  *
- * ── SETUP INSTRUCTIONS ──────────────────────────────────────────
+ * ── WEB3FORMS KEYS (already active) ────────────────────────────
+ *   Contact & Newsletter forms  → W3F_KEY_CONTACT
+ *   Refugee Week forms          → W3F_KEY_RW
  *
- * Web3Forms (free, no account needed):
- *   1. Visit https://web3forms.com
- *   2. Enter:  info@migrationpulsehub.org
- *   3. Copy the Access Key you receive
- *   4. Paste it as the value of W3F_KEY below
- *
- * EmailJS (free tier: 200 emails/month):
+ * ── EMAILJS SETUP (free — 200 emails/month) ─────────────────────
  *   1. Sign up at https://www.emailjs.com
  *   2. Add an Email Service (Gmail / Outlook) → copy the Service ID
- *   3. Create an Email Template with these variables:
- *        Subject field : {{form_subject}}
- *        Body field    : {{message}}
- *        (Optional)      From Name: {{from_name}}  Reply-To: {{email}}
+ *   3. Create an Email Template:
+ *        Subject : {{form_subject}}
+ *        Body    : {{message}}
+ *        (Optional) From Name: {{from_name}}   Reply-To: {{email}}
  *      Copy the Template ID
- *   4. Go to Account → copy your Public Key
- *   5. Paste all three below
+ *   4. Account → copy your Public Key
+ *   5. Paste all three as EJS_SERVICE / EJS_TEMPLATE / EJS_PUBKEY below
  *
  * ─────────────────────────────────────────────────────────────────
  */
@@ -32,12 +28,17 @@
 (function () {
   'use strict';
 
-  /* ── CONFIGURATION — fill in your keys ─────────────────────── */
-  var W3F_KEY      = 'YOUR_WEB3FORMS_ACCESS_KEY';   // web3forms.com
+  /* ── CONFIGURATION ──────────────────────────────────────────── */
+  /* Web3Forms — two forms, two keys (both route to info@migrationpulsehub.org) */
+  var W3F_KEY_CONTACT = '2c82465e-2bb6-4679-b096-d3e48a542db5';  // contact form + newsletter
+  var W3F_KEY_RW      = '660dd4c7-c68e-4499-8698-a56f9bb244ca';  // refugee week all forms
+
+  /* EmailJS — fill in once you've set it up */
   var EJS_SERVICE  = 'YOUR_EMAILJS_SERVICE_ID';      // emailjs.com
   var EJS_TEMPLATE = 'YOUR_EMAILJS_TEMPLATE_ID';     // emailjs.com
   var EJS_PUBKEY   = 'YOUR_EMAILJS_PUBLIC_KEY';      // emailjs.com
-  var TO_EMAIL     = 'info@migrationpulsehub.org';
+
+  var TO_EMAIL = 'info@migrationpulsehub.org';
   /* ─────────────────────────────────────────────────────────── */
 
   /* Initialise EmailJS once the SDK is loaded */
@@ -69,10 +70,10 @@
   }
 
   /* ── Web3Forms submission ───────────────────────────────────── */
-  function submitW3F(form, subject) {
-    if (W3F_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') return Promise.resolve(false);
+  function submitW3F(form, subject, w3fKey) {
+    var key = w3fKey || W3F_KEY_CONTACT;
     var data = new FormData(form);
-    data.set('access_key', W3F_KEY);
+    data.set('access_key', key);
     data.set('subject', subject);
     data.set('from_name', getSenderName(data) + ' via MPH Website');
     data.delete('_honey');
@@ -110,6 +111,7 @@
    * opts = {
    *   subject   : string   — email subject line
    *   successId : string   — id of the success message element to show
+   *   w3fKey    : string   — Web3Forms access key (omit to use contact key)
    *   whatsapp  : string   — if set, opens a WhatsApp follow-up for this form type
    *   redirect  : string   — optional URL to redirect to on success
    * }
@@ -134,7 +136,7 @@
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
     /* Fire both submissions in parallel */
-    Promise.all([submitW3F(form, subject), submitEJS(form, subject)])
+    Promise.all([submitW3F(form, subject, opts.w3fKey), submitEJS(form, subject)])
       .then(function (results) {
         var ok = results[0] || results[1];
 
