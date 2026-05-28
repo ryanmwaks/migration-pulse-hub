@@ -7,7 +7,7 @@
  *   • Stale-while-revalidate for external fonts
  */
 
-const CACHE = 'mph-v3';
+const CACHE = 'mph-v4';
 const OFFLINE_PAGE = '/404.html';
 
 /* Assets to pre-cache on install */
@@ -20,6 +20,8 @@ const PRECACHE = [
   '/assets/js/main.js',
   '/assets/js/svg-loader.js',
   '/assets/js/zuri-chat.js',
+  '/assets/js/form-handler.js',
+  '/assets/js/news-feed.js',
   '/assets/images/logo.png',
   '/assets/images/hero-bg.webp',
   '/assets/images/women-walking-resilience.jpg',
@@ -54,7 +56,7 @@ self.addEventListener('fetch', (e) => {
   const { request } = e;
   const url = new URL(request.url);
 
-  /* Skip non-GET and cross-origin (GA4, Formsubmit, etc.) */
+  /* Skip non-GET and cross-origin (GA4, Web3Forms, EmailJS, etc.) */
   if (request.method !== 'GET') return;
   if (url.origin !== location.origin) return;
 
