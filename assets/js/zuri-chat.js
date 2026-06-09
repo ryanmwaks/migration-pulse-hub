@@ -87,9 +87,9 @@ const Pulse = (function () {
       session_q:   "Which sessions are you most interested in? (e.g. Policy, Youth, Culture — or type 'any')",
       access_q:    "Do you have any accessibility requirements? (e.g. wheelchair, interpreter) — type 'none' if not",
       sponsor_cat_q:"Which sponsorship package interests you?",
-      spon_opts:   ["Platinum – KES 2M", "Gold – KES 1M", "Silver – KES 500K", "Community Partner – KES 150K", "Discuss Custom Package"],
+      spon_opts:   ["Platinum Partner – KES 2,000,000+", "Gold Partner – KES 1,000,000+", "Silver Partner – KES 500,000+", "Bronze Partner – KES 250,000+", "Community Builder – KES 150,000+", "Courage Package – KES 75,000+", "Unity Package – KES 50,000+"],
       vendor_cat_q:"What type of vendor/exhibitor are you?",
-      vendor_opts: ["Refugee-led Food Vendor", "Arts, Crafts & Textiles", "Technology & Innovation", "NGO / Advocacy Org", "Publishing & Media", "Cultural Exhibitor", "Other"],
+      vendor_opts: ["Service Hub", "Market of Hope – Business Stalls", "Umoja Mosaic – Art Gallery", "Culinary Journey – Food Stalls"],
       booth_q:     "What booth size do you require? (small / medium / large) and do you need electricity?",
       media_house_q:"Which media house or outlet do you represent?",
       deadline_q:  "What is your deadline for this request?",
@@ -451,7 +451,7 @@ const Pulse = (function () {
     },
     {
       id: 'refugee_week', en: '🕊️ Refugee Week 2026 Booking', icon: '🕊️',
-      guideline: "Welcome! Refugee Week Kenya 2026 is our flagship annual gathering — 7 days of dialogue, culture, storytelling, and solidarity. 🕊️\n\nRunning 15–21 June at Uhuru Gardens, Nairobi, the week brings together participants from 10+ countries across the Horn of Africa and Great Lakes region.\n\nRegistration is free. Let me collect a few details to confirm your place.",
+      guideline: "Welcome! Refugee Week Kenya 2026 is our flagship cross-cultural festival — 3 days of dialogue, culture, storytelling, and solidarity. 🕊️\n\nRunning 17–19 June at the University of Nairobi, the festival brings together participants from 10+ countries across the Horn of Africa and Great Lakes region under the theme <em>\"Courage in Unity: Integration & Courage\"</em>.\n\nRegistration is free. Let me collect a few details to confirm your place.",
     },
     {
       id: 'sponsor', en: '🤝 Sponsorship Enquiry', icon: '🤝',
@@ -459,7 +459,7 @@ const Pulse = (function () {
     },
     {
       id: 'vendor', en: '🛍️ Vendor / Exhibitor Booking', icon: '🛍️',
-      guideline: "Wonderful — we'd love to have you at the marketplace! 🛍️\n\nOur vendor and exhibitor space celebrates refugee-led businesses, artisans, innovators, and civil society organisations. It's a vibrant, high-footfall space that connects you directly with delegates, press, and partners.\n\nLet me take your details and our events team will confirm your booth assignment.",
+      guideline: "Wonderful — we'd love to have you at the marketplace! 🛍️\n\nRefugee Week Kenya 2026 features four official exhibition spaces at the University of Nairobi:\n\n🔹 <strong>Service Hub</strong> — service providers & support organisations\n🔹 <strong>Market of Hope</strong> — refugee-led business stalls\n🔹 <strong>Umoja Mosaic</strong> — art gallery & creative exhibitors\n🔹 <strong>Culinary Journey</strong> — food stalls & cultural cuisine\n\nLet me take your details and our events team will confirm your booth assignment.",
     },
     {
       id: 'reports', en: '📄 Reports & Publications', icon: '📄',
@@ -716,7 +716,7 @@ const Pulse = (function () {
 
         <!-- Announcement bar -->
         <div class="zuri-announce-bar" id="zuri-announce">
-          📣 Refugee Week Kenya 2026 — Registration open! June 15–21, Uhuru Gardens, Nairobi
+          📣 Refugee Week Kenya 2026 — Registration open! June 17–19 · University of Nairobi
         </div>
 
         <!-- Messages -->
