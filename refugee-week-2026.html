@@ -511,6 +511,8 @@
       transition: all .2s;
     }
     .rw-partner-chip:hover { border-color: var(--rw-plum); color: var(--rw-plum); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+    .rw-partner-chip--muted { background: rgba(0,0,0,.03); border-style: dashed; color: #aaa; font-weight: 500; font-style: italic; }
+    .rw-partner-chip--muted:hover { border-color: #ccc; color: #999; transform: none; box-shadow: none; }
 
     /* ===== VENUE ===== */
     .rw-venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
@@ -802,9 +804,9 @@
   <div class="rw-hero__texture" aria-hidden="true"></div>
 
   <div class="rw-hero__inner">
-    <div class="rw-hero__eyebrow"><span>🌍</span> Refugee Week Kenya 2026</div>
+    <div class="rw-hero__eyebrow"><span>🌍</span> Refugee Week Cross-Culture Festival · Kenya 2026</div>
     <h1 class="rw-hero__title">Courage in Unity.<br><span>Integration &amp; Courage.</span></h1>
-    <p class="rw-hero__sub">A 3-day regional gathering in Nairobi bringing together refugee-led organisations, policymakers, humanitarian actors, researchers, artists, community leaders, and development partners to celebrate courage, champion integration, and shape a shared future across Eastern Africa.</p>
+    <p class="rw-hero__sub">A 3-day cross-cultural festival in Nairobi celebrating refugee resilience, showcasing refugee contributions, and fostering the social cohesion needed for Kenya's historic shift under the Shirika Plan — moving over 840,000 refugees from encampment toward full socio-economic integration. Bringing together refugee-led organisations, policymakers, humanitarian actors, researchers, artists, and development partners to shape a shared future.</p>
     <div class="rw-countdown" aria-label="Countdown to Refugee Week Kenya 2026" aria-live="polite" aria-atomic="true">
       <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-days">--</span><span class="rw-countdown__label">Days</span></div>
       <div class="rw-countdown__unit"><span class="rw-countdown__num" id="cd-hours">--</span><span class="rw-countdown__label">Hours</span></div>
@@ -856,20 +858,28 @@
         <div class="rw-section-title">
           <span class="rw-eyebrow">About the Event</span>
           <h2>What is Refugee Week Kenya 2026?</h2>
-          <p>A 3-day convergence of voices, evidence, art, and policy centred on the theme <strong>"Courage in Unity: Integration &amp; Courage"</strong>. Designed to elevate the lived experiences of refugees and migrants while driving concrete action on integration, rights, and belonging across Eastern Africa and beyond.</p>
+          <p>Kenya is undergoing a historic policy shift through the <strong>Shirika Plan</strong>, moving away from the traditional encampment model toward the socio-economic integration of over <strong>840,000 refugees</strong>. The Refugee Week Cross-Culture Festival is designed as a cross-cultural platform to celebrate refugee resilience, showcase refugee contributions, and foster the social cohesion necessary for successful integration — combining policy dialogue, cultural expression, and economic empowerment.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem">
           <div style="display:flex;gap:.85rem;align-items:flex-start">
-            <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(125,10,109,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🎯</div>
-            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Clear Advocacy Objectives</strong><span style="font-size:.85rem;color:#888">Drive regional policy commitments on refugee rights, climate displacement, and legal inclusion.</span></div>
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(125,10,109,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🦁</div>
+            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Celebrate Resilience</strong><span style="font-size:.85rem;color:#888">Highlight the immense courage of individuals forced to flee and their success in rebuilding lives.</span></div>
           </div>
           <div style="display:flex;gap:.85rem;align-items:flex-start">
             <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(254,159,0,.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🤝</div>
-            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Multi-Stakeholder Platform</strong><span style="font-size:.85rem;color:#888">Refugees, policymakers, CSOs, donors, artists, researchers, and media — all in one space.</span></div>
+            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Promote Integration</strong><span style="font-size:.85rem;color:#888">Facilitate meaningful interaction between refugees, host communities, and stakeholders — government, NGOs, and the private sector.</span></div>
           </div>
           <div style="display:flex;gap:.85rem;align-items:flex-start">
             <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(10,125,109,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">📜</div>
-            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Commitment to Outcomes</strong><span style="font-size:.85rem;color:#888">Each day ends with a documented call to action tied to a specific thematic track.</span></div>
+            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Advocate for Policy</strong><span style="font-size:.85rem;color:#888">Platform for stakeholders to discuss implementation of the Refugee Act 2021 and the Shirika Plan.</span></div>
+          </div>
+          <div style="display:flex;gap:.85rem;align-items:flex-start">
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(254,159,0,.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem">💼</div>
+            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Economic Empowerment</strong><span style="font-size:.85rem;color:#888">Showcase refugee-led businesses and craftsmanship to promote self-reliance and entrepreneurship.</span></div>
+          </div>
+          <div style="display:flex;gap:.85rem;align-items:flex-start">
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;background:rgba(125,10,109,.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🏭</div>
+            <div><strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.2rem">Labour Market Access</strong><span style="font-size:.85rem;color:#888">Promote recognition of refugee skills, access to decent work, and private sector partnerships to unlock employment opportunities.</span></div>
           </div>
         </div>
 
@@ -898,7 +908,7 @@
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:.85rem">
-          <div style="background:#f7f3f9;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:var(--rw-plum);display:block">4</span><span style="font-size:.78rem;color:#888;font-weight:600">Days of Events</span></div>
+          <div style="background:#f7f3f9;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:var(--rw-plum);display:block">3</span><span style="font-size:.78rem;color:#888;font-weight:600">Days of Events</span></div>
           <div style="background:#fff8ec;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:var(--rw-amber);display:block">40+</span><span style="font-size:.78rem;color:#888;font-weight:600">Sessions &amp; Workshops</span></div>
           <div style="background:#f0fdf4;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:#16a34a;display:block">10</span><span style="font-size:.78rem;color:#888;font-weight:600">Countries</span></div>
           <div style="background:#f7f3f9;border-radius:.85rem;padding:1rem 1.1rem;text-align:center"><span style="font-size:1.6rem;font-weight:800;color:var(--rw-plum);display:block">1K+</span><span style="font-size:.78rem;color:#888;font-weight:600">Expected Participants</span></div>
@@ -910,8 +920,8 @@
     <div style="margin-top:4rem">
       <div class="rw-section-title">
         <span class="rw-eyebrow">Event Themes</span>
-        <h2>One Theme. Four Days of Action.</h2>
-        <p>Refugee Week Kenya 2026 is anchored in the theme <strong>"Courage in Unity: Integration &amp; Courage"</strong>, explored across dialogues, performances, policy forums, and community celebrations.</p>
+        <h2>One Theme. Three Days of Action.</h2>
+        <p>Refugee Week Kenya 2026 is anchored in the theme <strong>"Courage in Unity: Integration &amp; Courage"</strong>, explored across dialogues, performances, policy forums, and community celebrations — a living demonstration of integration in practice.</p>
       </div>
       <div class="rw-themes">
         <div class="rw-theme-chip"><span class="rw-theme-icon">🤝</span> Integration &amp; Belonging</div>
@@ -922,6 +932,42 @@
         <div class="rw-theme-chip"><span class="rw-theme-icon">🎨</span> Arts, Culture &amp; Identity</div>
         <div class="rw-theme-chip"><span class="rw-theme-icon">🎙️</span> Storytelling &amp; Media</div>
         <div class="rw-theme-chip"><span class="rw-theme-icon">🗺️</span> Regional Migration Policy</div>
+      </div>
+    </div>
+
+    <!-- ── Expected Outcomes ── -->
+    <div style="margin-top:4rem">
+      <div class="rw-section-title">
+        <span class="rw-eyebrow">Expected Outcomes</span>
+        <h2>What We Aim to Achieve</h2>
+        <p>The festival is designed to produce concrete, measurable results across public awareness, policy, and economic inclusion.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem;margin-top:1.5rem">
+        <div style="background:#f7f3f9;border-radius:1rem;padding:1.4rem 1.5rem;border-left:4px solid var(--rw-plum)">
+          <div style="font-size:1.5rem;margin-bottom:.6rem">📣</div>
+          <strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.35rem">Increased Public Awareness</strong>
+          <span style="font-size:.82rem;color:#888;line-height:1.6">Greater empathy and understanding of the refugee experience among Kenyans.</span>
+        </div>
+        <div style="background:#fff8ec;border-radius:1rem;padding:1.4rem 1.5rem;border-left:4px solid var(--rw-amber)">
+          <div style="font-size:1.5rem;margin-bottom:.6rem">🔗</div>
+          <strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.35rem">Network Strengthening</strong>
+          <span style="font-size:.82rem;color:#888;line-height:1.6">Improved collaboration between Refugee-Led Organisations (RLOs) and government agencies.</span>
+        </div>
+        <div style="background:#f0fdf8;border-radius:1rem;padding:1.4rem 1.5rem;border-left:4px solid var(--rw-teal)">
+          <div style="font-size:1.5rem;margin-bottom:.6rem">📋</div>
+          <strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.35rem">Policy Momentum</strong>
+          <span style="font-size:.82rem;color:#888;line-height:1.6">Renewed public and donor commitment to Shirika Plan funding and implementation.</span>
+        </div>
+        <div style="background:#f7f3f9;border-radius:1rem;padding:1.4rem 1.5rem;border-left:4px solid var(--rw-plum)">
+          <div style="font-size:1.5rem;margin-bottom:.6rem">💼</div>
+          <strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.35rem">Economic Inclusion</strong>
+          <span style="font-size:.82rem;color:#888;line-height:1.6">Enhanced access to employment and entrepreneurship opportunities for refugees.</span>
+        </div>
+        <div style="background:#fff8ec;border-radius:1rem;padding:1.4rem 1.5rem;border-left:4px solid var(--rw-amber)">
+          <div style="font-size:1.5rem;margin-bottom:.6rem">🎓</div>
+          <strong style="display:block;font-size:.95rem;color:#2B2B2B;margin-bottom:.35rem">Skills Utilisation</strong>
+          <span style="font-size:.82rem;color:#888;line-height:1.6">Recognition and certification of refugee talents contributing to Kenya's workforce development.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1279,7 +1325,7 @@
     <div class="rw-section-title">
       <span class="rw-eyebrow">Exhibition &amp; Market</span>
       <h2>Book Your Exhibition Space</h2>
-      <p>Refugee Week Kenya 2026 features a dedicated exhibition and vendor market — prioritising refugee-led businesses, artisans, NGOs, technology providers, publishers, and cultural exhibitors.</p>
+      <p>Refugee Week Kenya 2026 features a dedicated exhibition and vendor market with four official spaces: the <strong>Service Hub</strong>, the <strong>Market of Hope</strong> (business stalls), the <strong>Umoja Mosaic</strong> art gallery, and the <strong>Culinary Journey</strong> food stalls.</p>
     </div>
     <div class="rw-vendors">
       <div class="rw-vendor-slot"><div class="rw-vendor-slot__num">01</div><div class="rw-vendor-slot__cat">Service Hub</div><div class="rw-vendor-slot__label">Available · 3×3m</div></div>
@@ -1334,19 +1380,57 @@
       <span class="rw-eyebrow">In Collaboration With</span>
       <h2>Partners &amp; Collaborators</h2>
     </div>
+    <!-- Government Partners -->
+    <p style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin:1.5rem 0 .6rem">🏛️ Government &amp; Regulatory</p>
     <div class="rw-partners-grid">
-      <div class="rw-partner-chip">🇰🇪 Migration Pulse Hub</div>
-      <a href="https://refugeeweek.org/refugee-week-kenya/" target="_blank" rel="noopener" class="rw-partner-chip" style="text-decoration:none;display:flex;align-items:center;gap:.4rem">🌍 Refugee Week Kenya <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-      <a href="https://refugeeweek.org/" target="_blank" rel="noopener" class="rw-partner-chip" style="text-decoration:none;display:flex;align-items:center;gap:.4rem">🌐 Refugee Week International <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-      <div class="rw-partner-chip">UNHCR Kenya</div>
-      <div class="rw-partner-chip">Refugee Consortium of Kenya</div>
-      <div class="rw-partner-chip">Urban Refugees</div>
-      <div class="rw-partner-chip">Refugee-Led Organisations Network</div>
-      <div class="rw-partner-chip">IOM East Africa</div>
-      <div class="rw-partner-chip">Kenya Red Cross Society</div>
-      <div class="rw-partner-chip">National Council of Churches of Kenya</div>
-      <div class="rw-partner-chip">+ Becoming Partners</div>
+      <div class="rw-partner-chip">Department of Refugee Services (DRS)</div>
+      <div class="rw-partner-chip">Ministry of Interior &amp; National Administration</div>
+      <div class="rw-partner-chip">Nairobi County Government</div>
+      <div class="rw-partner-chip">National Registration Bureau (NRB)</div>
+      <div class="rw-partner-chip">Kenya Revenue Authority (KRA)</div>
+      <div class="rw-partner-chip">Business Registration Services (BRS)</div>
+      <div class="rw-partner-chip">Ministry of Health – SHA</div>
+      <div class="rw-partner-chip">Ministry of Education</div>
     </div>
+
+    <!-- International Partners -->
+    <p style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin:1.5rem 0 .6rem">🌍 International Organisations</p>
+    <div class="rw-partners-grid">
+      <div class="rw-partner-chip">UNHCR Kenya</div>
+      <div class="rw-partner-chip">World Food Programme (WFP)</div>
+      <div class="rw-partner-chip">International Labour Organization (ILO)</div>
+      <div class="rw-partner-chip">Amnesty International</div>
+      <div class="rw-partner-chip">Heinrich Böll Stiftung</div>
+      <div class="rw-partner-chip">Regional Durable Solutions Secretariat (ReDSS)</div>
+      <div class="rw-partner-chip">Norwegian Refugee Council (NRC)</div>
+      <div class="rw-partner-chip">OXFAM</div>
+      <div class="rw-partner-chip">KONEXIO Africa</div>
+      <a href="https://refugeeweek.org/refugee-week-kenya/" target="_blank" rel="noopener" class="rw-partner-chip" style="text-decoration:none;display:flex;align-items:center;gap:.4rem">Refugee Week Kenya <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      <a href="https://refugeeweek.org/" target="_blank" rel="noopener" class="rw-partner-chip" style="text-decoration:none;display:flex;align-items:center;gap:.4rem">Refugee Week International <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+    </div>
+
+    <!-- Civil Society Partners -->
+    <p style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin:1.5rem 0 .6rem">🤝 Civil Society &amp; NGOs</p>
+    <div class="rw-partners-grid">
+      <div class="rw-partner-chip">Refugee-Led Organisations (RLOs)</div>
+      <div class="rw-partner-chip">R-SEAT</div>
+      <div class="rw-partner-chip">Refugee Consortium of Kenya (RCK)</div>
+      <div class="rw-partner-chip">National Council of Churches of Kenya (NCCK)</div>
+      <div class="rw-partner-chip">Jesuit Refugee Service (JRS)</div>
+      <div class="rw-partner-chip">RefuSHE</div>
+      <div class="rw-partner-chip">Urban Refugees</div>
+      <div class="rw-partner-chip">Kenya Red Cross Society</div>
+      <div class="rw-partner-chip">🇰🇪 Migration Pulse Hub</div>
+    </div>
+
+    <!-- Private Sector -->
+    <p style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin:1.5rem 0 .6rem">🏦 Private Sector</p>
+    <div class="rw-partners-grid">
+      <div class="rw-partner-chip">Local Banks &amp; Financial Institutions</div>
+      <div class="rw-partner-chip">Telecom Companies</div>
+      <div class="rw-partner-chip rw-partner-chip--muted">+ Becoming Partners</div>
+    </div>
+
     <p style="font-size:.82rem;color:#888;text-align:center;margin-top:1rem">Partnership confirmations ongoing. <a href="#sponsor" style="color:var(--rw-plum);font-weight:600">Contact us to join as a partner →</a></p>
 
     <!-- Partnership Update Callout -->
