@@ -444,10 +444,13 @@
       padding: .25rem .8rem; border-radius: 20px;
       font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
     }
-    .rw-tier-badge--platinum { background: linear-gradient(135deg,#e8e8e8,#b0b0b0); color: #333; }
-    .rw-tier-badge--gold     { background: linear-gradient(135deg,#FE9F00,#ffb733); color: #fff; }
-    .rw-tier-badge--silver   { background: linear-gradient(135deg,#c0c0c0,#a8a8a8); color: #fff; }
-    .rw-tier-badge--community{ background: rgba(10,125,109,.15); color: var(--rw-teal); }
+    .rw-tier-badge--platinum   { background: linear-gradient(135deg,#e8e8e8,#b0b0b0); color: #333; }
+    .rw-tier-badge--gold       { background: linear-gradient(135deg,#FE9F00,#ffb733); color: #fff; }
+    .rw-tier-badge--silver     { background: linear-gradient(135deg,#c0c0c0,#a8a8a8); color: #fff; }
+    .rw-tier-badge--community  { background: rgba(10,125,109,.2); color: #06503f; }
+    .rw-tier-badge--resilience { background: linear-gradient(135deg,#7D0A6D,#a01290); color: #fff; }
+    .rw-tier-badge--courage    { background: linear-gradient(135deg,#1a4a8a,#2060b8); color: #fff; }
+    .rw-tier-badge--unity      { background: rgba(254,159,0,.18); color: #7a4b00; }
     .rw-sponsor-logos { display: flex; flex-wrap: wrap; gap: 1rem; }
     .rw-sponsor-logo-slot {
       display: flex; align-items: center; justify-content: center;
@@ -1150,67 +1153,104 @@
       <p>Align your organisation with Refugee Week Kenya 2026 and demonstrate your commitment to refugee rights, human dignity, and regional advocacy.</p>
     </div>
 
-    <!-- Packages -->
+    <!-- Note from concept document -->
+    <p style="font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:2rem;line-height:1.7">These packages are not set in stone — any contribution amount is highly valued and deeply appreciated. All tiers are in Kenya Shillings (KES).</p>
+
+    <!-- Packages — 7 tiers from Concept Note Annex -->
     <div class="rw-sponsor-package-cards">
-      <div class="rw-pkg-card">
-        <div class="rw-tier-badge rw-tier-badge--platinum">Platinum</div>
-        <h4>Platinum Sponsor</h4>
-        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 5,000,000+</div>
-        <div style="font-size:.74rem;color:rgba(255,255,255,.5);margin-bottom:.75rem">or equivalent in USD / in-kind</div>
-        <ul>
-          <li>Headline naming rights on all materials</li>
-          <li>Prime exhibition booth (6×6m)</li>
-          <li>10 VIP delegate passes</li>
-          <li>Keynote speaking slot</li>
-          <li>Full logo visibility (print, digital, stage)</li>
-          <li>Social media spotlight campaign</li>
-          <li>Post-event impact report</li>
-        </ul>
-        <a href="#sponsor-form" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none;display:inline-block">Enquire →</a>
-      </div>
+
+      <!-- 1. Platinum Partner -->
       <div class="rw-pkg-card rw-pkg-card--featured">
-        <div class="rw-tier-badge rw-tier-badge--gold">Gold</div>
-        <h4>Gold Sponsor</h4>
-        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 2,500,000+</div>
-        <div style="font-size:.74rem;color:#999;margin-bottom:.75rem">or equivalent in USD / in-kind</div>
+        <div class="rw-tier-badge rw-tier-badge--platinum">Platinum Partner</div>
+        <h4>Platinum Partner</h4>
+        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 1,000,000+</div>
         <ul>
-          <li>Co-sponsor a themed track</li>
-          <li>Standard exhibition booth (4×4m)</li>
-          <li>6 delegate passes</li>
-          <li>Panel participation</li>
-          <li>Logo on stage backdrop &amp; programme</li>
-          <li>2 social media features</li>
+          <li>Exclusive branding across all festival venues and media</li>
+          <li>Speaking slot at the Shirika Dialogue and Symposium</li>
+          <li>Prime exhibition space at Market of Hope and Skills Hub</li>
+          <li>Dedicated press release and media interviews</li>
         </ul>
         <a href="#sponsor-form" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none;display:inline-block">Enquire →</a>
       </div>
+
+      <!-- 2. Gold Partner -->
       <div class="rw-pkg-card">
-        <div class="rw-tier-badge rw-tier-badge--silver">Silver</div>
-        <h4>Silver Sponsor</h4>
-        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 1,250,000+</div>
-        <div style="font-size:.74rem;color:rgba(255,255,255,.5);margin-bottom:.75rem">or equivalent in USD / in-kind</div>
+        <div class="rw-tier-badge rw-tier-badge--gold">Gold Partner</div>
+        <h4>Gold Partner</h4>
+        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 750,000+</div>
         <ul>
-          <li>Branding on event materials</li>
-          <li>Small exhibition booth (2×2m)</li>
-          <li>3 delegate passes</li>
-          <li>Logo in event programme</li>
-          <li>1 social media mention</li>
+          <li>Branding at Market of Hope, Skills Hub, and Symposium</li>
+          <li>Speaking slot at the BMS forum</li>
+          <li>Recognition in festival media campaigns and social media</li>
+          <li>Exhibition booth for showcasing products/services</li>
+          <li>Acknowledgment during Main Stage performances</li>
         </ul>
-        <a href="#sponsor-form" class="rw-btn rw-btn--outline rw-btn--sm" style="text-decoration:none;display:inline-block;color:#fff;border-color:rgba(255,255,255,.3)">Enquire →</a>
+        <a href="#sponsor-form" class="rw-btn rw-btn--amber rw-btn--sm" style="text-decoration:none;display:inline-block">Enquire →</a>
       </div>
+
+      <!-- 3. Silver Partner -->
       <div class="rw-pkg-card">
-        <div class="rw-tier-badge rw-tier-badge--community">Community</div>
-        <h4>Community Partner</h4>
+        <div class="rw-tier-badge rw-tier-badge--silver">Silver Partner</div>
+        <h4>Silver Partner</h4>
         <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 500,000+</div>
-        <div style="font-size:.74rem;color:rgba(255,255,255,.5);margin-bottom:.75rem">or equivalent in USD / in-kind</div>
         <ul>
-          <li>Recognition as community supporter</li>
-          <li>Shared exhibition table</li>
-          <li>2 complimentary passes</li>
-          <li>Logo in digital programme</li>
-          <li>In-kind contributions welcome</li>
+          <li>Logo placement on festival materials and banners</li>
+          <li>Speaking slot at Voices of Courage</li>
+          <li>Recognition during daily events</li>
+          <li>Booth space at Integration Exchange</li>
         </ul>
         <a href="#sponsor-form" class="rw-btn rw-btn--outline rw-btn--sm" style="text-decoration:none;display:inline-block;color:#fff;border-color:rgba(255,255,255,.3)">Enquire →</a>
       </div>
+
+      <!-- 4. Community Champion -->
+      <div class="rw-pkg-card">
+        <div class="rw-tier-badge rw-tier-badge--community">Community Champion</div>
+        <h4>Community Champion</h4>
+        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 250,000+</div>
+        <ul>
+          <li>Recognition in programme booklet and social media</li>
+          <li>Exhibition booth for showcasing products/services</li>
+          <li>Acknowledgment during Voices of Courage and Cultural Parade</li>
+        </ul>
+        <a href="#sponsor-form" class="rw-btn rw-btn--outline rw-btn--sm" style="text-decoration:none;display:inline-block;color:#fff;border-color:rgba(255,255,255,.3)">Enquire →</a>
+      </div>
+
+      <!-- 5. Resilience Package -->
+      <div class="rw-pkg-card">
+        <div class="rw-tier-badge rw-tier-badge--resilience">Resilience Package</div>
+        <h4>Resilience Package</h4>
+        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 125,000+</div>
+        <ul>
+          <li>Branding recognition and visibility at exhibition booths</li>
+          <li>Acknowledgement at the event</li>
+        </ul>
+        <a href="#sponsor-form" class="rw-btn rw-btn--outline rw-btn--sm" style="text-decoration:none;display:inline-block;color:#fff;border-color:rgba(255,255,255,.3)">Enquire →</a>
+      </div>
+
+      <!-- 6. Courage Package -->
+      <div class="rw-pkg-card">
+        <div class="rw-tier-badge rw-tier-badge--courage">Courage Package</div>
+        <h4>Courage Package</h4>
+        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 75,000+</div>
+        <ul>
+          <li>Booth for exhibition</li>
+          <li>Acknowledgement at the event</li>
+        </ul>
+        <a href="#sponsor-form" class="rw-btn rw-btn--outline rw-btn--sm" style="text-decoration:none;display:inline-block;color:#fff;border-color:rgba(255,255,255,.3)">Enquire →</a>
+      </div>
+
+      <!-- 7. Unity Package -->
+      <div class="rw-pkg-card">
+        <div class="rw-tier-badge rw-tier-badge--unity">Unity Package</div>
+        <h4>Unity Package</h4>
+        <div style="font-size:1.35rem;font-weight:800;color:var(--rw-amber);margin:.35rem 0 .2rem;letter-spacing:-.01em">KES 50,000+</div>
+        <ul>
+          <li>Booth at the exhibition</li>
+          <li>Logo presence on all festival materials</li>
+        </ul>
+        <a href="#sponsor-form" class="rw-btn rw-btn--outline rw-btn--sm" style="text-decoration:none;display:inline-block;color:#fff;border-color:rgba(255,255,255,.3)">Enquire →</a>
+      </div>
+
     </div>
 
     <!-- Sponsor inquiry form -->
@@ -1224,7 +1264,7 @@
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Email *</label><input name="email" type="email" required /></div>
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Phone</label><input name="phone" type="tel" /></div>
         <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Country *</label><input name="country" type="text" required /></div>
-        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Sponsorship Category *</label><select name="sponsorship_category" required><option value="">Select...</option><option>Platinum</option><option>Gold</option><option>Silver</option><option>Community Partner</option><option>Media Partner</option></select></div>
+        <div class="rw-form-group"><label style="color:rgba(255,255,255,.7)">Sponsorship Category *</label><select name="sponsorship_category" required><option value="">Select...</option><option>Platinum Partner — KES 1,000,000+</option><option>Gold Partner — KES 750,000+</option><option>Silver Partner — KES 500,000+</option><option>Community Champion — KES 250,000+</option><option>Resilience Package — KES 125,000+</option><option>Courage Package — KES 75,000+</option><option>Unity Package — KES 50,000+</option></select></div>
         <div class="rw-form-group rw-form--full"><label style="color:rgba(255,255,255,.7)">Message / Branding Requirements</label><textarea name="message" placeholder="Describe your branding preferences, booth requirements, or any specific interests..."></textarea></div>
         <div class="rw-form-actions"><button type="submit" class="rw-btn rw-btn--amber">Submit Sponsorship Enquiry</button></div>
         <div class="rw-success-msg" id="success-sponsor">✅ Sponsorship enquiry received. Our partnerships team will contact you within 3 working days with the full sponsorship deck.</div>
