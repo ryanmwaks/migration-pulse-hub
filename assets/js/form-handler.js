@@ -1,13 +1,14 @@
 /**
- * MPH Dual Form Handler v1.1
+ * MPH Dual Form Handler v1.2
  * ─────────────────────────────────────────────────────────────────
  * Fires every form submission to TWO email services simultaneously:
  *   1. Web3Forms  — https://web3forms.com        (primary)
  *   2. EmailJS    — https://www.emailjs.com       (backup)
  *
  * Delivery succeeds if AT LEAST ONE service responds OK.
+ * ALL forms deliver to: info@migrationpulsehub.org
  *
- * ── WEB3FORMS KEYS (already active) ────────────────────────────
+ * ── WEB3FORMS KEYS (active) ─────────────────────────────────────
  *   Contact & Newsletter forms  → W3F_KEY_CONTACT
  *   Refugee Week forms          → W3F_KEY_RW
  *
@@ -17,10 +18,10 @@
  *   3. Create an Email Template:
  *        Subject : {{form_subject}}
  *        Body    : {{message}}
- *        (Optional) From Name: {{from_name}}   Reply-To: {{email}}
+ *        From Name: {{from_name}}   Reply-To: {{email}}
  *      Copy the Template ID
  *   4. Account → copy your Public Key
- *   5. Paste all three as EJS_SERVICE / EJS_TEMPLATE / EJS_PUBKEY below
+ *   5. Replace the three placeholder values below
  *
  * ─────────────────────────────────────────────────────────────────
  */
@@ -168,7 +169,7 @@
         } else {
           /* Both failed */
           if (btn) { btn.disabled = false; btn.textContent = origTxt; }
-          alert('Submission failed. Please try again or contact us directly on +254 118 969 209.');
+          alert('Submission failed. Please try again or reach us directly:\n\nEmail: info@migrationpulsehub.org\nPhone: +254 118 969 209\nWhatsApp: +254 118 969 209');
         }
       });
   };
