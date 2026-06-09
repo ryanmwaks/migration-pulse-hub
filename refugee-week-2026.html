@@ -503,11 +503,17 @@
     .rw-story-card__title { font-weight: 700; font-size: .98rem; color: #2B2B2B; line-height: 1.45; }
 
     /* ===== PARTNERS ===== */
-    .rw-partners-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center; }
+    .rw-partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: .75rem;
+    }
     .rw-partner-chip {
       background: #fff; border: 1.5px solid rgba(0,0,0,.09);
-      border-radius: .85rem; padding: .75rem 1.5rem;
-      font-size: .88rem; font-weight: 700; color: #555;
+      border-radius: .85rem; padding: .75rem 1rem;
+      font-size: .82rem; font-weight: 700; color: #555;
+      text-align: center; line-height: 1.35;
+      display: flex; align-items: center; justify-content: center;
       transition: all .2s;
     }
     .rw-partner-chip:hover { border-color: var(--rw-plum); color: var(--rw-plum); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.08); }
