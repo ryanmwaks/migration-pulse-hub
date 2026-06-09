@@ -29,15 +29,61 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --- Back to Top ---------------------------------------------- */
-  const backToTop = document.querySelector('.mph-back-to-top');
-  if (backToTop) {
+  // Inject button + styles once, works across every page
+  (function () {
+    const css = `
+      .mph-back-to-top {
+        position: fixed;
+        bottom: 1.75rem;
+        left: 1.5rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #7D0A6D;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(125,10,109,.35);
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity .25s ease, transform .25s ease, background .2s;
+        z-index: 10000;
+        pointer-events: none;
+      }
+      .mph-back-to-top.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .mph-back-to-top:hover {
+        background: #5a0750;
+      }
+      .mph-back-to-top svg {
+        display: block;
+      }
+    `;
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+
+    const btn = document.createElement('button');
+    btn.className = 'mph-back-to-top';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.setAttribute('title', 'Back to top');
+    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>`;
+    document.body.appendChild(btn);
+
     window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    });
-    backToTop.addEventListener('click', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  }
+  })();
 
   /* --- Cinematic Hero Sequence ---------------------------------- */
   (function () {
