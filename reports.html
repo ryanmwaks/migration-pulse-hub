@@ -39,6 +39,22 @@
   <link rel="stylesheet" href="assets/css/style.css?v=3.2" />
 <link rel="stylesheet" href="assets/css/zuri-chat.css?v=2.1" />
   <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js');});}</script>
+  <style>
+    .report-launch-gallery { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.65rem; margin-top:1rem; }
+    .report-launch-gallery figure { position:relative; margin:0; aspect-ratio:4/3; overflow:hidden; border-radius:var(--r-lg); background:var(--navy); }
+    .report-launch-gallery figure:first-child { grid-column:span 2; grid-row:span 2; }
+    .report-launch-gallery a { display:block; width:100%; height:100%; }
+    .report-launch-gallery img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .3s ease; }
+    .report-launch-gallery a:hover img, .report-launch-gallery a:focus img { transform:scale(1.04); }
+    .report-launch-gallery a:focus-visible { outline:4px solid var(--amber); outline-offset:-4px; }
+    .report-launch-gallery figcaption { position:absolute; inset:auto 0 0; padding:1.7rem .7rem .55rem; color:#fff; background:linear-gradient(transparent,rgba(10,15,31,.88)); font-size:.7rem; line-height:1.35; pointer-events:none; }
+    .mph-report-cover { position:relative; padding:0; background:#17243a; box-shadow:0 16px 34px rgba(10,15,31,.16); }
+    .mph-report-cover img { width:100%; height:100%; object-fit:cover; display:block; filter:saturate(.86) contrast(.98); }
+    .mph-report-cover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(10,15,31,.48)); pointer-events:none; }
+    .mph-report-cover span { position:absolute; z-index:1; left:1rem; right:1rem; bottom:.9rem; color:#fff; font-size:.67rem; font-weight:700; letter-spacing:.08em; line-height:1.4; text-transform:uppercase; text-shadow:0 1px 8px rgba(0,0,0,.45); }
+    @media (max-width:800px) { .report-launch-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } .report-launch-gallery figure:first-child { grid-row:auto; } }
+    @media (max-width:430px) { .report-launch-gallery { grid-template-columns:1fr; } .report-launch-gallery figure:first-child { grid-column:auto; } }
+  </style>
 </head>
 <body>
 <a href="#main-content" class="sr-only">Skip to main content</a>
@@ -73,34 +89,79 @@
     </div>
   </section>
 
-  <!-- Report 1 -->
-  <section class="mph-section bg-white" id="report-climate">
+  <!-- Latest Research Report -->
+  <section class="mph-section bg-white" id="report-health-climate">
     <div class="mph-container">
       <div class="mph-report-landing mph-reveal">
         <div class="mph-report-header">
-          <div class="mph-report-image"><svg class="mph-icon mph-icon-lg"><use href="#ico-globe"/></svg></div>
+          <div class="mph-report-image mph-report-cover"><img src="assets/images/report-covers/health-climate-cover.webp" alt="A woman waiting at a public clinic while a healthcare worker reviews papers nearby"><span>Health · Mobility · Climate</span></div>
           <div>
-            <div class="mph-tag-row"><span class="mph-tag mph-tag--teal">Research Report</span><span class="mph-tag">2026</span><span class="mph-tag">Open Access</span></div>
-            <h2>Climate Displacement in the Horn of Africa: Patterns, Protections, and Policy Gaps</h2>
-            <p class="mph-lead">The most comprehensive analysis to date of climate-linked displacement across the Horn of Africa, covering six countries and three years of field data.</p>
-            <div class="mph-report-meta" style="margin:1rem 0"><span>📅 Published: March 2026</span><span>·</span><span>👥 Authors: MPH Research Team &amp; University of Nairobi</span><span>·</span><span>📄 72 pages</span></div>
+            <div class="mph-tag-row"><span class="mph-tag mph-tag--teal">Research Report</span><span class="mph-tag">June 2026</span><span class="mph-tag">Open Access</span></div>
+            <h2>Who Gets Care and Who Doesn't? Migrants and Healthcare Access Under Climate Stress in Kenya and South Africa</h2>
+            <p class="mph-lead">A comparative qualitative study of how climate pressure, mobility, documentation, and frontline decision-making shape access to public healthcare in Kenya and South Africa.</p>
+            <div class="mph-report-meta" style="margin:1rem 0"><span>📅 Published: June 2026</span><span>·</span><span>👥 Dr Margaret Monyani &amp; Damaris Lena Oluga</span><span>·</span><span>📄 25 pages</span><span>·</span><span>62 participants</span></div>
             <div style="display:flex;gap:1rem;flex-wrap:wrap">
-              <a href="mailto:info@migrationpulsehub.org?subject=Publication%20Request%3A%20Climate%20Displacement%20in%20the%20Horn%20of%20Africa%20(2026)" class="mph-btn">⬇ Request PDF</a>
-              <a href="mailto:info@migrationpulsehub.org?subject=Executive%20Summary%20Request%3A%20Climate%20Displacement%20in%20the%20Horn%20of%20Africa%20(2026)" class="mph-btn dark">📋 Request Summary</a>
-              <a href="contact.html" class="mph-btn outline" style="color:var(--navy);border-color:var(--navy)">📣 Share / Cite</a>
+              <a href="assets/docs/migrants-healthcare-climate-stress-kenya-south-africa-2026.pdf" target="_blank" rel="noopener" class="mph-btn" download>⬇ Download PDF</a>
+              <a href="assets/docs/migrants-healthcare-climate-stress-kenya-south-africa-2026.pdf" target="_blank" rel="noopener" class="mph-btn dark">Read Online</a>
             </div>
-            <p style="font-size:.78rem;color:var(--muted);margin-top:.5rem">PDFs are available free of charge on request — email us at <a href="mailto:info@migrationpulsehub.org" style="color:var(--amber)">info@migrationpulsehub.org</a>. Full download portal coming soon.</p>
-            <p style="font-size:.78rem;color:var(--muted);margin-top:.25rem">Citation: Migration Pulse Hub &amp; University of Nairobi, <em>Climate Displacement in the Horn of Africa</em>, 2026, migrationpulsehub.org</p>
+            <p style="font-size:.78rem;color:var(--muted);margin-top:.5rem">Jointly produced by OLAM Africa Research Institute and Migration Pulse Hub. Fieldwork was conducted from January to April 2026 in Nairobi, Kakuma, Kalobeyei, Dadaab, Gauteng, Johannesburg, and KwaZulu-Natal.</p>
           </div>
         </div>
         <div class="mph-key-findings">
           <h3>Key Findings</h3>
           <ul>
-            <li>Over 3.2 million people are currently displaced due to climate-related events across the Horn of Africa — a 34% increase since 2022.</li>
-            <li>Less than 12% of climate-displaced persons have access to formal legal protection mechanisms under existing frameworks.</li>
-            <li>No country in the region has a national policy specifically addressing climate displacement — despite AU and IGAD commitments.</li>
-            <li>Women-headed households account for 64% of climate-displaced families, yet are systematically excluded from humanitarian decision-making structures.</li>
-            <li>Seasonal displacement is increasingly becoming permanent, with 41% of surveyed households stating they do not intend to return to their place of origin.</li>
+            <li>In Kenya, access often breaks down when refugee documentation is not recognised across health, insurance, and digital systems.</li>
+            <li>In South Africa, formal entitlement is unevenly applied, so similar patients can receive different treatment depending on the facility or staff member.</li>
+            <li>Across both countries, cost, documentation barriers, and fear of rejection cause migrants and refugees to delay or avoid care.</li>
+            <li>Climate-related floods, droughts, and extreme heat increase demand while leaving existing access barriers unchanged.</li>
+            <li>The report calls for health systems planned around mobility, integrated refugee healthcare, consistent frontline standards, and aligned climate, migration, and health policy.</li>
+          </ul>
+        </div>
+        <div id="health-report-launch-gallery" style="margin-top:2rem">
+          <span class="mph-eyebrow" style="font-size:.65rem;margin-bottom:.5rem;display:block">Report Launch Gallery</span>
+          <h3>Launching the Research</h3>
+          <p style="font-size:.88rem;color:var(--muted);margin-top:.35rem">Highlights from the joint Migration Pulse Hub and OLAM Africa Research Institute launch on 23 July 2026.</p>
+          <div class="report-launch-gallery">
+            <figure><a href="assets/images/health-report-launch-2026/launch-01.jpg" target="_blank" rel="noopener"><img src="assets/images/health-report-launch-2026/launch-01.jpg" alt="Research launch panellist speaking beside a Migration Pulse Hub banner" loading="lazy" decoding="async"><figcaption>Discussing the report findings</figcaption></a></figure>
+            <figure><a href="assets/images/health-report-launch-2026/launch-02.jpg" target="_blank" rel="noopener"><img src="assets/images/health-report-launch-2026/launch-02.jpg" alt="Moderator seated beside the hybrid meeting display and event banners" loading="lazy" decoding="async"><figcaption>Connecting the in-person and online forum</figcaption></a></figure>
+            <figure><a href="assets/images/health-report-launch-2026/launch-04.jpg" target="_blank" rel="noopener"><img src="assets/images/health-report-launch-2026/launch-04.jpg" alt="Report launch panellist listening during the discussion" loading="lazy" decoding="async"><figcaption>Perspectives from the panel</figcaption></a></figure>
+            <figure><a href="assets/images/health-report-launch-2026/launch-05.jpg" target="_blank" rel="noopener"><img src="assets/images/health-report-launch-2026/launch-05.jpg" alt="Three panellists participating in the hybrid report launch" loading="lazy" decoding="async"><figcaption>Evidence, dialogue and policy engagement</figcaption></a></figure>
+            <figure><a href="assets/images/health-report-launch-2026/launch-03.jpg" target="_blank" rel="noopener"><img src="assets/images/health-report-launch-2026/launch-03.jpg" alt="Research launch speaker contributing to the panel discussion" loading="lazy" decoding="async"><figcaption>Exploring healthcare access under climate stress</figcaption></a></figure>
+            <figure><a href="assets/images/health-report-launch-2026/launch-06.jpg" target="_blank" rel="noopener"><img src="assets/images/health-report-launch-2026/launch-06.jpg" alt="OLAM Africa representative presenting a copy of the research report" loading="lazy" decoding="async"><figcaption>Presenting the joint research</figcaption></a></figure>
+            <figure><a href="assets/images/health-report-launch-2026/launch-07.jpg" target="_blank" rel="noopener"><img src="assets/images/health-report-launch-2026/launch-07.jpg" alt="Launch participants standing together and holding copies of the report" loading="lazy" decoding="async"><figcaption>Partners and participants at the launch</figcaption></a></figure>
+            <figure><a href="assets/images/health-report-launch-2026/launch-08.jpg" target="_blank" rel="noopener"><img src="assets/images/health-report-launch-2026/launch-08.jpg" alt="A larger group of launch participants holding copies of the report" loading="lazy" decoding="async"><figcaption>Celebrating the report's publication</figcaption></a></figure>
+          </div>
+          <div style="margin-top:1.25rem"><a href="https://photos.google.com/share/AF1QipP3d6ql6ElTHnsOjFbdq5J8SY7LA9neHDJy_80pudaWS6lTcBgSlysRKQfRmT9i3g?key=cG1WcUJTY3NXYWVYajMzNVhSNlkyMWl4M1J0eVd3" target="_blank" rel="noopener" class="mph-btn dark">View the Complete Google Photos Album</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Refugee Week Event Report -->
+  <section class="mph-section bg-bg" id="report-refugee-week-2026">
+    <div class="mph-container">
+      <div class="mph-report-landing mph-reveal">
+        <div class="mph-report-header">
+          <div class="mph-report-image mph-report-cover"><img src="assets/images/report-covers/refugee-week-cover.webp" alt="Refugee and host-community participants sharing conversation at an outdoor cultural market"><span>Culture · Community · Belonging</span></div>
+          <div>
+            <div class="mph-tag-row"><span class="mph-tag mph-tag--coral">Event Report</span><span class="mph-tag">2026</span><span class="mph-tag">Open Access</span></div>
+            <h2>Refugee Week Kenya Cross-Culture Festival 2026 Report</h2>
+            <p class="mph-lead">The official report from the inaugural national Refugee Week celebration in Kenya, co-convened by Migration Pulse Hub and Umoja Refugee Creatives.</p>
+            <div class="mph-report-meta" style="margin:1rem 0"><span>📅 17–19 June &amp; 3 July 2026</span><span>·</span><span>📍 University of Nairobi &amp; hybrid webinar</span><span>·</span><span>📄 36 pages</span></div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap">
+              <a href="assets/docs/refugee-week-kenya-2026-event-report.pdf" target="_blank" rel="noopener" class="mph-btn coral" download>⬇ Download Report</a>
+              <a href="refugee-week-2026.html" class="mph-btn dark">View Festival Highlights</a>
+            </div>
+          </div>
+        </div>
+        <div class="mph-key-findings">
+          <h3>Impact at a Glance</h3>
+          <ul>
+            <li>300–500 participants attended each festival day, with 700–1,200 refugees reached.</li>
+            <li>102 households were supported with Social Health Authority registration.</li>
+            <li>Sixteen refugee-led organisations and seventeen partner organisations took part.</li>
+            <li>Sixteen exhibitors showcased art, crafts, digital technology, fashion, and culinary enterprise.</li>
+            <li>The programme concluded with a 3 July hybrid webinar marking the 75th anniversary of the 1951 Refugee Convention.</li>
           </ul>
         </div>
       </div>
@@ -108,11 +169,11 @@
   </section>
 
   <!-- Report 2 -->
-  <section class="mph-section bg-bg" id="report-statelessness">
+  <section class="mph-section bg-white" id="report-statelessness">
     <div class="mph-container">
       <div class="mph-report-landing mph-reveal">
         <div class="mph-report-header">
-          <div class="mph-report-image"><svg class="mph-icon mph-icon-lg"><use href="#ico-book"/></svg></div>
+          <div class="mph-report-image mph-report-cover"><img src="assets/images/report-covers/statelessness-cover.webp" alt="An older woman holding a family photograph beside blank identity papers"><span>Identity · Documentation · Belonging</span></div>
           <div>
             <div class="mph-tag-row"><span class="mph-tag mph-tag--coral">Policy Brief</span><span class="mph-tag">2025</span><span class="mph-tag">Open Access</span></div>
             <h2>Ending Statelessness in East Africa: Legislative Gaps and Reform Pathways</h2>
@@ -144,7 +205,7 @@
     <div class="mph-container">
       <div class="mph-report-landing mph-reveal">
         <div class="mph-report-header">
-          <div class="mph-report-image"><svg class="mph-icon mph-icon-lg"><use href="#ico-scale"/></svg></div>
+          <div class="mph-report-image mph-report-cover"><img src="assets/images/report-covers/detention-reform-cover.webp" alt="A person holding legal papers while seated in a sunlit institutional corridor"><span>Rights · Justice · Reform</span></div>
           <div>
             <div class="mph-tag-row"><span class="mph-tag mph-tag--teal">Research Report</span><span class="mph-tag">2025</span><span class="mph-tag">Open Access</span></div>
             <h2>Detained Without Rights: Immigration Detention Practices in Kenya and the Case for Reform</h2>

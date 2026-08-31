@@ -1,118 +1,63 @@
-/**
- * Migration Pulse Hub — Service Worker
- * Strategy:
- *   • Pre-cache critical shell assets on install
- *   • Cache-first for /assets/ (CSS, JS, images, fonts)
- *   • Network-first for HTML pages (always serve fresh content)
- *   • Stale-while-revalidate for external fonts
- */
-
-const CACHE = 'mph-v4';
+/** Migration Pulse Hub — resilient offline and fast-return cache */
+const CACHE = 'mph-v27';
 const OFFLINE_PAGE = '/404.html';
-
-/* Assets to pre-cache on install */
 const PRECACHE = [
-  '/',
-  '/index.html',
-  '/404.html',
-  '/assets/css/style.css',
-  '/assets/css/zuri-chat.css',
-  '/assets/js/main.js',
-  '/assets/js/svg-loader.js',
-  '/assets/js/zuri-chat.js',
-  '/assets/js/form-handler.js',
-  '/assets/js/news-feed.js',
-  '/assets/images/logo.png',
-  '/assets/images/hero-bg.webp',
-  '/assets/images/women-walking-resilience.jpg',
-  '/favicon.ico',
-  '/favicon-32x32.png',
-  '/apple-touch-icon.png',
-  '/site.webmanifest',
+  '/', '/index.html', OFFLINE_PAGE,
+  '/assets/css/style.css', '/assets/css/zuri-chat.css',
+  '/assets/js/main.js', '/assets/js/svg-loader.js', '/assets/js/zuri-chat.js',
+  '/assets/js/form-handler.js', '/assets/js/news-feed.js',
+  '/assets/images/logo.png', '/assets/images/home-hero/01-coffee-ceremony.jpg',
+  '/favicon.ico', '/favicon-32x32.png', '/apple-touch-icon.png', '/site.webmanifest',
 ];
 
-/* ── Install: pre-cache shell ───────────────────────────────────── */
-self.addEventListener('install', (e) => {
+self.addEventListener('install', (event) => {
+  event.waitUntil(caches.open(CACHE).then((cache) =>
+    Promise.allSettled(PRECACHE.map((url) => cache.add(new Request(url, { cache: 'reload' }))))
+  ));
   self.skipWaiting();
-  e.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(PRECACHE))
-  );
 });
 
-/* ── Activate: prune old caches ─────────────────────────────────── */
-self.addEventListener('activate', (e) => {
-  e.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))
-      )
-    )
-  );
-  self.clients.claim();
+self.addEventListener('activate', (event) => {
+  event.waitUntil((async () => {
+    await Promise.all((await caches.keys()).filter((key) => key !== CACHE).map((key) => caches.delete(key)));
+    if ('navigationPreload' in self.registration) await self.registration.navigationPreload.enable();
+    await self.clients.claim();
+  })());
 });
 
-/* ── Fetch ───────────────────────────────────────────────────────── */
-self.addEventListener('fetch', (e) => {
-  const { request } = e;
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
   const url = new URL(request.url);
-
-  /* Skip non-GET and cross-origin (GA4, Web3Forms, EmailJS, etc.) */
-  if (request.method !== 'GET') return;
-  if (url.origin !== location.origin) return;
-
-  /* Static assets → cache-first */
-  if (url.pathname.startsWith('/assets/')) {
-    e.respondWith(cacheFirst(request));
-    return;
+  if (request.method !== 'GET' || url.origin !== self.location.origin || request.headers.has('range')) return;
+  if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
+    event.respondWith(networkFirst(event));
+  } else {
+    event.respondWith(staleWhileRevalidate(request, event));
   }
-
-  /* HTML pages → network-first (serve latest, fall back to cache/offline) */
-  if (request.headers.get('accept')?.includes('text/html')) {
-    e.respondWith(networkFirst(request));
-    return;
-  }
-
-  /* Everything else → stale-while-revalidate */
-  e.respondWith(staleWhileRevalidate(request));
 });
 
-/* ── Strategies ─────────────────────────────────────────────────── */
-
-async function cacheFirst(request) {
-  const cached = await caches.match(request);
-  if (cached) return cached;
+async function networkFirst(event) {
+  const { request } = event;
   try {
-    const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(CACHE);
-      cache.put(request, response.clone());
-    }
+    const response = (await event.preloadResponse) || await fetch(request);
+    if (response.ok) (await caches.open(CACHE)).put(request, response.clone());
     return response;
-  } catch {
-    return new Response('Offline', { status: 503 });
+  } catch (_) {
+    return (await caches.match(request)) || (await caches.match(OFFLINE_PAGE)) ||
+      new Response('This page is unavailable offline.', { status: 503, headers: { 'Content-Type': 'text/plain' } });
   }
 }
 
-async function networkFirst(request) {
-  try {
-    const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(CACHE);
-      cache.put(request, response.clone());
-    }
-    return response;
-  } catch {
-    const cached = await caches.match(request);
-    return cached || caches.match(OFFLINE_PAGE);
-  }
-}
-
-async function staleWhileRevalidate(request) {
+async function staleWhileRevalidate(request, event) {
   const cache = await caches.open(CACHE);
   const cached = await cache.match(request);
-  const fetchPromise = fetch(request).then((response) => {
-    if (response.ok) cache.put(request, response.clone());
+  const update = fetch(request).then((response) => {
+    if (response.ok && (response.type === 'basic' || response.type === 'cors')) cache.put(request, response.clone());
     return response;
-  });
-  return cached || fetchPromise;
+  }).catch(() => null);
+  if (cached) {
+    event.waitUntil(update);
+    return cached;
+  }
+  return (await update) || new Response('Resource unavailable offline.', { status: 503 });
 }

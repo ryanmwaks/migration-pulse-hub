@@ -58,7 +58,7 @@ const Pulse = (function () {
   ---------------------------------------------------------- */
   const T = {
     en: {
-      welcome:     "Hello! 👋 Welcome to Migration Pulse Hub. I'm <strong>Pulse</strong> — your digital companion here.\n\nI'm here to help with anything from event registration, reports, and research to legal support, partnerships, sponsorship, community livelihoods, volunteering, and media enquiries. Whatever brings you here, I'll do my best to guide you.\n\nWhat can I help you with today?",
+      welcome:     "Hello! 👋 I'm <strong>Pulse</strong>, the Migration Pulse Hub digital assistant.\n\nI can help you find reports and research, reach our programmes team, explore partnerships, request legal or protection support, or connect with a person.\n\nWhat would you like help with?",
       privacy:     "🔒 We collect only the minimum details needed to respond to your enquiry. Please do not share passwords, IDs, or financial documents here.",
       menu_title:  "Please choose what you need help with:",
       name_q:      "What is your full name?",
@@ -450,16 +450,8 @@ const Pulse = (function () {
       guideline: "Great — let's get you registered! 🎉\n\nMigration Pulse Hub hosts events that bring together communities, advocates, policymakers, and changemakers across the region. Our events are open to everyone — whether you're joining in person in Nairobi or connecting virtually.\n\nI'll guide you through a short registration form. It only takes a minute.",
     },
     {
-      id: 'refugee_week', en: '🕊️ Refugee Week 2026 Booking', icon: '🕊️',
-      guideline: "Welcome! Refugee Week Kenya 2026 is our flagship cross-cultural festival — 3 days of dialogue, culture, storytelling, and solidarity. 🕊️\n\nRunning 17–19 June at the University of Nairobi, the festival brings together participants from 10+ countries across the Horn of Africa and Great Lakes region under the theme <em>\"Courage in Unity: Integration & Courage\"</em>.\n\nRegistration is free. Let me collect a few details to confirm your place.",
-    },
-    {
       id: 'sponsor', en: '🤝 Sponsorship Enquiry', icon: '🤝',
-      guideline: "Thank you for your interest in sponsoring Migration Pulse Hub! 🤝\n\nYour partnership helps us deliver impactful events, produce research, and amplify the voices of displaced communities.\n\nWe offer Platinum, Gold, Silver, and Community Partner packages — or we can design something tailored to your goals. Let me take a few details and our partnerships team will follow up personally.",
-    },
-    {
-      id: 'vendor', en: '🛍️ Vendor / Exhibitor Booking', icon: '🛍️',
-      guideline: "Wonderful — we'd love to have you at the marketplace! 🛍️\n\nRefugee Week Kenya 2026 features four official exhibition spaces at the University of Nairobi:\n\n🔹 <strong>Service Hub</strong> — service providers & support organisations\n🔹 <strong>Market of Hope</strong> — refugee-led business stalls\n🔹 <strong>Umoja Mosaic</strong> — art gallery & creative exhibitors\n🔹 <strong>Culinary Journey</strong> — food stalls & cultural cuisine\n\nLet me take your details and our events team will confirm your booth assignment.",
+      guideline: "Thank you for your interest in supporting Migration Pulse Hub. 🤝\n\nPartnerships help us strengthen research, rights-based programmes, and community-led solutions. Tell me about your organisation and the kind of support you have in mind, and our partnerships team will follow up personally.",
     },
     {
       id: 'reports', en: '📄 Reports & Publications', icon: '📄',
@@ -521,35 +513,13 @@ const Pulse = (function () {
       { id:'accessibility',q:'access_q',       type:'text' },
       { id:'consent',      q:'consent_q',      type:'consent' },
     ],
-    refugee_week: [
-      { id:'name',         q:'name_q',         type:'text' },
-      { id:'email',        q:'email_q',         type:'text' },
-      { id:'phone',        q:'phone_q',         type:'text' },
-      { id:'country',      q:'country_q',       type:'text' },
-      { id:'org',          q:'org_q',           type:'text' },
-      { id:'attendance',   q:'attendance_q',    type:'choice', opts:'att_options' },
-      { id:'sessions',     q:'session_q',       type:'text' },
-      { id:'accessibility',q:'access_q',        type:'text' },
-      { id:'consent',      q:'consent_q',       type:'consent' },
-    ],
     sponsor: [
       { id:'org',     q:'org_q',          type:'text' },
       { id:'name',    q:'name_q',         type:'text' },
       { id:'email',   q:'email_q',        type:'text' },
       { id:'phone',   q:'phone_q',        type:'text' },
       { id:'country', q:'country_q',      type:'text' },
-      { id:'tier',    q:'sponsor_cat_q',  type:'choice', opts:'spon_opts' },
       { id:'message', q:'message_q',      type:'text' },
-    ],
-    vendor: [
-      { id:'org',      q:'org_q',          type:'text' },
-      { id:'name',     q:'name_q',         type:'text' },
-      { id:'email',    q:'email_q',        type:'text' },
-      { id:'phone',    q:'phone_q',        type:'text' },
-      { id:'country',  q:'country_q',      type:'text' },
-      { id:'category', q:'vendor_cat_q',   type:'choice', opts:'vendor_opts' },
-      { id:'booth',    q:'booth_q',        type:'text' },
-      { id:'products', q:'message_q',      type:'text' },
     ],
     reports: [
       { id:'name',    q:'name_q',    type:'text' },
@@ -685,13 +655,13 @@ const Pulse = (function () {
 
         <!-- Header -->
         <div class="zuri-header">
-          <div class="zuri-avatar" aria-hidden="true">🤝</div>
+          <div class="zuri-avatar" aria-hidden="true">P</div>
           <div class="zuri-header-info">
             <div class="zuri-header-name">
-              Pulse
+              Pulse Assistant
               <span class="zuri-online-dot" title="Online"></span>
             </div>
-            <div class="zuri-header-sub">Migration Pulse Hub · Digital Assistant</div>
+            <div class="zuri-header-sub">Ask · Find · Connect</div>
           </div>
           <div class="zuri-header-actions">
             <button class="zuri-header-btn" id="zuri-restart-btn" title="Restart" aria-label="Restart conversation">
@@ -712,11 +682,6 @@ const Pulse = (function () {
           ${Object.entries(LANGS).map(([code, name]) =>
             `<button class="zuri-lang-btn${S.lang===code?' active':''}" data-lang="${code}" aria-pressed="${S.lang===code}">${name}</button>`
           ).join('')}
-        </div>
-
-        <!-- Announcement bar -->
-        <div class="zuri-announce-bar" id="zuri-announce">
-          📣 Refugee Week Kenya 2026 — Registration open! June 17–19 · University of Nairobi
         </div>
 
         <!-- Messages -->

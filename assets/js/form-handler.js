@@ -159,7 +159,7 @@
               'Hello Migration Pulse Hub, I have just submitted a ' +
               opts.whatsapp + ' form on your website. Please confirm receipt.'
             );
-            window.open('https://api.whatsapp.com/send?phone=254118969209&text=' + msg, '_blank');
+            window.open('https://api.whatsapp.com/send?phone=254118969209&text=' + msg, '_blank', 'noopener,noreferrer');
           }
 
           if (opts.redirect) {

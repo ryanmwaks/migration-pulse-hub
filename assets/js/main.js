@@ -7,15 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu   = document.querySelector('.mph-nav');
 
   if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-controls', navMenu.id || 'primary-navigation');
+    if (!navMenu.id) navMenu.id = 'primary-navigation';
+    const setMenuOpen = (open) => {
+      hamburger.classList.toggle('open', open);
+      navMenu.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      document.body.classList.toggle('nav-open', open);
+    };
+    hamburger.addEventListener('click', () => setMenuOpen(!navMenu.classList.contains('open')));
     document.addEventListener('click', (e) => {
       if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('open');
+        setMenuOpen(false);
       }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        setMenuOpen(false);
+        hamburger.focus();
+      }
+    });
+    navMenu.addEventListener('click', (e) => {
+      if (e.target.closest('a') && window.matchMedia('(max-width: 768px)').matches) setMenuOpen(false);
     });
   }
 
@@ -28,47 +43,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* --- Back to Top ---------------------------------------------- */
-  // Inject button + styles once, works across every page
-  (function () {
-    const css = `
-      .mph-back-to-top {
-        position: fixed;
-        bottom: 1.75rem;
-        left: 1.5rem;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: #7D0A6D;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 16px rgba(125,10,109,.35);
-        opacity: 0;
-        transform: translateY(12px);
-        transition: opacity .25s ease, transform .25s ease, background .2s;
-        z-index: 10000;
-        pointer-events: none;
-      }
-      .mph-back-to-top.visible {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-      }
-      .mph-back-to-top:hover {
-        background: #5a0750;
-      }
-      .mph-back-to-top svg {
-        display: block;
-      }
-    `;
-    const style = document.createElement('style');
-    style.textContent = css;
-    document.head.appendChild(style);
+  /* --- News chronology: newest first ---------------------------- */
+  document.querySelectorAll('[data-news-list]').forEach((list) => {
+    const items = Array.from(list.children).filter((item) => item.hasAttribute('data-published'));
+    items.sort((a, b) => new Date(b.dataset.published) - new Date(a.dataset.published));
+    items.forEach((item) => list.appendChild(item));
+  });
 
+  document.querySelectorAll('[data-event-list]').forEach((list) => {
+    const items = Array.from(list.children).filter((item) => item.hasAttribute('data-event-date'));
+    items.sort((a, b) => new Date(b.dataset.eventDate) - new Date(a.dataset.eventDate));
+    items.forEach((item) => list.appendChild(item));
+  });
+
+  const newsArchive = document.getElementById('news-archive');
+  if (newsArchive) {
+    const stories = Array.from(document.querySelectorAll('.mph-news-story[data-published]'));
+    stories.sort((a, b) => new Date(b.dataset.published) - new Date(a.dataset.published));
+    stories.forEach((story) => newsArchive.parentNode.insertBefore(story, newsArchive));
+  }
+
+  /* --- News lead story and "Also This Month" sidebar ----------- */
+  const leadStory = document.getElementById('refugee-convention-75-webinar');
+  const sidebarSection = document.getElementById('ncm-partnership-article');
+  const leadContainer = leadStory?.querySelector('.mph-container');
+  const sidebarLayout = sidebarSection?.querySelector('.ncm-feature-layout');
+
+  if (leadContainer && sidebarLayout && !leadContainer.classList.contains('news-top-layout')) {
+    const article = document.createElement('div');
+    const aside = document.createElement('aside');
+
+    article.className = 'news-top-article-main';
+    aside.className = 'news-top-aside';
+    aside.setAttribute('aria-label', 'Also this month');
+
+    while (leadContainer.firstChild) article.appendChild(leadContainer.firstChild);
+    while (sidebarLayout.firstChild) aside.appendChild(sidebarLayout.firstChild);
+
+    leadContainer.removeAttribute('style');
+    leadContainer.classList.add('news-top-layout');
+    leadContainer.append(article, aside);
+    sidebarSection.remove();
+  }
+
+  /* --- Back to Top ---------------------------------------------- */
+  // Shared styles live in style.css so a strict CSP can be adopted later.
+  (function () {
     const btn = document.createElement('button');
     btn.className = 'mph-back-to-top';
     btn.setAttribute('aria-label', 'Back to top');
@@ -85,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  /* --- Cinematic Hero Sequence ---------------------------------- */
+  /* --- Documentary photo slideshow ------------------------------ */
   (function () {
     const clips = Array.from(document.querySelectorAll('.mph-hero-clip'));
     const dots  = Array.from(document.querySelectorAll('.mph-hero-dot'));
@@ -93,8 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let current  = 0;
     let timer    = null;
-    const DWELL  = 11000; // ms per clip — longer dwell, less frequent cuts
+    let paused   = false;
+    const DWELL  = 9000;  // enough time to read each photo story
     const FADE   = 2200;  // ms — must match CSS transition duration
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function goTo(idx) {
       const prev = current;
@@ -104,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Outgoing clip: keep on top (z-index:2) and fade it out
       clips[prev].classList.remove('active');
       clips[prev].classList.add('leaving');
+      clips[prev].setAttribute('aria-hidden', 'true');
       if (dots[prev]) {
         dots[prev].classList.remove('active');
         dots[prev].setAttribute('aria-pressed', 'false');
@@ -111,14 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Incoming clip: place beneath (z-index:1) and fade in
       clips[current].classList.add('active');
+      clips[current].setAttribute('aria-hidden', 'false');
       if (dots[current]) {
         dots[current].classList.add('active');
         dots[current].setAttribute('aria-pressed', 'true');
       }
-
-      // Play incoming video from beginning
-      const vid = clips[current].querySelector('video');
-      if (vid) { vid.currentTime = 0; vid.play().catch(() => {}); }
 
       // Clean up leaving class once the cross-dissolve finishes
       const leaving = clips[prev];
@@ -130,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start cycling
     function startCycle() {
       clearInterval(timer);
+      if (reduceMotion || paused || document.hidden) return;
       timer = setInterval(() => goTo(current + 1), DWELL);
     }
 
@@ -141,9 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Init first clip's video
-    const firstVid = clips[0].querySelector('video');
-    if (firstVid) firstVid.play().catch(() => {});
+    clips.forEach((clip, index) => {
+      clip.setAttribute('role', 'group');
+      clip.setAttribute('aria-roledescription', 'slide');
+      clip.setAttribute('aria-label', `${index + 1} of ${clips.length}`);
+      clip.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+    });
     startCycle();
 
     // --- WCAG 2.2.2 Pause / Play control ---
@@ -151,31 +175,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const pauseIcon  = pauseBtn && pauseBtn.querySelector('.mph-hero-pause-icon');
     const playIcon   = pauseBtn && pauseBtn.querySelector('.mph-hero-play-icon');
     const pauseLabel = document.getElementById('hero-pause-label');
-    let   paused     = false;
-
-    function allVideos() {
-      return Array.from(document.querySelectorAll('.mph-hero-sequence video'));
-    }
-
     if (pauseBtn) {
       pauseBtn.addEventListener('click', function () {
         paused = !paused;
         pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-        pauseBtn.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
-        if (pauseLabel) pauseLabel.textContent = paused ? 'Play video' : 'Pause video';
+        pauseBtn.setAttribute('aria-label', paused ? 'Play photo slideshow' : 'Pause photo slideshow');
+        if (pauseLabel) pauseLabel.textContent = paused ? 'Play photo slideshow' : 'Pause photo slideshow';
         if (pauseIcon)  pauseIcon.style.display  = paused ? 'none'  : '';
         if (playIcon)   playIcon.style.display   = paused ? ''      : 'none';
 
         if (paused) {
           clearInterval(timer);
-          allVideos().forEach(function (v) { v.pause(); });
         } else {
-          const activeVid = clips[current] && clips[current].querySelector('video');
-          if (activeVid) activeVid.play().catch(function () {});
           startCycle();
         }
       });
     }
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) clearInterval(timer);
+      else startCycle();
+    });
   })();
 
   /* --- Accordion / FAQ ------------------------------------------ */
@@ -226,7 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Scroll Reveal -------------------------------------------- */
   const revealEls = document.querySelectorAll('.mph-reveal');
   if (revealEls.length) {
-    const observer = new IntersectionObserver((entries) => {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      revealEls.forEach(el => el.classList.add('mph-revealed'));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('mph-revealed');
@@ -234,13 +256,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.1 });
-    revealEls.forEach(el => observer.observe(el));
+      revealEls.forEach(el => observer.observe(el));
+    }
   }
 
   /* --- Animated Counters ---------------------------------------- */
   const counters = document.querySelectorAll('[data-count]');
   if (counters.length) {
-    const countObserver = new IntersectionObserver((entries) => {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      counters.forEach(el => {
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        if (!Number.isNaN(target)) el.textContent = target.toLocaleString() + (el.getAttribute('data-suffix') || '');
+      });
+    } else {
+      const countObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           animateCount(entry.target);
@@ -248,7 +277,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.5 });
-    counters.forEach(el => countObserver.observe(el));
+      counters.forEach(el => countObserver.observe(el));
+    }
   }
 
   function animateCount(el) {
@@ -282,25 +312,17 @@ document.addEventListener('DOMContentLoaded', () => {
           .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
           .join('&');
 
-      const formData = {
-        'form-name': 'contact',
-        firstName:    contactForm.querySelector('[name="firstName"]').value,
-        lastName:     contactForm.querySelector('[name="lastName"]').value,
-        email:        contactForm.querySelector('[name="email"]').value,
-        phone:        contactForm.querySelector('[name="phone"]').value,
-        organisation: contactForm.querySelector('[name="organisation"]').value,
-        subject:      contactForm.querySelector('[name="subject"]').value,
-        message:      contactForm.querySelector('[name="message"]').value,
-        // GDPR — include privacy consent state in the Netlify submission record
-        privacy:      contactForm.querySelector('[name="privacy"]').checked ? 'Agreed to Privacy Policy' : 'Not agreed',
-      };
+      const formData = Object.fromEntries(new FormData(contactForm).entries());
+      formData['form-name'] = contactForm.getAttribute('name') || 'contact';
+      formData.privacy = contactForm.querySelector('[name="privacy"]')?.checked ? 'Agreed to Privacy Policy' : 'Not agreed';
 
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode(formData),
       })
-        .then(() => {
+        .then((response) => {
+          if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
           // Success — show confirmation inline
           contactForm.innerHTML = `
             <div class="mph-notice mph-notice--teal" style="justify-content:center;text-align:center;padding:2.5rem;flex-direction:column;">

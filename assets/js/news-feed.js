@@ -1,8 +1,9 @@
 /* ============================================================
-   Migration Pulse Hub — Live News Feed v1.1
+   Migration Pulse Hub — Live News Feed v2.0
    ──────────────────────────────────────────────────────────
    Fetches refugee & migration news from authoritative RSS feeds
-   via the built-in Netlify Function proxy (/netlify/functions/fetch-news).
+   via the built-in Netlify Function proxy, with a read-only RSS-to-JSON
+   fallback for static hosts and local previews.
    - No date cutoff — shows all available articles from each feed
    - Caches results in localStorage for 30 minutes
    - All feed content rendered via DOM API (no innerHTML with
@@ -14,12 +15,44 @@ const NewsFeed = (function () {
   /* ── Configuration ───────────────────────────────────────── */
   const CFG = {
     cacheTTL:   30 * 60 * 1000,            // 30 minutes — fresh without hammering proxy
-    cacheKey:   'mph_news_feed_v2',         // bumped key so old 7-day cache is ignored
+    cacheKey:   'mph_news_feed_v3',         // source and topic model updated
     maxPerFeed: 20,                         // take up to 20 articles per RSS feed
     maxTotal:   80,                         // total articles shown in grid (no date cap)
     proxy:      '/.netlify/functions/fetch-news?url=',
+    rssFallback:'https://api.rss2json.com/v1/api.json?rss_url=',
     timeout:    12000,                      // 12-second per-feed timeout (ms)
   };
+
+  const MPH_TOPICS = [
+    'refugee', 'refugees', 'migrant', 'migrants', 'migration', 'asylum',
+    'displacement', 'displaced', 'internally displaced', 'idp', 'stateless',
+    'repatriation', 'resettlement', 'deportation', 'detention', 'trafficking',
+    'human mobility', 'mixed migration', 'diaspora', 'remittance',
+    'labour migration', 'migrant worker', 'climate migration',
+    'climate displacement', 'refugee health', 'migrant health',
+    'refugee integration', 'migration governance', 'durable solutions', 'unhcr', 'iom',
+  ];
+
+  const EAST_AFRICA_TERMS = [
+    'east africa', 'horn of africa', 'kenya', 'uganda', 'tanzania', 'rwanda',
+    'burundi', 'ethiopia', 'somalia', 'somaliland', 'south sudan', 'sudan',
+    'eritrea', 'djibouti', 'congo', 'drc', 'great lakes', 'red sea',
+  ];
+
+  const AFRICA_TERMS = [
+    'africa', 'african', 'morocco', 'libya', 'tunisia', 'algeria', 'egypt',
+    'sahel', 'nigeria', 'ghana', 'senegal', 'mali', 'niger', 'chad',
+    'cameroon', 'burkina faso', 'mozambique', 'malawi', 'zambia', 'zimbabwe',
+    'botswana', 'namibia', 'south africa', 'lesotho', 'eswatini', 'angola',
+    'ceuta', 'melilla',
+  ];
+
+  function regionRank(article) {
+    const text = `${article.title} ${article.description}`.toLowerCase();
+    if (EAST_AFRICA_TERMS.some((term) => text.includes(term))) return 2;
+    if (AFRICA_TERMS.some((term) => text.includes(term))) return 1;
+    return 0;
+  }
 
   /* ── RSS Feed Sources ────────────────────────────────────────
      Each entry may carry a `keywords` array — if present, only
@@ -27,18 +60,6 @@ const NewsFeed = (function () {
      keyword are included. Feeds without keywords are assumed
      topically focused (e.g. UNHCR). ───────────────────────── */
   const FEEDS = [
-    {
-      url:    'https://www.unhcr.org/rss/news.xml',
-      source: 'UNHCR',
-      badge:  'UNHCR',
-      color:  'teal',
-    },
-    {
-      url:    'https://news.un.org/feed/subscribe/en/news/topic/migration/feed/rss.xml',
-      source: 'UN News',
-      badge:  'UN News',
-      color:  'navy',
-    },
     {
       url:    'https://www.theguardian.com/world/refugees/rss',
       source: 'The Guardian',
@@ -50,35 +71,35 @@ const NewsFeed = (function () {
       source:   'BBC World',
       badge:    'BBC',
       color:    'navy',
-      keywords: [
-        'refugee', 'refugees', 'migrant', 'migrants', 'migration',
-        'asylum', 'displacement', 'displaced', 'IDP', 'stateless',
-        'repatriation', 'resettlement', 'deportation', 'trafficking',
-      ],
+      keywords: MPH_TOPICS,
     },
     {
       url:      'https://rss.dw.com/rdf/rss-en-all',
       source:   'DW News',
       badge:    'DW',
       color:    'gold',
-      keywords: [
-        'refugee', 'refugees', 'migrant', 'migrants', 'migration',
-        'asylum', 'displacement', 'displaced', 'IDP', 'stateless',
-        'repatriation', 'resettlement', 'UNHCR', 'IOM',
-      ],
+      keywords: MPH_TOPICS,
     },
     {
       url:      'https://www.aljazeera.com/xml/rss/all.xml',
       source:   'Al Jazeera',
       badge:    'Al Jazeera',
       color:    'coral',
-      keywords: [
-        'refugee', 'refugees', 'migrant', 'migrants', 'migration',
-        'asylum seeker', 'displacement', 'IDP', 'stateless',
-        'deportation', 'repatriation', 'UNHCR', 'IOM',
-        'East Africa', 'Horn of Africa', 'Kenya', 'Uganda',
-        'Somalia', 'Ethiopia', 'South Sudan',
-      ],
+      keywords: MPH_TOPICS,
+    },
+    {
+      url:      'https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf',
+      source:   'AllAfrica',
+      badge:    'AllAfrica',
+      color:    'teal',
+      keywords: MPH_TOPICS,
+    },
+    {
+      url:      'https://www.standardmedia.co.ke/rss/headlines.php',
+      source:   'The Standard Kenya',
+      badge:    'The Standard',
+      color:    'gold',
+      keywords: MPH_TOPICS,
     },
   ];
 
@@ -93,6 +114,7 @@ const NewsFeed = (function () {
   /* ── Module state ────────────────────────────────────────── */
   let allArticles  = [];   // full list (all sources)
   let activeFilter = 'all';
+  let successfulSources = 0;
 
   /* ────────────────────────────────────────────────────────────
      UTILITIES
@@ -264,6 +286,37 @@ const NewsFeed = (function () {
     return results;
   }
 
+  /** Normalise the JSON returned by the static-host RSS fallback. */
+  function parseJsonFeed(payload, feed) {
+    if (!payload || payload.status !== 'ok' || !Array.isArray(payload.items)) return [];
+
+    return payload.items.slice(0, CFG.maxPerFeed).map((item) => {
+      const title = sanitize(item.title || '');
+      const link = String(item.link || '').trim();
+      const description = sanitize(item.description || item.content || '');
+      const pubDate = new Date(item.pubDate || item.pubdate || '');
+      const rawImageUrl = [
+        item.thumbnail,
+        item.enclosure?.link,
+      ].find((url) => typeof url === 'string' && /^https?:\/\//i.test(url)) || null;
+      const imageUrl = rawImageUrl ? sanitize(rawImageUrl) : null;
+
+      if (!title || !/^https?:\/\//i.test(link) || isNaN(pubDate.getTime())) return null;
+      if (!matchesKeywords(title, description, feed.keywords || null)) return null;
+
+      return {
+        title,
+        link,
+        description: description.length > 230 ? `${description.slice(0, 227)}…` : description,
+        pubDate,
+        source: feed.source,
+        badge: feed.badge,
+        color: feed.color,
+        imageUrl,
+      };
+    }).filter(Boolean);
+  }
+
   /** Fetch a single feed through the CORS proxy */
   async function fetchFeed(feed) {
     const proxyUrl = CFG.proxy + encodeURIComponent(feed.url);
@@ -277,32 +330,51 @@ const NewsFeed = (function () {
       clearTimeout(timer);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = await res.json();
-      return parseFeed(json.contents || '', feed);
+      const articles = parseFeed(json.contents || '', feed);
+      if (!articles.length) throw new Error('No matching items');
+      return { articles, ok: true };
     } catch (err) {
       clearTimeout(timer);
-      console.warn(`[NewsFeed] ${feed.source} failed:`, err.message);
-      return [];
+      try {
+        const fallbackUrl = CFG.rssFallback + encodeURIComponent(feed.url);
+        const fallback = await fetch(fallbackUrl, { signal: AbortSignal.timeout(CFG.timeout) });
+        if (!fallback.ok) throw new Error(`HTTP ${fallback.status}`);
+        const articles = parseJsonFeed(await fallback.json(), feed);
+        if (!articles.length) throw new Error('No matching items');
+        return { articles, ok: true };
+      } catch (fallbackError) {
+        console.warn(`[NewsFeed] ${feed.source} unavailable:`, fallbackError.message);
+        return { articles: [], ok: false };
+      }
     }
   }
 
   /** Fetch all feeds in parallel, merge, deduplicate, sort */
   async function fetchAll() {
     const settled = await Promise.allSettled(FEEDS.map(fetchFeed));
-    const flat    = settled.flatMap(r =>
-      r.status === 'fulfilled' ? r.value : []
-    );
-
-    // Sort newest first
-    flat.sort((a, b) => b.pubDate - a.pubDate);
+    const completed = settled
+      .filter((result) => result.status === 'fulfilled')
+      .map((result) => result.value);
+    successfulSources = completed.filter((result) => result.ok).length;
+    const flat = completed.flatMap((result) => result.articles);
 
     // Deduplicate by leading 60 characters of title (catches syndication copies)
     const seen = new Set();
-    return flat.filter(a => {
+    const unique = flat.filter(a => {
       const key = a.title.slice(0, 60).toLowerCase().replace(/\s+/g, ' ');
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
-    }).slice(0, CFG.maxTotal);
+    });
+
+    // MPH is Africa-first: East African coverage leads, followed by wider
+    // African relevance, while global migration stories remain available.
+    unique.forEach((article) => {
+      const rank = regionRank(article);
+      article.scope = rank === 2 ? 'East Africa' : rank === 1 ? 'Africa' : 'Global';
+    });
+    unique.sort((a, b) => regionRank(b) - regionRank(a) || b.pubDate - a.pubDate);
+    return unique.slice(0, CFG.maxTotal);
   }
 
   /* ────────────────────────────────────────────────────────────
@@ -343,14 +415,31 @@ const NewsFeed = (function () {
     /* Article photo — rendered on top of the gradient when available.
        img.src is the only place we use the feed URL; no XSS possible here.
        onerror silently removes the element so the gradient shows through. */
-    if (article.imageUrl) {
+    const fallbackImages = {
+      displacement: 'assets/images/aerial-refugee-settlement-01.jpg',
+      movement: 'assets/images/women-walking-resilience.jpg',
+      policy: 'assets/images/team-collaboration-meeting.jpg',
+      livelihoods: 'assets/images/market-alley-livelihoods.jpg',
+      urban: 'assets/images/urban-migration-corridor.jpg',
+      maritime: 'assets/images/coastal-shoreline-wide.jpg',
+    };
+    const storyText = `${article.title} ${article.description}`.toLowerCase();
+    const fallbackKey = /sea|maritime|boat|mediterranean|coast/.test(storyText) ? 'maritime'
+      : /work|labour|livelihood|remittance|economic/.test(storyText) ? 'livelihoods'
+      : /law|policy|government|convention|detention|deport/.test(storyText) ? 'policy'
+      : /city|urban|integration|residency/.test(storyText) ? 'urban'
+      : /flee|journey|crossing|migration/.test(storyText) ? 'movement'
+      : 'displacement';
+    const resolvedImage = article.imageUrl || fallbackImages[fallbackKey];
+
+    if (resolvedImage) {
       // Declare overlay FIRST so the onerror closure below can reference it
       // without depending on var-hoisting timing (fragile in async contexts).
       const overlay = document.createElement('div');
       overlay.className = 'nf-photo-overlay';
 
       const photo = document.createElement('img');
-      photo.src              = article.imageUrl;
+      photo.src              = resolvedImage;
       photo.alt              = '';           // decorative — headline carries context
       photo.setAttribute('aria-hidden', 'true');
       photo.loading          = 'lazy';       // don't block page load
@@ -368,6 +457,11 @@ const NewsFeed = (function () {
       // If the image fails (403, CORS block, mixed-content), silently remove
       // both the photo and the overlay — colour gradient shows through cleanly.
       photo.onerror = () => {
+        const fallbackUrl = new URL(fallbackImages[fallbackKey], window.location.href).href;
+        if (photo.src !== fallbackUrl) {
+          photo.src = fallbackImages[fallbackKey];
+          return;
+        }
         photo.remove();
         overlay.remove();
       };
@@ -379,7 +473,7 @@ const NewsFeed = (function () {
 
     /* Source watermark text — visible when NO photo is available */
     const watermark = document.createElement('span');
-    watermark.className = `nf-card-watermark${article.imageUrl ? ' nf-card-watermark--hidden' : ''}`;
+    watermark.className = `nf-card-watermark${resolvedImage ? ' nf-card-watermark--hidden' : ''}`;
     watermark.textContent = article.source;
     thumb.appendChild(watermark);
 
@@ -450,6 +544,40 @@ const NewsFeed = (function () {
     return card;
   }
 
+  /** Small companion card for global and additional coverage. */
+  function buildCompactCard(article) {
+    const card = document.createElement('article');
+    card.className = 'nf-compact-card';
+
+    const image = document.createElement('img');
+    image.src = article.imageUrl || (/sea|boat|coast|border/i.test(`${article.title} ${article.description}`)
+      ? 'assets/images/coastal-shoreline-wide.jpg'
+      : 'assets/images/urban-migration-corridor.jpg');
+    image.alt = '';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    image.onerror = () => {
+      image.onerror = null;
+      image.src = 'assets/images/urban-migration-corridor.jpg';
+    };
+
+    const copy = document.createElement('div');
+    const meta = document.createElement('span');
+    meta.className = 'nf-compact-meta';
+    meta.textContent = `${article.scope || 'Global'} · ${shortDate(article.pubDate)}`;
+
+    const heading = document.createElement('h4');
+    const link = document.createElement('a');
+    link.href = article.link;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = article.title;
+    heading.appendChild(link);
+    copy.append(meta, heading);
+    card.append(image, copy);
+    return card;
+  }
+
   /** Render skeleton loading cards */
   function buildSkeletons(count = 6) {
     const grid = document.getElementById('nf-grid');
@@ -514,6 +642,7 @@ const NewsFeed = (function () {
   /** Render (or re-render after filter change) the article grid */
   function renderGrid(list) {
     const grid    = document.getElementById('nf-grid');
+    const moreList = document.getElementById('nf-more-list');
     const countEl = document.getElementById('nf-count');
     const emptyEl = document.getElementById('nf-empty');
     if (!grid) return;
@@ -523,6 +652,7 @@ const NewsFeed = (function () {
       : list.filter(a => a.source.toLowerCase() === activeFilter);
 
     grid.innerHTML = '';
+    if (moreList) moreList.innerHTML = '';
     if (countEl) countEl.textContent = visible.length;
 
     if (!visible.length) {
@@ -531,7 +661,8 @@ const NewsFeed = (function () {
     }
     if (emptyEl) emptyEl.style.display = 'none';
 
-    visible.forEach(a => grid.appendChild(buildCard(a)));
+    visible.slice(0, 6).forEach((article) => grid.appendChild(buildCard(article)));
+    visible.slice(6, 12).forEach((article) => moreList?.appendChild(buildCompactCard(article)));
 
     // Re-hook IntersectionObserver for scroll-reveal on new cards
     if (window.IntersectionObserver) {
@@ -553,13 +684,15 @@ const NewsFeed = (function () {
   }
 
   /** Update the "last updated" timestamp line */
-  function setTimestamp(ts) {
+  function setTimestamp(ts, sourceCount = successfulSources, cached = false) {
     const el = document.getElementById('nf-last-updated');
     if (!el) return;
     const d = new Date(ts);
-    el.textContent =
-      `Last updated: ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}` +
-      ` · ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}`;
+    const prefix = cached ? 'Cached live feed' : 'Live feed';
+    const sources = sourceCount ? ` · ${sourceCount} source${sourceCount === 1 ? '' : 's'}` : '';
+    el.textContent = `${prefix}${sources} · Updated ` +
+      `${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} · ` +
+      `${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}`;
   }
 
   /** Show the error / retry state */
@@ -605,9 +738,10 @@ const NewsFeed = (function () {
                 return isNaN(d.getTime()) ? null : { ...a, pubDate: d };
               })
               .filter(Boolean);
+            successfulSources = new Set(allArticles.map((article) => article.source)).size;
             buildFilters(allArticles);
             renderGrid(allArticles);
-            setTimestamp(cache.timestamp);
+            setTimestamp(cache.timestamp, successfulSources, true);
             return;
           }
         }
@@ -630,7 +764,7 @@ const NewsFeed = (function () {
       // instead of wiping the grid with an error screen.
       grid.innerHTML = staticFallback;
       const el = document.getElementById('nf-last-updated');
-      if (el) el.textContent = 'Showing cached digest — live feed unavailable';
+      if (el) el.textContent = 'Archived digest · live sources temporarily unavailable';
       const countEl = document.getElementById('nf-count');
       if (countEl) countEl.textContent =
         grid.querySelectorAll('article').length || '—';

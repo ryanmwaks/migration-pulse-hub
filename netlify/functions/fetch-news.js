@@ -55,9 +55,13 @@ exports.handler = async function (event) {
   }
 
   let targetUrl;
+  let parsedUrl;
   try {
     targetUrl = decodeURIComponent(rawUrl);
-    new URL(targetUrl); // throws if invalid
+    parsedUrl = new URL(targetUrl);
+    if (!['https:', 'http:'].includes(parsedUrl.protocol) || parsedUrl.username || parsedUrl.password) {
+      throw new Error('Unsupported URL');
+    }
   } catch {
     return {
       statusCode: 400,
@@ -67,7 +71,7 @@ exports.handler = async function (event) {
   }
 
   // ── Domain allowlist check ──────────────────────────────────────────────
-  const hostname = new URL(targetUrl).hostname.replace(/^www\./, '');
+  const hostname = parsedUrl.hostname.replace(/^www\./, '');
   const allowed  = ALLOWED_DOMAINS.some(d => hostname === d || hostname.endsWith('.' + d));
   if (!allowed) {
     return {
@@ -84,11 +88,20 @@ exports.handler = async function (event) {
   try {
     const upstream = await fetch(targetUrl, {
       signal:  controller.signal,
+      redirect: 'error',
       headers: { 'User-Agent': 'MigrationPulseHub/1.0 (+https://migrationpulsehub.org)' },
     });
     clearTimeout(timeout);
 
+    const declaredSize = Number(upstream.headers.get('content-length') || 0);
+    if (declaredSize > 2_000_000) {
+      return { statusCode: 413, headers: corsHeaders(), body: JSON.stringify({ error: 'Feed is too large' }) };
+    }
+
     const text = await upstream.text();
+    if (text.length > 2_000_000) {
+      return { statusCode: 413, headers: corsHeaders(), body: JSON.stringify({ error: 'Feed is too large' }) };
+    }
 
     return {
       statusCode: 200,
