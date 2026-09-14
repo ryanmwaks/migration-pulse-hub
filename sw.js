@@ -1,5 +1,5 @@
 /** Migration Pulse Hub — resilient offline and fast-return cache */
-const CACHE = 'mph-v27';
+const CACHE = 'mph-v28';
 const OFFLINE_PAGE = '/404.html';
 const PRECACHE = [
   '/', '/index.html', OFFLINE_PAGE,
