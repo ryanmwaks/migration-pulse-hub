@@ -1,0 +1,53 @@
+ZURI IT CONSULTS PROPRIETARY SOFTWARE LICENCE
+Version 1.0 — November 2026
+
+Copyright © 2026 ZURI IT CONSULTS (Ryan Mwakala Njumwa). All rights reserved.
+
+1. OWNERSHIP
+   The source code, compiled code, architecture, designs, documentation and
+   other materials in this repository (the "Software"), except the third-party
+   components identified in THIRD_PARTY_NOTICES.md or in the files themselves,
+   are the property of ZURI IT CONSULTS, a business registered in Kenya and
+   owned by Ryan Mwakala Njumwa (the "Owner").
+
+2. NO LICENCE GRANTED
+   Access to this repository, including public visibility on GitHub, does not
+   grant any licence or right in the Software, except the limited right to view
+   it through GitHub's interface as required by GitHub's Terms of Service.
+   Without the Owner's prior written permission, you may not:
+     (a) copy, reproduce or redistribute the Software in whole or in part;
+     (b) modify, adapt, translate or create derivative works of the Software;
+     (c) use the Software, or any part of it, for commercial purposes;
+     (d) sell, sublicense, rent, lease or otherwise transfer the Software;
+     (e) remove or alter any copyright, trademark or ownership notice;
+     (f) use the Software, in whole or in part, to train, fine-tune, evaluate
+         or benchmark any machine-learning or artificial-intelligence model, or
+         include it in any dataset used for those purposes.
+
+3. NO TRANSFER OF OWNERSHIP
+   No transfer of ownership or of any intellectual property right takes place
+   through access to, forking of, or download of this repository.
+
+4A. CLIENT MATERIALS
+   Content supplied by or created for Migration Pulse Hub, including its name, logos,
+   trademarks, text, photographs and other brand materials, belongs to
+   Migration Pulse Hub and is not claimed by ZURI IT CONSULTS. This licence covers the
+   software code, structure and technical implementation only.
+
+4. THIRD-PARTY COMPONENTS
+   Third-party libraries, fonts, icons and services referenced by the Software
+   stay subject to their own licences. Nothing in this licence restricts the
+   rights granted by those licences.
+
+5. NO WARRANTY
+   The Software is provided "as is", without warranty of any kind. To the
+   fullest extent permitted by law, the Owner is not liable for any claim,
+   damage or other liability arising from the Software or its use.
+
+6. GOVERNING LAW
+   This licence is governed by the laws of the Republic of Kenya, including
+   the Copyright Act, 2001 (Cap. 130).
+
+7. PERMISSIONS AND ENQUIRIES
+   ZURI IT CONSULTS — Delivering Secure Digital Systems
+   https://www.zuriitconsults.com · info@zuriitconsults.com
